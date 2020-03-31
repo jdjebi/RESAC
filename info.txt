@@ -1,0 +1,18 @@
+// Routeur
+// Controleur
+// Moteur de template
+
+// ORM & query builder *
+// Notificateur *
+// Validateur de formualire *
+// Gestionnaire d'authentification *
+
+// Framework js de base
+// Framework css de base
+
+
+// Inscription
+// Connexion
+// Deconnexion
+// Profil utilisateur
+// Modification de profil
