@@ -9,6 +9,10 @@ class Redirect{
     header("Location:$target");
     exit();
   }
+
+  static public function back(){
+    Redirect::url(HTTP::previous_url());
+  }
 }
 
 ?>

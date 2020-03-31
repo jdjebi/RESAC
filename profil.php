@@ -5,7 +5,9 @@ require "src/init.php";
 
 $user = Users::auth();
 
-if(exist($_GET['id'])){
+$show_portofolio = false;
+
+if(isset($_GET['id']) && !empty($_GET['id'])){
 
   $id = $_GET['id'];
 
@@ -13,11 +15,10 @@ if(exist($_GET['id'])){
 
   if(!$user_visited){
     Flash::add("Utilisateur introuvable","danger");
-    Redirect::route("explorer");
-  }else{
-    echo "porto";
+    Redirect::back("explorer");
   }
 
+  $show_portofolio = true;
 }
 
 require "views/profil.view.php";

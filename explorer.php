@@ -1,5 +1,4 @@
 <?php
-
   require "src/init.php";
 
   if(Auth::check()){
