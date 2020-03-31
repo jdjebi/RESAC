@@ -1,9 +1,11 @@
 <?php
 
-$host = "localhost";
-$username = "root";
-$password = "";
-$dbname = "youniti";
+$config = require __DIR__."/../config/db.php";
+
+$host = $config["host"];
+$username = $config["username"];
+$password = $config["password"];
+$dbname = $config["dbname"];
 
 try {
   $db = new PDO("mysql:host=$host;dbname=$dbname",$username,$password);

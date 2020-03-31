@@ -28,7 +28,10 @@
 
   class Auth{
     static function check(){
-      return isset($_SESSION["user"]) && !empty($_SESSION["user"]);
+      if(isset($_SESSION["user"]) && !empty($_SESSION["user"])){
+        return 1;
+      }
+      return 0;
     }
 
     static function user(){
