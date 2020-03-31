@@ -2,9 +2,7 @@
 
 require "src/init.php";
 
-if(Auth::check()){
-  Redirect::route("profil");
-}
+require "middleware/guest.php";
 
 require "views/index.view.php";
 

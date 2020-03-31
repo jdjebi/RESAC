@@ -1,6 +1,8 @@
 <?php
   require "src/init.php";
 
+  require "middleware/guest.php";
+
   $form = new LoginForm($_POST);
 
   if($form->is_validate()){

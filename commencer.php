@@ -2,6 +2,8 @@
 
 require "src/init.php";
 
+require "middleware/guest.php";
+
 $form = new RegisterForm($_POST);
 
 if($_POST){

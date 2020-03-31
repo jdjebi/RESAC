@@ -11,7 +11,8 @@
   - Mot de passe
 
 ---
-Explorer ordonner les résultats par date d'inscription
+- Ajout d'un forwading de redirection
+- Explorer ordonner les résultats par date d'inscription
 - Pas de middleware
 - Gestion des routes inexistantes non faite
 - Gestion des utilisateurs connecté mais supprimé non faite

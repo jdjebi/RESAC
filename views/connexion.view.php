@@ -3,6 +3,10 @@
 <?php require "views/partials/nav.php" ?>
 
 <div class="container mt-5">
+  <?php require "views/partials/flash.php" ?>
+</div>
+
+<div class="container mt-5">
 
   <?php if($form->errors): ?>
   <div class="alert alert-danger">
