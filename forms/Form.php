@@ -25,6 +25,7 @@ class Form{
     foreach ($this->required as $key) {
       if( !array_key_exists($key,($this->data)) or empty(trim($this->data[$key])) ){
         $this->errors['required'] = true;
+        $this->clear_data[$key] = "";
       }else{
         $this->clear_data[$key] = $this->data[$key];
       }
@@ -32,9 +33,7 @@ class Form{
   }
 
   public function is_validate(){
-
     if($this->data){
-
       // Validation des champs requis
       $this->check_required();
 
