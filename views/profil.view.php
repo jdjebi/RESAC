@@ -7,8 +7,8 @@
 
   <div class="container mt-5">
     <div class="d-flex justify-content-center">
-      <div class="card" style="max-width: 18rem;">
-        <div class="card-header d-flex justify-content-between">
+      <div class="card border border-info" style="max-width: 18rem;">
+        <div class="card-header d-flex justify-content-between text-white bg-info">
           <div class="">
             Mini portofolio
           </div>

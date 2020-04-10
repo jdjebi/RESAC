@@ -1,4 +1,4 @@
-Youco Framework v1.1
+Youco Framework v2
 
 - src/redirect.php
   - Ajout de la methode route_back()

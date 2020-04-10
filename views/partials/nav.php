@@ -4,7 +4,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
+    <ul class="navbar-nav mr-auto">
 
       <li class="nav-item">
         <a class="nav-link" href="<?= route("explorer") ?>">Explorer</a>
@@ -27,12 +27,13 @@
         <a class="nav-link" href="<?= route("profil") ?>">Profil</a>
       </li>
 
+      <?php endif ?>
+
+    </ul>
+    <ul  class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" href="<?= route("logout") ?>">Déconnexion</a>
       </li>
-
-      <?php endif ?>
-
     </ul>
   </div>
 </nav>
