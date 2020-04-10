@@ -2,11 +2,8 @@
 
 require __DIR__."/../../src/init.php";
 
-$data = [
-  'test' => "test"
-];
-
 $form = new RegisterForm($_POST);
+$success = false;
 
 if($_POST){
   // Validation
@@ -15,7 +12,16 @@ if($_POST){
     // Enregistrement
     $data = $form->get_data();
 
-    /*
+    if($data['password'] == $data['conf_password']){
+
+      $success = true;
+
+    }else{
+      $data['password'] = '';
+      $data['conf_password'] = '';
+      $form->add_error('password',"Les mots de passe sont différents.");
+    }
+
     $data = [
       "nom" => $data["nom"],
       "prenom" => $data["prenom"],
@@ -25,20 +31,18 @@ if($_POST){
 
     $user = Users::create($data);
 
-    // Notification
-    // Flash
-    echo "Inscription réussie. Vous pouvez vous connecter.";
-    */
-
-    // Redirection
-    echo "Success";
-    // Redirect::route('home');
   }else{
-    // Renvoye des erreurs
+    $data = $form->get_data();
     $errors = $form->get_errors();
-
-    var_dump($errors);
   }
 }
+
+$json_data = [
+  "success" => $success,
+  "clear_data" => $data,
+  "errors" =>  $form->get_errors()
+];
+
+echo json_encode($json_data);
 
 ?>

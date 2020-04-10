@@ -11,6 +11,9 @@
   - Mot de passe
 
 ---
+- Créer une création de compte en backend
+- Pas de gestion des erreurs
+- Empecher un nouvel du formualire d'inscription une l'inscription valide
 - Ajout d'un forwading de redirection
 - Explorer ordonner les résultats par date d'inscription
 - Pas de middleware
