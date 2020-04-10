@@ -2,7 +2,7 @@
 
 require "src/init.php";
 
-require "middleware/auth.php";
+require "middleware/auth_back.php";
 
 $user = Users::auth();
 

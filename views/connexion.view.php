@@ -42,6 +42,7 @@
     </div>
 
     <button class="btn btn-primary" type="submit" name="button">Envoyer</button>
+    Pas de compte ? <a href=" <?= route("register") ?> ">Créer un compte</a>.
   </form>
 
 </div>

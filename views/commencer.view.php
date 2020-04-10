@@ -44,7 +44,10 @@
       <input class="form-control" type="password" name="conf_password" value="" id="conf_password">
     </div>
 
-    <button class="btn btn-primary" type="submit" name="button">Envoyer</button>
+    <div class="">
+      <button class="btn btn-primary" type="submit" name="button">Envoyer</button>
+      Déjà un compte ? <a href="<?= route("login") ?>">Connectez vous</a>.
+    </div>
   </form>
 
 </div>
