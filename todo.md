@@ -1,6 +1,6 @@
 # A FAIRE
 
-- Gestion de l'affichage des Informations utilisateurs
+- Gestion de la confidentialité des informations utilisateurs
 - Explorer pour rechercher des portofolios
 
 # v3

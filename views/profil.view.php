@@ -1,8 +1,6 @@
 <?php  require "views/partials/header.php"; ?>
 <?php  require "views/partials/nav.php"; ?>
 
-
-
 <?php if ($show_portofolio): ?>
 
   <div class="container mt-5">
@@ -37,8 +35,9 @@
 <?php else: ?>
 
   <div class="container mt-5">
-    <div class="d-flex justify-content-center">
-      <div class="card" style="max-width: 18rem;">
+    <div class="d-flex justify-content-around flex-wrap">
+
+      <div class="card m-2" style="max-width: 18rem;">
         <div class="card-header d-flex justify-content-between">
           <div class="">
             Mini portofolio
@@ -65,6 +64,47 @@
           </div>
         </div>
       </div>
+
+      <div class="card m-2" style="width: 35rem;">
+        <div class="card-header d-flex justify-content-between">
+          <div class="">
+          Confidentialié des données
+          </div>
+          <div class=""><a href="#" title="  Controler la confidentialité de vos données en activant ou en desactivant leur visibilité">?</a></div>
+        </div>
+        <div class="card-body">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <label for="">Nom</label>
+              <div class="custom-control custom-switch">
+                <input type="checkbox" checked class="custom-control-input" id="customSwitch1">
+                <label class="custom-control-label" for="customSwitch1"></label>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Prénom
+              <div class="custom-control custom-switch">
+                <input type="checkbox" checked class="custom-control-input" id="customSwitch2">
+                <label class="custom-control-label" for="customSwitch2"></label>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              E-mail
+              <div class="custom-control custom-switch">
+                <input type="checkbox" checked class="custom-control-input" id="customSwitch3">
+                <label class="custom-control-label" for="customSwitch3"></label>
+              </div>
+            </li>
+          </ul>
+          <div class="mt-3 text-right">
+            <button class="btn btn-sm btn-primary" type="button" name="button">
+              Enregistrer
+            </button>
+            <span class="spinner-border text-primary spinner-border-sm" role="status" aria-hidden="true"></span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
