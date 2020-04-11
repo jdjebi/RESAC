@@ -11,8 +11,6 @@ if(!isset($_SERVER["HEROKU_APP_DIR"])){
 
 }else{
 
-  echo 'test';
-
   return [
     "host" => "jfrpocyduwfg38kq.chr7pe7iynqr.eu-west-1.rds.amazonaws.com",
     "username" => "nc0p25hz6kjx2boe",
