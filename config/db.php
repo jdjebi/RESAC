@@ -1,6 +1,6 @@
 <?php
 
-if(isset($_SERVER["HEROKU_APP_DIR"])){
+if(!isset($_SERVER["HEROKU_APP_DIR"])){
 
   return [
     "host" => "localhost",
