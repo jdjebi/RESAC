@@ -12,6 +12,8 @@ class Info extends \Form{
     $this->clear_data['nom'] = $this->data['nom'];
     $this->clear_data['prenom'] = $this->data['prenom'];
     $this->clear_data['email'] = $this->data['email'];
+    $this->clear_data['numero'] = $this->data['numero'];
+    $this->clear_data['pays'] = $this->data['pays'];
   }
 }
 

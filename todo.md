@@ -30,6 +30,8 @@
   - Mot de passe
 
 ---
+- Utiliser une liste dérouante pour les pays
+- Utiliser l'indice pour le numéro de téléphone
 - Gestion de l'intégrité des données
 - Créer une création de compte en backend
 - Pas de gestion des erreurs ????

@@ -13,6 +13,14 @@ class Form{
     $this->set_default($default_data);
   }
 
+  public function get($key){
+    if(array_key_exists($key,$this->clear_data)){
+        return $this->clear_data[$key];
+    }else{
+      return "";
+    }
+  }
+
   public function set_default($data){
     foreach ($data as $key => $value) {
       $this->clear_data[$key] = $value;
@@ -33,6 +41,8 @@ class Form{
   }
 
   public function is_validate(){
+
+
     if($this->data){
       // Validation des champs requis
       $this->check_required();
@@ -54,14 +64,6 @@ class Form{
 
   public function is_errors(){
     return count($this->errors) > 0;
-  }
-
-  public function get($key){
-    if(array_key_exists($key,$this->clear_data)){
-        return $this->clear_data[$key];
-    }else{
-      return "";
-    }
   }
 
   public function get_errors(){

@@ -13,15 +13,23 @@ $FormInfo->set_default([
   "nom" => $user->nom,
   "prenom" => $user->prenom,
   "email" => $user->email,
+  "numero" => $user->numero,
+  "pays" => $user->pays,
 ]);
 
 if(isset($_POST["change_info"]) && $FormInfo->is_validate()){
+
   $data = $FormInfo->get_data();
   $user->nom = $data["nom"];
   $user->prenom = $data["prenom"];
   $user->email = $data["email"];
+  $user->numero = $data["numero"];
+  $user->pays = $data["pays"];
+
   $user->save();
   Flash::add("Modifications enregisrées.","success");
+
+
 }elseif(isset($_POST["change_pass"]) && $FormPass->is_validate()) {
   $data = $FormPass->get_data();
   $password = crypt_password($data["pass"]);

@@ -26,11 +26,18 @@ class Users{
     global $DB;
     $this->db = $DB;
     $this->id = $data["id"];
+
     $this->nom = $data["nom"];
     $this->prenom = $data["prenom"];
     $this->email = $data["email"];
+    $this->numero = $data["numero"];
+
+    $this->pays = $data["pays"];
+
     $this->date_inscription = $data["date_inscription"];
+
     $this->active = $data["active"];
+
     $this->password = $data["password"];
   }
 
@@ -73,13 +80,15 @@ class Users{
   }
 
   public function save(){
-    $sql = "UPDATE users SET nom = :nom, prenom = :prenom, email = :email WHERE id = :id";
+    $sql = "UPDATE users SET nom = :nom, prenom = :prenom, email = :email, pays = :pays, numero = :numero WHERE id = :id";
     $q = $this->db->prepare($sql);
     $q->execute([
       "id" => $this->id,
       "nom" => $this->nom,
       "prenom" => $this->prenom,
       "email" => $this->email,
+      "pays" => $this->pays,
+      "numero" => $this->numero,
     ]);
 
   }

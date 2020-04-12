@@ -32,8 +32,16 @@
       </div>
 
       <div class="form-group">
-        <label for="numero">Numéro (facultatif)</label>
-        <input type="text" class="form-control" value="<?= $FormInfo->get("numero") ?>" name="nuemro" value="" id="numero">
+        <label for="numero">Numéro de téléphone(facultatif)</label>
+        <input type="text" class="form-control" value="<?= $FormInfo->get("numero") ?>" name="numero" value="" id="numero">
+      </div>
+
+      <h5 class="mt-5">Lieu d'habitation actuel</h5>
+      <hr>
+
+      <div class="form-group">
+        <label for="pays">Pays (facultatif)</label>
+        <input type="text" class="form-control" value="<?= $FormInfo->get("pays") ?>" name="pays" value="" id="pays">
       </div>
 
       <button type="submit" class="btn btn-primary" name="change_info">Envoyer</button>
