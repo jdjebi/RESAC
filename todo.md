@@ -30,6 +30,7 @@
   - Mot de passe
 
 ---
+- Gestion de l'intégrité des données
 - Créer une création de compte en backend
 - Pas de gestion des erreurs ????
 - Empecher un nouvel envoie du formualire d'inscription une l'inscription valide

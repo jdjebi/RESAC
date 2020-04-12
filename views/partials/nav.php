@@ -34,6 +34,11 @@
     <?php if(Auth::check()): ?>
 
     <ul  class="navbar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link" href="<?= route("edit") ?>">Paramètres</a>
+      </li>
+
       <li class="nav-item">
         <a class="nav-link" href="<?= route("logout") ?>">Déconnexion</a>
       </li>
