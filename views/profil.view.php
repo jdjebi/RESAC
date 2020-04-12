@@ -89,7 +89,7 @@
           <div class="">
           Confidentialié des données
           </div>
-          <div class=""><a href="#" title="Contrôler la confidentialité de vos données en activant ou en désactivant leur visibilité.">?</a></div>
+          <div class=""><a href="#" title="Contrôler la confidentialité de vos données en activant ou en désactivant leur visibilité. Les données désactivées n'apparaitront pas dans votre portofolio.">?</a></div>
         </div>
 
 
@@ -142,7 +142,6 @@
             <button class="btn btn-sm btn-primary" type="button" name="button">
               Enregistrer
             </button>
-            <span class="spinner-border text-primary spinner-border-sm" role="status" aria-hidden="true"></span>
           </div>
         </div>
 

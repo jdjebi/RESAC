@@ -1,24 +1,10 @@
 # A FAIRE
 
 - Gestion de la confidentialité des informations utilisateurs
-  - Numéros
-  - Lieu d'habitation
-    - Pays
-    - Ville
-    - Commune
-    - Quartier
-  - Liens
-    - Mwaou
-    - Linkedin
-    - Facebook
-    - Instagram
-    - Twitter
-    - Snapchat
-
-
-- Explorer pour rechercher des portofolios
+- Revision du portofolio
 
 # v3
+- Explorer pour rechercher des portofolios
 - Routage
 - Sécurité
 
@@ -43,3 +29,18 @@
 - Gestion de l'activation de compte
 - Définir une couleur par de défaut pour chaque utilisateur
 - Suggestion de profil
+
+- Gestion de la confidentialité des informations utilisateurs
+  - Numéros
+  - Lieu d'habitation
+    - Pays
+    - Ville
+    - Commune
+    - Quartier
+  - Liens
+    - Mwaou
+    - Linkedin
+    - Facebook
+    - Instagram
+    - Twitter
+    - Snapchat
