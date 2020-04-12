@@ -1,6 +1,21 @@
 # A FAIRE
 
 - Gestion de la confidentialité des informations utilisateurs
+  - Numéros
+  - Lieu d'habitation
+    - Pays
+    - Ville
+    - Commune
+    - Quartier
+  - Liens
+    - Mwaou
+    - Linkedin
+    - Facebook
+    - Instagram
+    - Twitter
+    - Snapchat
+
+
 - Explorer pour rechercher des portofolios
 
 # v3

@@ -8,8 +8,9 @@
   <div class="jumbotron mt-5">
     <h1 class="display-4">Youco</h1>
     <hr>
-    <p class="lead">La plateforme des micros portofolios.</p>
+    <p class="lead">Les micros portofolios à votre service.</p>
     <a class="btn btn-primary btn-lg" href="<?= $register ?>" role="button">Commencer</a>
+    <p>Youco vous permet de conserver votre identité afin que d'autres personne puissent aisement vous retrouver.</p>
   </div>
 </div>
 

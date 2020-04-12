@@ -30,10 +30,15 @@
       <?php endif ?>
 
     </ul>
+
+    <?php if(Auth::check()): ?>
+
     <ul  class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" href="<?= route("logout") ?>">Déconnexion</a>
       </li>
     </ul>
+
+    <?php endif ?>
   </div>
 </nav>

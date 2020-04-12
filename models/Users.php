@@ -11,6 +11,17 @@ class Users{
   public $active;
   public $password;
 
+  /* v2 */
+
+  // Numéros
+  public $numero;
+
+  // Lieu d'habitation
+  public $pays;
+
+  // Liens
+  public $mwaou;
+
   public function __construct($data){
     global $DB;
     $this->db = $DB;

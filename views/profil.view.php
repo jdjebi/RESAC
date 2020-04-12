@@ -70,31 +70,54 @@
           <div class="">
           Confidentialié des données
           </div>
-          <div class=""><a href="#" title="  Controler la confidentialité de vos données en activant ou en desactivant leur visibilité">?</a></div>
+          <div class=""><a href="#" title="Contrôler la confidentialité de vos données en activant ou en desactivant leur visibilité">?</a></div>
         </div>
+
+
         <div class="card-body">
+
+
           <ul class="list-group list-group-flush">
+
+
+
             <li class="list-group-item d-flex justify-content-between align-items-center">
-              <label for="">Nom</label>
+              <label for="numero">Numéro</label>
               <div class="custom-control custom-switch">
-                <input type="checkbox" checked class="custom-control-input" id="customSwitch1">
-                <label class="custom-control-label" for="customSwitch1"></label>
+                <input type="checkbox" checked class="custom-control-input" id="numero">
+                <label class="custom-control-label" for="numero"></label>
               </div>
             </li>
+
+
             <li class="list-group-item d-flex justify-content-between align-items-center">
-              Prénom
+              Pays actuel
               <div class="custom-control custom-switch">
-                <input type="checkbox" checked class="custom-control-input" id="customSwitch2">
-                <label class="custom-control-label" for="customSwitch2"></label>
+                <input type="checkbox" checked class="custom-control-input" id="pays">
+                <label class="custom-control-label" for="pays"></label>
               </div>
             </li>
+
+
             <li class="list-group-item d-flex justify-content-between align-items-center">
-              E-mail
+              Mwaou
               <div class="custom-control custom-switch">
-                <input type="checkbox" checked class="custom-control-input" id="customSwitch3">
-                <label class="custom-control-label" for="customSwitch3"></label>
+                <input type="checkbox" checked class="custom-control-input" id="mwaou">
+                <label class="custom-control-label" for="mwaou"></label>
               </div>
             </li>
+
+
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Linkedin
+              <div class="custom-control custom-switch">
+                <input type="checkbox" checked class="custom-control-input" id="linkedin">
+                <label class="custom-control-label" for="linkedin"></label>
+              </div>
+            </li>
+
+
+
           </ul>
           <div class="mt-3 text-right">
             <button class="btn btn-sm btn-primary" type="button" name="button">
@@ -103,6 +126,8 @@
             <span class="spinner-border text-primary spinner-border-sm" role="status" aria-hidden="true"></span>
           </div>
         </div>
+
+
       </div>
 
     </div>
