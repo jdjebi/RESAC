@@ -38,5 +38,17 @@ if(isset($_POST["change_info"]) && $FormInfo->is_validate()){
   }
 }
 
+
+if(isset($_GET['infos']))
+  $edit_form = "infos";
+else if(isset($_GET['password']))
+  $edit_form = "password";
+else if(isset($_GET['privacy']))
+  $edit_form = "privacy";
+else
+  $edit_form = "infos";
+
+
 require "views/edit.view.php";
+
 ?>

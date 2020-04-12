@@ -8,6 +8,9 @@ return [
   "home" => "index.php",
   "profil" => "profil.php",
   "edit" => "modification.php",
+
+  "param" => "modification.php",
+
   "explorer"=> "explorer.php"
 ];
 
