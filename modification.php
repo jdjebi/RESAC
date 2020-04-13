@@ -14,10 +14,16 @@ $FormInfo->set_default([
   "prenom" => $user->prenom,
   "email" => $user->email,
   "numero" => $user->numero,
+  "promo1" => $user->promo1,
+  "promo2" => $user->promo2,
   "pays" => $user->pays,
+  "ville" => $user->ville,
+  "commune" => $user->commune,
 ]);
 
 if(isset($_POST["change_info"]) && $FormInfo->is_validate()){
+
+  var_dump($_POST);
 
   $data = $FormInfo->get_data();
   $user->nom = $data["nom"];
@@ -28,6 +34,8 @@ if(isset($_POST["change_info"]) && $FormInfo->is_validate()){
 
   $user->save();
   Flash::add("Modifications enregisrées.","success");
+
+  var_dump($data);
 
 }elseif(isset($_POST["change_pass"]) && $FormPass->is_validate()) {
 

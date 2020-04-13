@@ -29,6 +29,7 @@
 - Gestion de l'activation de compte
 - Définir une couleur par de défaut pour chaque utilisateur
 - Suggestion de profil
+- Revoir le type de données pour la promotion
 
 - Gestion de la confidentialité des informations utilisateurs
   - Numéros

@@ -13,7 +13,8 @@ class Users{
   public $password;
 
   /* v2 - resac-v2 */
-  public $promo;
+  public $promo1;
+  public $promo2;
 
   // Numéros
   public $numero;

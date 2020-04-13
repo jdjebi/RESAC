@@ -69,12 +69,12 @@
 
         <div class="col-md-6 mb-3">
           <label for="promo1">Année de début</label>
-          <input type="number" min="1970" max="2021" name="promo1" class="form-control yearpicker" id="promo1" value="">
+          <input type="number" min="1970" max="2021" name="promo1" class="form-control" id="promo1" value="<?= $FormInfo->get("promo1") ?>">
         </div>
 
         <div class="col-md-6 mb-3">
           <label for="promo2">Année de fin</label>
-          <input type="number"  min="1970" max="2021" class="form-control yearpicker" id="promo2" value="">
+          <input type="number"  min="1970" max="2021" name="promo2" class="form-control" id="promo2" value="<?= $FormInfo->get("promo2") ?>">
         </div>
 
       </div>
