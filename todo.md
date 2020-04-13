@@ -30,7 +30,7 @@
 - Définir une couleur par de défaut pour chaque utilisateur
 - Suggestion de profil
 - Revoir le type de données pour la promotion
-
+- Intégrer le ?redirect à la page de connexion
 - Gestion de la confidentialité des informations utilisateurs
   - Numéros
   - Lieu d'habitation

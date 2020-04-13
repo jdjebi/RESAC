@@ -52,4 +52,5 @@
 
 </div>
 
-<?php require "views/partials/footer.php" ?>
+<?php  require "views/partials/scripts.php"; ?>
+<?php  require "views/partials/footer.php"; ?>

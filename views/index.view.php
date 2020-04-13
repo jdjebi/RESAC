@@ -21,4 +21,6 @@
 <div class="container">
   <?php  require "views/news/timeline.php"; ?>
 </div>
+
+<?php  require "views/partials/scripts.php"; ?>
 <?php  require "views/partials/footer.php"; ?>
