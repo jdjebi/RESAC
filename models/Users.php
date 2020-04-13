@@ -55,7 +55,8 @@ class Users{
     $this->commune = $data["commune"];
 
     // Parcours
-    $this->promo = $data["promo"];
+    $this->promo1 = $data["promo1"];
+    $this->promo2 = $data["promo2"];
 
   }
 
@@ -98,15 +99,33 @@ class Users{
   }
 
   public function save(){
-    $sql = "UPDATE users SET nom = :nom, prenom = :prenom, email = :email, pays = :pays, numero = :numero WHERE id = :id";
+    $sql = "
+      UPDATE users SET
+      nom = :nom,
+      prenom = :prenom,
+      email = :email,
+      numero = :numero,
+      pays = :pays,
+      ville = :ville,
+      commune = :commune,
+      promo1 = :promo1,
+      promo2 = :promo2
+      WHERE id = :id
+    ";
+
     $q = $this->db->prepare($sql);
+
     $q->execute([
       "id" => $this->id,
       "nom" => $this->nom,
       "prenom" => $this->prenom,
       "email" => $this->email,
-      "pays" => $this->pays,
       "numero" => $this->numero,
+      "pays" => $this->pays,
+      "ville" => $this->ville,
+      "commune" => $this->commune,
+      "promo1" => $this->promo1,
+      "promo2" => $this->promo2,
     ]);
 
   }

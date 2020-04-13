@@ -51,12 +51,12 @@
 
         <div class="col-md-4 mb-3">
           <label for="ville">Ville</label>
-          <input type="text" class="form-control" id="ville" value="<?= $FormInfo->get('ville') ?>">
+          <input type="text" name="ville" class="form-control" id="ville" value="<?= $FormInfo->get('ville') ?>">
         </div>
 
         <div class="col-md-4 mb-3">
           <label for="commune">Commune &middot Quartier</label>
-          <input type="text" class="form-control" id="commune" value="<?= $FormInfo->get('commune') ?>">
+          <input type="text" name="commune" class="form-control" id="commune" value="<?= $FormInfo->get('commune') ?>">
         </div>
 
       </div>
@@ -77,7 +77,9 @@
         </div>
 
       </div>
-
+      <div class="">
+        <p><small><b>Les champs marqués du caractère * sont obligatoires.</b></small></p>
+      </div>
       <div class="mt-4">
         <button type="submit" class="btn btn-primary" name="change_info">Envoyer</button>
       </div>
