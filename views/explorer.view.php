@@ -18,7 +18,9 @@
 </div>
 
 <div id="loader" class="mt-5 text-center">
-  <h3 style="color:#ededed">Chargement...</h3>
+  <div class="spinner-border text-primary" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
 </div>
 
 <div id="portofolio" class="container">
@@ -39,7 +41,7 @@
                   <span>{{ user.nom }} {{ user.prenom }}</span>
                 </div>
                 <div class="">
-                  {{ user.ville }} {{ user.pays }} 
+                  {{ user.ville }} {{ user.pays }}
                 </div>
               </div>
               </div>
