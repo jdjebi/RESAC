@@ -1,4 +1,7 @@
-Youco Framework v2
+Youco Framework v2 - 1
 
 - src/redirect.php
   - Ajout de la methode route_back()
+
+- config/countries.php
+  - Ajout d'un tableau de tous les pays du monde

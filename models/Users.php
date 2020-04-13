@@ -3,6 +3,7 @@
 class Users{
 
   private $db;
+
   public $id;
   public $nom;
   public $prenom;
@@ -11,34 +12,50 @@ class Users{
   public $active;
   public $password;
 
-  /* v2 */
+  /* v2 - resac-v2 */
+  public $promo;
 
   // Numéros
   public $numero;
 
   // Lieu d'habitation
   public $pays;
+  public $ville;
+  public $commune;
+
+  // Université et Emploi
+  public $emploi;
+  public $universite;
 
   // Liens
-  public $mwaou;
+  public $linkedin;
+  public $facebook;
+  public $instagram;
+  public $twitter;
 
   public function __construct($data){
     global $DB;
     $this->db = $DB;
-    $this->id = $data["id"];
 
+    $this->id = $data["id"];
+    $this->password = $data["password"];
+    $this->active = $data["active"];
+    $this->date_inscription = $data["date_inscription"];
+
+    // Général
     $this->nom = $data["nom"];
     $this->prenom = $data["prenom"];
     $this->email = $data["email"];
     $this->numero = $data["numero"];
 
+    // Lieu d'habitation
     $this->pays = $data["pays"];
+    $this->ville = $data["ville"];
+    $this->commune = $data["commune"];
 
-    $this->date_inscription = $data["date_inscription"];
+    // Parcours
+    $this->promo = $data["promo"];
 
-    $this->active = $data["active"];
-
-    $this->password = $data["password"];
   }
 
   static function auth(){

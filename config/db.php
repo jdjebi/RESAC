@@ -2,6 +2,8 @@
 
 if(!isset($_SERVER["HEROKU_APP_DIR"])){
 
+  $DEBUG = false;
+
   return [
     "host" => "localhost",
     "username" => "root",
@@ -10,6 +12,8 @@ if(!isset($_SERVER["HEROKU_APP_DIR"])){
   ];
 
 }else{
+
+  $DEBUG = true;
 
   return [
     "host" => "jfrpocyduwfg38kq.chr7pe7iynqr.eu-west-1.rds.amazonaws.com",

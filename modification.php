@@ -29,10 +29,11 @@ if(isset($_POST["change_info"]) && $FormInfo->is_validate()){
   $user->save();
   Flash::add("Modifications enregisrées.","success");
 
-
 }elseif(isset($_POST["change_pass"]) && $FormPass->is_validate()) {
+
   $data = $FormPass->get_data();
   $password = crypt_password($data["pass"]);
+
   if($user->password == $password){
     if($data['nw_pass'] == $data['conf_pass']){
       $user->password = $data['nw_pass'];
@@ -41,11 +42,11 @@ if(isset($_POST["change_info"]) && $FormInfo->is_validate()){
     }else{
       $FormPass->add_error('global',"Les mots de passe sont différents.");
     }
+
   }else{
     $FormPass->add_error('global',"Mot de passe du compte incorrecte.");
   }
 }
-
 
 if(isset($_GET['infos']))
   $edit_form = "infos";
@@ -56,7 +57,9 @@ else if(isset($_GET['privacy']))
 else
   $edit_form = "infos";
 
+$countries_data = require "config/countries.php";
+$json_countries = json_encode($countries_data);
 
-require "views/edit.view.php";
+require "views/params/edit.view.php";
 
 ?>

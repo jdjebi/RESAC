@@ -1,17 +1,21 @@
 <?php  require "views/partials/header.php"; ?>
 <?php  require "views/partials/nav.php"; ?>
 
-<div class="container">
+<div class="container mt-5">
 
-  <?php "views/partials/flash.php" ?>
+  <?php require "views/partials/flash.php" ?>
 
-  <div class="jumbotron mt-5">
-    <h1 class="display-4">Youco</h1>
-    <hr>
-    <p class="lead">Les micros portofolios à votre service.</p>
-    <a class="btn btn-primary btn-lg" href="<?= $register ?>" role="button">Commencer</a>
-    <p>Youco vous permet de conserver votre identité afin que d'autres personne puissent aisement vous retrouver.</p>
+  <div class="text-center">
+    <h1>Bienvenue sur RESAC</h1>
+    <div class="text-center">
+      <p>La plateforme du Réseau des Anciens Caïmans</p>
+
+      <div class="pt-3">
+        <a class="btn btn-primary btn-md" href="<?= $register ?>" role="button">S'inscrire</a>
+        <a class="btn btn-primary btn-md" href="<?= $register ?>" role="button">Annuaire des caïmans</a>
+      </div>
+
+    </div>
   </div>
 </div>
-
 <?php  require "views/partials/footer.php"; ?>

@@ -50,7 +50,7 @@
     </div>
 </div>
 
-<?php require "views/partials/footer.php" ?>
+<?php require "views/partials/scripts.php" ?>
 <script src="asset/js/vue.js" type="text/javascript"></script>
 <script type="text/javascript">
 
@@ -71,3 +71,4 @@ var vm = new Vue({
 });
 
 </script>
+<?php require "views/partials/footer.php" ?>

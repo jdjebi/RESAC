@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card m-2">
   <div class="card-header">
     Informations personnelles
   </div>
@@ -32,19 +32,56 @@
       </div>
 
       <div class="form-group">
-        <label for="numero">Numéro de téléphone(facultatif)</label>
+        <label for="numero">Numéro de téléphone</label>
         <input type="text" class="form-control" value="<?= $FormInfo->get("numero") ?>" name="numero" value="" id="numero">
       </div>
 
       <h5 class="mt-5">Lieu d'habitation actuel</h5>
       <hr>
 
-      <div class="form-group">
-        <label for="pays">Pays (facultatif)</label>
-        <input type="text" class="form-control" value="<?= $FormInfo->get("pays") ?>" name="pays" value="" id="pays">
+      <div class="form-row">
+
+        <div class="col-md-4 mb-3">
+          <label for="pays">Pays</label>
+          <select class="form-control" name="pays" value="" id="pays">
+            <option></option>
+            <option value="<?= $FormInfo->get('pays') ?>" selected><?= $countries_data[$FormInfo->get("pays")] ?></option>
+            <option v-for="(country, code) in countries" v-bind:value="code">{{ country }}</option>
+          </select>
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label for="ville">Ville</label>
+          <input type="text" class="form-control" id="ville" value="">
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label for="commune">Commune &middot Quartier</label>
+          <input type="text" class="form-control" id="ville" value="">
+        </div>
+
       </div>
 
-      <button type="submit" class="btn btn-primary" name="change_info">Envoyer</button>
+      <h5 class="mt-5">Mon parcours &middot Promotion</h5>
+      <hr>
+
+      <div class="form-row">
+
+        <div class="col-md-6 mb-3">
+          <label for="promo1">Année de début</label>
+          <input type="number" min="1970" max="2021" name="promo1" class="form-control yearpicker" id="promo1" value="">
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="promo2">Année de fin</label>
+          <input type="number"  min="1970" max="2021" class="form-control yearpicker" id="promo2" value="">
+        </div>
+
+      </div>
+
+      <div class="mt-4">
+        <button type="submit" class="btn btn-primary" name="change_info">Envoyer</button>
+      </div>
     </form>
   </div>
 </div>

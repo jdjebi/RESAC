@@ -2,8 +2,9 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8">
-    <title>Youco</title>
+    <title>RESAC</title>
     <link rel="stylesheet" href="asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="asset/js/year/yearpicker.css">
     <style media="screen">
       .u-photo{
         width: 120px;
