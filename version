@@ -5,3 +5,6 @@ Youco Framework v2 - 1
 
 - config/countries.php
   - Ajout d'un tableau de tous les pays du monde
+
+- src/services/countries/
+  - Création des services au travers de l'intégration d'un service pour gérer les pays

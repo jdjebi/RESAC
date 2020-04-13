@@ -24,7 +24,7 @@ $FormInfo->set_default([
 if(isset($_POST["change_info"]) && $FormInfo->is_validate()){
 
   var_dump($_POST);
-
+  
   $data = $FormInfo->get_data();
   $user->nom = $data["nom"];
   $user->prenom = $data["prenom"];
@@ -66,7 +66,7 @@ else
   $edit_form = "infos";
 
 $countries_data = require "config/countries.php";
-$json_countries = json_encode($countries_data);
+$json_countries = Country::json();
 
 require "views/params/edit.view.php";
 

@@ -17,23 +17,23 @@
     <form method="post">
 
       <div class="form-group">
-        <label for="nom">Nom</label>
+        <label for="nom">Nom*</label>
         <input type="text" class="form-control" value="<?= $FormInfo->get("nom") ?>" name="nom" value="" id="nom">
       </div>
 
       <div class="form-group">
-        <label for="prenom">Prénom</label>
-        <input type="text" class="form-control" value="<?= $FormInfo->get("prenom") ?>" name="prenom" value="" id="prenom">
+        <label for="prenom">Prénom*</label>
+        <input type="text" class="form-control" value="<?= $FormInfo->get("prenom") ?>" name="prenom" id="prenom">
       </div>
 
       <div class="form-group">
-        <label for="email">E-mail</label>
-        <input type="text" class="form-control" value="<?= $FormInfo->get("email") ?>" name="email" value="" id="email">
+        <label for="email">E-mail*</label>
+        <input type="text" class="form-control" value="<?= $FormInfo->get("email") ?>" name="email" id="email">
       </div>
 
       <div class="form-group">
         <label for="numero">Numéro de téléphone</label>
-        <input type="text" class="form-control" value="<?= $FormInfo->get("numero") ?>" name="numero" value="" id="numero">
+        <input type="text" class="form-control" value="<?= $FormInfo->get("numero") ?>" name="numero" id="numero">
       </div>
 
       <h5 class="mt-5">Lieu d'habitation actuel</h5>
@@ -44,20 +44,19 @@
         <div class="col-md-4 mb-3">
           <label for="pays">Pays</label>
           <select class="form-control" name="pays" value="" id="pays">
-            <option></option>
-            <option value="<?= $FormInfo->get('pays') ?>" selected><?= $countries_data[$FormInfo->get("pays")] ?></option>
+            <option value="<?= $FormInfo->get('pays') ?>" selected><?= Country::get($FormInfo->get("pays")) ?></option>
             <option v-for="(country, code) in countries" v-bind:value="code">{{ country }}</option>
           </select>
         </div>
 
         <div class="col-md-4 mb-3">
           <label for="ville">Ville</label>
-          <input type="text" class="form-control" id="ville" value="">
+          <input type="text" class="form-control" id="ville" value="<?= $FormInfo->get('ville') ?>">
         </div>
 
         <div class="col-md-4 mb-3">
           <label for="commune">Commune &middot Quartier</label>
-          <input type="text" class="form-control" id="ville" value="">
+          <input type="text" class="form-control" id="commune" value="<?= $FormInfo->get('commune') ?>">
         </div>
 
       </div>
