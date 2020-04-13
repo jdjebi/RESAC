@@ -16,10 +16,10 @@ if(!isset($_SERVER["HEROKU_APP_DIR"])){
   $DEBUG = true;
 
   return [
-    "host" => "jfrpocyduwfg38kq.chr7pe7iynqr.eu-west-1.rds.amazonaws.com",
-    "username" => "nc0p25hz6kjx2boe",
-    "password" => "y6t93gnem2pphg3z",
-    "dbname" => "qn4vudjk5am7incz"
+    "host" => "gi6kn64hu98hy0b6.chr7pe7iynqr.eu-west-1.rds.amazonaws.com	",
+    "username" => "vipft88ee325qrcg",
+    "password" => "rvkqpzrk0ei8pzt3",
+    "dbname" => "n9syu0b9t9ougqmw"
   ];
 
 }
