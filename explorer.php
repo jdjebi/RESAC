@@ -15,6 +15,9 @@
       "nom" => $u->nom,
       "prenom" => $u->prenom,
       "email" => $u->email,
+      "promo" => $u->promo1.'-'.$u->promo2,
+      "pays" => Country::get($u->pays),
+      "ville" => $u->ville,
       "profil_url" => $profile_url.$u->id
     ];
   };

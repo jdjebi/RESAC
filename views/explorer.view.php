@@ -26,20 +26,20 @@
       <div v-for="user in users" class="card-user col-sm-12 col-md-4 col-lg-3 d-flex justify-content-center p-3">
 
         <a v-bind:href="user.profil_url">
-          <div class="card  d-none" style="width: 17rem">
+          <div class="card d-none" style="width: 17rem; position: relative">
             <div class="card-body">
+              <div style="position: absolute; top: 3px">
+                <span class="small p-1"><b>{{ user.promo }}</b></span>
+              </div>
               <div class="d-flex justify-content-center mb-3">
-                <div class="u-photo">
-                  <div class="eye u-photo-eye1"></div>
-                  <div class="eye u-photo-eye2"></div>
-                </div>
+                <div class="u-photo"></div>
               </div>
               <div class="text-center" style="font-size: 13px;">
                 <div class="">
-                  {{ user.nom }} {{ user.prenom }}
+                  <span>{{ user.nom }} {{ user.prenom }}</span>
                 </div>
                 <div class="">
-                  {{ user.email }}
+                  {{ user.ville }} {{ user.pays }} 
                 </div>
               </div>
               </div>

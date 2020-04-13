@@ -11,11 +11,14 @@
       <p>La plateforme du Réseau des Anciens Caïmans</p>
 
       <div class="pt-3">
-        <a class="btn btn-primary btn-md" href="<?= $register ?>" role="button">S'inscrire</a>
-        <a class="btn btn-primary btn-md" href="<?= $register ?>" role="button">Annuaire des caïmans</a>
+        <a class="btn btn-primary btn-md" href="<?= route('register') ?>" role="button">S'inscrire</a>
+        <a class="btn btn-primary btn-md" href="<?= route('explorer') ?>" role="button">Annuaire des caïmans</a>
       </div>
 
     </div>
   </div>
+</div>
+<div class="container">
+  <?php  require "views/news/timeline.php"; ?>
 </div>
 <?php  require "views/partials/footer.php"; ?>

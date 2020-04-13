@@ -1,92 +1,163 @@
 <?php  require "views/partials/header.php"; ?>
 <?php  require "views/partials/nav.php"; ?>
 
+<style media="screen">
+.section-about {
+  padding-top: 40px;
+  position: relative;
+}
+
+.section-about .section-box {
+    padding: 0px;
+}
+
+.section-box{
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.24) 0px 1px 4px;
+}
+
+.section-about .profile {
+    padding: 57px 50px 15px 50px;
+}
+
+.section-about .profile-info {
+    color: #3d4451;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #dedede;
+}
+
+.profile-items {
+    margin-bottom: 18px;
+}
+
+.profile-preword {
+    float: left;
+    margin-bottom: 10px;
+}
+
+.profile-preword span{
+  background-color: #333;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.1;
+  display: inline-block;
+  padding: 7px 12px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+
+
+.profile-preword span:before {
+    content: '';
+    width: 0;
+    height: 0;
+    top: 100%;
+    left: 5px;
+    display: block;
+    position: absolute;
+    border-style: solid;
+    border-width: 0 0 8px 8px;
+    border-color: transparent;
+    border-left-color: #333;
+}
+
+.section-about .profile-title {
+    font-size: 36px;
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.section-about .profile-title span {
+    font-weight: 300;
+}
+
+.section-about .profile-position {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 0;
+    color: #9da0a7;
+}
+
+.profile-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.profile-list li {
+    margin-bottom: 13px;
+}
+
+.profile-list .title {
+    display: block;
+    width: 120px;
+    float: left;
+    color: #333333;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 20px;
+    text-transform: uppercase;
+}
+.profile-list .cont {
+    display: block;
+    margin-left: 125px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+@media (max-width: 767px){
+
+  .profile-info {
+      text-align: center;
+  }
+
+  .profile-preword {
+      float: none;
+  }
+
+
+  .profile-preword span {
+      min-width: 150px;
+      padding: 9px 12px;
+  }
+
+  .profile-list .title {
+      margin-bottom: 3px;
+  }
+
+  .profile-list .title, .profile-list .cont {
+      width: 100%;
+      float: none;
+      line-height: 1.2;
+  }
+
+  .profile-list .cont {
+    margin-left: 0;
+    margin-bottom: 15px;
+  }
+
+}
+</style>
+
+<div class="container mt-5">
+  <?php require "views/partials/flash.php" ?>
+</div>
+
 <?php if ($show_portofolio): ?>
 
-  <div class="container mt-5">
-    <div class="d-flex justify-content-center">
-      <div class="card border border-info" style="max-width: 18rem;">
-        <div class="card-header d-flex justify-content-between text-white bg-info">
-          <div class="">
-            Mini portofolio
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="d-flex justify-content-center mb-3">
-            <div class="u-photo">
-              <div class="eye u-photo-eye1"></div>
-              <div class="eye u-photo-eye2"></div>
-            </div>
-          </div>
-          <div class="">
-            Nom: <?= $user_visited->nom ?>
-          </div>
-          <div class="">
-            Prénom: <?= $user_visited->prenom ?>
-          </div>
-          <div class="">
-            E-mail: <?= $user_visited->email ?>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <?php require "views/profil/visitor.php" ?>
 
 <?php else: ?>
 
-  <div class="container mt-5">
-    <div class="d-flex justify-content-around flex-wrap">
-
-      <div class="card m-2" style="max-width: 18rem;">
-        <div class="card-header d-flex justify-content-between">
-          <div class="">
-            Mini portofolio
-          </div>
-          <div class="">
-            <a href="<?= route("edit") ?>">Modifier</a>
-          </div>
-        </div>
-        <div class="card-body">
-
-          <div class="d-flex justify-content-center mb-3">
-            <div class="u-photo">
-              <div class="eye u-photo-eye1"></div>
-              <div class="eye u-photo-eye2"></div>
-            </div>
-          </div>
-
-          <hr>
-
-          <div class="">
-            Nom: <?= $user->nom ?>
-          </div>
-          <div class="">
-            Prénom: <?= $user->prenom ?>
-          </div>
-          <div class="">
-            E-mail: <?= $user->email ?>
-          </div>
-          <div class="">
-            Téléphone: <?= $user->numero ?>
-          </div>
-
-          <h6 class="mt-4">Lieu d'habitation actuel</h6>
-          <hr>
-          <div class="">
-            Pays: <?= $user->pays ?>
-          </div>
-
-          <h6 class="mt-4">Liens</h6>
-          <hr>
-          <div class="">
-            Mwaou: <?= $user->mwaou ?>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
+  <?php require "views/profil/user.php" ?>
 
 <?php endif ?>
 
+<?php  require "views/partials/scripts.php"; ?>
 <?php  require "views/partials/footer.php"; ?>

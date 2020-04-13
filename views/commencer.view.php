@@ -25,7 +25,7 @@
     </div>
 
     <div class="form-group">
-      <label for="prenom">Prenom:</label>
+      <label for="prenom">Prénom:</label>
       <input class="form-control" type="text" name="prenom" value="<?= $form->get("prenom") ?>" id="prenom">
     </div>
 

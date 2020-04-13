@@ -9,9 +9,10 @@ return [
   "news" => "news.php",
 
   "profil" => "profil.php",
-  "edit" => "modification.php",
 
-  "param" => "modification.php",
+  "edit" => "parametres.php",
+  "account" => "compte.php",
+  "param" => "parametres.php",
 
   "explorer"=> "explorer.php"
 ];
