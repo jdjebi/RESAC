@@ -6,7 +6,7 @@ return [
   "logout" => "deconnexion.php",
 
   "home" => "index.php",
-  "news" => "news.php",
+  "dev_news" => "news.php",
 
   "profil" => "profil.php",
 

@@ -31,12 +31,17 @@
 
     <div class="form-group">
       <label for="email">E-mail:</label>
-      <input class="form-control" type="text" name="email" value="<?= $form->get("email") ?>" id="email">
+      <input class="form-control <?= $form->isset('emails','email') ? 'is-invalid' : '' ?>" type="text" name="email" value="<?= $form->get("email") ?>" id="email">
+      <span class="text-danger">
+        <?= $form->get_error('emails','email') ?>
+        <?= $form->get_error('uniques','email') ?>
+      </span>
     </div>
 
     <div class="form-group">
       <label for="password">Mot de passe:</label>
-      <input class="form-control" type="password" name="password" value="" id="password">
+      <input class="form-control <?= $form->isset('equals','password') ? 'is-invalid' : '' ?>" type="password" name="password" value="" id="password">
+      <span class="text-danger"><?= $form->get_error('equals','password') ?></span>
     </div>
 
     <div class="form-group">

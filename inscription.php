@@ -28,11 +28,25 @@ if($_POST){
     // Redirection
     Redirect::route('home');
   }else{
-    // Renvoye des erreurs
+
+    if($form->isset('emails','email')){
+      $form->add_error('email',"Le format de l'adresse E-mail est incorrecte.");
+    }else if($form->isset('uniques','email')){
+      $form->add_error('email',"Adresse E-mail déjà utilisée.");
+    }
+
+    if($form->isset('equals','password')){
+      $form->add_error('password',"Les mots de passe sont différents.");
+    }
+
     $errors = $form->get_errors();
   }
+
+  // dump($form->get_errors());
+  // dump($form->get_data());
+
 }
 
-require "views/commencer.view.php";
+require "views/inscription.view.php";
 
 ?>

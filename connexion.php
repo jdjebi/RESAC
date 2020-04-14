@@ -9,14 +9,25 @@
 
     $email = $form->get("email");
     $password = $form->get("password");
-
     $user = authenticate($email,$password);
 
     if($user){
+
       login($user);
-      Redirect::route('profil');
+
+      if(isset($_GET['redirect']))
+        Redirect::url($_GET['redirect']);
+      else
+        Redirect::route('profil');
+
     }else{
       $form->errors["login_failed"] = true;
+    }
+  }else{
+    if(isset($_GET['redirect'])){
+      $redirect_url = '?redirect='.$_GET['redirect'];
+    }else{
+      $redirect_url = "";
     }
   }
 

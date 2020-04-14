@@ -19,7 +19,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="<?= route("news") ?>">News</a>
+        <a class="nav-link" href="<?= route("dev_news") ?>">Nouveautés</a>
       </li>
 
       <?php if(Auth::check()): ?>

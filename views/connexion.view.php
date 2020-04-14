@@ -28,7 +28,7 @@
   </div>
   <?php endif ?>
 
-  <form method="post">
+  <form action="<?= $redirect_url ?>" method="post">
     <h3 class="mt-3 mb-4">Connexion</h3>
     <hr>
     <div class="form-group">

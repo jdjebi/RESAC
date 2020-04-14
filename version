@@ -1,4 +1,4 @@
-Youco Framework v2 - 1
+Youco Framework v2 - 1.resac updating
 
 - src/redirect.php
   - Ajout de la methode route_back()
@@ -8,3 +8,9 @@ Youco Framework v2 - 1
 
 - src/services/countries/
   - Création des services au travers de l'intégration d'un service pour gérer les pays
+
+- connexion.php
+  - Auto redirection avec le formuailre de connexion
+
+- src/utils.php
+  -  Ajout de la fonction dump() pour un var_dump avec la fonction pre

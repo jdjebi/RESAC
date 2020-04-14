@@ -37,8 +37,8 @@ ul.timeline > li:before {
 			<ul class="timeline">
 				<li>
 					<span class="text-primary">Introduction à RESAC &middot Annuaire</span>
-					<a href="#" class="float-right">14 Avril 2020</a>
-					<p><span class="text-primary">RESAC &middot Annuaire</span> est la première version utilisable de RESAC, fraîchement déployée. Étant la première version, vous rencontriez sûrement des erreurs ou des manquements. Mais pas de panique ces dernières seront corrigées dans les jours à venir.</p>
+					<div class="text-muted small">14 Avril 2020</div>
+					<p class="mt-2"><span class="text-primary">RESAC &middot Annuaire</span> est la première version utilisable de RESAC, fraîchement déployée. Étant la première version, vous rencontriez sûrement des erreurs ou des manquements. Mais pas de panique ces dernières seront corrigées dans les jours à venir.</p>
 				</li>
 			</ul>
 		</div>
