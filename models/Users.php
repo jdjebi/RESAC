@@ -98,6 +98,16 @@ class Users{
     $q->execute($data);
   }
 
+  static public function email_is_unique($email){
+    global $DB;
+    $q = $DB->prepare("SELECT id FROM users WHERE email = ?");
+    $q->execute([$email]);
+    if($q->fetch())
+      return false;
+    else
+      return true;
+  }
+
   public function save(){
     $sql = "
       UPDATE users SET

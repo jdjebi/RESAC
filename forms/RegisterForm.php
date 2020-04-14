@@ -14,26 +14,17 @@ class RegisterForm extends Form{
     $this->data = $data;
   }
 
-  public function validate(){
-
+  public function check_email(){
     // Unicité de l'adresse E-mail
     if(!$this->isset('emails','email')){
-      global $DB;
-
-      $email = $this->data['email'];
-      $is_unique = true;
-      $q = $DB->prepare("SELECT id FROM users WHERE email = ?");
-      $q->execute([$email]);
-
-      if($q->fetch())
-        $is_unique = false;
-
-      if(!$is_unique)
+      if(!Users::email_is_unique($this->data['email']))
         $this->errors['uniques']['email'] = true;
     }
+  }
 
+  public function validate(){
+    $this->check_email();
     $this->clear_data['email'] = $this->data['email'];
-
   }
 }
 

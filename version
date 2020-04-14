@@ -14,3 +14,17 @@ Youco Framework v2 - 1.resac updating
 
 - src/utils.php
   -  Ajout de la fonction dump() pour un var_dump avec la fonction pre
+
+- forms/Form.php
+  - Intégration des fonctionnalités pour la gestion des erreurs par champs
+  - Intégration de la vérifcation automatiquement pour:
+    - Le format de l'E-mail
+    - L'égalité de deux champ(cas des mots de passe)
+    - Ajout de la méthode Users::email_is_unique($email)
+
+- forms/RegisterForm.php
+  - Adaptation de la classe à la nouvelle version de la classe Form
+
+- inscription.php
+  -  Adaptation du traitement à la nouvelle version de la classe RegisterForm
+  - Ajout des erreurs manquantes
