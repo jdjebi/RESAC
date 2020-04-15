@@ -14,10 +14,11 @@ class Form{
   protected $data = [];
   protected $clear_data = [];
   protected $required = [];
+  protected $emails = [];
+  protected $equals = [];
   protected $types = ['required2','emails','uniques'];
 
   public $errors = [];
-
 
   public function __construct($data = [], $default_data = []){
     $this->data = $data;
@@ -69,14 +70,12 @@ class Form{
     }
   }
 
-
   public function check_required(){
-
     // On ajoute toute les valeurs au valeurs propres
+
     foreach ($this->data as $key => $value) {
       $this->clear_data[$key] = $value;
     }
-
     // On traite le cas des valeurs manquantes
     foreach ($this->required as $key) {
       if( !array_key_exists($key,($this->data)) or empty(trim($this->data[$key])) ){

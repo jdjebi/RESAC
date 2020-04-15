@@ -13,6 +13,14 @@
 -
   - Correctif de la position de la date sur l'ancienne page des news
 
+
+# Mineures
+- Indicatif du numéro de téléphone
+- Années comprisent entre 1970 et 2021
+- Numéro téléphone portable unique
+- Controler l'intervalle entre les années
+- Vérifier que l'email est unique
+
 # v3
 - Explorer pour rechercher des portofolios
 - Routage

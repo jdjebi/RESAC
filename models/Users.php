@@ -119,7 +119,8 @@ class Users{
       ville = :ville,
       commune = :commune,
       promo1 = :promo1,
-      promo2 = :promo2
+      promo2 = :promo2,
+      password = :password
       WHERE id = :id
     ";
 
@@ -136,6 +137,7 @@ class Users{
       "commune" => $this->commune,
       "promo1" => $this->promo1,
       "promo2" => $this->promo2,
+      "password" => $this->password
     ]);
 
   }

@@ -23,12 +23,12 @@
     }else{
       $form->errors["login_failed"] = true;
     }
+  }
+
+  if(isset($_GET['redirect'])){
+    $redirect_url = '?redirect='.$_GET['redirect'];
   }else{
-    if(isset($_GET['redirect'])){
-      $redirect_url = '?redirect='.$_GET['redirect'];
-    }else{
-      $redirect_url = "";
-    }
+    $redirect_url = "";
   }
 
   require "views/connexion.view.php";
