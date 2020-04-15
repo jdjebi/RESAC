@@ -20,6 +20,8 @@
 - Numéro téléphone portable unique
 - Controler l'intervalle entre les années
 - Vérifier que l'email est unique
+- Gérer l'intégrité des pays
+- Connexion automatiquement dès l'insciption
 
 # v3
 - Explorer pour rechercher des portofolios
