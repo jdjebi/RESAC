@@ -44,7 +44,7 @@ ul.timeline > li:before {
 		</div>
     <div class="col-md-6 offset-md-3">
       <div class="text-center">
-        <a href="<?= route('news') ?>"><i class="fa fa-arrow-alt-circle-up"></i>Voir Plus</a>
+        <a href="<?= route('dev_news') ?>"><i class="fa fa-arrow-alt-circle-up"></i> Voir Plus</a>
       </div>
     </div>
 	</div>
