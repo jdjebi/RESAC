@@ -14,7 +14,7 @@
         </div>
       <?php endif ?>
     <?php endif ?>
-    <form method="post">
+    <form action="" method="post">
 
       <div class="form-group">
         <label for="nom">Nom <span class="text-danger">*</span></label>

@@ -19,6 +19,8 @@ $FormInfo->set_default([
   "commune" => $user->commune,
   "promo1" => $user->promo1,
   "promo2" => $user->promo2,
+  "universite" => $user->universite,
+  "emploi" => $user->emploi,
 ]);
 
 if(isset($_POST["change_info"])){
@@ -37,6 +39,7 @@ if(isset($_POST["change_info"])){
     $user->universite = $data["universite"];
     $user->save();
     Flash::add("Modifications enregisrées.","success");
+    Redirect::back();
   }else{
     $empty_field_message = "Veuillez remplir ce champs.";
     $email_format_error = "Format de l'adresse E-mail incorrecte.";
