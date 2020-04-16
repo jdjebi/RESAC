@@ -1,10 +1,6 @@
 # A FAIRE
 
-- Gestion de l'intégrité des données
-  - Adresse E-mail déjà utilisée
-  - Numéro de téléphone
-
-- Modification du profil
+- A ajouter au profile
   - Emploi Récent
   - Université
   - Utiliser l'indice pour le numéro de téléphone
@@ -29,7 +25,7 @@
 - Revision du portofolio
 - Auto redirection avec le formuailre de connexion
 
-# Extra
+# Extras
 - Créer une création de compte en backend
 - Pas de gestion des erreurs ????
 - Explorer ordonner les résultats par date d'inscription

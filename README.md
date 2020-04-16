@@ -4,7 +4,7 @@ RESAC est la plateforme du réseau des anciens caïmans. Ici, le dépôt offciel
 
 Lien vers le site: [RESAC](https://resac2.herokuapp.com/)
 
-## Fonctionnalités built-in principale
+## Fonctionnalités built-in principales
 
 - Validateur de formulaire
 - Emetteur de notifications
