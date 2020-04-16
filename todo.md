@@ -4,6 +4,7 @@
   - Emploi Récent
   - Université
   - Utiliser l'indice pour le numéro de téléphone
+- Ajouter des titre sur la page
 
 # Mineures
 - Indicatif du numéro de téléphone
