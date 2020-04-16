@@ -33,7 +33,7 @@ ul.timeline > li:before {
 <div class="container mt-5 mb-5">
 	<div class="row">
 		<div class="col-md-6 offset-md-3">
-			<h4>Dernières nouveautés</h4>
+			<h4>Les nouveautés</h4>
 			<ul class="timeline">
         <li>
           <span class="text-primary">Mise à jour de l'interface</span>
