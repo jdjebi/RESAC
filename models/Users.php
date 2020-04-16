@@ -32,7 +32,6 @@ class Users{
   public $linkedin;
   public $facebook;
   public $instagram;
-  public $twitter;
 
   public function __construct($data){
     global $DB;

@@ -1,7 +1,7 @@
 <?php
 
 class DB{
-
+  
   static function check($table,$field,$value){
 
     global $DB;
@@ -19,7 +19,6 @@ class DB{
       return false;
     }
   }
-
 }
 
 

@@ -43,12 +43,6 @@ class Info extends \Form{
           $this->errors['double_required']['promo'] = true;
       }
     }
-    /*
-    foreach ($this->integer as $key => $value) {
-      if(!empty(trim($value))){
-
-      }
-    } */
 
     $this->clear_data['email'] = $this->data['email'];
 
@@ -56,10 +50,9 @@ class Info extends \Form{
 }
 
 class Password extends \Form{
+
   protected $required = ['pass','nw_pass','conf_pass'];
-
-  public function validate(){}
-
+  
 }
 
 ?>
