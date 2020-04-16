@@ -10,7 +10,7 @@
         RESAC - {{ $title2 }}
       @else
         RESAC
-      @endif ?>
+      @endif
     </title>
     <link rel="stylesheet" href="asset/css/cerulean/bootstrap.min.css">
     <link rel="stylesheet" href="asset/css/fontawsome/all.css">
