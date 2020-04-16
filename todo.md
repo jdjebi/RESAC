@@ -1,8 +1,6 @@
 # A FAIRE
 
 - A ajouter au profile
-  - Emploi Récent
-  - Université
   - Utiliser l'indice pour le numéro de téléphone
 - Ajouter des titre sur la page
 
@@ -21,12 +19,18 @@
 - Sécurité
 
 # FAIT
+
+- Ajouter au profil
+  - Emploi Récent
+  - Université
+
 - Correctif de la position de la date sur l'ancienne page des news
 - Gestion de la confidentialité des informations utilisateurs
 - Revision du portofolio
 - Auto redirection avec le formuailre de connexion
 
 # Extras
+- Améliorer la diffusion des nouveautés
 - Créer une création de compte en backend
 - Pas de gestion des erreurs ????
 - Explorer ordonner les résultats par date d'inscription
@@ -40,3 +44,6 @@
     - Linkedin
     - Facebook
     - Instagram
+
+
+jenssegers/blade pour le templating des pages

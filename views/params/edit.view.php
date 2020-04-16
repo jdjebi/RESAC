@@ -5,7 +5,7 @@
 
   <div class="row">
 
-    <div class="col-md-3">
+    <div class="col-sm-12 col-md-5 col-lg-3">
 
       <ul class="list-group list-group-flush">
 
@@ -27,7 +27,7 @@
 
     </div>
 
-    <div class="col-md-8">
+    <div class="col-sm-12 col-md-7 col-lg-8">
 
       <div class="m-2">
         <?php require "views/partials/flash.php" ?>

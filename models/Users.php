@@ -57,6 +57,9 @@ class Users{
     $this->promo1 = $data["promo1"];
     $this->promo2 = $data["promo2"];
 
+    $this->emploi = $data["emploi"];
+    $this->universite = $data["universite"];
+
   }
 
   static function auth(){
@@ -119,7 +122,9 @@ class Users{
       commune = :commune,
       promo1 = :promo1,
       promo2 = :promo2,
-      password = :password
+      password = :password,
+      universite = :universite,
+      emploi = :emploi
       WHERE id = :id
     ";
 
@@ -136,7 +141,9 @@ class Users{
       "commune" => $this->commune,
       "promo1" => $this->promo1,
       "promo2" => $this->promo2,
-      "password" => $this->password
+      "password" => $this->password,
+      "universite" => $this->universite,
+      "emploi" => $this->emploi
     ]);
 
   }

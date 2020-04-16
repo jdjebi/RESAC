@@ -24,24 +24,29 @@
 </div>
 
 <div id="portofolio" class="container">
+  <div class="row mb-5">
+    <div class="col-md-12">
+      <h2 class="text-center"><i class="fa fa-search"></i> Exploration</h2>
+    </div>
+  </div>
     <div class="row">
-      <div v-for="user in users" class="card-user col-sm-12 col-md-4 col-lg-3 d-flex justify-content-center p-3">
+      <div v-for="user in users" class="card-user col-sm-12 col-md-4 col-lg-4 d-flex justify-content-center p-3">
 
         <a v-bind:href="user.profil_url">
           <div class="card d-none" style="width: 17rem; position: relative">
             <div class="card-body">
               <div style="position: absolute; top: 3px">
-                <span class="small p-1"><b>{{ user.promo }}</b></span>
+                <span class="small p-1 text-primary">{{ user.promo }}</span>
               </div>
               <div class="d-flex justify-content-center mb-3">
                 <div class="u-photo"></div>
               </div>
               <div class="text-center" style="font-size: 13px;">
-                <div class="">
+                <div style="font-weight: 500" class="">
                   <span>{{ user.nom }} {{ user.prenom }}</span>
                 </div>
-                <div class="">
-                  {{ user.ville }} {{ user.pays }}
+                <div style="font-weight: 500" class="">
+                  {{ user.emploi }} &middot {{ user.universite }}
                 </div>
               </div>
               </div>

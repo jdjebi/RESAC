@@ -14,8 +14,10 @@
       "id" => $u->id,
       "nom" => $u->nom,
       "prenom" => $u->prenom,
+      "emploi" => (empty($u->emploi)) ? "Lycée Classique d'Abidjan" : $u->emploi,
+      "universite" => (empty($u->universite)) ? "Etudiant" : $u->universite,
       "email" => $u->email,
-      "promo" => $u->promo1.'-'.$u->promo2,
+      "promo" => (empty($u->promo1) ? "xxxx-xxxx" : $u->promo1.'-'.$u->promo2),
       "pays" => Country::get($u->pays),
       "ville" => $u->ville,
       "profil_url" => $profile_url.$u->id

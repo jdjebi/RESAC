@@ -18,7 +18,13 @@
               <h1 class="profile-title text-dark">
                 <span>Je suis</span> <?= $user_visited->nom ?> <?= $user_visited->prenom ?>
               </h1>
-              <h2 class="profile-position">Promotion: <?= $user_visited->promo1 ?> - <?= $user_visited->promo2 ?></h2>
+              <h2 class="profile-position">Promotion:
+                <?php if(!empty($user_visited->promo1)): ?>
+                  <?= $user->promo1 ?> - <?= $user_visited->promo2 ?>
+                <?php else: ?>
+                  xxxx-xxxx
+                <?php endif ?>
+              </h2>
             </div>
             <ul class="profile-list">
               <li class="clearfix">

@@ -42,8 +42,8 @@ CREATE TABLE `users` (
   `ville` varchar(20) DEFAULT NULL,
   `commune` varchar(20) DEFAULT NULL,
   `promo1` varchar(20) DEFAULT NULL,
-  `emploi` varchar(20) DEFAULT NULL,
-  `universite` varchar(20) DEFAULT NULL,
+  `emploi` varchar(255) DEFAULT NULL,
+  `universite` varchar(255) DEFAULT NULL,
   `promo2` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

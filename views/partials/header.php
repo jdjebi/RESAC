@@ -3,7 +3,15 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>RESAC</title>
+    <title>
+      <?php if(isset($title)): ?>
+        <?= $title ?>
+      <?php elseif(isset($title2)): ?>
+        RESAC - <?= $title ?>
+      <?php else: ?>
+        RESAC
+      <?php endif ?>
+    </title>
     <link rel="stylesheet" href="asset/css/cerulean/bootstrap.min.css">
     <link rel="stylesheet" href="asset/css/fontawsome/all.css">
 

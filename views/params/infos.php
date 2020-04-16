@@ -17,19 +17,19 @@
     <form method="post">
 
       <div class="form-group">
-        <label for="nom">Nom*</label>
+        <label for="nom">Nom <span class="text-danger">*</span></label>
         <input type="text" class="form-control <?= $FormInfo->isset('required2','nom') ? 'is-invalid' : '' ?>" value="<?= $FormInfo->get("nom") ?>" name="nom" value="" id="nom">
         <span class="text-danger"><?= $FormInfo->get_error('required2','nom') ?></span>
       </div>
 
       <div class="form-group">
-        <label for="prenom">Prénom*</label>
+        <label for="prenom">Prénom <span class="text-danger">*</span></label>
         <input type="text" class="form-control <?= $FormInfo->isset('required2','prenom') ? 'is-invalid' : '' ?>" value="<?= $FormInfo->get("prenom") ?>" name="prenom" id="prenom">
         <span class="text-danger"><?= $FormInfo->get_error('required2','prenom') ?></span>
       </div>
 
       <div class="form-group">
-        <label for="email">E-mail*</label>
+        <label for="email">E-mail <span class="text-danger">*</span></label>
         <input type="text" class="form-control <?= $FormInfo->isset('*','email') ? 'is-invalid' : '' ?>" value="<?= $FormInfo->get("email") ?>" name="email" id="email">
         <span class="text-danger"><?= $FormInfo->get_error('*','email') ?></span>
       </div>
@@ -48,7 +48,14 @@
         <div class="col-lg-4 col-md-12 col-sm-12 mb-3">
           <label for="pays">Pays</label>
           <select class="form-control" name="pays" value="" id="pays">
-            <option value="<?= $FormInfo->get('pays') ?>" selected><?= Country::get($FormInfo->get("pays")) ?></option>
+
+            <?php if(empty($FormInfo->get("pays"))): ?>
+              <option value="" selected>Aucun pays</option>
+            <?php else: ?>
+              <option value="">Aucun pays</option>
+              <option value="<?= $FormInfo->get('pays') ?>" selected><?= Country::get($FormInfo->get("pays")) ?></option>
+            <?php endif ?>
+
             <option v-for="(country, code) in countries" v-bind:value="code">{{ country }}</option>
           </select>
         </div>
@@ -65,26 +72,38 @@
 
       </div>
 
-      <h5 class="mt-5">Mon parcours &middot Promotion</h5>
+      <h5 class="mt-5">Mon parcours</h5>
       <hr>
-      <div class="form-row">
 
+      <h6>Promotion</h6>
+      <div class="form-row mb-4">
         <div class="col-md-6 mb-3">
           <label for="promo1">Année de début</label>
           <input type="number" min="1970" max="2021" name="promo1" class="form-control" id="promo1" value="<?= $FormInfo->get("promo1") ?>">
           <span class="text-danger"><?= $FormInfo->get_error('double_required','promo') ?></span>
           <span class="text-danger"><?= $FormInfo->get_error('integer','promo1') ?></span>
         </div>
-
         <div class="col-md-6 mb-3">
           <label for="promo2">Année de fin</label>
           <input type="number" min="1970" max="2021" name="promo2" class="form-control" id="promo2" value="<?= $FormInfo->get("promo2") ?>">
           <span class="text-danger"><?= $FormInfo->get_error('integer','promo2') ?></span>
         </div>
-
       </div>
+
+      <h6>Etude et vie professionelle</h6>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="universite">Dernière université fréquentée</label>
+          <input type="text" name="universite" class="form-control" placeholder="Lycée Classique d'Abidjan" id="universite" value="<?= $FormInfo->get("universite") ?>">
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="emploi">Emploi récent</label>
+          <input type="text" name="emploi" class="form-control" placeholder="Etudiant" id="emploi" value="<?= $FormInfo->get("emploi") ?>">
+        </div>
+      </div>
+
       <div class="">
-        <p><small><b>Les champs marqués du caractère * sont obligatoires.</b></small></p>
+        <p><small><b>Les champs marqués du caractère <span class="text-danger">*</span> sont obligatoires.</b></small></p>
       </div>
       <div class="mt-4">
         <button type="submit" class="btn btn-primary" name="change_info">Envoyer</button>

@@ -33,6 +33,8 @@ if(isset($_POST["change_info"])){
     $user->commune = $data["commune"];
     $user->promo1 = $data["promo1"];
     $user->promo2 = $data["promo2"];
+    $user->emploi = $data["emploi"];
+    $user->universite = $data["universite"];
     $user->save();
     Flash::add("Modifications enregisrées.","success");
   }else{
@@ -100,6 +102,7 @@ else
 $countries_data = require "config/countries.php";
 $json_countries = Country::json();
 
+$title = "Paramètres";
 require "views/params/edit.view.php";
 
 ?>
