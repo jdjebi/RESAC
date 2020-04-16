@@ -19,7 +19,7 @@
   </div>
 </div>
 <div class="container">
-  <?php  require "views/news/timeline.php"; ?>
+  <?php  require "views/news/last.php"; ?>
 </div>
 
 <?php  require "views/partials/scripts.php"; ?>
