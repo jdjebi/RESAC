@@ -37,7 +37,7 @@
               </li>
             </ul>
             <div class="text-right">
-              <a class="btn btn-primary" href="<?= route('edit') ?>">Mettre à jour</a>
+              <a class="btn btn-primary" href="<?= route('edit') ?>"><i class="fa fa-edit"></i> Mettre à jour</a>
             </div>
           </div>
         </div>

@@ -5,24 +5,24 @@
 
   <div class="row">
 
-    <div class="col-md-4">
+    <div class="col-md-3">
 
       <ul class="list-group list-group-flush">
 
 
         <li class="list-group-item d-flex justify-content-between align-items-center">
-          <a href="<?= route('param') ?>?infos">Informations personnelles</a>
+          <i class="fa fa-address-card text-primary"></i> <a href="<?= route('param') ?>?infos">Informations personnelles</a>
         </li>
 
 
         <li class="list-group-item d-flex justify-content-between align-items-center">
-          <a href="<?= route('param') ?>?password">Mot de passe</a>
+          <i class="fa fa-key text-primary"></i> <a href="<?= route('param') ?>?password">Mot de passe</a>
         </li>
 
         <li class="list-group-item d-flex justify-content-between align-items-center">
           <small class="text-muted">RESAC &middot Annuaire </small>
         </li>
-        
+
       </ul>
 
     </div>
