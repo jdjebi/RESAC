@@ -4,15 +4,10 @@
   - Adresse E-mail déjà utilisée
   - Numéro de téléphone
 
-
 - Modification du profil
   - Emploi Récent
   - Université
   - Utiliser l'indice pour le numéro de téléphone
-
--
-  - Correctif de la position de la date sur l'ancienne page des news
-
 
 # Mineures
 - Indicatif du numéro de téléphone
@@ -23,39 +18,28 @@
 - Gérer l'intégrité des pays
 - Connexion automatiquement dès l'insciption
 
-# v3
+# Pour la version v3
 - Explorer pour rechercher des portofolios
 - Routage
 - Sécurité
 
 # FAIT
+- Correctif de la position de la date sur l'ancienne page des news
 - Gestion de la confidentialité des informations utilisateurs
 - Revision du portofolio
 - Auto redirection avec le formuailre de connexion
----
+
+# Extra
 - Créer une création de compte en backend
 - Pas de gestion des erreurs ????
-- Empecher un nouvel envoie du formualire d'inscription une l'inscription valide
 - Explorer ordonner les résultats par date d'inscription
-- Gestion des routes inexistantes non faite
-- Gestion des utilisateurs connecté mais supprimé non faite
 - Gestion de l'activation de compte
 - Définir une couleur par de défaut pour chaque utilisateur
 - Suggestion de profil
-- Revoir le type de données pour la promotion
-- Intégrer le ?redirect à la page de connexion
 
-- Gestion de la confidentialité des informations utilisateurs
-  - Numéros
-  - Lieu d'habitation
-    - Pays
-    - Ville
-    - Commune
-    - Quartier
+- Données intégrer au modèle d'un utilisateur
   - Liens
     - Mwaou
     - Linkedin
     - Facebook
     - Instagram
-    - Twitter
-    - Snapchat
