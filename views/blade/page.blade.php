@@ -6,7 +6,7 @@
     <title>
       @if(isset($title))
         {{ $title }}
-      @elseif($title2)
+      @elseif(isset($title2))
         RESAC - {{ $title2 }}
       @else
         RESAC
