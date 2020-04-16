@@ -7,7 +7,7 @@
       <?php if(isset($title)): ?>
         <?= $title ?>
       <?php elseif(isset($title2)): ?>
-        RESAC - <?= $title ?>
+        RESAC - <?= $title2 ?>
       <?php else: ?>
         RESAC
       <?php endif ?>

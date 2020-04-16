@@ -47,6 +47,8 @@ if($_POST){
 
 }
 
+$title2 = "Créer un Compte";
+
 require "views/inscription.view.php";
 
 ?>

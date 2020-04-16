@@ -31,6 +31,8 @@
     $redirect_url = "";
   }
 
+  $title2 = "Connexion";
+
   require "views/connexion.view.php";
 
 ?>

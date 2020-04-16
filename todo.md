@@ -1,17 +1,22 @@
 # A FAIRE
 
-- A ajouter au profile
-  - Utiliser l'indice pour le numéro de téléphone
 - Ajouter des titre sur la page
 
+- A ajouter au profile
+  - Utiliser l'indice pour le numéro de téléphone
+
 # Mineures
-- Indicatif du numéro de téléphone
-- Années comprisent entre 1970 et 2021
-- Numéro téléphone portable unique
-- Controler l'intervalle entre les années
-- Vérifier que l'email est unique
-- Gérer l'intégrité des pays
-- Connexion automatiquement dès l'insciption
+
+- UX
+  - Connexion automatiquement dès l'insciption
+
+- Paramètres
+  - Vérifier que l'email est unique
+  - Gérer l'intégrité des pays
+  - Indicatif du numéro de téléphone
+  - Années comprisent entre 1970 et 2021
+  - Numéro téléphone portable unique
+  - Controler l'intervalle entre les années
 
 # Pour la version v3
 - Explorer pour rechercher des portofolios

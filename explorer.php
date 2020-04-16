@@ -26,5 +26,6 @@
 
   $users_json = json_encode($users);
 
+  $title2 = "Annuaire";
   require "views/explorer.view.php";
 ?>
