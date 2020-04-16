@@ -1,8 +1,6 @@
 # A FAIRE
 
-- Ajouter des titre sur la page
-
-- A ajouter au profile
+- A ajouter au profil
   - Utiliser l'indice pour le numéro de téléphone
 
 # Mineures
@@ -14,16 +12,18 @@
   - Vérifier que l'email est unique
   - Gérer l'intégrité des pays
   - Indicatif du numéro de téléphone
-  - Années comprisent entre 1970 et 2021
+  - Années comprisent entre 1970 et 2021 | Controler l'intervalle entre les années
   - Numéro téléphone portable unique
-  - Controler l'intervalle entre les années
 
 # Pour la version v3
 - Explorer pour rechercher des portofolios
 - Routage
 - Sécurité
 
+
 # FAIT
+
+- Ajout des titres sur les pages
 
 - Ajouter au profil
   - Emploi Récent
