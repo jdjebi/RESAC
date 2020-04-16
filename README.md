@@ -2,7 +2,9 @@
 
 RESAC est la plateforme du réseau des anciens caïmans. Ici, le dépôt offciel du projet actuellement en version 2. La version 2 utilise un Framework built-in offrant les fonctionnalités de base spécifiques à l'application web du projet.
 
-Lien vers le site: [RESAC](https://resac2.herokuapp.com/)
+Lien vers le site: [RESAC](https://resac2.herokuapp.com/).
+
+Consulter le fichier **todo.md** pour suivre l'évolution du développement.
 
 ## Fonctionnalités built-in principales
 
