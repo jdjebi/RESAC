@@ -1,6 +1,6 @@
-<?php  require "views/partials/header.php"; ?>
-<?php  require "views/partials/nav.php"; ?>
+@extends('page')
 
+@section('style')
 <style media="screen">
 .section-about {
   padding-top: 40px;
@@ -144,20 +144,22 @@
 
 }
 </style>
+@endsection
+
+@section('content')
 
 <div class="container mt-5">
-  <?php require "views/partials/flash.php" ?>
+  @include('flash')
 </div>
 
-<?php if ($show_portofolio): ?>
+@if ($show_portofolio)
 
   <?php require "views/profil/visitor.php" ?>
 
-<?php else: ?>
+@else
 
   <?php require "views/profil/user.php" ?>
 
-<?php endif ?>
+@endif
 
-<?php  require "views/partials/scripts.php"; ?>
-<?php  require "views/partials/footer.php"; ?>
+@endsection

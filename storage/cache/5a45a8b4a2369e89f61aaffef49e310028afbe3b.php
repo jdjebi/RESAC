@@ -29,8 +29,10 @@
           <label for="password">Mot de passe:</label>
           <input class="form-control" type="password" name="password" id="password">
         </div>
-        <button class="btn btn-primary" type="submit" name="button">Envoyer</button>
-        Pas de compte ? <a href="<?php echo e(route("register")); ?>">Créer un compte</a>.
+        <div class="mt-4">
+          <button class="btn btn-primary" type="submit" name="button">Envoyer</button>
+          Pas de compte ? <a href="<?php echo e(route("register")); ?>">Créer un compte</a>.
+        </div>
       </form>
     </div>
   </div>

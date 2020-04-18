@@ -10,15 +10,11 @@
   <?php echo $__env->make("flash", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>;
 </div>
 
-<?php if ($show_portofolio): ?>
-
-  <?php require "views/profil/visitor.php" ?>
-
+<?php if($show_portofolio): ?>
+  <?php echo $__env->make("profil.visitor", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php else: ?>
-
-  <?php require "views/profil/user.php" ?>
-
-<?php endif ?>
+  <?php echo $__env->make("profil.user", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php endif; ?>
 
 <?php $__env->stopSection(); ?>
 

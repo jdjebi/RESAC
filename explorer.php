@@ -1,31 +1,38 @@
 <?php
-  require "src/init.php";
+require "src/init.php";
 
-  if(Auth::check()){
-    $user =  Users::auth();
-  }
+$user = null;
 
-  $users = [];
+if(Auth::check()){
+  $user =  Users::auth();
+}
 
-  $profile_url = route("profil")."?id=";
+$users = [];
 
-  foreach (Users::all() as $u) {
-    $users[] = [
-      "id" => $u->id,
-      "nom" => $u->nom,
-      "prenom" => $u->prenom,
-      "emploi" => (empty($u->emploi)) ? "Lycée Classique d'Abidjan" : $u->emploi,
-      "universite" => (empty($u->universite)) ? "Etudiant" : $u->universite,
-      "email" => $u->email,
-      "promo" => (empty($u->promo1) ? "xxxx-xxxx" : $u->promo1.'-'.$u->promo2),
-      "pays" => Country::get($u->pays),
-      "ville" => $u->ville,
-      "profil_url" => $profile_url.$u->id
-    ];
-  };
+$profile_url = route("profil")."?id=";
+foreach (Users::all() as $u) {
+  $users[] = [
+    "id" => $u->id,
+    "photo" => $u->get_photo(),
+    "nom" => $u->nom,
+    "prenom" => $u->prenom,
+    "emploi" => (empty($u->emploi)) ? "Lycée Classique d'Abidjan" : $u->emploi,
+    "universite" => (empty($u->universite)) ? "Etudiant" : $u->universite,
+    "email" => $u->email,
+    "promo" => (empty($u->promo1) ? "xxxx-xxxx" : $u->promo1.'-'.$u->promo2),
+    "pays" => Country::get($u->pays),
+    "ville" => $u->ville,
+    "profil_url" => $profile_url.$u->id
+  ];
+};
 
-  $users_json = json_encode($users);
+$users_json = json_encode($users);
 
-  $title2 = "Annuaire";
-  require "views/explorer.view.php";
+$title2 = "Annuaire";
+render("explorer.annuaire",[
+  'user' => $user,
+  'title2' =>  $title2,
+  'profile_url' => $profile_url,
+  'users_json' => $users_json
+]);
 ?>

@@ -1,7 +1,7 @@
 # A FAIRE
 
 - A ajouter au profil
-  - Utiliser l'indice pour le numéro de téléphone
+  - Utiliser l'indicatif pour le numéro de téléphone
 
 # Mineures
 
@@ -12,18 +12,15 @@
   - Vérifier que l'email est unique lors de la mise à jour des infos (pre-unicité & unicité)
   - Numéro téléphone portable unique lors de la mise à jour des infos (pre-unicité & unicité)
   - Gérer l'intégrité des pays
-  - Indicatif du numéro de téléphone
 
 # Pour la version v3
-- Explorer pour rechercher des portofolios
+- Explorer pour rechercher des profils
 - Routage
 - Sécurité
-
 
 # FAIT
 
 - Ajout des titres sur les pages
-
 - Ajouter au profil
   - Emploi Récent
   - Université

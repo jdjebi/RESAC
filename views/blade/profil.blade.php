@@ -10,14 +10,10 @@
   @include("flash");
 </div>
 
-<?php if ($show_portofolio): ?>
-
-  <?php require "views/profil/visitor.php" ?>
-
-<?php else: ?>
-
-  <?php require "views/profil/user.php" ?>
-
-<?php endif ?>
+@if ($show_portofolio)
+  @include("profil.visitor")
+@else
+  @include("profil.user")
+@endif
 
 @endsection

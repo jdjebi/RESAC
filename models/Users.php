@@ -148,6 +148,10 @@ class Users{
 
   }
 
+  public function get_photo(){
+    return "asset/imgs/user_default_pic.png";
+  }
+
 }
 
 ?>
