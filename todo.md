@@ -11,7 +11,6 @@
 - Paramètres
   - Vérifier que l'email est unique lors de la mise à jour des infos (pre-unicité & unicité)
   - Numéro téléphone portable unique lors de la mise à jour des infos (pre-unicité & unicité)
-
   - Gérer l'intégrité des pays
   - Indicatif du numéro de téléphone
 
@@ -44,8 +43,8 @@
 - Suggestion de profil
 - Généraliser la validateur présent dans la classe UserForm
 - Retirer l'utilsation extra de la fonction trim dans les méthodes liées au formulaire
-  - Gérer le cas des MULPILE ERRORS ON ONE FIELD
-
+- Gérer le cas des MULPILE ERRORS ON ONE FIELD
+- Lorsque tous les champs obligatoires ne sont pas remplit aucune validation n'est faite
 - Données intégrer au modèle d'un utilisateur
   - Liens
     - Mwaou

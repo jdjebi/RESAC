@@ -111,9 +111,16 @@ else
 $countries_data = require "config/countries.php";
 $json_countries = Country::json();
 
-dump($FormInfo->get_errors());
-
 $title = "Paramètres";
-require "views/params/edit.view.php";
+
+render("params.edit",[
+  'user' => $user,
+  'title' => $title,
+  'FormInfo' => $FormInfo,
+  'FormPass' => $FormPass,
+  'edit_form' => $edit_form,
+  'countries_data' => $countries_data,
+  'json_countries' => $json_countries
+]);
 
 ?>
