@@ -14,9 +14,12 @@
 
       <?php endif ?>
 
+
       <li class="nav-item">
         <a class="nav-link" href="<?php echo e(route("explorer")); ?>"> <i class="fa fa-search"></i> Explorer</a>
       </li>
+
+      <?php if(Auth::check()): ?>
 
       <li class="nav-item">
         <a class="nav-link" href="#"> <i class="far fa-newspaper"></i> Actualités</a>
@@ -25,6 +28,8 @@
       <li class="nav-item">
         <a class="nav-link" href="#"> <i class="far fa-window-restore"></i> Fil d'actualité</a>
       </li>
+
+      <?php endif ?>
 
       <li class="nav-item">
         <a class="nav-link" href="<?php echo e(route("dev_news")); ?>"> <i class="fa fa-rss-square"></i> Nouveautés</a>

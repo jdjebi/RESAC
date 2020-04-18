@@ -38,7 +38,7 @@ ul.timeline > li:before {
         <li>
           <span class="text-primary"><b>Mise à jour de l'interface</b></span>
 					<div class="text-muted small"><i class="far fa-clock"></i> 16 Avril 2020</div>
-					<p class="mt-2">Des icônes de type <i>Font Awsome</i> ont été ajoutée un peu partout sur le site de sorte à rendre la plateforme plus conviviable. En outre, la sécurité des formulaires à été renforcé de sorte à éviter toutes les erreurs qui y sont liées.</p>
+					<p class="mt-2">Des icônes de type <i>Font Awsome</i> ont été ajouté un peu partout sur le site de sorte à rendre la plateforme plus conviviable. En outre, la sécurité des formulaires à été renforcé de sorte à éviter toutes les erreurs qui y sont liées.</p>
         </li>
 				<li>
 					<span class="text-primary">Introduction à RESAC &middot Annuaire</span>
