@@ -2,8 +2,11 @@
 
 require "src/init.php";
 
+$user = Users::auth();
+
 $title2 = "Nouveautés";
 
-require "views/news.view.php";
-
+render('news.news',[
+  'user' => $user
+])
 ?>
