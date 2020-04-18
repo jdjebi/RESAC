@@ -46,11 +46,14 @@
 - Gérer le cas des MULPILE ERRORS ON ONE FIELD
 - Lorsque tous les champs obligatoires ne sont pas remplit aucune validation n'est faite
 - Données intégrer au modèle d'un utilisateur
-  - Liens
-    - Mwaou
-    - Linkedin
-    - Facebook
-    - Instagram
+- Blading
+  - Inscription
+  - Explorer
+
+- Liens
+  - Linkedin
+  - Facebook
+  - Instagram
 
 
 jenssegers/blade pour le templating des pages
