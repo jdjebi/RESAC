@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-sm-12 col-md-5 mb-3">
             <div class="profile-photo d-flex justify-content-center">
-                <img src="<?php echo e($user->get_photo()); ?>" style="width:299px; height:347px; background:#eee" alt="Photo de <?php echo e($user->nom); ?> <?php echo e($user->prenom); ?>">
+              <div class="border" style="width:299px; height:347px; background:#eee"></div>
             </div>
           </div>
           <div class="col-sm-12 col-md-7">

@@ -1,8 +1,5 @@
 # A FAIRE
 
-- A ajouter au profil
-  - Utiliser l'indicatif pour le numéro de téléphone
-
 # Mineures
 
 - UX
@@ -12,6 +9,11 @@
   - Vérifier que l'email est unique lors de la mise à jour des infos (pre-unicité & unicité)
   - Numéro téléphone portable unique lors de la mise à jour des infos (pre-unicité & unicité)
   - Gérer l'intégrité des pays
+
+# Pour la version v2.5
+- Publication de contenu
+  - Pas de limite textuelle
+  - Expliquer le Principe de l'Actualités lors de l'inscription. Fil temporelle
 
 # Pour la version v3
 - Explorer pour rechercher des profils

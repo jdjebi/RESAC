@@ -14,6 +14,8 @@ return [
   "account" => "compte.php",
   "param" => "parametres.php",
 
+  "actu" => "actu.php",
+
   "explorer"=> "explorer.php"
 ];
 

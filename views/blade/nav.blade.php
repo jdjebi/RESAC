@@ -22,11 +22,7 @@
       <?php if(Auth::check()): ?>
 
       <li class="nav-item">
-        <a class="nav-link" href="#"> <i class="far fa-newspaper"></i> Actualités</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="#"> <i class="far fa-window-restore"></i> Fil d'actualité</a>
+        <a class="nav-link" href="{{ route("actu") }}"> <i class="far fa-newspaper"></i> Actualités</a>
       </li>
 
       <?php endif ?>

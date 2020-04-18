@@ -5,6 +5,7 @@
         <div class="row">
           <div class="col-sm-12 col-md-5 mb-3">
             <div class="profile-photo d-flex justify-content-center">
+              <div class="border" style="width:299px; height:347px; background:#eee"></div>
             </div>
           </div>
           <div class="col-sm-12 col-md-7">
