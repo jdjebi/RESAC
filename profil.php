@@ -6,6 +6,7 @@ require "middleware/auth_back.php";
 
 $user = Users::auth();
 
+$user_visited = null;
 $show_portofolio = false;
 
 if(isset($_GET['id']) && !empty($_GET['id'])){
@@ -27,6 +28,11 @@ $title =  $user->nom.' '.$user->prenom;
 if($show_portofolio)
   $title =  $user_visited->nom.' '.$user_visited->prenom;
 
-require "views/profil.view.php";
+render("profil",[
+  'title' => $title,
+  'user' => $user,
+  'user_visited' => $user_visited,
+  'show_portofolio' => $show_portofolio
+]);
 
 ?>

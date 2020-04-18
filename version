@@ -32,5 +32,5 @@ Youco Framework v2 - 1.resac updating
 - forms/UserForm.php
   - Adaptation de la classe à la nouvelle version de la classe Form
 
-  - parametres.php
-    - Adaptation de la classe à la nouvelle version de la classe UserForm
+- parametres.php
+  - Adaptation de la classe à la nouvelle version de la classe UserForm

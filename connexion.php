@@ -33,6 +33,10 @@
 
   $title2 = "Connexion";
 
-  require "views/connexion.view.php";
+  render('connexion',[
+    'form' => $form,
+    'redirect_url' => $redirect_url,
+    'title2' => $title2
+  ])
 
 ?>

@@ -7,12 +7,12 @@
       <?php if(isset($title)): ?>
         <?php echo e($title); ?>
 
-      <?php elseif($title2): ?>
+      <?php elseif(isset($title2)): ?>
         RESAC - <?php echo e($title2); ?>
 
       <?php else: ?>
         RESAC
-      <?php endif; ?> ?>
+      <?php endif; ?>
     </title>
     <link rel="stylesheet" href="asset/css/cerulean/bootstrap.min.css">
     <link rel="stylesheet" href="asset/css/fontawsome/all.css">
