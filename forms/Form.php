@@ -66,7 +66,7 @@ class Form{
 
   public function set_default($data){
     foreach ($data as $key => $value) {
-      $this->clear_data[$key] = $value;
+      $this->clear_data[$key] = trim($value);
     }
   }
 
@@ -74,7 +74,7 @@ class Form{
     // On ajoute toute les valeurs au valeurs propres
 
     foreach ($this->data as $key => $value) {
-      $this->clear_data[$key] = $value;
+      $this->clear_data[$key] = trim($value);
     }
     // On traite le cas des valeurs manquantes
     foreach ($this->required as $key) {
@@ -138,8 +138,13 @@ class Form{
   }
 
   public function get_error($type,$key){
-    if($this->isset($type,$key)){
-      return $this->errors['messages'][$key];
+    if(isset($this->errors['messages'])){
+      $error_messages = $this->errors['messages'];
+      if($this->isset($type,$key) && array_key_exists($key,$error_messages)){
+        return $error_messages[$key];
+      }else{
+        return "";
+      }
     }else{
       return "";
     }

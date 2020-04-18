@@ -20,7 +20,7 @@ Youco Framework v2 - 1.resac updating
   - Intégration de la vérifcation automatiquement pour:
     - Le format de l'E-mail
     - L'égalité de deux champ(cas des mots de passe)
-    - Ajout de la méthode Users::email_is_unique($email)
+
 
 - forms/RegisterForm.php
   - Adaptation de la classe à la nouvelle version de la classe Form
@@ -31,6 +31,9 @@ Youco Framework v2 - 1.resac updating
 
 - forms/UserForm.php
   - Adaptation de la classe à la nouvelle version de la classe Form
+  - Ajout de la méthode Users::email_is_unique($email)
+  - Ajout d'un validateur de format d'adresse E-mail
+  - Ajout d'un validateur d'égalité de champ
 
 - parametres.php
   - Adaptation de la classe à la nouvelle version de la classe UserForm

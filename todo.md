@@ -9,11 +9,11 @@
   - Connexion automatiquement dès l'insciption
 
 - Paramètres
-  - Vérifier que l'email est unique
+  - Vérifier que l'email est unique lors de la mise à jour des infos (pre-unicité & unicité)
+  - Numéro téléphone portable unique lors de la mise à jour des infos (pre-unicité & unicité)
+
   - Gérer l'intégrité des pays
   - Indicatif du numéro de téléphone
-  - Années comprisent entre 1970 et 2021 | Controler l'intervalle entre les années
-  - Numéro téléphone portable unique
 
 # Pour la version v3
 - Explorer pour rechercher des portofolios
@@ -42,6 +42,9 @@
 - Gestion de l'activation de compte
 - Définir une couleur par de défaut pour chaque utilisateur
 - Suggestion de profil
+- Généraliser la validateur présent dans la classe UserForm
+- Retirer l'utilsation extra de la fonction trim dans les méthodes liées au formulaire
+  - Gérer le cas des MULPILE ERRORS ON ONE FIELD
 
 - Données intégrer au modèle d'un utilisateur
   - Liens

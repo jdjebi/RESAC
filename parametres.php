@@ -46,6 +46,7 @@ if(isset($_POST["change_info"])){
     $phone_format_error = "Format du numéro incorrecte.";
     $promo_required_error = "Veuillez renseigner les deux années.";
     $year_type_error = "Veuillez renseigner une année correcte.";
+    $year_interval_error = "L'année doit être comprise entre 1945 et 2021";
 
     if($FormInfo->isset('required2','nom')){
       $FormInfo->add_error('nom',$empty_field_message);
@@ -70,12 +71,17 @@ if(isset($_POST["change_info"])){
     }
 
     if($FormInfo->isset('integer','promo1')){
-      $FormInfo->add_error('promo1',$year_type_error);
+       $FormInfo->add_error('promo1',$year_type_error);
+    } else if($FormInfo->isset('interval','promo1.interval')){
+        $FormInfo->add_error('promo1.interval',$year_interval_error);
     }
 
     if($FormInfo->isset('integer','promo2')){
       $FormInfo->add_error('promo2',$year_type_error);
+    } else if($FormInfo->isset('interval','promo2.interval')){
+      $FormInfo->add_error('promo2.interval',$year_interval_error);
     }
+
   }
 }elseif(isset($_POST["change_pass"]) && $FormPass->is_validate()) {
   $data = $FormPass->get_data();
@@ -104,6 +110,8 @@ else
 
 $countries_data = require "config/countries.php";
 $json_countries = Country::json();
+
+dump($FormInfo->get_errors());
 
 $title = "Paramètres";
 require "views/params/edit.view.php";

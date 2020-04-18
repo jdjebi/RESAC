@@ -39,7 +39,6 @@ Consulter le fichier **todo.md** pour suivre l'évolution du développement.
     - Intégration de la vérifcation automatiquement pour:
       - Le format de l'E-mail
       - L'égalité de deux champ(cas des mots de passe)
-      - Ajout de la méthode Users::email_is_unique($email)
 
   - forms/RegisterForm.php
     - Adaptation de la classe à la nouvelle version de la classe Form
@@ -50,6 +49,7 @@ Consulter le fichier **todo.md** pour suivre l'évolution du développement.
 
   - forms/UserForm.php
     - Adaptation de la classe à la nouvelle version de la classe Form
+    - Ajout de la méthode Users::email_is_unique($email)
 
     - parametres.php
       - Adaptation de la classe à la nouvelle version de la classe UserForm
