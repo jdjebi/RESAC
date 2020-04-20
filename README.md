@@ -12,6 +12,7 @@ Consulter le fichier **todo.md** pour suivre l'évolution du développement.
 
 ## Fonctionnalités built-in principales
 
+- **Fil d'actualités (Nouveau)**
 - Validateur de formulaire
 - Emetteur de notifications
 - Raccourcisseur d'url
@@ -19,37 +20,46 @@ Consulter le fichier **todo.md** pour suivre l'évolution du développement.
 
 ## Mises à jour de la version 2
 
-  - src/redirect.php
-    - Ajout de la methode route_back()
+- src/redirect.php
+  - Ajout de la methode route_back()
 
-  - config/countries.php
-    - Ajout d'un tableau de tous les pays du monde
+- config/countries.php
+  - Ajout d'un tableau de tous les pays du monde
 
-  - src/services/countries/
-    - Création des services au travers de l'intégration d'un service pour gérer les pays
+- src/services/countries/
+  - Création des services au travers de l'intégration d'un service pour gérer les pays
 
-  - connexion.php
-    - Auto redirection avec le formuailre de connexion
+- connexion.php
+  - Auto redirection avec le formuailre de connexion
 
-  - src/utils.php
-    -  Ajout de la fonction dump() pour un var_dump avec la fonction pre
+- src/utils.php
+  -  Ajout de la fonction dump() pour un var_dump avec la fonction pre
 
-  - forms/Form.php
-    - Intégration des fonctionnalités pour la gestion des erreurs par champs
-    - Intégration de la vérifcation automatiquement pour:
-      - Le format de l'E-mail
-      - L'égalité de deux champ(cas des mots de passe)
+- forms/Form.php
+  - Intégration des fonctionnalités pour la gestion des erreurs par champs
+  - Intégration de la vérifcation automatiquement pour:
+    - Le format de l'E-mail
+    - L'égalité de deux champ(cas des mots de passe)
 
-  - forms/RegisterForm.php
-    - Adaptation de la classe à la nouvelle version de la classe Form
 
-  - inscription.php
-    - Adaptation du traitement à la nouvelle version de la classe RegisterForm
-    - Ajout des erreurs manquantes
+- forms/RegisterForm.php
+  - Adaptation de la classe à la nouvelle version de la classe Form
 
-  - forms/UserForm.php
-    - Adaptation de la classe à la nouvelle version de la classe Form
-    - Ajout de la méthode Users::email_is_unique($email)
+- inscription.php
+  -  Adaptation du traitement à la nouvelle version de la classe RegisterForm
+  - Ajout des erreurs manquantes
 
-    - parametres.php
-      - Adaptation de la classe à la nouvelle version de la classe UserForm
+- forms/UserForm.php
+  - Adaptation de la classe à la nouvelle version de la classe Form
+  - Ajout de la méthode Users::email_is_unique($email)
+  - Ajout d'un validateur de format d'adresse E-mail
+  - Ajout d'un validateur d'égalité de champ
+
+- parametres.php
+  - Adaptation de la classe à la nouvelle version de la classe UserForm
+
+- models/Model.php
+  - Ajout d'une classe de base pour les modèles
+
+- models/Post.php
+  - Ajout d'une classe pour la présentation des publications
