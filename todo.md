@@ -50,6 +50,8 @@
 - Lorsque tous les champs obligatoires ne sont pas remplit aucune validation n'est faite
 - Données intégrer au modèle d'un utilisateur
 - Dans les publications(dans le constructeur), si l'id d'un utilisateur n'exsite pas alors ce dernier ne sera pas instancié donc l'affiche sera de la publication au niveau du nom de l'auteur sera érroné voir rien ne va s'afficher ou il y'aura une erreur
+- Améliorer l'affichage des dates sur les publications
+- Intégrer le marquer comme lu
 - Blading
   - Inscription
   - Explorer

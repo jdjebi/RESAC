@@ -7,7 +7,7 @@
   }
 
   .post-box .box{
-    border-radius: 1em;
+    border-radius: 0.25em;
     position: relative;
     box-sizing: content-box;
     overflow: hidden;
@@ -15,6 +15,10 @@
 
   .post-box .header-post-message{
     font-weight: 500
+  }
+
+  .pub-box .box{
+    border-radius: 0.25em;
   }
 
   .pub-box .pub-user-photo{
@@ -26,6 +30,10 @@
   .pub-box .pub-user-name{
     font-size: 14px;
     font-weight: 500
+  }
+
+  .pub-box .dropdown-toggle::after {
+      display: none;
   }
 </style>
 <?php $__env->stopSection(); ?>
@@ -70,21 +78,54 @@
 
           <div class="pub-box" id="">
               <div class="box border bg-white mb-3">
-                  <div class="header pl-4 pt-3 pb-3">
+                  <div class="header pl-4 pt-3 pb-3 pr-4">
                     <div class="media">
-                      <img class="pub-user-photo" src="<?= $post->user->get_photo() ?>" alt="Photo <?= $post->user->get_complete_name() ?>">
+                      <a title="<?php echo e($post->user->get_complete_name()); ?>" href="<?php echo e(route('profil')); ?>?id=<?php echo e($post->user_id); ?>">
+                      <img class="pub-user-photo" src="<?php echo e($post->user->get_photo()); ?>" alt="Photo <?php echo e($post->user->get_complete_name()); ?>">
+                      </a>
                       <div class="ml-3 media-body">
-                        <div class="mt-0 pub-user-name"><?= $post->user->get_complete_name() ?></div>
-                        <span class="text-muted small"><?= $post->date ?> &middot <?= $post->scope ?></span>
+
+                        <div class="dropdown float-right">
+                          <a class="dropdown-toggle" href="#" role="button" id="pub-box-menu-option-<?php echo e($post->id); ?>" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                            <i class="text-muted fa fa-ellipsis-h"></i>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left" aria-labelledby="pub-box-menu-option-<?php echo e($post->id); ?>">
+                            <h6 class="dropdown-header">Options</h6>
+                            <?php if($post->user_id != $user->id && false): ?>
+                            <a class="dropdown-item" href="#"><i class="far fa-check-circle"></i> &nbsp; Marquer comme lu</a>
+                            <?php endif; ?>
+
+                            <?php if($post->user_id == $user->id): ?>
+                            <a class="dropdown-item" href="#"><i class="fa fa-trash"></i> &nbsp; Supprimer la publication</a>
+                            <?php endif; ?>
+                          </div>
+                        </div>
+
+                        <div class="mt-0 pub-user-name">
+                          <a href="<?php echo e(route('profil')); ?>?id=<?php echo e($post->user_id); ?>">
+                            <?php echo e($post->user->get_complete_name()); ?>
+
+                          </a>
+                        </div>
+
+                        <span class="text-muted small">
+                          <time class="timeago" datetime="<?php echo e($post->date); ?>" title="<?php echo e($post->date); ?>"></time>
+                          &middot
+                          <?php echo e($post->scope); ?>
+
+                        </span>
+
                       </div>
                     </div>
                   </div>
                   <div class="body pl-4 pr-4 pb-3">
                     <?= $post->content ?>
                   </div>
+                  <?php if($post->user_id != $user->id && false): ?>
                   <div class="footer p-2 pr-4 border-top text-right">
                     <button disabled class="btn btn-sm btn-primary" type="button" name="button" title="Les publications marquées comme lu n'apparaitrons plus dans la fil.">Maquer comme lu</button>
                   </div>
+                  <?php endif; ?>
               </div>
           </div>
 
@@ -105,6 +146,10 @@
 </div>
 
 
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('scripts'); ?>
+<script type="module" src="asset/js/resac/init.timeago.js"></script>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('page', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Tidev\Documents\dev3\resac\views\blade/actu.blade.php ENDPATH**/ ?>

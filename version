@@ -40,3 +40,6 @@ Youco Framework v2 - 1.resac updating
 
 - models/Model.php
   - Ajout d'une classe de base pour les modèles
+
+- models/Post.php
+  - Ajout d'une classe pour la présentation des publications

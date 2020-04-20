@@ -18,6 +18,7 @@ class Post extends Model {
 
     $this->id = $data["id"];
     $this->user = Users::get($data["user"]);
+    $this->user_id = $data["user"];
     $this->scope = $data["scope"];
     $this->type = $data["type"];
     $this->date = $data["date"];
