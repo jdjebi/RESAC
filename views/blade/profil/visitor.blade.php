@@ -28,6 +28,26 @@
             </div>
             <ul class="profile-list">
               <li class="clearfix">
+                <strong class="title">Université/Ecole</strong>
+                <span class="cont">
+                  <?php if(empty($user_visited->universite)): ?>
+                    Lycée Classique d'Abidjan
+                  <?php else: ?>
+                    <?= $user_visited->universite ?>
+                  <?php endif ?>
+                </span>
+              </li>
+              <li class="clearfix">
+                <strong class="title">Emploi</strong>
+                <span class="cont">
+                  <?php if(empty($user_visited->emploi)): ?>
+                    Etudiant
+                  <?php else: ?>
+                    <?= $user_visited->emploi ?>
+                  <?php endif ?>
+                </span>
+              </li>
+              <li class="clearfix">
                 <strong class="title">Pays</strong>
                 <span class="cont"><?= Country::get($user_visited->pays) ?></span>
               </li>
