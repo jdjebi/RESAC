@@ -79,14 +79,14 @@
       <div class="form-row mb-4">
         <div class="col-md-6 mb-3">
           <label for="promo1">Année de début</label>
-          <input type="text" name="promo1" class="form-control" id="promo1" value="<?= $FormInfo->get("promo1") ?>">
+          <input type="number" min="1945" max="2021" name="promo1" class="form-control" id="promo1" value="<?= $FormInfo->get("promo1") ?>">
           <span class="text-danger"><?= $FormInfo->get_error('double_required','promo') ?></span>
           <span class="text-danger"><?= $FormInfo->get_error('integer','promo1') ?></span>
           <span class="text-danger"><?= $FormInfo->get_error('interval','promo1.interval') ?></span>
         </div>
         <div class="col-md-6 mb-3">
           <label for="promo2">Année de fin</label>
-          <input type="text" name="promo2" class="form-control" id="promo2" value="<?= $FormInfo->get("promo2") ?>">
+          <input type="number" min="1945" max="2021" name="promo2" class="form-control" id="promo2" value="<?= $FormInfo->get("promo2") ?>">
           <span class="text-danger"><?= $FormInfo->get_error('integer','promo2') ?></span>
           <span class="text-danger"><?= $FormInfo->get_error('interval','promo2.interval') ?></span>
         </div>

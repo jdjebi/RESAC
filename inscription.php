@@ -6,6 +6,8 @@ require "middleware/guest.php";
 
 $form = new RegisterForm($_POST);
 
+$errors = null;
+
 if($_POST){
   // Validation
   if($form->is_validate()){
@@ -49,6 +51,10 @@ if($_POST){
 
 $title2 = "Créer un Compte";
 
-require "views/inscription.view.php";
+render("inscription",[
+  "form" => $form,
+  "title2" => $title2,
+  "errors" => $errors
+]);
 
 ?>
