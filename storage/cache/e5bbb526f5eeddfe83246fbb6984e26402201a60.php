@@ -7,7 +7,7 @@
 <?php $__env->startSection('content'); ?>
 
 <div class="container mt-5">
-  <?php echo $__env->make("flash", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>;
+  <?php echo $__env->make("flash", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </div>
 
 <?php if($show_portofolio): ?>

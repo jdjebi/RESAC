@@ -66,6 +66,8 @@
                     <a href="<?= route("param") ?>#ville"><i class="fa fa-plus"></i> Ajouter une ville</a>
                   <?php elseif(empty($user->commune)): ?>
                     <?= $user->ville ?>
+                  <?php elseif(empty($user->vill)): ?>
+                    <?= $user->commune ?>
                   <?php else: ?>
                     <?= $user->ville ?>, <?= $user->commune ?>
                   <?php endif ?>

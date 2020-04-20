@@ -7,7 +7,7 @@
 @section('content')
 
 <div class="container mt-5">
-  @include("flash");
+  @include("flash")
 </div>
 
 @if ($show_portofolio)

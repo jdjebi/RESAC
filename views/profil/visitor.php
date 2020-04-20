@@ -33,7 +33,17 @@
               </li>
               <li class="clearfix">
                 <strong class="title">Ville</strong>
-                <span class="cont"><?= $user_visited->ville ?>, <?= $user_visited->commune ?></span>
+                <span class="cont">
+                  <?php if(!empty($user_visited->ville) && empty(!$user_visited->commune)): ?>
+                    <?= $user_visited->ville ?>, <?= $user_visited->commune ?>
+                  <?php if(empty($user_visited->commune)): ?>
+                    <?= $user_visited->ville ?>
+                  <?php elseif(empty($user_visited->vill)): ?>
+                    <?= $user_visited->commune ?>
+                  <?php else: ?>
+                    <?= $user_visited->ville ?>, <?= $user_visited->commune ?>
+                  <?php endif ?>
+                </span>
               </li>
               <li class="clearfix">
                 <strong class="title">E-mail</strong>
