@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="container mt-5">
+  @include('flash')
+</div>
+<div class="container mt-5">
   <div class="text-center">
     <h1>Bienvenue sur RESAC</h1>
     <div class="text-center">

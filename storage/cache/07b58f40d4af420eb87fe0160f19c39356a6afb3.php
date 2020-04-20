@@ -2,6 +2,9 @@
 
 <?php $__env->startSection('content'); ?>
 <div class="container mt-5">
+  <?php echo $__env->make('flash', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>  
+</div>
+<div class="container mt-5">
   <div class="text-center">
     <h1>Bienvenue sur RESAC</h1>
     <div class="text-center">
@@ -17,5 +20,6 @@
   </div>
 </div>
 <?php $__env->stopSection(); ?>
+kouassi@gmail.com
 
 <?php echo $__env->make('page', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Tidev\Documents\dev3\resac\views\blade/index.blade.php ENDPATH**/ ?>

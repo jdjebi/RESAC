@@ -39,7 +39,7 @@ if(isset($_POST["change_info"])){
     $user->universite = $data["universite"];
     $user->save();
     Flash::add("Modifications enregisrées.","success");
-    Redirect::back();
+    Redirect::route('param');
   }else{
     $empty_field_message = "Veuillez remplir ce champs.";
     $email_format_error = "Format de l'adresse E-mail incorrecte.";

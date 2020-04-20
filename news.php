@@ -2,7 +2,10 @@
 
 require "src/init.php";
 
-$user = Users::auth();
+$user = null;
+
+if(Auth::check())
+  $user = Users::auth();
 
 $title2 = "Nouveautés";
 
