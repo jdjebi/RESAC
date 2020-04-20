@@ -1,4 +1,8 @@
 <style media="screen">
+body{
+  background-color: #f1f3f6
+}
+
 .section-about {
   padding-top: 40px;
   position: relative;

@@ -6,15 +6,17 @@ require "middleware/auth_back.php";
 
 $user = Users::auth();
 
-$content = "Lorem ipsum dolor sit amet.";
 
+// Publication de test
 if(isset($_POST['new_post_test'])){
+  $content = "Lorem ipsum dolor sit amet.";
   Post::create([
     "user" => $user->id,
     "content" => $content
   ]);
 }
 
+// Nouvelle publication
 if(isset($_POST['new_post'])){
   if(isset($_POST['content'])){
     if(!empty($_POST['content'])){
@@ -27,6 +29,24 @@ if(isset($_POST['new_post'])){
       Flash::add("Votre publication est vide.","warning");
     }
   }
+}
+
+// Supression d'une publication
+if(isset($_GET['delete']) && !empty($_GET['delete'])){
+
+  $post = Post::get($_GET['delete']);
+
+  if($post){
+    if($post->user_id == $user->id){
+      Flash::add("Publication supprimée.","success");
+      $post->delete();
+    }else{
+      Flash::add("Supression de la publication impossible.","danger");
+    }
+  }else{
+    Flash::add("Publication inexistante.","warning");
+  }
+  Redirect::route('actu');
 }
 
 $feed_posts = Post::all();

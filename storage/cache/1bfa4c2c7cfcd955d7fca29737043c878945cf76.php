@@ -44,11 +44,11 @@
 
   <div class="row">
 
-    <div class="col-md-3">
+    <div class="col-sm-1 col-md-3">
 
     </div>
 
-    <div class="col-md-6">
+    <div class="col-sm-10 col-md-6">
 
       <?php echo $__env->make('flash', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
@@ -96,7 +96,7 @@
                             <?php endif; ?>
 
                             <?php if($post->user_id == $user->id): ?>
-                            <a class="dropdown-item" href="#"><i class="fa fa-trash"></i> &nbsp; Supprimer la publication</a>
+                            <a class="dropdown-item" href="?origin=feed&delete=<?php echo e($post->id); ?>"><i class="fa fa-trash"></i> &nbsp; Supprimer la publication</a>
                             <?php endif; ?>
                           </div>
                         </div>
@@ -111,8 +111,7 @@
                         <span class="text-muted small">
                           <time class="timeago" datetime="<?php echo e($post->date); ?>" title="<?php echo e($post->date); ?>"></time>
                           &middot
-                          <?php echo e($post->scope); ?>
-
+                          <span title="La publication peut être vu par tout le monde."> <i class="fa fa-globe-africa"></i> <?php echo e($post->scope); ?></span>
                         </span>
 
                       </div>
@@ -136,7 +135,7 @@
 
     </div>
 
-    <div class="col-md-3">
+    <div class="col-sm-1 col-md-3">
 
     </div>
 

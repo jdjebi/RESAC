@@ -29,7 +29,8 @@ class Post extends Model {
   static public function get($id){
     /* Le retour de données multiple n'est pas géré */
     global $DB;
-    $sql = "SELECT * FROM $this->table WHERE id = $id";
+    $table = Post::$table;
+    $sql = "SELECT * FROM $table WHERE id = $id";
     $q = $DB->prepare($sql);
     $q->execute();
     $data = $q->fetch();
@@ -60,6 +61,14 @@ class Post extends Model {
     $sql = "INSERT INTO $table(user,content) VALUES(:user,:content)";
     $q = $DB->prepare($sql);
     $q->execute($data);
+  }
+
+  public function delete(){
+    global $DB;
+    $table = Post::$table;
+    $sql = "DELETE FROM $table WHERE id = $this->id";
+    $q = $DB->prepare($sql);
+    $q->execute();
   }
 
 }

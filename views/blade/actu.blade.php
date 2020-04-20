@@ -44,11 +44,11 @@
 
   <div class="row">
 
-    <div class="col-md-3">
+    <div class="col-sm-1 col-md-3">
 
     </div>
 
-    <div class="col-md-6">
+    <div class="col-sm-10 col-md-6">
 
       @include('flash')
 
@@ -96,7 +96,7 @@
                             @endif
 
                             @if($post->user_id == $user->id)
-                            <a class="dropdown-item" href="#"><i class="fa fa-trash"></i> &nbsp; Supprimer la publication</a>
+                            <a class="dropdown-item" href="?origin=feed&delete={{ $post->id }}"><i class="fa fa-trash"></i> &nbsp; Supprimer la publication</a>
                             @endif
                           </div>
                         </div>
@@ -110,7 +110,7 @@
                         <span class="text-muted small">
                           <time class="timeago" datetime="{{ $post->date }}" title="{{ $post->date }}"></time>
                           &middot
-                          {{ $post->scope }}
+                          <span title="La publication peut être vu par tout le monde."> <i class="fa fa-globe-africa"></i> {{ $post->scope }}</span>
                         </span>
 
                       </div>
@@ -134,7 +134,7 @@
 
     </div>
 
-    <div class="col-md-3">
+    <div class="col-sm-1 col-md-3">
 
     </div>
 
