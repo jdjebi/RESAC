@@ -110,7 +110,7 @@
                         </div>
 
                         <span class="text-muted small">
-                          <time class="timeago" datetime="<?php echo e($post->date); ?>" title="<?php echo e($post->date); ?>"></time>
+                          <time class="timeago" datetime="<?php echo e($post->date); ?>" title="<?php echo e($post->date); ?>"> <i class="far fa-clock"></i></time>
                           &middot
                           <span title="La publication peut être vu par tout le monde."> <i class="fa fa-globe-africa"></i> <?php echo e($post->scope); ?></span>
                         </span>

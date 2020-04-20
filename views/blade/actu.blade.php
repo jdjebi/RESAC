@@ -103,13 +103,13 @@
                         </div>
 
                         <div class="mt-0 pub-user-name">
-                          <a href="{{ route('profil') }}?id={{ $post->user_id  }}">
+                          <a href="{{ route('profil') }}?id={{ $post->user_id }}">
                             {{ $post->user->get_complete_name() }}
                           </a>
                         </div>
 
                         <span class="text-muted small">
-                          <time class="timeago" datetime="{{ $post->date }}" title="{{ $post->date }}"></time>
+                          <time class="timeago" datetime="{{ $post->date }}" title="{{ $post->date }}"> <i class="far fa-clock"></i></time>
                           &middot
                           <span title="La publication peut être vu par tout le monde."> <i class="fa fa-globe-africa"></i> {{ $post->scope }}</span>
                         </span>
