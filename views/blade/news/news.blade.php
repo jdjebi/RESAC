@@ -2,6 +2,7 @@
 
 @section('content')
 
-<?php  require "views/news/timeline.php"; ?>
+@include('news.style')
+@include('news.timeline')
 
 @endsection

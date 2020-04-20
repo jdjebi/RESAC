@@ -2,7 +2,8 @@
 
 <?php $__env->startSection('content'); ?>
 
-<?php  require "views/news/timeline.php"; ?>
+<?php echo $__env->make('news.style', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('news.timeline', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <?php $__env->stopSection(); ?>
 
