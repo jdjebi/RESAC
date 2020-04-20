@@ -1,6 +1,7 @@
 @extends('page')
 
 @section('extras_style')
+<link rel="stylesheet" href="asset/css/placeholder-loading.min.css">
 <style media="screen">
   body{
     background-color: #f1f3f6

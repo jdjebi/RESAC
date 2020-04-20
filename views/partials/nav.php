@@ -9,7 +9,7 @@
       <?php if(!Auth::check()): ?>
 
       <li class="nav-item">
-        <a class="nav-link" href="<?= route("home") ?>"><i class="fa fa-home"></i> Accueil</a>
+        <a class="nav-link" href="<?= route("home") ?>"><i class="fa fa-home"></i>Accueil</a>
       </li>
 
       <?php endif ?>
