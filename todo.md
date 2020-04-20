@@ -1,18 +1,15 @@
 # A FAIRE
-  - Ordonner les publications par ordres décroissant de date
-  - Utiliser timeago.js pour formatter les dates
-  - Intégrer une gestion des postes
-  - Améliorer les postes
-
-# Mineures
-
-- UX
-  - Connexion automatiquement dès l'insciption
 
 - Paramètres
   - Vérifier que l'email est unique lors de la mise à jour des infos (pre-unicité & unicité)
   - Numéro téléphone portable unique lors de la mise à jour des infos (pre-unicité & unicité)
   - Gérer l'intégrité des pays
+
+  - UX
+    - Connexion automatiquement dès l'insciption
+
+# Mineures
+
 
 # Pour la version v2.5
 - Publication de contenu
@@ -25,7 +22,9 @@
 - Sécurité
 
 # FAIT
-
+- Suppression des postes
+- Utiliser timeago.js pour formatter les dates
+- Ordonner les publications par ordres décroissant de date
 - Ajout des titres sur les pages
 - Ajouter au profil
   - Emploi Récent
