@@ -42,8 +42,10 @@
 
     <div class="col-md-6">
 
+      <?php echo $__env->make('flash', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
       <div class="post-box" id="post-box-v1">
-        <form class="" action="index.html" method="post">
+        <form action="" method="post">
           <div class="box border bg-white">
               <div class="header pl-4 pt-3 pb-3">
                 <div class="header-post-message">
@@ -51,10 +53,10 @@
                 </div>
               </div>
               <div class="body pl-4 pr-4 pb-3">
-                <textarea class="form-control" id="post-area" rows="3" placeholder="Exprimez vous..."></textarea>
+                <textarea class="form-control" id="post-area" rows="3" name="content" placeholder="Exprimez vous..."></textarea>
               </div>
               <div class="footer p-2 pr-4 border-top text-right">
-                <button class="btn btn-sm btn-primary" type="button" name="button">Publier</button>
+                <button class="btn btn-sm btn-primary" type="submit" name="new_post">Publier</button>
               </div>
           </div>
         </form>
@@ -64,25 +66,30 @@
 
       <div id="feed">
 
-        <div class="pub-box" id="">
-            <div class="box border bg-white">
-                <div class="header pl-4 pt-3 pb-3">
-                  <div class="media">
-                    <img class="pub-user-photo" src="asset/imgs/user_default_pic.png" alt="">
-                    <div class="ml-3 media-body">
-                      <div class="mt-0 pub-user-name">Dje Bi Jean-Marc</div>
-                      <span class="text-muted small">14 Janvier 2017 &middot Public</span>
+        <?php $__currentLoopData = $feed_posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+          <div class="pub-box" id="">
+              <div class="box border bg-white mb-3">
+                  <div class="header pl-4 pt-3 pb-3">
+                    <div class="media">
+                      <img class="pub-user-photo" src="<?= $post->user->get_photo() ?>" alt="Photo <?= $post->user->get_complete_name() ?>">
+                      <div class="ml-3 media-body">
+                        <div class="mt-0 pub-user-name"><?= $post->user->get_complete_name() ?></div>
+                        <span class="text-muted small"><?= $post->date ?> &middot <?= $post->scope ?></span>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="body pl-4 pr-4 pb-3">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </div>
-                <div class="footer p-2 pr-4 border-top text-right">
-                  <button disabled class="btn btn-sm btn-primary" type="button" name="button" title="Les publications marquées lu n'apparaitrons plus dans la fil.">Maquer comme lu</button>
-                </div>
-            </div>
-        </div>
+                  <div class="body pl-4 pr-4 pb-3">
+                    <?= $post->content ?>
+                  </div>
+                  <div class="footer p-2 pr-4 border-top text-right">
+                    <button disabled class="btn btn-sm btn-primary" type="button" name="button" title="Les publications marquées comme lu n'apparaitrons plus dans la fil.">Maquer comme lu</button>
+                  </div>
+              </div>
+          </div>
+
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
 
       </div>
 

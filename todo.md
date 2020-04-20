@@ -1,4 +1,8 @@
 # A FAIRE
+  - Ordonner les publications par ordres décroissant de date
+  - Utiliser timeago.js pour formatter les dates
+  - Intégrer une gestion des postes
+  - Améliorer les postes
 
 # Mineures
 
@@ -45,6 +49,7 @@
 - Gérer le cas des MULPILE ERRORS ON ONE FIELD
 - Lorsque tous les champs obligatoires ne sont pas remplit aucune validation n'est faite
 - Données intégrer au modèle d'un utilisateur
+- Dans les publications(dans le constructeur), si l'id d'un utilisateur n'exsite pas alors ce dernier ne sera pas instancié donc l'affiche sera de la publication au niveau du nom de l'auteur sera érroné voir rien ne va s'afficher ou il y'aura une erreur
 - Blading
   - Inscription
   - Explorer
@@ -53,6 +58,15 @@
   - Linkedin
   - Facebook
   - Instagram
+
+- Publication V1
+  - Id
+  - Auteur
+  - Visibilité
+  - Type
+  - Date
+  - Contenu
+
 
 
 jenssegers/blade pour le templating des pages

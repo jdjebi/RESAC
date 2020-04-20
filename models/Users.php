@@ -152,6 +152,10 @@ class Users{
     return "asset/imgs/user_default_pic.png";
   }
 
+  public function get_complete_name(){
+    return $this->nom.' '.$this->prenom;
+  }
+
 }
 
 ?>
