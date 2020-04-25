@@ -74,8 +74,6 @@ var vm = new Vue({
       });
     },
     onSuccess: function(data,status){
-      this.submit_btn = false;
-      console.log(data);
       if(data.is_error){
         this.is_error = true;
         this.error_message = data.errors.messages.global;

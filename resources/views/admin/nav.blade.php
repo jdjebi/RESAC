@@ -4,9 +4,11 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
+    @if(Auth::check())
     <form class="has-search form-inline my-2 my-lg-0">
       <input type="text" class="form-control form-control-sm" placeholder="Rechercher un utilisateur">
     </form>
+    @endif
     <ul class="navbar-nav mr-auto">
       @if(Auth::check())
       <li class="nav-item">

@@ -33,12 +33,17 @@
 @endsection
 
 @section('content')
-<div class="container mt-5">
+<div class="container pt-5">
   @include('flash')
 </div>
 
 <div class="container-fluid">
-
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Library</li>
+    </ol>
+  </nav>
 </div>
 
 <div id="v-table" class="container-fluid">
