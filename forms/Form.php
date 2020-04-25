@@ -16,13 +16,13 @@ class Form{
   protected $required = [];
   protected $emails = [];
   protected $equals = [];
-  protected $types = ['required2','emails','uniques'];
+  protected $selects = [];
+  protected $types = ['required2','emails','uniques','repeat','selects','phone'];
 
   public $errors = [];
 
   public function __construct($data = [], $default_data = []){
     $this->data = $data;
-    $this->error["messages"] = [];
     $this->set_default($default_data);
   }
 
@@ -59,9 +59,24 @@ class Form{
     }
   }
 
+  public function validate_select(){
+    // Validation des champs de type select
+    foreach ($this->selects as $items) {
+      $key = $items["key"];
+      $value = $this->clear_data[$key];
+      if(!empty($value)){
+        $array = $items["array"];
+        if(!in_array($value,$array)){
+          $this->errors['selects'][$key] = true;
+        }
+      }
+    }
+  }
+
   public function auto_validate(){
     $this->validate_emails();
     $this->validate_equals();
+    $this->validate_select();
   }
 
   public function set_default($data){
@@ -87,6 +102,8 @@ class Form{
   }
 
   public function is_validate(){
+
+      $this->already_validate = true;
 
     if($this->data){
       // Validation des champs requis
@@ -138,7 +155,7 @@ class Form{
   }
 
   public function get_error($type,$key){
-    if(isset($this->errors['messages'])){
+    if($this->is_err_messages()){
       $error_messages = $this->errors['messages'];
       if($this->isset($type,$key) && array_key_exists($key,$error_messages)){
         return $error_messages[$key];
@@ -159,5 +176,36 @@ class Form{
     $this->errors["messages"][$field] = $message;
   }
 
+  public function add_error2($tag,$message){
+    $elm = explode('.',$tag);
+    $this->errors[$elm[0]] = true;
+    $this->errors["messages"][$elm[0].'2'][$elm[1]] = $message;
+  }
+
+
+  /* New */
+  protected function is_err_messages(){
+    return isset($this->errors['messages']);
+  }
+
+  public function is_err($field){
+    return isset($this->errors[$field]);
+  }
+
+  public function state($field){
+    /* Retourne l'état d'un champ  */
+    if($this->already_validate){
+      return $this->is_err($field) ? $this->states['valid'] : $this->states['invalid'];
+    }else{
+      return "";
+    }
+  }
+
+  public function register_array($key,$array){
+    $this->selects[] = [
+      "key" => $key,
+      "array" => $array
+    ];
+  }
 }
 ?>

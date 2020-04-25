@@ -1,0 +1,11 @@
+<?php
+
+require __DIR__."/services/auth/auth.php";
+
+require __DIR__."/services/redirect/redirect.php";
+
+require __DIR__."/services/flash/flash.php";
+
+require __DIR__."/services/countries/core.php"
+
+?>

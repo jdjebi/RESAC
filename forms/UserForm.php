@@ -6,23 +6,24 @@ require_once __DIR__."/Form.php";
 
 class Info extends \Form{
 
+  protected $states = ["valid" => "is-invalid","invalid" => "is-valid"];
   protected $required = ['nom','prenom','email'];
   protected $emails = ['email'];
-  protected $integer = ['promo1','promo2'];
+  protected $integers = ['promo1','promo2'];
 
-  public function validate(){
-
+  public function clear_phone_number(){
+    // Validation des numéros
     // $phone_number_regex = "/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/";
-    $integer_regex = "/^\d+$/";
     $phone_number_regex = "/^[0-9\-\(\)\/\+\s]*$/";
     $numero = $this->data['numero'];
-
-    // Validation des numéros
     if(!preg_match($phone_number_regex,$numero)){
       $this->errors['phone']['numero'] = true;
     }
+  }
 
+  public function clear_integers(){
     // Validation des entiers
+    $integer_regex = "/^\d+$/";
     $promo1 = trim($this->data['promo1']);
     $promo2 = trim($this->data['promo2']);
     if(!empty($promo1) || !empty($promo2)){
@@ -38,7 +39,9 @@ class Info extends \Form{
           $this->errors['double_required']['promo'] = true;
       }
     }
+  }
 
+  public function clear_promos(){
     // Validation de l'intervalle des valeurs de l'année
     $min = 1945;
     $max = 2021;
@@ -54,9 +57,38 @@ class Info extends \Form{
         $this->errors['interval']['promo2.interval'] = true;
       }
     }
+  }
+
+  public function check_if_repeat($field,$val){
+    // Vérifie si une valeur se repète plusieurs dans le table des utilisateur
+    global $DB;
+    $sql = "SELECT id FROM users WHERE $field = ?";
+    $q = $DB->prepare($sql);
+    $q->execute([$val]);
+    $data = $q->fetchAll();
+    return count($data) > 0;
+  }
+
+  public function validate(){
+    $this->clear_phone_number();
+    $this->clear_integers();
+    $this->clear_promos();
+
+    $user = \Users::auth();
+    $email = $this->data['email'];
+    $numero = $this->data['numero'];
+
+    // Validation de l'unicité de l'adresse E-mail
+    if($user->email != $email && $this->check_if_repeat("email",$email)){
+        $this->errors['repeat']['email'] = true;
+    };
+
+    // Validation de l'unicité du numéro de téléphone
+    if($user->numero != $numero && $this->check_if_repeat("numero",$numero)){
+        $this->errors['repeat']['numero'] = true;
+    };
 
     $this->clear_data['email'] = $this->data['email'];
-
   }
 }
 

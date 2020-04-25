@@ -33,6 +33,10 @@ class Users{
   public $facebook;
   public $instagram;
 
+  // Role et droit
+  public $is_staff;
+  public $staff_role;
+
   public function __construct($data){
     global $DB;
     $this->db = $DB;
@@ -60,6 +64,9 @@ class Users{
     $this->emploi = $data["emploi"];
     $this->universite = $data["universite"];
 
+    // Role et droit
+    $this->is_staff = $data["is_staff"];
+    $this->staff_role = $data["staff_role"];
   }
 
   static function auth(){
@@ -124,7 +131,9 @@ class Users{
       promo2 = :promo2,
       password = :password,
       universite = :universite,
-      emploi = :emploi
+      emploi = :emploi,
+      is_staff = :is_staff,
+      staff_role = :staff_role
       WHERE id = :id
     ";
 
@@ -143,17 +152,75 @@ class Users{
       "promo2" => $this->promo2,
       "password" => $this->password,
       "universite" => $this->universite,
-      "emploi" => $this->emploi
+      "emploi" => $this->emploi,
+      "is_staff" => $this->is_staff,
+      "staff_role" => $this->staff_role
     ]);
 
   }
 
   public function get_photo(){
-    return "asset/imgs/user_default_pic.png";
+    return asset("asset/imgs/user_default_pic.png");
   }
 
   public function get_complete_name(){
     return $this->nom.' '.$this->prenom;
+  }
+
+  public function get_promo(){
+    return empty($this->promo1) || empty($this->promo2) ? "xxxx-xxxx" : $this->promo1.'-'.$this->promo2;
+  }
+
+  public function get_universite(){
+    return empty($this->universite) ? "LCA" : $this->universite;
+  }
+
+  public function get_emploi(){
+    return empty($this->emploi) ? "Etudiant" : $this->emploi;
+  }
+
+  public function get_pays(){
+    return empty($this->pays) ? \Country::get("CI") : \Country::get($user->pays);
+  }
+
+  public function get_staff_role(){
+    if($this->staff_role == "admin"){
+      return "Administrateur";
+    }else if($this->staff_role == "member"){
+      return "Membre";
+    }else{
+      return "Membre";
+    }
+  }
+
+
+  static function all_min(){
+    global $DB;
+    $sql = "SELECT * FROM users";
+    $q = $DB->prepare($sql);
+    $q->execute();
+    $data = $q->fetchAll();
+    $users = [];
+
+    foreach ($data as $user_data) {
+      $user = new Users($user_data);
+
+      $users[] = [
+        'id' => $user->id,
+        'nom' => $user->nom,
+        'prenom' => $user->prenom,
+        'promo' => $user->get_promo(),
+        'universite' => $user->get_universite(),
+        'emploi' => $user->get_emploi(),
+        'pays' => \Country::get($user->pays),
+        'role' => $user->get_staff_role(),
+        'photo' => $user->get_photo(),
+        'profil_url' => route('profil')."?id=".$user->id,
+        'admin_profil_url' => route('admin_user_profil',['user_id' => $user->id])
+      ];
+    }
+
+    return $users;
   }
 
 }
