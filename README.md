@@ -8,7 +8,7 @@ Consulter le fichier **todo.md** pour suivre l'évolution du développement.
 
 ## Capture
 
-![Capture de la page d'accueil](asset/doc/screenshot_v2.png)
+![Capture de la page d'accueil](public/asset/doc/screenshot_v2.png)
 
 ## Fonctionnalités
 
