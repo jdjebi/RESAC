@@ -1,29 +1,68 @@
 @extends('admin.page')
 
+@section('extras_style')
+<style media="screen">
+body{
+  background-color: #f1f3f6
+}
+.search-user-photo{
+  width: 100px;
+  height: 100px;
+}
+</style>
+@endsection
 
 @section('content')
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nom</th>
-        <th>Prénom</th>
-      </tr>
-    </thead>
-    <tbody>
+@include('flash')
+
+<div class="container">
+
+  @if(!empty($search_query))
+    <div class=" mt-4 h5 mb-5">
+      Recherche pour {{ $search_query }} - Résultats {{ count($results) }}
+    </div>
 
     @foreach ($results as $u)
 
-        <tr>
-          <td>{{ $u[0] }}</td>
-          <td>{{ $u[1] }}</td>
-          <td>{{ $u[2] }}</td>
-        </tr>
+      <div class="mt-4 media">
+        <img src="{{ $u->get_photo() }}" class="search-user-photo mr-3" alt="...">
+        <div class="media-body">
+          <h5 class="mt-0"><a href="{{ route('admin_user_profil',[ $u->id]) }}">{{ $u->get_complete_name() }}</a></h5>
+          <div class="text-muted small">{{ $u->get_promo() }}</div>
+          <div class="text-muted">{{ $u->get_pays() }} | {{ $u->get_emploi() }} &middot {{ $u->get_universite() }}</div>
+        </div>
+      </div>
+
+      <hr>
 
     @endforeach
 
-  </tbody>
-</table>
+    @if(count($results) == 0)
+      <div class="h6 mt-4">
+        Aucun utilisateur trouvé
+      </div>
+    @endif
+
+  @else
+
+  <div class="text-center mt-5">
+    <div class="h3">
+      <i class="fa fa-search"></i>
+    </div>
+    <div class="h3">
+      Rechercher un utilisateur
+    </div>
+  </div>
+
+  @endif
+
+
+
+
+</div>
+
+
+
 
 @endsection

@@ -186,7 +186,7 @@ class Users{
   }
 
   public function get_pays(){
-    return empty($this->pays) ? \Country::get("CI") : \Country::get($user->pays);
+    return empty($this->pays) ? \Country::get("CI") : \Country::get($this->pays);
   }
 
   public function get_staff_role(){

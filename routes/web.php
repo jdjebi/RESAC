@@ -29,49 +29,49 @@ Route::get('/deconnexion','AuthController@logout')->name('logout');
 /* Administration */
 
 Route::get('/v1/admin/connexion','AdminController@login')->name('admin');
+Route::get('/v1/admin/deconnexion','AdminController@logout')->name('admin_logout');
 
 Route::get('/v1/admin','AdminController@index')->name('admin_index');
 
 Route::get('/v1/admin/manage/users','AdminController@user_manager')->name('admin_user_manager');
 
-
 Route::match(['get', 'post'],'/v1/admin/manage/user/{user_id}','AdminController@user_profil')->where('user_id', '[0-9]+')->name('admin_user_profil');
 
 Route::get('/v1/admin/manage/user/action/','AdminController@delete_user')->name('admin_delete_user');
 
+Route::get('/v1/admin/rechercher',function(){
 
-Route::get('/v1/admin/deconnexion','AdminController@logout')->name('admin_logout');
+  $search_query = "";
+  $results = [];
+
+  if(isset($_GET['q']) and !empty($_GET['q'])){
+    $search_query = $_GET['q'];
+    $search_results = Search::user_engine($search_query);
+    foreach ($search_results as $data) {
+      $results[] = new Users($data);
+    }
+  }else{
+    Flash::add("Veuillez renseigner le nom de l'utilisateur à rechercher.",'warning');
+  }
+
+  $user = \Users::auth();
+
+  $title = "Rechercher: ".$search_query;
+
+  return view("admin.search",[
+    "search_query" => $search_query,
+    "title" => $title,
+    "user" => $user,
+    "results" => $results
+  ]);
+
+})->name('admin_search');
+
 
 Route::post('/v1/api/admin/login','AdminController@api_login')->name('admin_api_login');
 
 Route::get('/v1/api/get/v1/users','AdminController@api_get_user_list')->name('api_get_user_list');
 
-/* Extra */
-Route::get('v1/admin/rechercher',function(){
-
-
-  if(isset($_GET['q']) and !empty($_GET['q'])){
-
-    global $DB;
-
-    extract($_GET);
-
-
-    $q = $DB->prepare("SELECT id, nom, prenom FROM users WHERE nom LIKE '%$q%' || prenom LIKE '%$q%' ");
-
-
-    $q->execute();
-    $results = $q->fetchAll();
-  }
-
-  $user = \Users::auth();
-
-  return view("admin.search",[
-    "user" => $user,
-    "results" => $results
-  ]);
-
-});
 
 
 /* simple API */

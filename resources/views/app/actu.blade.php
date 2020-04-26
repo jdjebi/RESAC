@@ -106,7 +106,8 @@
                         <div class="mt-0 pub-user-name">
                           <a href="{{ route('profil') }}?id={{ $post->user_id }}">
                             {{ $post->user->get_complete_name() }}
-                          </a>
+                          </a> &nbsp;
+                          <span title="Publication non validée" class="text-danger"><i class="fa fa-check-circle"></i></span>
                         </div>
 
                         <span class="text-muted small">
