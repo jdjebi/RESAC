@@ -5,16 +5,14 @@
   - Suppression ajax des utilisateurs
   - Un admin lui ne pas se rendre membre ni se supprimer
 
-- Intégrer une étape de mise à jour de compte après la réussite de la connexion(app/admin)
 
----
 
 - Base de l'administration
   - Gestion des nouveautés
   - Gestion des droits
 
 ----
-
+- Recherche des utilisateurs
 - Guide lors de l'inscription
 - Explorer pour rechercher des profils
 
@@ -23,6 +21,7 @@
 
 
 # Extras
+- Intégrer une étape de mise à jour de compte après la réussite de la connexion(app/admin)
 - Breadcumb dans l'administration
 - Controller la sécurité des API
 - Design de la page lorsque la base de donnée est inaccéssible non fait
