@@ -117,6 +117,12 @@ class Users{
       return true;
   }
 
+  public function delete(){
+    $sql = "DELETE FROM users WHERE id = $this->id";
+    $q = $this->db->prepare($sql);
+    $q->execute();
+  }
+
   public function save(){
     $sql = "
       UPDATE users SET

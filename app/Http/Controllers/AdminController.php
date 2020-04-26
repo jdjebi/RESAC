@@ -113,6 +113,27 @@ class AdminController extends Controller
 
     }
 
+    public function delete_user(){
+
+      // Middleware
+
+      if(isset($_GET['delete'])){
+        $id = $_GET['delete'];
+        $user = \Users::get($id);
+        if($user){
+          $user->delete();
+          \Flash::add('Utilisateur supprimé.','success');
+        }else{
+          \Flash::add('Utilisateur introuvable.','danger');
+        }
+      }else{
+        \Flash::add("Désolé une erreur c'est produite.",'danger');
+      }
+
+      return redirect()->back();
+
+    }
+
     public function api_login(){
 
       // guest middleware

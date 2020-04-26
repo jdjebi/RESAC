@@ -33,20 +33,9 @@
 @endsection
 
 @section('content')
-<div class="container pt-5">
-  @include('flash')
-</div>
+@include('flash')
 
-<div class="container-fluid">
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Home</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Library</li>
-    </ol>
-  </nav>
-</div>
-
-<div id="v-table" class="container-fluid">
+<div id="v-table" class="mt-3 container-fluid">
   <div class="h4 mb-4">
     Gestion des utilisateurs
   </div>
@@ -82,7 +71,7 @@
           <td class="text-center">
             <a v-bind:href="user.admin_profil_url" class="text-info" title="Profil dans l'administration."><i class="fa fa-user-cog"></i></a>
             <a v-bind:href="user.profil_url" class="text-muted" target="_blank" title="Profil sur RESAC."><i class="fa fa-user"></i></a>
-            <a v-on:click="delete_user" class="text-danger" href="#delete" title="Supprimer l'utilisateur"><i class="fa fa-trash"></i></a>
+            <a v-on:click="delete_user" v-bind:data-user-id="user.id" class="text-danger" href="#delete" title="Supprimer l'utilisateur"><i class="fa fa-trash"></i></a>
           </td>
         </tr>
       </tbody>
@@ -127,13 +116,10 @@ var vm = new Vue({
   },
 
   methods: {
-
     delete_user: function(e){
-
-      show_delete_alert();
-
+      var id = $(e.target).parent().data('user-id');
+      delete_user_dialog(id);
     }
-
   }
 
 });
@@ -160,29 +146,23 @@ function get_user_list(){
   });
 }
 
-function show_delete_alert(){
+function delete_user_dialog(id){
   Swal.fire({
-  title: 'Confirmation',
-  text: "Voulez vous vraiment supprimer cet utilisateur ?",
-  icon: 'warning',
-  showCancelButton: true,
-  confirmButtonColor: '#3085d6',
-  cancelButtonColor: '#d33',
-  confirmButtonText: 'Oui',
-  cancelButtonText: 'Annuler',
-}).then((result) => {
-  if (result.value) {
-
-    Swal.fire(
-      'Deleted!',
-      'Your file has been deleted.',
-      'success'
-    )
-
-  }
-})
+    title:'Confirmation',
+    icon: 'warning',
+    text:'Voulez vous vraiment supprimer cet utilisateur',
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Oui",
+    cancelButtonText: "Annuler"
+  }).then( (result) => {
+    if(result.value){
+      window.location = "{{ route('admin_delete_user',[],false) }}"+"?delete="+id;
+    }
+  });
 }
-/* END table */
+
 
 </script>
 @endsection

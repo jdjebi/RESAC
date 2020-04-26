@@ -60,6 +60,9 @@
               <span class="cont"><?= $user_visited->numero ?></span>
             </li>
           </ul>
+          <div class="text-right mt-4">
+            <a class="btn btn-danger" href="{{ route('admin_delete_user',[],false) }}?delete={{ $user_visited->id }}">Supprimer</a>
+          </div>
         </div>
       </div>
     </div>

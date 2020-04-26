@@ -32,9 +32,12 @@ Route::get('/v1/admin/connexion','AdminController@login')->name('admin');
 
 Route::get('/v1/admin','AdminController@index')->name('admin_index');
 
-Route::get('/v1/admin/manage/user','AdminController@user_manager')->name('admin_user_manager');
+Route::get('/v1/admin/manage/users','AdminController@user_manager')->name('admin_user_manager');
 
-Route::match(['get', 'post'],'/v1/admin/manage/user/{user_id}','AdminController@user_profil')->name('admin_user_profil');
+
+Route::match(['get', 'post'],'/v1/admin/manage/user/{user_id}','AdminController@user_profil')->where('user_id', '[0-9]+')->name('admin_user_profil');
+
+Route::get('/v1/admin/manage/user/action/','AdminController@delete_user')->name('admin_delete_user');
 
 
 Route::get('/v1/admin/deconnexion','AdminController@logout')->name('admin_logout');
