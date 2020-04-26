@@ -31,6 +31,7 @@ body{
           <h5 class="mt-0"><a href="{{ route('admin_user_profil',[ $u->id]) }}">{{ $u->get_complete_name() }}</a></h5>
           <div class="text-muted small">{{ $u->get_promo() }}</div>
           <div class="text-muted">{{ $u->get_pays() }} | {{ $u->get_emploi() }} &middot {{ $u->get_universite() }}</div>
+          <div class="text-muted"><b>{{ $u->get_staff_role() }}</b></div>
         </div>
       </div>
 
