@@ -134,7 +134,7 @@ class AdminController extends Controller
         $redirect = $_GET['redirect'];
         return redirect($redirect);
       }
-      
+
       return redirect()->back();
     }
 

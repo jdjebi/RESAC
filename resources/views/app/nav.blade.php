@@ -6,7 +6,7 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mr-auto">
 
-      @if(!Auth::check())
+      @if(!Auth::is_admin_logged())
 
       <li class="nav-item">
         <a class="nav-link" href="{{ route("home") }}"><i class="fa fa-home"></i> Accueil</a>
@@ -19,7 +19,7 @@
         <a class="nav-link" href="{{ route("explorer") }}"> <i class="fa fa-search"></i> Explorer</a>
       </li>
 
-      @if(Auth::check())
+      @if(Auth::is_admin_logged())
 
       <li class="nav-item">
         <a class="nav-link" href="{{ route("actu") }}"><b><i class="far fa-newspaper"></i> Actualités</b></a>
@@ -33,7 +33,7 @@
 
     </ul>
 
-    @if(!Auth::check())
+    @if(!Auth::is_admin_logged())
 
     <ul  class="navbar-nav">
 
@@ -48,7 +48,7 @@
 
     @endif
 
-    @if(Auth::check())
+    @if(Auth::is_admin_logged())
 
     <ul  class="navbar-nav">
 
