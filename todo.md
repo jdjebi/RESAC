@@ -4,6 +4,7 @@
   - Recherche d'utilisateur
   - Suppression ajax des utilisateurs
   - Un admin lui ne pas se rendre membre ni se supprimer
+  - Ajout des middlewares
 
 
 
