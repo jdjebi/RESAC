@@ -130,8 +130,12 @@ class AdminController extends Controller
         \Flash::add("Désolé une erreur c'est produite.",'danger');
       }
 
+      if(isset($_GET['redirect'])){
+        $redirect = $_GET['redirect'];
+        return redirect($redirect);
+      }
+      
       return redirect()->back();
-
     }
 
     public function api_login(){
