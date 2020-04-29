@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
+
 class Users{
 
   private $db;
@@ -230,5 +232,145 @@ class Users{
   }
 
 }
+
+class Users2{
+
+  private $db;
+
+  public $id;
+  public $nom;
+  public $prenom;
+  public $email;
+  public $date_inscription;
+  public $active;
+  public $password;
+
+  /* v2 - resac-v2 */
+  public $promo1;
+  public $promo2;
+
+  // Numéros
+  public $numero;
+
+  // Lieu d'habitation
+  public $pays;
+  public $ville;
+  public $commune;
+
+  // Université et Emploi
+  public $emploi;
+  public $universite;
+
+  // Liens
+  public $linkedin;
+  public $facebook;
+  public $instagram;
+
+  // Role et droit
+  public $is_staff;
+  public $staff_role;
+
+  public function __construct($data){
+    global $DB;
+    $this->db = $DB;
+
+    $this->id = $data->id;
+    $this->password = $data->password;
+    $this->active = $data->active;
+    $this->date_inscription = $data->date_inscription;
+
+    // Général
+    $this->nom = $data->nom;
+    $this->prenom = $data->prenom;
+    $this->email = $data->email;
+    $this->numero = $data->numero;
+
+    // Lieu d'habitation
+    $this->pays = $data->pays;
+    $this->ville = $data->ville;
+    $this->commune = $data->commune;
+
+    // Parcours
+    $this->promo1 = $data->promo1;
+    $this->promo2 = $data->promo2;
+
+    $this->emploi = $data->emploi;
+    $this->universite = $data->universite;
+
+    // Role et droit
+    $this->is_staff = $data->is_staff;
+    $this->staff_role = $data->staff_role;
+  }
+
+
+  static public function get($id){
+    $user_data = DB::table('users')->where('id', $id)->first();
+
+    if($user_data)
+      return new Users2($user_data);
+    else
+      return null;
+  }
+
+  static function all(){
+    return DB::table('users')->get();
+  }
+
+  static function pack($user){
+
+    $user = [
+      'id' => $user->id,
+      'nom' => $user->nom,
+      'prenom' => $user->prenom,
+      'promo' => $user->get_promo(),
+      'universite' => $user->get_universite(),
+      'emploi' => $user->get_emploi(),
+      'pays' => \Country::get($user->pays),
+      'role' => $user->get_staff_role(),
+      'photo' => $user->get_photo(),
+      'profil_url' => route('profil')."?id=".$user->id,
+      'admin_profil_url' => route('admin_user_profil',['user_id' => $user->id])
+    ];
+
+    return $user;
+  }
+
+
+  public function get_photo(){
+    return asset("asset/imgs/user_default_pic.png");
+  }
+
+  public function get_complete_name(){
+    return $this->nom.' '.$this->prenom;
+  }
+
+  public function get_promo(){
+    return empty($this->promo1) || empty($this->promo2) ? "xxxx-xxxx" : $this->promo1.'-'.$this->promo2;
+  }
+
+  public function get_universite(){
+    return empty($this->universite) ? "LCA" : $this->universite;
+  }
+
+  public function get_emploi(){
+    return empty($this->emploi) ? "Etudiant" : $this->emploi;
+  }
+
+  public function get_pays(){
+    return empty($this->pays) ? \Country::get("CI") : \Country::get($this->pays);
+  }
+
+  public function get_staff_role(){
+    if($this->staff_role == "admin"){
+      return "Administrateur";
+    }else if($this->staff_role == "member"){
+      return "Membre";
+    }else{
+      return "Membre";
+    }
+  }
+
+}
+
 
 ?>

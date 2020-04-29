@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
+
 class Post extends Model {
 
   static public $table = "pub_v1";
@@ -24,6 +26,22 @@ class Post extends Model {
     $this->date = $data["date"];
     $this->content = $data["content"];
     $this->version = $data["version"];
+  }
+
+  static public function create($data){
+    global $DB;
+    $table = Post::$table;
+    $sql = "INSERT INTO $table(user,content) VALUES(:user,:content)";
+    $q = $DB->prepare($sql);
+    $q->execute($data);
+  }
+
+  public function delete(){
+    global $DB;
+    $table = Post::$table;
+    $sql = "DELETE FROM $table WHERE id = $this->id";
+    $q = $DB->prepare($sql);
+    $q->execute();
   }
 
   static public function get($id){
@@ -55,20 +73,38 @@ class Post extends Model {
     return $posts;
   }
 
-  static public function create($data){
-    global $DB;
-    $table = Post::$table;
-    $sql = "INSERT INTO $table(user,content) VALUES(:user,:content)";
-    $q = $DB->prepare($sql);
-    $q->execute($data);
+  static function all2(){
+
+    $posts = DB::table('pub_v1')->get();
+
+    dump($posts);
+
+    $new_posts = \Post::pack_all($posts);
+
+    dump($new_posts);
+
   }
 
-  public function delete(){
-    global $DB;
-    $table = Post::$table;
-    $sql = "DELETE FROM $table WHERE id = $this->id";
-    $q = $DB->prepare($sql);
-    $q->execute();
+  static function pack_all($posts){
+    $tmp_posts = [];
+    foreach ($posts as $post)
+      $tmp_posts[] = Post::pack($post);
+    return $tmp_posts;
+  }
+
+  static function pack($post){
+
+    $user = \Users::get($post->user);
+
+    $tmp_post = [
+      "id" => $post->id,
+      "user" => \Users2::pack($user),
+      "content" => $post->content,
+      "date" =>  $post->date,
+      "validate" => false
+    ];
+
+    return $tmp_post;
   }
 
 }

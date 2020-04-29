@@ -27,6 +27,7 @@
     @yield('content')
     <script src="{{ asset('asset/js/jquery-3.4.1.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('asset/js/bootstrap.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset("asset/js/extras/sweetalert2.all.min.js") }}" type="text/javascript"></script>
     @yield('scripts')
   </body>
 </html>

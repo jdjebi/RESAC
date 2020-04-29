@@ -30,14 +30,28 @@ Route::get('/deconnexion','AuthController@logout')->name('logout');
 
 Route::get('/v1/admin/connexion','AdminController@login')->name('admin');
 Route::get('/v1/admin/deconnexion','AdminController@logout')->name('admin_logout');
-
 Route::get('/v1/admin','AdminController@index')->name('admin_index');
-
 Route::get('/v1/admin/manage/users','AdminController@user_manager')->name('admin_user_manager');
-
 Route::match(['get', 'post'],'/v1/admin/manage/user/{user_id}','AdminController@user_profil')->where('user_id', '[0-9]+')->name('admin_user_profil');
-
 Route::get('/v1/admin/manage/user/action/','AdminController@delete_user')->name('admin_delete_user');
+
+Route::namespace('admin')->group(function () {
+  Route::name('admin.')->group(function () {
+
+    Route::prefix('/v1/admin/manager/')->group(function () {
+      Route::get('pubs','PubsController@dashboard')->name('pubs_dashboard');
+    });
+
+    Route::name('api.')->group(function () {
+      Route::prefix('/v1/api/admin/')->group(function () {
+
+        Route::get('pubs/all','PubsController@api_get_all')->name('pubs_all');
+
+      });
+    });
+
+  });
+});
 
 Route::get('/v1/admin/rechercher',function(){
 

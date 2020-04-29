@@ -14,6 +14,9 @@
       <li class="nav-item">
         <a class="nav-link" href="{{ route('admin_user_manager') }}">Gestion des utilisateurs</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.pubs_dashboard') }}">Espace publications</a>
+      </li>
       @endif
     </ul>
 
@@ -21,11 +24,11 @@
 
     <ul  class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" target="_blank" href="{{ route("profil") }}"><i class="fa fa-user-circle"></i> {{ $user->prenom }}</a>
+        <a class="nav-link" href="{{ route("profil") }}"><i class="fa fa-user-circle"></i> {{ $user->prenom }}</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" target="_blank" href="{{ route("edit") }}"><i class="fa fa-user-cog"></i> Paramètres</a>
+        <a class="nav-link" href="{{ route("edit") }}"><i class="fa fa-user-cog"></i> Paramètres</a>
       </li>
 
       <li class="nav-item">

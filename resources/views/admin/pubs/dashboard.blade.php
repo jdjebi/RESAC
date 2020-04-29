@@ -1,35 +1,7 @@
 @extends('admin.page')
 
 @section('extras_style')
-<link rel="stylesheet" href="{{ asset("asset/css/placeholder-loading.min.css") }}">
-<style media="screen">
-.ph-item>* {
-  flex: 1 1 auto;
-  display: flex;
-  flex-flow: column;
-  padding-right: 0px;
-  padding-left: 0px;
-}
-
-.ph-item {
-    direction: ltr;
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0px;
-    overflow: hidden;
-    margin-bottom: 30px;
-    background-color: #fff;
-    border: 1px solid transparent;
-    border-radius: 2px;
-}
-.user-photo {
-    width: 30px;
-    height: 30px;
-    background: #eee;
-    border-radius: 50%;
-}
-</style>
+  @include('admin.base_style')
 @endsection
 
 @section('content')
@@ -38,7 +10,7 @@
 <div id="v-table" class="mt-3 container-fluid">
   <div class="row">
     <div class="col-sm-12">
-      <div class="h4 mb-4">Gestion des utilisateurs</div>
+      <div class="h4 mb-4">Dernières publications</div>
     </div>
     <div class="col-sm-12">
       <div class="">
@@ -47,34 +19,24 @@
             <tr>
               <th scope="col">#</th>
               <th scope="col">Photo</th>
-              <th scope="col">Nom & Prénom</th>
-              <th scope="col">Promotion</th>
-              <th scope="col">Ecole/universite</th>
-              <th scope="col">Emploi</th>
-              <th scope="col">Pays</th>
-              <th scope="col">Rôle</th>
-              <th scope="col" class="text-center">Actions</th>
+              <th scope="col">Auteur</th>
+              <th scope="col">Contenu</th>
+              <th scope="col">Date de publication</th>
+              <th scope="col">Etat</th>
             </tr>
           </thead>
           <tbody id="v-table-row" class="d-none">
-            <tr v-for="(user,index) in users" v-bind:id="user.id">
+            <tr v-for="(pub,index) in pubs" v-bind:id="pub.id">
               <td>@{{ index + 1 }}</td>
-              <th scope="row">
-                <a v-bind:href="user.admin_profil_url">
-                  <img class="user-photo" v-bind:src="user.photo">
+              <td scope="row">
+                <a>
+                  <img class="user-photo">
                 </a>
-              </th>
-              <td><a v-bind:href="user.admin_profil_url">@{{ user.nom }} @{{ user.prenom }}</a></td>
-              <td>@{{ user.promo }}</td>
-              <td>@{{ user.universite }}</td>
-              <td>@{{ user.emploi }}</td>
-              <td>@{{ user.pays }}</td>
-              <td>@{{ user.role }}</td>
-              <td class="text-center">
-                <a v-bind:href="user.admin_profil_url" class="text-info" title="Profil dans l'administration."><i class="fa fa-user-cog"></i></a>
-                <a v-bind:href="user.profil_url" class="text-muted" target="_blank" title="Profil sur RESAC."><i class="fa fa-user"></i></a>
-                <a v-on:click="delete_user" v-bind:data-user-id="user.id" class="text-danger" href="#delete" title="Supprimer l'utilisateur"><i class="fa fa-trash"></i></a>
               </td>
+              <td><a></a></td>
+              <td></td>
+              <td></td>
+              <td></td>
             </tr>
           </tbody>
         </table>
@@ -97,17 +59,60 @@
     </div>
   </div>
 </div>
+
 @endsection
 
 @section('scripts')
 <script src="{{ asset("asset/js/vue.js") }}" type="text/javascript"></script>
-<script src="{{ asset("asset/js/extras/sweetalert2.all.min.js") }}" type="text/javascript"></script>
-
 <script type="text/javascript">
 
-var api_get_user_list = "{{ route("api_get_user_list") }}";
+var api_get_pubs = "{{ route("admin.api.pubs_all") }}";
+
+var vm = new Vue({
+  el: '#v-table',
+
+  data:{
+      pubs: []
+  },
+
+  beforeCreate: function(){
+    get_pubs();
+  }
+
+});
+
+
+function get_pubs(){
+  var users = [];
+  $.get({
+    url: api_get_pubs,
+    dataType: 'json',
+    success: function(data,status){
+      vm.pubs = data;
+      show_table();
+      console.log(data);
+    },
+    error: function(data,status,error){
+      Swal.fire("Oops !","Une erreur c'est produite. Veuillez contacter un administrateur du site.","error");
+      console.log(error);
+    }
+  });
+}
+
+function show_table(){
+  $("#v-table-row").removeClass('d-none');
+  $("#v-table-loader").hide();
+}
+
+
+
+
+
+
 
 /* table */
+
+/*
 var vm = new Vue({
   el: '#v-table',
 
@@ -129,10 +134,7 @@ var vm = new Vue({
 });
 
 
-function show_table(){
-  $("#v-table-row").removeClass('d-none');
-  $("#v-table-loader").hide();
-}
+
 
 function get_user_list(){
   var users = [];
@@ -166,6 +168,7 @@ function delete_user_dialog(id){
     }
   });
 }
+*/
 
 
 </script>

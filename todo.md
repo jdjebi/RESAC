@@ -1,5 +1,9 @@
 # A FAIRE
 
+- Utiliser un nom utilisateur pour identifier un utilisateur
+- Intégrer la recherche à l'application principale
+- Conservation de session
+
 - Gestion des utilisateurs
   - Recherche d'utilisateur
   - Suppression ajax des utilisateurs
@@ -22,6 +26,8 @@
 
 
 # Extras
+- La publication appartient à un utilisateur
+  - Supprimer un utilisateur revient à supprimer toutes ses publications
 - Intégrer une étape de mise à jour de compte après la réussite de la connexion(app/admin)
 - Breadcumb dans l'administration
 - Controller la sécurité des API

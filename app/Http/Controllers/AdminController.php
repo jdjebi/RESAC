@@ -189,8 +189,4 @@ class AdminController extends Controller
 
 }
 
-class UserAdminSettingsForm extends \Form{
-  public $required = ['role'];
-}
-
 ?>
