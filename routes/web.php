@@ -40,6 +40,7 @@ Route::namespace('admin')->group(function () {
 
     Route::prefix('/v1/admin/manager/')->group(function () {
       Route::get('pubs','PubsController@dashboard')->name('pubs_dashboard');
+      Route::get('pubs/{id}','PubsController@pub')->where('id', '[0-9]+')->name('manage_pub');
     });
 
     Route::name('api.')->group(function () {

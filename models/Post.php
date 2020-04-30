@@ -74,15 +74,8 @@ class Post extends Model {
   }
 
   static function all2(){
-
     $posts = DB::table('pub_v1')->get();
-
-    dump($posts);
-
-    $new_posts = \Post::pack_all($posts);
-
-    dump($new_posts);
-
+    return \Post::pack_all($posts);
   }
 
   static function pack_all($posts){

@@ -1,5 +1,7 @@
 # A FAIRE
 
+- Changer l'encodage des textes dans la base de données en ligne
+
 - Utiliser un nom utilisateur pour identifier un utilisateur
 - Intégrer la recherche à l'application principale
 - Conservation de session
@@ -26,6 +28,7 @@
 
 
 # Extras
+- Admin ne doit pas pouvoir supprimer une publications venant de utilisateur
 - La publication appartient à un utilisateur
   - Supprimer un utilisateur revient à supprimer toutes ses publications
 - Intégrer une étape de mise à jour de compte après la réussite de la connexion(app/admin)

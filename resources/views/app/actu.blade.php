@@ -2,39 +2,10 @@
 
 @section('extras_style')
 <link rel="stylesheet" href="asset/css/placeholder-loading.min.css">
+<link rel="stylesheet" href="{{ asset("asset/css/resac/pubs.css") }}">
 <style media="screen">
   body{
     background-color: #f1f3f6
-  }
-
-  .post-box .box{
-    border-radius: 0.25em;
-    position: relative;
-    box-sizing: content-box;
-    overflow: hidden;
-  }
-
-  .post-box .header-post-message{
-    font-weight: 500
-  }
-
-  .pub-box .box{
-    border-radius: 0.25em;
-  }
-
-  .pub-box .pub-user-photo{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%
-  }
-
-  .pub-box .pub-user-name{
-    font-size: 14px;
-    font-weight: 500
-  }
-
-  .pub-box .dropdown-toggle::after {
-      display: none;
   }
 </style>
 @endsection

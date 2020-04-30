@@ -18,18 +18,36 @@ class PubsController extends Controller
       return view("admin.pubs.dashboard",[
         "user" => $user
       ]);
-
-
     }
 
-    public function api_get_all(){
+
+    public function pub($id){
 
       // Middleware
 
-      $pubs = \Post::all();
+      // 404 publication introuvable
 
-      \Post::all2();
+      $user = \Users::auth();
 
+      $post = \Post::get($id);
+
+      if(!$post){
+        return view("admin.pubs.404",[
+          "user" => $user,
+        ]);
+      }
+
+      return view('admin.pubs.pub',[
+        "user" => $user,
+        "post" => $post
+      ]);
+
+    }
+
+
+    public function api_get_all(){
+      // Middleware
+      $pubs =  \Post::all2();
       return json_encode($pubs);
     }
 

@@ -70,7 +70,7 @@ class AdminController extends Controller
         ]);
       }else{
 
-        $form = new UserAdminSettingsForm($_POST);
+        $form = new \UserAdminSettingsForm($_POST);
 
         $form->set_default([
           "role" => $user_visited->staff_role
