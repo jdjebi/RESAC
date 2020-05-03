@@ -64,7 +64,7 @@
               </tr>
             </tbody>
           </table>
-          <div id="v-table-loader" class="ph-item">
+          <div id="v-table-loader" class="ph-item bg-light">
             <div class="ph-col-12">
               <div class="ph-row">
                 <div class="ph-col-12 big"></div>

@@ -17,7 +17,7 @@
   <div class="mt-3 container-fluid">
     <div class="row justify-content-center">
       <div class="col-sm-12">
-        <div class="h4 mb-4">Publication #{{ $post->id }}</div>
+        <div class="h4 mb-4">Publication #{{ $post->id }} | version {{ $post->version }}</div>
       </div>
     </div>
   </div>

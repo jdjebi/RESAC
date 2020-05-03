@@ -28,6 +28,7 @@
 
 
 # Extras
+- Création d'une table pour la gestion de la valisation des publications
 - Admin ne doit pas pouvoir supprimer une publications venant de utilisateur
 - La publication appartient à un utilisateur
   - Supprimer un utilisateur revient à supprimer toutes ses publications

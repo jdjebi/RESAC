@@ -1,10 +1,18 @@
 ## Mise à jour de la version 3
+
 - Ajout des champs is_staff, staff_role à la table des utilisateurs
+
 - Les fonctionnalités du Framework de base ont été intégré à Laravel comme extension
+
 - auth, redirect, flash deviennent des services
+
 - Mise de la classe Auth
   - Ajout des méthodes is_admin et role
 
+- Modification de la table pub_v1
+  - Ajout du champ validate
+  - Ajout du champ validate_by
+  - Ajout du champ validate_at
 
 ## Mises à jour de la version 2
 
