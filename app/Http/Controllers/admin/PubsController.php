@@ -47,17 +47,28 @@ class PubsController extends Controller
     public function validate_pub($id){
 
       // Middleware
-
       $post = \Post::get2($id);
+      $param_error = "Paramètres de l'opération incorrecte.";
 
-      if(!$post)
-        return redirect()->route("admin.manage_pub",$id);
-
-      $user = \Users::auth();
-
-      return "Validate";
+      if($post){
+        if (!isset($_GET['action'])) {
+          \Flash::add($param_error,"danger");
+        }else{
+          $user = \Users::auth();
+          // Certification de la publication
+          if($_GET["action"] == "validate"){
+            \Post::certificate($id,$user->id);
+            \Flash::add("Publication certifiée.","success");
+          }elseif($_GET["action"] == "cancel"){
+            \Post::cancel_certificate($id,$user->id);
+            \Flash::add("Certification de la publication annulée.","success");
+          }else{
+            \Flash::add($param_error,"danger");
+          }
+        }
+      }
+      return redirect()->route("admin.manage_pub",$id);
     }
-
 
     public function api_get_all(){
       // Middleware

@@ -34,6 +34,18 @@ class Post extends Model {
     $this->validate = $data["validate"];
     $this->validate_by = $data["validate_by"];
     $this->validate_at = $data["validate_at"];
+
+
+
+
+    /* Certification */
+    // Instance du dernier utilisateur à l'origine de la dernière opération
+    if($this->validate_by)
+      $this->certificate_author = Users::get($this->validate_by);
+    else
+      $this->certificate_author = null;
+
+
   }
 
   static public function create($data){
@@ -50,6 +62,11 @@ class Post extends Model {
     $sql = "DELETE FROM $table WHERE id = $this->id";
     $q = $DB->prepare($sql);
     $q->execute();
+  }
+
+  public function get_certificate_author(){
+    // Retourne le nom utilisateur à l'origine de la dernière opération de certification
+    return $this->certificate_author->get_complete_name();
   }
 
   static public function get($id){
@@ -110,6 +127,28 @@ class Post extends Model {
     ];
 
     return $tmp_post;
+  }
+
+  /* Using DB  */
+
+  static function certificate($post_id,$user_id){
+    DB::table('pub_v1')
+    ->where('id',$post_id)
+    ->update([
+      "validate" => true,
+      "validate_by" => $user_id,
+      "validate_at"  => new \DateTime()
+    ]);
+  }
+
+  static function cancel_certificate($post_id,$user_id){
+    DB::table('pub_v1')
+    ->where('id',$post_id)
+    ->update([
+      "validate" => false,
+      "validate_by" => $user_id,
+      "validate_at"  => new \DateTime()
+    ]);
   }
 
 }

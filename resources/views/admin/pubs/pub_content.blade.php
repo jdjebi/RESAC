@@ -12,7 +12,7 @@
                   <a href="{{ route('profil') }}?id={{ $post->user_id }}">
                     {{ $post->user->get_complete_name() }}
                   </a> &nbsp;
-                  <span title="Publication non validée" class="text-danger"><i class="fa fa-check-circle"></i></span>
+                  <span title="Publication non validée" class="text-{{ $post->validate ? "success" : "danger"}}"><i class="fa fa-check-circle"></i></span>
                 </div>
 
                 <span class="text-muted small">
@@ -27,18 +27,32 @@
           <div class="body pl-4 pr-4 pb-3">
             {{ $post->content }}
           </div>
-          <div class="footer p-2 pr-4 border-top text-right">
-
-            @if(!$post->validate)
-
-              <a class="btn btn-sm btn-success" href="{{ route('admin.validate_pub', $post->id) }}">Valider</a>
-
-            @else
-
-              <button class="btn btn-sm btn-danger"  href="{{ route('admin.validate_pub', $post->user_id) }}">Annuler la validation</button>
-
-            @endif
-
+          <div class="footer border-top p-2 pl-4 pr-4">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+              <h6>Récent</h6>
+              <div class="small text-muted">
+                @if($post->validate)
+                  <div>Certifier le: {{ $post->validate_at }}</div>
+                  <div>Par: {{ $post->get_certificate_author() }} </div>
+                @else
+                  @if($post->validate_at)
+                  <div>Certification annulé le: {{ $post->validate_at }}</div>
+                  <div>Par: {{ $post->get_certificate_author() }}</div>
+                  @else
+                    <div class="">Aucune opération</div>
+                  @endif
+                @endif
+              </div>
+              </div>
+              <div class="text-right">
+                @if(!$post->validate)
+                  <a class="btn btn-sm btn-primary" href="{{ route('admin.validate_pub', $post->id) }}?action=validate">Certifier</a>
+                @else
+                  <a class="btn btn-sm btn-danger" href="{{ route('admin.validate_pub', $post->id) }}?action=cancel">Annuler la certification</a>
+                @endif
+              </div>
+            </div>
           </div>
       </div>
   </div>

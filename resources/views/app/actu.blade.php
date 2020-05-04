@@ -78,7 +78,7 @@
                           <a href="{{ route('profil') }}?id={{ $post->user_id }}">
                             {{ $post->user->get_complete_name() }}
                           </a> &nbsp;
-                          <span title="Publication non validée" class="text-danger"><i class="fa fa-check-circle"></i></span>
+                          <span title="Publication {{ $post->validate ? "approuvée" : "non approuvée"}}" class="text-{{ $post->validate ? "success" : "danger"}}"><i class="fa fa-check-circle"></i></span>
                         </div>
 
                         <span class="text-muted small">
