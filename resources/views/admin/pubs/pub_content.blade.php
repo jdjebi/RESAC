@@ -25,11 +25,20 @@
             </div>
           </div>
           <div class="body pl-4 pr-4 pb-3">
-            <?= $post->content ?>
+            {{ $post->content }}
           </div>
           <div class="footer p-2 pr-4 border-top text-right">
-            <button disabled class="btn btn-sm btn-success" type="button" name="button">Valider</button>
-            <button disabled class="btn btn-sm btn-danger" type="button" name="button">Annuler la validation</button>
+
+            @if(!$post->validate)
+
+              <a class="btn btn-sm btn-success" href="{{ route('admin.validate_pub', $post->id) }}">Valider</a>
+
+            @else
+
+              <button class="btn btn-sm btn-danger"  href="{{ route('admin.validate_pub', $post->user_id) }}">Annuler la validation</button>
+
+            @endif
+
           </div>
       </div>
   </div>

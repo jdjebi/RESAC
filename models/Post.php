@@ -14,6 +14,11 @@ class Post extends Model {
   public $content;
   public $version;
 
+  /* Certification de validation */
+  public $validate;
+  public $validate_by;
+  public $validate_at;
+
   public function __construct($data){
     global $DB;
     $this->db = $DB;
@@ -26,6 +31,9 @@ class Post extends Model {
     $this->date = $data["date"];
     $this->content = $data["content"];
     $this->version = $data["version"];
+    $this->validate = $data["validate"];
+    $this->validate_by = $data["validate_by"];
+    $this->validate_at = $data["validate_at"];
   }
 
   static public function create($data){
@@ -56,6 +64,10 @@ class Post extends Model {
       return new Post($data);
     }
     return null;
+  }
+
+  static function get2($id){
+    return DB::table('pub_v1')->where('id',$id)->first();
   }
 
   static function all(){
@@ -94,7 +106,7 @@ class Post extends Model {
       "user" => \Users2::pack($user),
       "content" => $post->content,
       "date" =>  $post->date,
-      "validate" => false
+      "validate" => $post->validate,
     ];
 
     return $tmp_post;

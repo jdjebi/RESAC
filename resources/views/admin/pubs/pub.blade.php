@@ -30,6 +30,6 @@
   </div>
 @endsection
 
-@section('srcipts')
-<script type="module" src="asset/js/resac/init.timeago.js"></script>
+@section('scripts')
+<script type="module" src="{{ asset("asset/js/resac/init.timeago.js") }}"></script>
 @endsection

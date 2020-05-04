@@ -44,11 +44,26 @@ class PubsController extends Controller
 
     }
 
+    public function validate_pub($id){
+
+      // Middleware
+
+      $post = \Post::get2($id);
+
+      if(!$post)
+        return redirect()->route("admin.manage_pub",$id);
+
+      $user = \Users::auth();
+
+      return "Validate";
+    }
+
 
     public function api_get_all(){
       // Middleware
       $pubs =  \Post::all2();
       return json_encode($pubs);
     }
+
 
 }
