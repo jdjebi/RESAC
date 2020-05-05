@@ -13,7 +13,7 @@ class PubsController extends Controller
 
       global $CURRENT_URL;
 
-      require __DIR__."/../../../middleware/admin_auth_back.php";
+      require __DIR__."/../../../../middleware/admin_auth_back.php";
 
       $user = \Users::auth();
 
@@ -27,7 +27,7 @@ class PubsController extends Controller
 
       global $CURRENT_URL;
 
-      require __DIR__."/../../../middleware/admin_auth_back.php";
+      require __DIR__."/../../../../middleware/admin_auth_back.php";
 
       $user = \Users::auth();
 
@@ -50,8 +50,8 @@ class PubsController extends Controller
 
       global $CURRENT_URL;
 
-      require __DIR__."/../../../middleware/admin_auth_back.php";
-      
+      require __DIR__."/../../../../middleware/admin_auth_back.php";
+
       $post = \Post::get2($id);
       $param_error = "Paramètres de l'opération incorrecte.";
 
