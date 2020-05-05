@@ -11,7 +11,9 @@ class PubsController extends Controller
     public function dashboard()
     {
 
-      // Middleware
+      global $CURRENT_URL;
+
+      require __DIR__."/../../../middleware/admin_auth_back.php";
 
       $user = \Users::auth();
 
@@ -23,9 +25,9 @@ class PubsController extends Controller
 
     public function pub($id){
 
-      // Middleware
+      global $CURRENT_URL;
 
-      // 404 publication introuvable
+      require __DIR__."/../../../middleware/admin_auth_back.php";
 
       $user = \Users::auth();
 
@@ -46,7 +48,10 @@ class PubsController extends Controller
 
     public function validate_pub($id){
 
-      // Middleware
+      global $CURRENT_URL;
+
+      require __DIR__."/../../../middleware/admin_auth_back.php";
+      
       $post = \Post::get2($id);
       $param_error = "Paramètres de l'opération incorrecte.";
 
