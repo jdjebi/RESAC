@@ -29,7 +29,9 @@ class AdminController extends Controller
 
     public function index(){
 
-      // middleware
+      global $CURRENT_URL;
+
+      require __DIR__."/../../../middleware/admin_auth_back.php";
 
       $user = \Users::auth();
 
@@ -59,7 +61,9 @@ class AdminController extends Controller
 
     public function user_profil($user_id){
 
-      // middleware
+      global $CURRENT_URL;
+
+      require __DIR__."/../../../middleware/admin_auth_back.php";
 
       $user = \Users::auth();
       $user_visited = \Users::get($user_id);
@@ -116,7 +120,9 @@ class AdminController extends Controller
 
     public function delete_user(){
 
-      // Middleware
+      global $CURRENT_URL;
+
+      require __DIR__."/../../../middleware/admin_auth_back.php";
 
       if(isset($_GET['delete'])){
         $id = $_GET['delete'];

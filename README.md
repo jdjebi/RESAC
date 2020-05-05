@@ -41,4 +41,4 @@ Consulter le fichier **todo.md** pour suivre l'évolution du développement.
     - Ajout du champ validate_at
 
 
-- Supression en CASCADE sur la les publications avec pour référence la table user
+- Supression en CASCADE sur les publications avec pour référence la table user
