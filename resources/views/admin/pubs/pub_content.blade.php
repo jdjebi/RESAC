@@ -4,7 +4,7 @@
       <div class="box border bg-white mb-3">
           <div class="header pl-4 pt-3 pb-3 pr-4">
             <div class="media">
-              <a title="{{ $post->user->get_complete_name() }}" href="{{ route('profil') }}?id={{ $post->user_id  }}">
+              <a title="{{ $post->user->get_complete_name() }}" href="{{ route('admin_user_profil',$post->user_id) }}">
               <img class="pub-user-photo" src="{{ $post->user->get_photo() }}" alt="Photo {{ $post->user->get_complete_name() }}">
               </a>
               <div class="ml-3 media-body">
