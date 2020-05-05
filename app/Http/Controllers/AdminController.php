@@ -25,7 +25,6 @@ class AdminController extends Controller
         "title2" => $title2
       ]);
 
-
     }
 
     public function index(){
@@ -44,7 +43,9 @@ class AdminController extends Controller
 
     public function user_manager(){
 
-      // middleware
+      global $CURRENT_URL;
+
+      require __DIR__."/../../../middleware/admin_auth_back.php";
 
       $user = \Users::auth();
 

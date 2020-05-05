@@ -26,4 +26,19 @@ Consulter le fichier **todo.md** pour suivre l'évolution du développement.
 
 ## Mises à jour du Framework built-in (version 3)
 
-- Les fonctionnalités du Framework de base ont été intégré à Laravel comme extensions
+- Les fonctionnalités du Framework de base ont été intégré à Laravel comme extension
+
+- Ajout des champs is_staff, staff_role à la table des utilisateurs
+
+- auth, redirect, flash deviennent des services
+
+- Mise de la classe Auth
+  - Ajout des méthodes is_admin et role
+
+  - Modification de la table pub_v1
+    - Ajout du champ validate
+    - Ajout du champ validate_by
+    - Ajout du champ validate_at
+
+
+- Supression en CASCADE sur la les publications avec pour référence la table user
