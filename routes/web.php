@@ -2,16 +2,20 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/','IndexController')->name('home');
+Route::middleware("guest")->group(function(){
 
-Route::get('/explorer','ExploreController')->name('explorer');
+  Route::get('/','IndexController')->name('home');
 
-Route::get('/nouveautes',"AppUpdateController")->name('dev_news');
+  Route::get('/connexion','AuthController@login')->name('login');
 
-Route::get('/connexion','AuthController@login')->name('login');
+  Route::match(['get', 'post'],'/inscription','AuthController@register')->name('register');
 
-Route::match(['get', 'post'],'/inscription','AuthController@register')->name('register');
+});
 
+
+  Route::get('/explorer','ExploreController')->name('explorer');
+
+  Route::get('/nouveautes',"AppUpdateController")->name('dev_news');
 
 /* Application */
 
