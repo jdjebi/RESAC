@@ -15,15 +15,21 @@ Route::match(['get', 'post'],'/inscription','AuthController@register')->name('re
 
 /* Application */
 
-Route::match(['get', 'post'],'/actualités','ActuController@index')->name('actu');
+Route::middleware("auth")->group(function(){
 
-Route::get('/profil','UserController@profil')->name('profil');
+  Route::get('/profil','UserController@profil')->name('profil');
 
-Route::get('/compte','UserController@account')->name('edit');
+  Route::get('/compte','UserController@account')->name('edit');
 
-Route::match(['get', 'post'],'/parametres','UserController@account')->name('param');
+  Route::match(['get', 'post'],'/parametres','UserController@account')->name('param');
+
+  Route::match(['get', 'post'],'/actualités','ActuController@index')->name('actu');
+
+
+});
 
 Route::get('/deconnexion','AuthController@logout')->name('logout');
+
 
 
 /* Administration */

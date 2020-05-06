@@ -9,9 +9,6 @@ class UserController extends Controller
 {
 
     public function profil(){
-      global $CURRENT_URL;
-
-      require __DIR__."/../../../middleware/auth_back.php";
 
       $user = \Users::auth();
       $user_visited = null;
@@ -39,8 +36,6 @@ class UserController extends Controller
     }
 
     public function account(){
-
-      require __DIR__."/../../../middleware/auth.php";
 
       $user = \Users::auth();
 

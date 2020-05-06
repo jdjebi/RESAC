@@ -1,5 +1,9 @@
 ## Master
 
+## Mise à jour de la version 3.1
+
+- Amélioration de la prise en charge de Laravel
+
 ## Mise à jour de la version 3
 
 - Les fonctionnalités du Framework de base ont été intégré à Laravel comme extension
@@ -15,7 +19,6 @@
     - Ajout du champ validate
     - Ajout du champ validate_by
     - Ajout du champ validate_at
-
 
 - Supression en CASCADE sur la les publications avec pour référence la table user
 

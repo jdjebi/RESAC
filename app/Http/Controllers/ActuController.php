@@ -10,12 +10,7 @@ class ActuController extends Controller
     public function index()
     {
 
-      global $CURRENT_URL;
-
-      require __DIR__."/../../../middleware/auth_back.php";
-
       $user = \Users::auth();
-
 
       // Publication de test
       if(isset($_POST['new_post_test'])){

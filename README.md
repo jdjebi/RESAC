@@ -19,13 +19,16 @@ Consulter le fichier **todo.md** pour suivre l'évolution du développement.
 ### Anciennes
 - **Actualités**
 
-
 ## Fonctionnalités built-in principale
 
 - Validateur de formulaire
 - Emetteur de notifications
 
-## Mises à jour du Framework built-in (version 3)
+## Mise à jour de la version 3.1
+
+- Amélioration de la prise en charge de Laravel
+
+## Mise à jour de la version 3
 
 - Les fonctionnalités du Framework de base ont été intégré à Laravel comme extension
 
@@ -41,5 +44,4 @@ Consulter le fichier **todo.md** pour suivre l'évolution du développement.
     - Ajout du champ validate_by
     - Ajout du champ validate_at
 
-
-- Supression en CASCADE sur les publications avec pour référence la table user
+- Supression en CASCADE sur la les publications avec pour référence la table user

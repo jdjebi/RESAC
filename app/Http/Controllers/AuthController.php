@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
 
 class AuthController extends Controller
 {
@@ -18,11 +20,11 @@ class AuthController extends Controller
 
 
     /* Connexion */
-    public function login(){
+    public function login(Request $request){
 
       $title2 = "Connexion";
 
-      $redirect_url = isset($_GET['redirect']) ? $_GET['redirect'] : "";
+      $redirect_url = $request->has('redirect') ? $request->redirect : "";
 
       return view('app.connexion',[
         "redirect_url" => $redirect_url,

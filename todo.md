@@ -42,6 +42,7 @@
 
 
 # Extras
+- Revoir les middlewares spécifiques au api
 - Les recherches de type nom + prenom ne marche pas
 - La Certification des publications n'enregistre que l'utilisateur qui a fait l'opération courante (validate_by) c'est à dire validation ou annulation on ne peut donc pas connaitre l'utilisateur qui avait validé une publication après que celle ai été annulé en terme de certification
 - Création d'une table pour la gestion de la valisation des publications

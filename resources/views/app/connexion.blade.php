@@ -1,9 +1,8 @@
 @extends('app.page')
 
 @section('content')
-<div class="container mt-5">
-  @include('flash')
-</div>
+@include('flash')
+
 <div id="v-login" class="container mt-5">
   <div class="row">
     <div class="offset-md-2 col-md-8 offset-lg-3 col-lg-5">
