@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 
 class AuthController extends Controller
 {
+    public function __construct(){
+        $this->middleware('guest')->except('logout');
+    }
+
     /* Déconnexion */
     public function logout(){
       logout();
@@ -15,7 +19,6 @@ class AuthController extends Controller
 
     /* Connexion */
     public function login(){
-      require  __DIR__."/../../../middleware/guest.php";
 
       $title2 = "Connexion";
 

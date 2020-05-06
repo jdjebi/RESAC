@@ -8,7 +8,7 @@ use App\User;
 class AppUpdateController extends Controller
 {
 
-    public function index()
+    public function __invoke()
     {
         $user = null;
 

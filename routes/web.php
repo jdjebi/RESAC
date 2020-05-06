@@ -2,11 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/','IndexController@index')->name('home');
+Route::get('/','IndexController')->name('home');
 
-Route::get('/explorer','ExploreController@index')->name('explorer');
+Route::get('/explorer','ExploreController')->name('explorer');
 
-Route::get('/nouveautes',"AppUpdateController@index")->name('dev_news');
+Route::get('/nouveautes',"AppUpdateController")->name('dev_news');
 
 Route::get('/connexion','AuthController@login')->name('login');
 

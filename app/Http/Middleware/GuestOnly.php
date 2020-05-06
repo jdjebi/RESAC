@@ -6,15 +6,14 @@ use Closure;
 
 class GuestOnly
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
-     */
+    /* Redirige si l'utilisateur est connecté */
+
     public function handle($request, Closure $next)
     {
+        if(\Auth::check()){
+          return redirect()->route("profil");
+        }
+
         return $next($request);
     }
 }

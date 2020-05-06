@@ -7,10 +7,13 @@ use App\User;
 
 class IndexController extends Controller
 {
-
-    public function index()
+    public function __construct()
     {
-      require  __DIR__."/../../../middleware/guest.php";
+       $this->middleware('guest');
+    }
+
+    public function __invoke()
+    {
 
       $user = null;
 
@@ -18,9 +21,7 @@ class IndexController extends Controller
         $user =  \Users::auth();
       }
 
-      return view('app.index',[
-        "user" => $user,
-      ]);
+      return view('app.index');
 
     }
 
