@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/','AppController@index')->name('home');
+Route::get('/','IndexController@index')->name('home');
 
 Route::get('/explorer','ExploreController@index')->name('explorer');
 
