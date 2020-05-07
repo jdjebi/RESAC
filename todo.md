@@ -1,25 +1,16 @@
 # A FAIRE
 
-- Gestion des utilisateurs
-  - [x] Recherche d'utilisateur
-  - [?] Un admin lui ne pas se rendre membre ni se supprimer
-  - [?] Ajout des middlewares
-
 - Base de l'administration
-  - [?] Gestion des nouveautés
-  - [x] Gestion des droits
+  - [?] Gestion des nouveautés (Basée sur Laravel et les query Builder)
 
-
-- Revision de tous les middlewares
 ----
-- Guide lors de l'inscription
-- Explorer pour rechercher des profils
-
-- Revision de la page de profil
-
-- Intégrer la page de recherche à l'administration
+- Revoir la page des publications
 
 - Explorer devient un annuaire
+
+- Guide lors de l'inscription
+
+- Revision de la page de profil
 
 - Amélioration de la recherche (nom + prenom)
 
@@ -28,13 +19,19 @@
   - [?] Suppression ajax des utilisateurs
 
 # v4
+- Gestion des publications côté utilisateur
+- Intégrer les modérateurs et les super utilisateurs
 - Utiliser un nom utilisateur pour identifier un utilisateur
 - Intégrer la recherche à l'application principale
 - Conservation de session
-
+- Gestion des utilisateurs
+  - [?] Un admin lui ne pas se rendre membre ni se supprimer
 
 # FAIT
 - Mise en place du système de connexion administrateur
+- [x] Recherche d'utilisateur v1
+- [x] Ajout des middlewares
+- [x] Gestion des droits
 
 
 # Brainstorming
@@ -42,6 +39,7 @@
 
 
 # Extras
+- Explorer pour rechercher des profils
 - Revoir les middlewares spécifiques au api
 - Les recherches de type nom + prenom ne marche pas
 - La Certification des publications n'enregistre que l'utilisateur qui a fait l'opération courante (validate_by) c'est à dire validation ou annulation on ne peut donc pas connaitre l'utilisateur qui avait validé une publication après que celle ai été annulé en terme de certification
