@@ -13,11 +13,6 @@ class AdminController extends Controller
     }
 
     public function login(){
-      // guest middleware
-
-      if(\Auth::is_admin_logged()){
-        return redirect()->route('admin_index');
-      }
 
       $title2 = "Connexion";
 
@@ -28,10 +23,6 @@ class AdminController extends Controller
     }
 
     public function index(){
-
-      global $CURRENT_URL;
-
-      require __DIR__."/../../../middleware/admin_auth_back.php";
 
       $user = \Users::auth();
 
@@ -45,10 +36,6 @@ class AdminController extends Controller
 
     public function user_manager(){
 
-      global $CURRENT_URL;
-
-      require __DIR__."/../../../middleware/admin_auth_back.php";
-
       $user = \Users::auth();
 
       $title = "Gestion des utilisateurs";
@@ -60,10 +47,6 @@ class AdminController extends Controller
     }
 
     public function user_profil($user_id){
-
-      global $CURRENT_URL;
-
-      require __DIR__."/../../../middleware/admin_auth_back.php";
 
       $user = \Users::auth();
       $user_visited = \Users::get($user_id);
@@ -119,10 +102,6 @@ class AdminController extends Controller
     }
 
     public function delete_user(){
-
-      global $CURRENT_URL;
-
-      require __DIR__."/../../../middleware/admin_auth_back.php";
 
       if(isset($_GET['delete'])){
         $id = $_GET['delete'];

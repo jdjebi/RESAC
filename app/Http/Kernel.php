@@ -65,6 +65,8 @@ class Kernel extends HttpKernel
 
         /* Custom */
         'guest' => \App\Http\Middleware\Resac\GuestOnly::class,
-        'auth' => \App\Http\Middleware\Resac\AuthOnly::class
+        'auth' => \App\Http\Middleware\Resac\AuthOnly::class,
+        'admin.guest' => \App\Http\Middleware\Resac\Admin\GuestAdmin::class,
+        'admin.login' => \App\Http\Middleware\Resac\Admin\LoginAdmin::class,
     ];
 }

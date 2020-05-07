@@ -11,10 +11,6 @@ class PubsController extends Controller
     public function dashboard()
     {
 
-      global $CURRENT_URL;
-
-      require __DIR__."/../../../../middleware/admin_auth_back.php";
-
       $user = \Users::auth();
 
       return view("admin.pubs.dashboard",[
@@ -24,10 +20,6 @@ class PubsController extends Controller
 
 
     public function pub($id){
-
-      global $CURRENT_URL;
-
-      require __DIR__."/../../../../middleware/admin_auth_back.php";
 
       $user = \Users::auth();
 
@@ -47,10 +39,6 @@ class PubsController extends Controller
     }
 
     public function validate_pub($id){
-
-      global $CURRENT_URL;
-
-      require __DIR__."/../../../../middleware/admin_auth_back.php";
 
       $post = \Post::get2($id);
       $param_error = "Paramètres de l'opération incorrecte.";
