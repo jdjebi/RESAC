@@ -22,13 +22,14 @@
           <form method="post">
             @csrf
             <input type="hidden" name="user_author_id" value="{{ $user->id }}">
+            <input type="hidden" name="feature_id" value="{{ $feature->id }}">
             <div class="form-group">
               <label for="title">Titre:</label>
-              <input class="form-control" type="text" name="title" value="" placeholder="Titre de la nouveau" id="title">
+              <input class="form-control" type="text" name="title" value="{{ $feature->title }}" placeholder="Titre de la nouveau" id="title">
             </div>
             <div class="form-group">
               <label for="content">Contenu:</label>
-              <textarea class="form-control" id="content" rows="5" name="content" placeholder="Description des nouvelles fonctionnalités"></textarea>
+              <textarea class="form-control" id="content" rows="5" name="content" placeholder="Description des nouvelles fonctionnalités">{{ $feature->content }}</textarea>
             </div>
             <div class="form-group">
               <label for="created_at">Date (facultatif):</label>

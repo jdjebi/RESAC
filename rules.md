@@ -1,0 +1,1 @@
+- Seul le créateur d'une nouveauté peut la modifier ou la supprimer
