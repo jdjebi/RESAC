@@ -72,13 +72,15 @@ Route::namespace('admin')->group(function () {
         /* Publications */
         Route::get('pubs','PubsController@dashboard')->name('pubs_dashboard');
         Route::get('pubs/{id}','PubsController@pub')->where('id', '[0-9]+')->name('manage_pub');
-        Route::get('pubs/{id:int}/certification','PubsController@validate_pub')->name('validate_pub');
+        Route::get('pubs/{id}/certification','PubsController@validate_pub')->name('validate_pub');
 
 
         /* Nouveautés */
         Route::get('nouveautes','FeaturesController@dashboard')->name('features');
-        Route::get('nouveautes/{id:int}','FeaturesController@feature')->name('feature');
+        Route::get('nouveautes/{id}','FeaturesController@feature')->where('id', '[0-9]+')->name('feature');
+
         Route::get('nouveautes/creer','FeaturesController@create')->name('new_feature');
+        Route::post('nouveautes/creer','FeaturesController@store');
 
 
       });
