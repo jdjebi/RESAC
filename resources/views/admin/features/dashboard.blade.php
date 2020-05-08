@@ -10,6 +10,7 @@
  @endsection
 
 @section('content')
+@include('flash')
 
 <div>
 
@@ -19,7 +20,7 @@
         <div class="d-flex justify-content-between">
           <div class="h3 mb-4">Nouveautés</div>
           <div class="text-right">
-            <a href="{{ route("admin.new_feature") }}" class="btn btn-primary"> <i class="fa fa-plus"></i> Créer </a>
+            <a href="{{ route("admin.feature.create") }}" class="btn btn-primary"> <i class="fa fa-plus"></i> Créer </a>
           </div>
         </div>
       </div>
@@ -32,6 +33,7 @@
                 <th scope="col">Titre</th>
                 <th scope="col">Auteur</th>
                 <th scope="col">Date</th>
+                <th class="text-center">Action</th>
               </tr>
             </thead>
             <tbody id="v-table-row">
@@ -45,6 +47,9 @@
                     {{ $feature->user_author_id }}
                   </td>
                   <td>{{ $feature->created_at }}</td>
+                  <td class="text-center">
+                    <a class="text-danger" href="{{ route('admin.feature.delete',$feature->id) }}"><i class="fa fa-trash"></i></a>
+                  </td>
                 </tr>
 
               @endforeach

@@ -20,16 +20,18 @@
         </div>
         <div class="p-3 bg-white">
           <form method="post">
+            @csrf
+            <input type="hidden" name="user_author_id" value="{{ $user->id }}">
             <div class="form-group">
               <label for="title">Titre:</label>
-              <input class="form-control" type="text" name="title" value="" id="title">
+              <input class="form-control" type="text" name="title" value="" placeholder="Titre de la nouveau" id="title">
             </div>
             <div class="form-group">
               <label for="content">Contenu:</label>
-              <input class="form-control" type="textarea" name="content" value="" id="content">
+              <textarea class="form-control" id="content" rows="5" name="content" placeholder="Description des nouvelles fonctionnalités"></textarea>
             </div>
             <div class="form-group">
-              <label for="created_at">Date(facultatif):</label>
+              <label for="created_at">Date (facultatif):</label>
               <input class="form-control" type="date" name="created_at" value="" id="created_at">
             </div>
             <div class="text-right">
