@@ -13,8 +13,9 @@ Consulter le fichier **todo.md** pour suivre l'évolution du développement.
 ## Fonctionnalités
 
 ### Récentes
-- Administration
+- Gesion des nouveautés
 - Gestion des publications
+- Administration
 
 ### Anciennes
 - **Actualités**

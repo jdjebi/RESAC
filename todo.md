@@ -17,6 +17,7 @@
 ----
 - Gestion des utilisateurs
   - [?] Suppression ajax des utilisateurs
+  - Améliorer la diffusion des nouveautés
 
 # v4
 - Gestion des publications côté utilisateur
@@ -39,6 +40,7 @@
 
 
 # Extras
+- Une Espace dédié à chaque administrateur
 - Explorer pour rechercher des profils
 - Revoir les middlewares spécifiques au api
 - Les recherches de type nom + prenom ne marche pas
@@ -54,7 +56,6 @@
 - Design de la page lorsque la base de donnée est inaccéssible non fait (A revoir)
 - Améliorer l'affiche des erreurs avec Ajax
 - Indicatif du numéro
-- Améliorer la diffusion des nouveautés
 - Créer une création de compte en backend
 - Explorer ordonner les résultats par date d'inscription
 - Gestion de l'activation de compte
@@ -69,9 +70,6 @@
 - Intégrer le marquer comme lu
 - Publication de contenu
   - Pas de limite textuelle
-- Blading
-  - Inscription
-  - Explorer
 
 - Liens
   - Linkedin

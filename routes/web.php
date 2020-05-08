@@ -56,6 +56,7 @@ Route::prefix('/v1/admin')->group(function (){
       Route::get('rechercher',"SearchController@admin")->name('admin_search');
     });
 
+
   });
 
 });
@@ -68,11 +69,16 @@ Route::namespace('admin')->group(function () {
 
       Route::prefix('/v1/admin/manager/')->group(function () {
 
+        /* Publications */
         Route::get('pubs','PubsController@dashboard')->name('pubs_dashboard');
-
         Route::get('pubs/{id}','PubsController@pub')->where('id', '[0-9]+')->name('manage_pub');
-
         Route::get('pubs/{id:int}/certification','PubsController@validate_pub')->name('validate_pub');
+
+
+        /* Nouveautés */
+        Route::get('nouveautes','FeaturesController@dashboard')->name('features');
+        Route::get('nouveautes/{id:int}','FeaturesController@feature')->name('feature');
+
 
       });
 
