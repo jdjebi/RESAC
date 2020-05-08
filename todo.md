@@ -1,8 +1,8 @@
 # A FAIRE
 
-- Base de l'administration
-  - [?] Gestion des nouveautés (Basée sur Laravel et les query Builder)
-
+- Affichage et modification d'une nouveauté
+- Revision de la liste des nouveauté
+- Affichage des nouveauté sur la page de l'actualité
 ----
 - Revoir la page des publications
 
@@ -33,6 +33,8 @@
 - [x] Recherche d'utilisateur v1
 - [x] Ajout des middlewares
 - [x] Gestion des droits
+- Base de l'administration
+  - [?] Gestion des nouveautés (Basée sur Laravel et les query Builder)
 
 
 # Brainstorming
