@@ -1,6 +1,7 @@
 # A FAIRE
 
 - Supression(Confirmation)
+- Révision des pages connexes au nouveauté
 
 ----
 - Revoir la page des publications
