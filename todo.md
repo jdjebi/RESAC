@@ -19,6 +19,9 @@
   - [?] Suppression ajax des utilisateurs
   - Améliorer la diffusion des nouveautés
 
+---
+- Validation des formulaires pour les nouveautés
+
 # v4
 - Gestion des publications côté utilisateur
 - Intégrer les modérateurs et les super utilisateurs

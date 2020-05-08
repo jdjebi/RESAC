@@ -28,7 +28,15 @@ class FeaturesController extends Controller
 
       $feature = Features::findOrFail($id);
 
-      dump($feature);
+      $user = \Users::auth();
+
+      $title = "Nouveautés - ".$feature->title;
+
+      return view("admin.features.feature",[
+        'title' => $title,
+        'user' => $user,
+        'feature' => $feature
+      ]);
 
     }
 
