@@ -16,7 +16,12 @@
   <div id="v-table" class="mt-3 container-fluid">
     <div class="row">
       <div class="col-sm-12">
-        <div class="h4 mb-4">Nouveautés</div>
+        <div class="d-flex justify-content-between">
+          <div class="h3 mb-4">Nouveautés</div>
+          <div class="text-right">
+            <a href="{{ route("admin.new_feature") }}" class="btn btn-primary"> <i class="fa fa-plus"></i> Créer </a>
+          </div>
+        </div>
       </div>
       <div class="col-sm-12">
         <div class="">

@@ -78,6 +78,7 @@ Route::namespace('admin')->group(function () {
         /* Nouveautés */
         Route::get('nouveautes','FeaturesController@dashboard')->name('features');
         Route::get('nouveautes/{id:int}','FeaturesController@feature')->name('feature');
+        Route::get('nouveautes/creer','FeaturesController@create')->name('new_feature');
 
 
       });

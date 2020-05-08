@@ -30,4 +30,14 @@ class FeaturesController extends Controller
       dump($feature);
 
     }
+
+    public function create(){
+
+      $user = \Users::auth();
+
+      return view('admin.features.create',[
+        'user' => $user
+      ]);
+
+    }
 }
