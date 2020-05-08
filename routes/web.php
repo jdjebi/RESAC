@@ -76,8 +76,10 @@ Route::namespace('admin')->group(function () {
 
 
         /* Nouveautés */
-        Route::get('nouveautes','FeaturesController@dashboard')->name('features');
-        Route::get('nouveautes/{id}','FeaturesController@feature')->where('id', '[0-9]+')->name('feature');
+        Route::get('nouveautes','FeaturesController@dashboard')->name('feature.all');
+
+        Route::get('nouveautes/{id}','FeaturesController@feature')->where('id', '[0-9]+')->name('feature.show');
+        Route::post('nouveautes/{id}','FeaturesController@update')->where('id', '[0-9]+');
 
         Route::get('nouveautes/creer','FeaturesController@create')->name('feature.create');
         Route::post('nouveautes/creer','FeaturesController@store');

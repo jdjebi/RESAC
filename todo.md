@@ -3,6 +3,7 @@
 - Affichage et modification d'une nouveauté
 - Revision de la liste des nouveauté
 - Affichage des nouveauté sur la page de l'actualité
+- Supression
 ----
 - Revoir la page des publications
 

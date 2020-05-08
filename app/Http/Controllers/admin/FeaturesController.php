@@ -32,10 +32,13 @@ class FeaturesController extends Controller
 
       $title = "Nouveautés - ".$feature->title;
 
+      $is_author = $feature->user_author_id == $user->id;
+
       return view("admin.features.feature",[
         'title' => $title,
         'user' => $user,
-        'feature' => $feature
+        'feature' => $feature,
+        'is_author' => $is_author
       ]);
 
     }
@@ -69,7 +72,35 @@ class FeaturesController extends Controller
 
       \Flash::add("Nouveautés enregistrées.","success");
 
-      return redirect()->route('admin.features');
+      return redirect()->route('admin.feature.all');
+
+    }
+
+    public function update($id, Request $request){
+      /* Mise à jour d'une nouveauté */
+
+      // Validation
+
+      $feature = Features::findOrFail($id);
+
+      $user = \Users::auth();
+
+      if($user->id != $feature->user_author_id){
+        \Flash::add("Vous n'avez pas le droit de modifier cette nouveauté.","warning");
+        return redirect()->route("admin.features.feature",$id);
+      }
+
+      $feature->title = $request->title;
+      $feature->content = $request->content;
+
+      if($request->created_at)
+        $feature->created_at = $request->created_at;
+
+      $feature->save();
+
+      \Flash::add("Modification enregistrées.","success");
+
+      return redirect()->route("admin.feature.show",$id);
 
     }
 
@@ -80,6 +111,6 @@ class FeaturesController extends Controller
 
       \Flash::add("Nouveautés supprimée.","success");
 
-      return redirect()->route('admin.features');
+      return redirect()->route('admin.feature.all');
     }
 }

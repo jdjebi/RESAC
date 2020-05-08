@@ -18,7 +18,7 @@
         <a class="nav-link" href="{{ route('admin.pubs_dashboard') }}">Espace publications</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('admin.features') }}">Espace Nouveautés</a>
+        <a class="nav-link" href="{{ route('admin.feature.all') }}">Espace Nouveautés</a>
       </li>
       @endif
     </ul>

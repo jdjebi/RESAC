@@ -42,7 +42,7 @@
                 <tr v-for="(pub,index) in pubs" v-bind:id="pub.id">
                   <td>{{ $index + 1 }}</td>
                   <td>
-                      <a href="{{ route("admin.feature",$feature->id) }}">{{ $feature->title }}</a></td>
+                      <a href="{{ route("admin.feature.show",$feature->id) }}">{{ $feature->title }}</a></td>
                   <td>
                     {{ $feature->author->fullname }}
                   </td>
