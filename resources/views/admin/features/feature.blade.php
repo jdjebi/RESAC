@@ -44,7 +44,7 @@
               @if($is_author)
               <div class="text-right">
                 <button class="btn btn-sm btn-success" type="submit" name="button"><i class="fa fa-edit"></i> Mettre à jour</button>
-                <a href="{{ route("admin.feature.delete",$feature->id) }}" class="btn btn-sm btn-danger" type="submit" name="button">Supprimer</a>
+                <a class="confirm-toggler btn btn-sm btn-danger" href="#" data-href="{{ route("admin.feature.delete",$feature->id) }}">Supprimer</a>
               </div>
               @endif
             </div>
@@ -57,4 +57,11 @@
   </div>
 </div>
 
+@endsection
+
+@section("scripts")
+<script src="{{ asset("asset/js/resac/swal2.confirm.js") }}" type="text/javascript"></script>
+<script type="text/javascript">
+setup_confirm_dialog(".confirm-toggler",'Voulez vous vraiment supprimer cette nouveauté ?')
+</script>
 @endsection

@@ -25,6 +25,7 @@
 
 
 # v4
+- Mot de passe oublié
 - Gestion des publications côté utilisateur
 - Intégrer les modérateurs et les super utilisateurs
 - Utiliser un nom utilisateur pour identifier un utilisateur

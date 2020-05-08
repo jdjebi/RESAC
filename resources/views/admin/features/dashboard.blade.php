@@ -48,7 +48,7 @@
                   </td>
                   <td>{{ $feature->get_sm_created_at() }}</td>
                   <td class="text-center">
-                    <a class="text-danger" href="{{ route('admin.feature.delete',$feature->id) }}"><i class="fa fa-trash"></i></a>
+                    <a class="confirm-toggler text-danger"  data-href="{{ route('admin.feature.delete',$feature->id) }}" href="#"><i class="fa fa-trash"></i></a>
                   </td>
                 </tr>
 
@@ -63,4 +63,11 @@
 </div>
 
 
+@endsection
+
+@section("scripts")
+<script src="{{ asset("asset/js/resac/swal2.confirm.js") }}" type="text/javascript"></script>
+<script type="text/javascript">
+setup_confirm_dialog(".confirm-toggler",'Voulez vous vraiment supprimer cette nouveauté ?')
+</script>
 @endsection
