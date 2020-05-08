@@ -46,7 +46,7 @@
                   <td>
                     {{ $feature->author->fullname }}
                   </td>
-                  <td>{{ $feature->created_at }}</td>
+                  <td>{{ $feature->get_sm_created_at() }}</td>
                   <td class="text-center">
                     <a class="text-danger" href="{{ route('admin.feature.delete',$feature->id) }}"><i class="fa fa-trash"></i></a>
                   </td>
