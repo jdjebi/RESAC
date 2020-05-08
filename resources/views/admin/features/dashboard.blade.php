@@ -44,7 +44,7 @@
                   <td>
                       <a href="{{ route("admin.feature",$feature->id) }}">{{ $feature->title }}</a></td>
                   <td>
-                    {{ $feature->user_author_id }}
+                    {{ $feature->author->fullname }}
                   </td>
                   <td>{{ $feature->created_at }}</td>
                   <td class="text-center">

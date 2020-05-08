@@ -9,4 +9,8 @@ class Features extends Model
     protected $table = 'new_features';
     public $timestamps = false;
     protected $fillable = ['title','content','user_author_id'];
+
+    public function author(){
+      return $this->belongsTo("App\User","user_author_id");
+    }
 }
