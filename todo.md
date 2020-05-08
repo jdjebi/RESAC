@@ -1,9 +1,7 @@
 # A FAIRE
 
-- Affichage et modification d'une nouveauté
-- Revision de la liste des nouveauté
-- Affichage des nouveauté sur la page de l'actualité
-- Supression
+- Supression(Confirmation)
+
 ----
 - Revoir la page des publications
 
@@ -21,7 +19,9 @@
   - Améliorer la diffusion des nouveautés
 
 ---
+- Affichage des nouveauté sur la page de l'actualité
 - Validation des formulaires pour les nouveautés
+
 
 # v4
 - Gestion des publications côté utilisateur
