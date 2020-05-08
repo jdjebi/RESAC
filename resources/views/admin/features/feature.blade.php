@@ -32,11 +32,16 @@
               <textarea class="form-control" id="content" rows="5" name="content" placeholder="Description des nouvelles fonctionnalités">{{ $feature->content }}</textarea>
             </div>
             <div class="form-group">
-              <label for="created_at">Date (facultatif):</label>
-              <input class="form-control" type="date" name="created_at" value="" id="created_at">
+              <label for="created_at">Date:</label>
+              <input class="form-control" type="date" name="created_at" value="{{ $feature->get_form_created_at() }}" id="created_at">
             </div>
-            <div class="text-right">
-              <button class="btn btn-success" type="submit" name="button"><i class="fa fa-edit"></i> Mettre à jour</button>
+            <div class="d-flex justify-content-between">
+              <div class="text-muted">
+                 Créer par {{ $feature->author->fullname }}
+              </div>
+              <div class="text-right">
+                <button class="btn btn-success" type="submit" name="button"><i class="fa fa-edit"></i> Mettre à jour</button>
+              </div>
             </div>
           </form>
         </div>
