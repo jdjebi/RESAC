@@ -12,6 +12,9 @@ body{
   border-radius: 5px;
   box-shadow: 2px 2px 2px 1px #e8e8e8;
 }
+.ill{
+	width: 250px;
+}
 </style>
 @endsection
 
@@ -22,7 +25,7 @@ body{
 
 <div class="container mt-5 mb-5">
 	<div class="row">
-		<div class="col-md-7 offset-md-2">
+		<div class="col-md-7">
 			<h4>Fil des nouveautés</h4>
 			<ul class="timeline">
 				@foreach ($features as $i => $feature)
@@ -34,6 +37,14 @@ body{
 					</li>
 				@endforeach
 			</ul>
+		</div>
+		<div class="col-md-5 mt-5">
+			<div class="mt-5 text-center">
+				<img class="ill" src="{{ asset("asset/imgs/last_features.svg") }}">
+			</div>
+			<div class="mt-2 text-center">
+				<span class="h3 font-weight-light">Suivez l'évolution de RESAC</span>
+			</div>
 		</div>
 	</div>
 </div>
