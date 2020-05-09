@@ -15,7 +15,7 @@ Route::middleware("guest")->group(function(){
 
 Route::get('/explorer','ExploreController')->name('explorer');
 
-Route::get('/nouveautes',"AppUpdateController")->name('dev_news');
+Route::get('/nouveautes',"Resac\FeaturesController")->name('dev_news');
 
 /* Application */
 

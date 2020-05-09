@@ -28,7 +28,7 @@
       @endif
 
       <li class="nav-item">
-        <a class="nav-link" href="{{ route("dev_news") }}"> <i class="fa fa-rss-square"></i> Nouveautés</a>
+        <a class="nav-link" href="{{ route("dev_news") }}"> <i class="fa fa-rss-square"></i> Nouveautés (1)</a>
       </li>
 
     </ul>

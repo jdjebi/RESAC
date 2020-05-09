@@ -25,4 +25,11 @@ class Features extends Model
       setlocale(LC_TIME, "fr_FR");
       return strftime("%d %B %G", strtotime($this->attributes["created_at"]));
     }
+
+
+    /* Repo */
+
+    static function get_all(){
+      return Features::orderBy('created_at','desc')->get();
+    }
 }

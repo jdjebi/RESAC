@@ -11,7 +11,7 @@ class FeaturesController extends Controller
 {
     public function dashboard(){
 
-      $features = Features::all();
+      $features = Features::orderBy('created_at','desc')->get();
 
       $user = \Users::auth();
 
