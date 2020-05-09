@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 
+use App\Features;
+
 class ActuController extends Controller
 {
 
@@ -56,12 +58,15 @@ class ActuController extends Controller
 
       $feed_posts = \Post::all();
 
+      $last_feature = Features::last();
+
       $title =  "Actualités";
 
       return view("app.actu",[
         'title' => $title,
         'user' => $user,
-        'feed_posts' => $feed_posts
+        'feed_posts' => $feed_posts,
+        'last_feature' => $last_feature
       ]);
     }
 }

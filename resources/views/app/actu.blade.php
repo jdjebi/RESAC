@@ -2,6 +2,7 @@
 
 @section('extras_style')
 <link rel="stylesheet" href="asset/css/placeholder-loading.min.css">
+
 <link rel="stylesheet" href="{{ asset("asset/css/resac/pubs.css") }}">
 <style media="screen">
   body{
@@ -12,15 +13,13 @@
 
 @section('content')
 
-<div class="container mt-3">
+<div class="container-fluid mt-3">
 
   <div class="row">
 
-    <div class="col-sm-1 col-md-3">
+    <div class="col-md-3"></div>
 
-    </div>
-
-    <div class="col-sm-10 col-md-6">
+    <div class="col-sm-10 col-md-5">
 
       @include('flash')
 
@@ -108,8 +107,8 @@
 
     </div>
 
-    <div class="col-sm-1 col-md-3">
-
+    <div id="annonce" class="offset-sm-1 col-sm-3">
+      @include('app.feed.annonce')
     </div>
 
   </div>
@@ -122,4 +121,6 @@
 
 @section('scripts')
 <script type="module" src="asset/js/resac/init.timeago.js"></script>
+<script src="{{ asset("asset/js/vue.js") }}" type="text/javascript"></script>
+<script src="{{ asset("asset/js/resac/vue.truncate_filter.js") }}" type="text/javascript"></script>
 @endsection

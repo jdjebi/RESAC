@@ -18,7 +18,7 @@
       @if(Auth::is_admin_logged())
 
       <li class="nav-item">
-        <a class="nav-link" href="{{ route("actu") }}"><b><i class="far fa-newspaper"></i> Actualités</b></a>
+        <a class="nav-link" href="{{ route("actu") }}"><i class="far fa-newspaper"></i> Actualités</a>
       </li>
 
       @endif
