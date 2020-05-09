@@ -1,11 +1,19 @@
 @extends('app.page')
 
+@section('extras_style')
+<style media="screen">
+  body{
+    background-color: #f1f3f6
+  }
+</style>
+@endsection
+
 @section('content')
 @include('flash')
 
 <div id="v-login" class="container mt-5">
-  <div class="row">
-    <div class="offset-md-2 col-md-8 offset-lg-3 col-lg-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-5 bg-white border p-5">
       <form v-on:submit.prevent="onSubmit">
         @csrf
         <h3 class="mt-3 mb-4 text-center">Connexion</h3>
@@ -17,13 +25,11 @@
           </button>
         </div>
 
-        <div class="form-group">
-          <label for="email">E-mail:</label>
-          <input class="form-control" type="text" name="email" id="email">
+        <div class="form-group mb-4 mt-5">
+          <input class="form-control" type="text" name="email" id="email" placeholder="Adresse E-mail">
         </div>
         <div class="form-group">
-          <label for="password">Mot de passe:</label>
-          <input class="form-control" type="password" name="password" id="password">
+          <input class="form-control" type="password" name="password" id="password" placeholder="Mot de passe">
         </div>
         <div class="mt-4">
           <button id="submit-btn" class="btn btn-block btn-primary" name="button" v-bind:disabled="submit_btn">

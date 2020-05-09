@@ -32,4 +32,8 @@ class Features extends Model
     static function get_all(){
       return Features::orderBy('created_at','desc')->get();
     }
+
+    static function last(){
+      return Features::orderBy('created_at','desc')->first();
+    }
 }

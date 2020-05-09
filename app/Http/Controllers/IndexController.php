@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Features;
+
 
 class IndexController extends Controller
 {
@@ -17,7 +19,11 @@ class IndexController extends Controller
         $user =  \Users::auth();
       }
 
-      return view('app.index');
+      $feature = Features::last();
+
+      return view('app.index',[
+        'feature' => $feature
+      ]);
 
     }
 
