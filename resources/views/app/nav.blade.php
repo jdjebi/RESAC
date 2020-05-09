@@ -15,10 +15,6 @@
       @endif
 
 
-      <li class="nav-item">
-        <a class="nav-link" href="{{ route("explorer") }}"> <i class="fa fa-search"></i> Explorer</a>
-      </li>
-
       @if(Auth::is_admin_logged())
 
       <li class="nav-item">
@@ -28,7 +24,11 @@
       @endif
 
       <li class="nav-item">
-        <a class="nav-link" href="{{ route("dev_news") }}"> <i class="fa fa-rss-square"></i> Nouveautés (1)</a>
+        <a class="nav-link" href="{{ route("annuaire") }}"> <i class="fa fa-address-book"></i> Annuaire</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route("dev_news") }}"> <i class="far fa-lightbulb" style="color: #2196f3"></i> Nouveautés (1)</a>
       </li>
 
     </ul>

@@ -13,7 +13,7 @@ Route::middleware("guest")->group(function(){
 });
 
 
-Route::get('/explorer','ExploreController')->name('explorer');
+Route::get('/annuaire','AnnuaireController')->name('annuaire');
 
 Route::get('/nouveautes',"Resac\FeaturesController")->name('dev_news');
 

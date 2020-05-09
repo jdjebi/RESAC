@@ -74,6 +74,7 @@
 - Lorsque tous les champs obligatoires ne sont pas remplit aucune validation n'est faite
 - Dans les publications(dans le constructeur), si l'id d'un utilisateur n'exsite pas alors ce dernier ne sera pas instancié donc l'affichage sera de la publication au niveau du nom de l'auteur sera érroné voir rien ne va s'afficher ou il y'aura une erreur (Pas delete CASCADE)
 - Tous le champs du formulaire de paramètre ne subissent pas de style en vas d'erreur
+- Améliorer l'annuaire
 - Intégrer le marquer comme lu
 - Publication de contenu
   - Pas de limite textuelle

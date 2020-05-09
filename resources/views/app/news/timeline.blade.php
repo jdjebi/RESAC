@@ -43,7 +43,10 @@ body{
 				<img class="ill" src="{{ asset("asset/imgs/last_features.svg") }}">
 			</div>
 			<div class="mt-2 text-center">
-				<span class="h3 font-weight-light">Suivez l'évolution de RESAC</span>
+				<div class="h4 font-weight-light">“Les meilleures choses ont besoin de patience.”</div>
+				<div class="blockquote-footer">
+					<a href="http://evene.lefigaro.fr/celebre/biographie/jean-anglade-16454.php">Jean Anglade</a>
+				</div>
 			</div>
 		</div>
 	</div>

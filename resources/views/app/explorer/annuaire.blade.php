@@ -10,7 +10,7 @@
   @include("flash")
 </div>
 <div class="container">
-  <h2 class="text-center"><i class="fa fa-search"></i> Exploration</h2>
+  <h2 class="text-center">Annuaire des caïmans</h2>
 </div>
 <div id="loader" class="mt-5 text-center">
   <div class="spinner-border text-primary" role="status">
