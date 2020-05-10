@@ -20,6 +20,7 @@
         <div class="p-3 bg-white border-bottom">
           <span class="h5">Nouveauté</span>
         </div>
+
         <div class="p-3 bg-white">
           <form method="post">
             @csrf

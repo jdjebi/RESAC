@@ -56,7 +56,6 @@ Route::prefix('/v1/admin')->group(function (){
       Route::get('rechercher',"SearchController@admin")->name('admin_search');
     });
 
-
   });
 
 });

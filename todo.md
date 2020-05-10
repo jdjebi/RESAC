@@ -2,10 +2,11 @@
 
 - Validation des formulaires pour les nouveautés
 - Intégrer le moteur de recherche (v1)
-- Version mobile de l'interface
 - Mise en ligne
 
 # v4
+- Version mobile de l'interfacebh
+- Optimiser la plateforme
 - Guide lors de l'inscription
 - Revision de la page de profil
 - Amélioration de la recherche (nom + prenom)
@@ -19,6 +20,7 @@
   - [?] Un admin lui ne pas se rendre membre ni se supprimer
   - Gestion des utilisateurs
     - [?] Suppression ajax des utilisateurs
+    - Révision de la page d'accueil
 
 ---
 
@@ -64,6 +66,7 @@
 - Gérer le cas des MULPILE ERRORS ON ONE FIELD
 - Lorsque tous les champs obligatoires ne sont pas remplit aucune validation n'est faite
 - Dans les publications(dans le constructeur), si l'id d'un utilisateur n'exsite pas alors ce dernier ne sera pas instancié donc l'affichage sera de la publication au niveau du nom de l'auteur sera érroné voir rien ne va s'afficher ou il y'aura une erreur (Pas delete CASCADE)
+- Suggestion !important
 - Tous le champs du formulaire de paramètre ne subissent pas de style en vas d'erreur
 - Intégrer le marquer comme lu
 - Publication de contenu

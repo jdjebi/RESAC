@@ -59,10 +59,18 @@ class FeaturesController extends Controller
 
       // Validation
 
+      $validatedData = $request->validate([
+        'title' => 'required',
+        'content' => 'required',
+        'created_at' => 'nullable|date'
+      ]);
+
       $feature = new Features;
 
       $feature->title = $request->title;
       $feature->content = $request->content;
+
+      // Vérifier l'existence de l'utilisateur dans ce cas
       $feature->user_author_id = $request->user_author_id;
 
       if($request->created_at)
