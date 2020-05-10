@@ -2,6 +2,14 @@
 
 @section('extras_style')
   @include('app.explorer.style')
+
+
+  <style media="screen">
+    body{
+      background-color: #f1f3f6
+    }
+  </style>
+
 @endsection
 
 
@@ -10,7 +18,12 @@
   @include("flash")
 </div>
 <div class="container">
-  <h2 class="text-center">Annuaire des caïmans</h2>
+  <div class="row">
+    <div class="col-sm-12">
+      <h2 class="p-3">Annuaire des caïmans</h2>
+      <hr>
+    </div>
+  </div>
 </div>
 <div id="loader" class="mt-5 text-center">
   <div class="spinner-border text-primary" role="status">

@@ -1,7 +1,7 @@
 # A FAIRE
 
 - Validation des formulaires pour les nouveautés
-- Intégrer le mot de recherche (v1)
+- Intégrer le moteur de recherche (v1)
 - Version mobile de l'interface
 - Mise en ligne
 

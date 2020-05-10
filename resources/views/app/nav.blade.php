@@ -4,6 +4,13 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
+
+    @if(Auth::check())
+    <form action="{{ route("admin_search",[],false) }}" method="GET" class="has-search form-inline my-2 my-lg-0 pt-1">
+      <input name="q" type="text" class="form-control form-control-sm" placeholder="Rechercher un utilisateur" value="{{ isset($_GET['q']) ? $_GET['q'] : '' }}">
+    </form>
+    @endif
+
     <ul class="navbar-nav mr-auto">
 
       @if(!Auth::is_admin_logged())

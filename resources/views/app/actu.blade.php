@@ -17,9 +17,13 @@
 
   <div class="row">
 
-    <div class="col-md-3"></div>
+    <div class="col-md-2  offset-sm-1 col-sm-12">
 
-    <div class="col-sm-10 col-md-5">
+      @include('app.feed.left')
+
+    </div>
+
+    <div class="col-sm-12 col-md-5">
 
       @include('flash')
 
@@ -107,7 +111,7 @@
 
     </div>
 
-    <div id="annonce" class="offset-sm-1 col-sm-3">
+    <div id="annonce" class="col-sm-3">
       @include('app.feed.annonce')
     </div>
 
