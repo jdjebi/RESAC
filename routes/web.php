@@ -29,6 +29,8 @@ Route::middleware("auth")->group(function(){
 
   Route::match(['get', 'post'],'/actualités','ActuController@index')->name('actu');
 
+  Route::get('rechercher',"Resac\SearchController@user_for_app")->name('app.search');
+
 });
 
 Route::get('/deconnexion','AuthController@logout')->name('logout');

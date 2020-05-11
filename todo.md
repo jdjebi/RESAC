@@ -1,10 +1,12 @@
 # A FAIRE
 
-- Validation des formulaires pour les nouveautés
 - Intégrer le moteur de recherche (v1)
 - Mise en ligne
 
 # v4
+- Format mobile
+- Guide
+---
 - Version mobile de l'interfacebh
 - Optimiser la plateforme
 - Guide lors de l'inscription

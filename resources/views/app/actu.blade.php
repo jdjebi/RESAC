@@ -17,7 +17,7 @@
 
   <div class="row">
 
-    <div class="col-md-2  offset-sm-1 col-sm-12">
+    <div class="col-md-2 offset-lg-1 col-sm-12">
 
       @include('app.feed.left')
 
