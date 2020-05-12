@@ -3,6 +3,7 @@
 - Mise en ligne
 
 # v4
+- Création de l'index dès l'inscription et à la mise à jour du compte
 - Format mobile
 - Guide
 ---
@@ -47,7 +48,7 @@
 - Une Espace dédié à chaque administrateur
 - Revoir les middlewares spécifiques au api
 - La Certification des publications n'enregistre que l'utilisateur qui a fait l'opération courante (validate_by) c'est à dire validation ou annulation on ne peut donc pas connaitre l'utilisateur qui avait validé une publication après que celle ai été annulé en terme de certification
-- Création d'une table pour la gestion de la valisation des publications
+- Création d'une table pour la gestion de la validation des publications
 - Admin ne doit pas pouvoir supprimer une publications venant de utilisateur (modérateur)
 - La publication appartient à un utilisateur
   - Supprimer un utilisateur revient à supprimer toutes ses publications
