@@ -1,6 +1,5 @@
 # A FAIRE
 
-- Intégrer le moteur de recherche (v1)
 - Mise en ligne
 
 # v4
