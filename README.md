@@ -13,7 +13,7 @@ Consulter le fichier **todo.md** pour suivre l'évolution du développement.
 ## Fonctionnalités
 
 ### Récentes
-- Mot de recherche d'utilisateurs (nouveau)
+- Moteur de recherche d'utilisateurs (nouveau)
 - Gesion des nouveautés
 - Gestion des publications
 - Administration
