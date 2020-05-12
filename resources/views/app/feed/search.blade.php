@@ -29,18 +29,15 @@
         </div>
 
         @foreach ($results as $u)
-
           <div class="mt-4 media">
-            <img src="{{ $u->get_photo() }}" class="search-user-photo mr-3" alt="...">
+            <img src="{{ $u->photo }}" class="search-user-photo mr-3" alt="...">
             <div class="media-body">
-              <h5 class="mt-0"><a href="{{ route('admin_user_profil',[ $u->id]) }}">{{ $u->get_complete_name() }}</a></h5>
-              <div class="small">{{ $u->get_promo() }}</div>
-              <div>{{ $u->get_pays() }} | {{ $u->get_emploi() }} &middot {{ $u->get_universite() }}</div>
+              <h5 class="mt-0"><a href="{{ route('profil') }}?id={{ $u->id }}">{{ $u->fullname }}</a></h5>
+              <div class="text-muted small">{{ $u->promo }}</div>
+              <div class="text-muted">{{ $u->pays }} | {{ $u->emploi }} &middot {{ $u->universite }}</div>
             </div>
           </div>
-
           <hr>
-
         @endforeach
 
         @if(count($results) == 0)

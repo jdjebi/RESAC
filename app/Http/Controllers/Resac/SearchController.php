@@ -9,17 +9,14 @@ use App\Features;
 
 class SearchController extends Controller
 {
-  public function admin(){
+  public function admin(Request $request){
 
     $search_query = "";
     $results = [];
 
-    if(isset($_GET['q']) and !empty($_GET['q'])){
-      $search_query = $_GET['q'];
-      $search_results = \Search::user_engine($search_query);
-      foreach ($search_results as $data) {
-        $results[] = new \Users($data);
-      }
+    if($request->has("q")){
+      $search_query = $request->q;
+      $results = \Search::user_with_TopLevelEngine($search_query);
     }else{
       \Flash::add("Veuillez renseigner le nom de l'utilisateur à rechercher.",'warning');
     }
@@ -37,16 +34,13 @@ class SearchController extends Controller
 
   }
 
-  public function user_for_app(){
+  public function user_for_app(Request $request){
     $search_query = "";
     $results = [];
 
-    if(isset($_GET['q']) and !empty($_GET['q'])){
-      $search_query = $_GET['q'];
-      $search_results = \Search::user_engine($search_query);
-      foreach ($search_results as $data) {
-        $results[] = new \Users($data);
-      }
+    if($request->has("q")){
+      $search_query = $request->q;
+      $results = \Search::user_with_TopLevelEngine($search_query);
     }else{
       \Flash::add("Veuillez renseigner le nom de l'utilisateur à rechercher.",'warning');
     }

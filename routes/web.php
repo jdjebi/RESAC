@@ -87,6 +87,12 @@ Route::namespace('admin')->group(function () {
 
         Route::get('nouveautes/delete/{id}','FeaturesController@delete')->where('id', '[0-9]+')->name('feature.delete');
 
+
+        /* Index de recherche utilisateur */
+        Route::get('webengine/index','WebEngineIndexController@show')->name('webengine.show');
+        Route::get('webengine/index/generate','WebEngineIndexController@generate_index')->name('webengine.generate_index');
+        Route::get('webengine/index/clear','WebEngineIndexController@clear_index')->name('webengine.clear_index');
+
       });
 
     });

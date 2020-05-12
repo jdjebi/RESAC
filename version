@@ -1,6 +1,7 @@
 ## Master
 
 - Table new_features pour les nouveautés crées avec Laravel
+- Table SearchUserIndex, joue le rôle d'index de recherche pour la recherche d'utilisateur
 
 - Mise à jour des clées pour le mise en ligne
   - Supprimer les foreigns

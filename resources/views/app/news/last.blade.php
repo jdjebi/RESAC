@@ -1,5 +1,8 @@
 @include('app.news.style')
+
+
 <div class="container mt-5 mb-5">
+@if($feature)
 	<div class="row">
 		<div class="col-md-6 offset-md-3">
 			<h4>Les nouveautés</h4>
@@ -19,4 +22,5 @@
       </div>
     </div>
 	</div>
+@endif
 </div>

@@ -27,6 +27,7 @@ body{
 	<div class="row">
 		<div class="col-md-7">
 			<h4>Fil des nouveautés</h4>
+			@if(count($features) != 0)
 			<ul class="timeline">
 				@foreach ($features as $i => $feature)
 					<li class="feature">
@@ -37,6 +38,9 @@ body{
 					</li>
 				@endforeach
 			</ul>
+			@else
+				Aucune nouveauté
+			@endif
 		</div>
 		<div class="col-md-5 mt-5">
 			<div class="mt-5 text-center">

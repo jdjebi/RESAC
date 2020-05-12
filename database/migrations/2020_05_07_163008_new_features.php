@@ -26,7 +26,6 @@ class NewFeatures extends Migration
 
           $table->foreign('user_author_id')->references('id')->on('users')->onDelete('cascade');
 
-
         });
     }
 
