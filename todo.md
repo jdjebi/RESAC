@@ -6,12 +6,12 @@
 - Format mobile
 - Guide
 ---
-- Version mobile de l'interfacebh
+- Mot de passe oublié
+- Version mobile de l'interface
 - Optimiser la plateforme
 - Guide lors de l'inscription
 - Revision de la page de profil
 - Amélioration de la recherche (nom + prenom)
-- Mot de passe oublié
 - Gestion des publications côté utilisateur
 - Intégrer les modérateurs et les super utilisateurs
 - Utiliser un nom utilisateur pour identifier un utilisateur
@@ -28,6 +28,7 @@
 - Utiliser ajax pour les annonces
 
 # FAIT
+- Moteur de recherche
 - Explorer devient un annuaire
 - Revoir la page des publications
 - Mise en place du système de connexion administrateur
