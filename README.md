@@ -31,8 +31,3 @@ Consulter le fichier **todo.md** pour suivre l'évolution du développement.
 
 - Table new_features pour les nouveautés crées avec Laravel
 - Table SearchUserIndex, joue le rôle d'index de recherche pour la recherche d'utilisateur
-
-- Mise à jour des clées pour le mise en ligne
-  - Supprimer les foreigns
-  - Mettre à jour les colunnes foreign en bigint unsigned
-  - Récreer tous les foreign
