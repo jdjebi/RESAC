@@ -1,13 +1,18 @@
 # A FAIRE
 
-- Mise en ligne
-
 # v4
+- Mot de passe oublié
+- Guide
+- Gestion des publications côtés utilisateur
+
+---
+- Nouveauté (dernières en dropdown)
 - Création de l'index dès l'inscription et à la mise à jour du compte
 - Format mobile
-- Guide
+
+# v5
+
 ---
-- Mot de passe oublié
 - Version mobile de l'interface
 - Optimiser la plateforme
 - Guide lors de l'inscription
@@ -24,20 +29,13 @@
     - [?] Suppression ajax des utilisateurs
     - Révision de la page d'accueil
 
+
 ---
 
 - Utiliser ajax pour les annonces
 
 # FAIT
-- Moteur de recherche
-- Explorer devient un annuaire
-- Revoir la page des publications
-- Mise en place du système de connexion administrateur
-- [x] Recherche d'utilisateur v1
-- [x] Ajout des middlewares
-- [x] Gestion des droits
-- Base de l'administration
-  - [?] Gestion des nouveautés (Basée sur Laravel et les query Builder)
+
 
 
 # Brainstorming
@@ -53,14 +51,12 @@
 - La publication appartient à un utilisateur
   - Supprimer un utilisateur revient à supprimer toutes ses publications
 - Intégrer une étape de mise à jour de compte après la réussite de la connexion(app/admin)
-- Changer l'encodage des textes dans la base de données en ligne
 - Breadcumb dans l'administration
 - Controller la sécurité des API
 - Design de la page lorsque la base de donnée est inaccéssible non fait (A revoir)
 - Améliorer l'affiche des erreurs avec Ajax
 - Indicatif du numéro
 - Créer une création de compte en backend
-- Améliorer l'annuaire
 - Gestion de l'activation de compte
 - Définir une couleur par de défaut pour chaque utilisateur
 - Suggestion de profil

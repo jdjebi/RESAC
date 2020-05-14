@@ -15,35 +15,24 @@ Consulter le fichier **todo.md** pour suivre l'évolution du développement.
 ### Récentes
 - Moteur de recherche d'utilisateurs (nouveau)
 - Gesion des nouveautés
-- Gestion des publications
-- Administration
+
 
 ### Anciennes
-- **Actualités**
+- Actualités
+- Gestion des publications
+- Administration
 
 ## Fonctionnalités built-in principale
 
 - Validateur de formulaire
 - Emetteur de notifications
 
-## Mise à jour de la version 3.1
+## Mise à jour de la version 3.2
 
-- Amélioration de la prise en charge de Laravel
+- Table new_features pour les nouveautés crées avec Laravel
+- Table SearchUserIndex, joue le rôle d'index de recherche pour la recherche d'utilisateur
 
-## Mise à jour de la version 3
-
-- Les fonctionnalités du Framework de base ont été intégré à Laravel comme extension
-
-- Ajout des champs is_staff, staff_role à la table des utilisateurs
-
-- auth, redirect, flash deviennent des services
-
-- Mise de la classe Auth
-  - Ajout des méthodes is_admin et role
-
-  - Modification de la table pub_v1
-    - Ajout du champ validate
-    - Ajout du champ validate_by
-    - Ajout du champ validate_at
-
-- Supression en CASCADE sur la les publications avec pour référence la table user
+- Mise à jour des clées pour le mise en ligne
+  - Supprimer les foreigns
+  - Mettre à jour les colunnes foreign en bigint unsigned
+  - Récreer tous les foreign

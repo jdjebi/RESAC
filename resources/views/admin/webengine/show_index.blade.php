@@ -46,7 +46,7 @@
               @foreach ($index_rows as $index => $row)
                 <tr>
                   <td>{{ $index + 1 }}</td>
-                  <td>{{ $row->user->fullname }}
+                  <td>{{ $row->user->fullname }}</td>
                   <td>{{ $row->keywords }}</td>
                   <td>{{ $row->updated_at }}</td>
                 </tr>

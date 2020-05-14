@@ -1,5 +1,7 @@
 ## Master
 
+## Mise à jour de la version 3.2
+
 - Table new_features pour les nouveautés crées avec Laravel
 - Table SearchUserIndex, joue le rôle d'index de recherche pour la recherche d'utilisateur
 
