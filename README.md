@@ -14,7 +14,7 @@ Consulter le fichier **todo.md** pour suivre l'évolution du développement.
 
 ### Récentes
 - Moteur de recherche d'utilisateurs (nouveau)
-- Gesion des nouveautés
+- Gestion des nouveautés
 
 
 ### Anciennes
