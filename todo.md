@@ -6,23 +6,20 @@
 - Gestion des publications côtés utilisateur
 
 ---
+- Conservation de session
 - Nouveauté (dernières en dropdown)
 - Création de l'index dès l'inscription et à la mise à jour du compte
 - Format mobile
 
 # v5
 
----
 - Version mobile de l'interface
 - Optimiser la plateforme
-- Guide lors de l'inscription
 - Revision de la page de profil
-- Amélioration de la recherche (nom + prenom)
-- Gestion des publications côté utilisateur
 - Intégrer les modérateurs et les super utilisateurs
 - Utiliser un nom utilisateur pour identifier un utilisateur
-- Intégrer la recherche à l'application principale
-- Conservation de session
+
+---
 - Gestion des utilisateurs
   - [?] Un admin lui ne pas se rendre membre ni se supprimer
   - Gestion des utilisateurs
