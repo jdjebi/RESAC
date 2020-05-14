@@ -12,7 +12,7 @@ class User extends Authenticatable
 
     public function getFullNameAttribute()
     {
-        return "{$this->nom} {$this->prenom}";
+        return "{$this->attributes['nom']} {$this->attributes['prenom']}";
     }
 
     public function getPhotoAttribute(){
