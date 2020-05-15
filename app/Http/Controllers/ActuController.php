@@ -3,14 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 use App\Features;
+
 
 class ActuController extends Controller
 {
 
-    public function index()
-    {
+    protected $user;
+
+    public function __construct(){
+        $this->user = \Users::auth();
+    }
+
+    public function index(){
 
       $user = \Users::auth();
 
@@ -18,7 +25,7 @@ class ActuController extends Controller
       if(isset($_POST['new_post_test'])){
         $content = "Lorem ipsum dolor sit amet.";
         \Post::create([
-          "user" => $user->id,
+          "user" =>   $this->user->id,
           "content" => $content
         ]);
       }
@@ -28,7 +35,7 @@ class ActuController extends Controller
         if(isset($_POST['content'])){
           if(!empty($_POST['content'])){
             \Post::create([
-              "user" => $user->id,
+              "user" => $this->user->id,
               "content" => $_POST['content']
             ]);
             \Redirect::back();
@@ -69,6 +76,23 @@ class ActuController extends Controller
         'last_feature' => $last_feature
       ]);
     }
+
+
+    public function feed(Request $request){
+
+
+      // $feed_posts = \Post::all();
+      // $last_feature = Features::last();
+
+      $title =  "Actualités";
+
+      return view("app.feed.page",[
+        'title' => $title,
+        'user' =>  $this->user,
+      ]);
+
+    }
+
 }
 
 ?>

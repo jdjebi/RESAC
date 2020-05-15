@@ -21,6 +21,8 @@ Route::get('/nouveautes',"Resac\FeaturesController")->name('dev_news');
 
 Route::middleware("auth")->group(function(){
 
+  Route::get('/feed','ActuController@feed')->name('app.feed');
+
   Route::get('/profil','UserController@profil')->name('profil');
 
   Route::get('/compte','UserController@account')->name('edit');

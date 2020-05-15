@@ -20,15 +20,18 @@
     <link rel="stylesheet" href="asset/css/fontawsome/all.css">
 
     <style media="screen">
-      @@font-face {
-        font-family: "leckerli-one";
-        src: url({{ asset("asset/fonts/Leckerli_One/LeckerliOne-Regular.ttf") }});
+      body{
+          padding-top: 100px;
       }
       .resac-logo-25{
         font-size: 25px
       }
       .resac-logo-font{
         font-family: leckerli-one;
+      }
+      @@font-face {
+        font-family: "leckerli-one";
+        src: url({{ asset("asset/fonts/Leckerli_One/LeckerliOne-Regular.ttf") }});
       }
     </style>
 
