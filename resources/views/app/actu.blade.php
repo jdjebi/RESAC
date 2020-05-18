@@ -2,7 +2,6 @@
 
 @section('extras_style')
 <link rel="stylesheet" href="asset/css/placeholder-loading.min.css">
-
 <link rel="stylesheet" href="{{ asset("asset/css/resac/pubs.css") }}">
 <style media="screen">
   body{
@@ -119,7 +118,6 @@
 
 
 </div>
-
 
 @endsection
 

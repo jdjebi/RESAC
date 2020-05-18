@@ -32,12 +32,12 @@
 
       @if($edit_form == "infos")
         <div id="infos-form">
-          @include("app.params.infos");
+          @include("app.params.infos")
         </div>
       @endif
 
       @if($edit_form == "password"):
-        @include("app.params.pass");
+        @include("app.params.pass")
       @endif
     </div>
   </div>

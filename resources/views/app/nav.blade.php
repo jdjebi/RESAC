@@ -1,8 +1,38 @@
+<style media="screen">
+  .nav-extras-items{
+    visibility: visible;
+  }
+
+  .notif-badge{
+    font-size: 11px;
+    padding: 1px 3px 1px 3px;
+    border-radius: 2px;
+    background-color: #2196f3;
+    color: #fff
+  }
+  @media (min-width: 992px){
+    .nav-extras-items{
+      visibility: hidden;
+    }
+  }
+</style>
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-  <a class="navbar-brand" href="{{ route("home") }}">Resac</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="border-color: transparent;">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <a class="navbar-brand" href="{{ route("home") }}">RESAC</a>
+  <div class="d-flex align-items-center">
+    <div class="nav-extras-items">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route("dev_news") }}">
+            <i class="far fa-lightbulb" style="color: #2196f3; font-size: 21px"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="border-color: transparent;">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+
   <div class="collapse navbar-collapse" id="navbarNav">
 
     @if(Auth::check())

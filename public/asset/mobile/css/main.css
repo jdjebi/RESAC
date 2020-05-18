@@ -7,7 +7,7 @@ body {
   margin-bottom: 80px;
 }
 
-.footer {
+#mobile-nav.footer {
     position:fixed;
      bottom: 0;
      width: 100%;
@@ -20,10 +20,6 @@ body {
     border-top: 1px solid transparent;
 }
 
-.group-container{
-    padding:0;
-    height:100%;
-}
 
 .selectors, .block{
     height:100%;
@@ -68,4 +64,14 @@ body {
 
 .button-inactive{
     color: #000;
+}
+
+#mobile-nav a.selector-holder:hover{
+  text-decoration: none;
+}
+
+@media (min-width: 992px){
+  #mobile-nav{
+    display: none;
+  }
 }

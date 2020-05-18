@@ -81,7 +81,8 @@ class ActuController extends Controller
     public function feed(Request $request){
 
 
-      // $feed_posts = \Post::all();
+      $feed_posts = \Post::all();
+
       // $last_feature = Features::last();
 
       $title =  "Actualités";
