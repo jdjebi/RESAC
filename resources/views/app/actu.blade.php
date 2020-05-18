@@ -16,13 +16,13 @@
 
   <div class="row">
 
-    <div class="col-md-2 offset-lg-1 col-sm-12">
+    <div class="col-md-2 offset-lg-1 d-none d-lg-block offset-sm-2">
 
       @include('app.feed.left')
 
     </div>
 
-    <div class="col-sm-12 col-md-5">
+    <div class="col-sm-12 col-md-8 col-lg-5">
 
       @include('flash')
 
@@ -110,7 +110,7 @@
 
     </div>
 
-    <div id="annonce" class="col-sm-3">
+    <div id="annonce" class="col-sm-4 d-none d-md-block d-lg-block">
       @include('app.feed.annonce')
     </div>
 

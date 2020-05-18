@@ -24,7 +24,7 @@
           </a>
         </div>
       </button>
-      @if(!Auth::is_admin_logged())
+      @if(Auth::is_admin_logged())
         <button id="account" type="button" class="btn btn-secondary button-inactive">
            <div>
              <a class="selector-holder" href="{{ route('admin_user_manager') }}">

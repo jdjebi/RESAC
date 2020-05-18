@@ -36,7 +36,7 @@
   <div class="collapse navbar-collapse" id="navbarNav">
 
     @if(Auth::check())
-    <form action="{{ route("app.search",[],false) }}" method="GET" class="has-search form-inline my-2 my-lg-0 pt-1">
+    <form class="d-none d-md-block d-lg-block" action="{{ route("app.search",[],false) }}" method="GET" class="has-search form-inline my-2 my-lg-0 pt-1">
       <input name="q" type="text" class="form-control form-control-sm" placeholder="Rechercher un utilisateur" value="{{ isset($_GET['q']) ? $_GET['q'] : '' }}">
     </form>
     @endif
@@ -54,18 +54,18 @@
 
       @if(Auth::is_admin_logged())
 
-      <li class="nav-item">
+      <li class="nav-item d-none d-md-block d-lg-block">
         <a class="nav-link" href="{{ route("actu") }}"><i class="far fa-newspaper"></i> Actualités</a>
       </li>
 
       @endif
 
-      <li class="nav-item">
+      <li class="nav-item d-none d-md-block d-lg-block">
         <a class="nav-link" href="{{ route("annuaire") }}"> <i class="fa fa-address-book"></i> Annuaire</a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link" href="{{ route("dev_news") }}"> <i class="far fa-lightbulb" style="color: #2196f3"></i> Nouveautés (1)</a>
+      <li class="nav-item d-none d-md-block d-lg-block">
+        <a class="nav-link" href="{{ route("dev_news") }}"> <i class="far fa-lightbulb" style="color: #2196f3"></i> Nouveautés</a>
       </li>
 
     </ul>
@@ -110,3 +110,14 @@
     @endif
   </div>
 </nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <form action="{{ route("app.search",[],false) }}" method="GET" class="has-search form-inline my-2 my-lg-0 pt-1">
+        <input id="mobile-search-bar" name="q" type="text" class="form-control form-control-md" placeholder="Rechercher un utilisateur" value="{{ isset($_GET['q']) ? $_GET['q'] : '' }}">
+      </form>
+    </div>
+  </div>
+
+</div>

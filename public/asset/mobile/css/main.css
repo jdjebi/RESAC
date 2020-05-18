@@ -70,8 +70,27 @@ body {
   text-decoration: none;
 }
 
+#mobile-search-bar{
+  border-radius: 17px;
+  background-color: #ECEFF1;
+  display: block;
+  width: 100%
+}
+
 @media (min-width: 992px){
   #mobile-nav{
     display: none;
+  }
+  #mobile-search-bar{
+    display: none;
+  }
+  .navbar{
+    box-shadow: -5px 1px 4px #0202023b;
+  }
+}
+
+@media (max-width: 992px){
+  .navbar{
+    box-shadow: 0px 0px 4px #0202023b;
   }
 }
