@@ -1,6 +1,7 @@
 <style media="screen">
   .nav-extras-items{
     visibility: visible;
+    display: block;
   }
 
   .notif-badge{
@@ -13,6 +14,7 @@
   @media (min-width: 992px){
     .nav-extras-items{
       visibility: hidden;
+      display: none;
     }
   }
 </style>
