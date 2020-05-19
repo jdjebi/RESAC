@@ -43,7 +43,7 @@
 
     <ul class="navbar-nav mr-auto">
 
-      @if(!Auth::is_admin_logged())
+      @if(!Auth::check())
 
       <li class="nav-item">
         <a class="nav-link" href="{{ route("home") }}"><i class="fa fa-home"></i> Accueil</a>
@@ -52,7 +52,7 @@
       @endif
 
 
-      @if(Auth::is_admin_logged())
+      @if(Auth::check())
 
       <li class="nav-item d-none d-md-block d-lg-block">
         <a class="nav-link" href="{{ route("actu") }}"><i class="far fa-newspaper"></i> Actualités</a>
@@ -70,7 +70,7 @@
 
     </ul>
 
-    @if(!Auth::is_admin_logged())
+    @if(!Auth::check())
 
     <ul  class="navbar-nav">
 
@@ -85,7 +85,7 @@
 
     @endif
 
-    @if(Auth::is_admin_logged())
+    @if(Auth::check())
 
     <ul  class="navbar-nav">
 
@@ -111,6 +111,7 @@
   </div>
 </nav>
 
+@if(Auth::check())
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12">
@@ -119,5 +120,5 @@
       </form>
     </div>
   </div>
-
 </div>
+@endif

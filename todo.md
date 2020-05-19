@@ -2,14 +2,11 @@
 
 # v4
 - Mot de passe oublié
-- Guide
 - Gestion des publications côtés utilisateur
 
 ---
 - Conservation de session
-- Nouveauté (dernières en dropdown)
 - Création de l'index dès l'inscription et à la mise à jour du compte
-- Format mobile
 
 # v5
 
