@@ -19,7 +19,7 @@
   }
 </style>
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-  <a class="navbar-brand" href="{{ route("home") }}">RESAC</a>
+  <a class="navbar-brand resac-logo-font resac-logo-25" href="{{ route("home") }}">Resac</a>
   <div class="d-flex align-items-center">
     <div class="nav-extras-items">
       <ul class="nav">

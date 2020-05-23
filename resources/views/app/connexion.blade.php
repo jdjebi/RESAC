@@ -5,6 +5,14 @@
   body{
     background-color: #f1f3f6
   }
+  @@media(max-width: 768px) {
+    body{
+      background-color: #fff;
+    }
+    #login-box{
+      border-color: transparent !important
+    }
+  }
 </style>
 @endsection
 
@@ -12,19 +20,20 @@
 @include('flash')
 
 <div id="v-login" class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-8 col-lg-5 bg-white border p-5">
+  <div class="row justify-content-center p-2">
+    <div id="login-box" class="col-md-8 col-lg-5 bg-white border rounded p-5">
       <form v-on:submit.prevent="onSubmit">
         @csrf
-        <h3 class="mt-3 mb-4 text-center">Connexion</h3>
-
+        <div class="text-center">
+          <img class="text-center" src="{{ asset('asset/imgs/icons/android-chrome-192x192.png') }}" alt="" width="80px">
+        </div>
+        <h3 class="mt-3 mb-4 text-center">Se connecter</h3>
         <div v-if="is_error" id="error-box" class="alert alert-danger d-none">
           @{{ error_message }}
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-
         <div class="form-group mb-4 mt-5">
           <input class="form-control" type="text" name="email" id="email" placeholder="Adresse E-mail">
         </div>
@@ -33,13 +42,13 @@
         </div>
         <div class="mt-4">
           <button id="submit-btn" class="btn btn-block btn-primary" name="button" v-bind:disabled="submit_btn">
-          <span v-if="!submit_btn">Envoyer</span>
+          <span v-if="!submit_btn">Connexion</span>
           <div v-if="submit_btn" class="loader spinner-border text-white spinner-border-sm d-none" role="status">
             <span class="sr-only">Loading...</span>
           </div>
           </button>
-          <div class="text-left mt-3">
-            Pas de compte ? <a href="{{ route("register") }}">Créer un compte</a>.
+          <div class="text-center mt-3">
+          <a href="{{ route("register") }}">Créer un compte</a> &middot <a href="{{ route("register") }}">Mot de passe oublié</a>
           </div>
         </div>
       </form>
