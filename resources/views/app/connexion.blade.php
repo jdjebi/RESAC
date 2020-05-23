@@ -48,7 +48,7 @@
           </div>
           </button>
           <div class="text-center mt-3">
-          <a href="{{ route("register") }}">Créer un compte</a> &middot <a href="{{ route("register") }}">Mot de passe oublié</a>
+          <a href="{{ route("register") }}">Créer un compte</a> &middot <a href="{{ route("reset") }}">Mot de passe oublié</a>
           </div>
         </div>
       </form>

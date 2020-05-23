@@ -10,6 +10,13 @@ Route::middleware("guest")->group(function(){
 
   Route::match(['get', 'post'],'/inscription','AuthController@register')->name('register');
 
+  Route::get('/reinitialisation',function(){
+
+
+    return view("app.auth.passwords.reset");
+
+  })->name('reset');
+
 });
 
 
@@ -123,3 +130,7 @@ Route::prefix('v1/api')->group(function () {
 
   Route::post('admin/login','AdminController@api_login')->name('admin_api_login');
 });
+
+# Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
