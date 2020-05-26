@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+
 
 Route::middleware("guest")->group(function(){
 
@@ -12,10 +15,17 @@ Route::middleware("guest")->group(function(){
 
   Route::get('/reinitialisation',function(){
 
-
     return view("app.auth.passwords.reset");
 
   })->name('reset');
+
+  Route::post('/reinitialisation',function(Request $request){
+
+    dump("Voici ");
+
+    # return redirect()->route('route');
+
+  });
 
 });
 
@@ -131,6 +141,6 @@ Route::prefix('v1/api')->group(function () {
   Route::post('admin/login','AdminController@api_login')->name('admin_api_login');
 });
 
-# Auth::routes();
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
