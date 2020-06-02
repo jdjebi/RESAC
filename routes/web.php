@@ -134,5 +134,3 @@ Route::prefix('v1/api')->group(function () {
 
   Route::post('admin/login','AdminController@api_login')->name('admin_api_login');
 });
-
-Route::get('/home', 'HomeController@index')->name('home');
