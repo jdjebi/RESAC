@@ -1,7 +1,7 @@
 # A FAIRE
 
 # v4
-- Mot de passe oublié
+- Gérer les comptes la mise à jour des comptes lors de la connexion !important
 - Gestion des publications côtés utilisateur
 
 ---
@@ -29,6 +29,7 @@
 - Utiliser ajax pour les annonces
 
 # FAIT
+- Mot de passe oublié
 
 
 
