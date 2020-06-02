@@ -4,6 +4,11 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
+Route::namespace("Resac\Auth")->group(function () {
+  Route::get('reinit/','ResetPasswordController')->name('app.reset.email');
+  Route::post('reinit/','ValidatePasswordRequest');
+});
+
 
 Route::middleware("guest")->group(function(){
 
