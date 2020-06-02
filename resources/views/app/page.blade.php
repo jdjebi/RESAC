@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="{{ asset('asset/mobile/css/main.css') }}">
     <style media="screen">
       body{
-          padding-top: 70px;
+          padding-top: 64px
       }
       .resac-logo-25{
         font-size: 25px
