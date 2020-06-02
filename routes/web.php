@@ -4,11 +4,6 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
-Route::namespace("Resac\Auth")->group(function () {
-  Route::get('reinit/','ResetPasswordController')->name('app.reset.email');
-  Route::post('reinit/','ValidatePasswordRequest');
-});
-
 
 Route::middleware("guest")->group(function(){
 
@@ -18,18 +13,12 @@ Route::middleware("guest")->group(function(){
 
   Route::match(['get', 'post'],'/inscription','AuthController@register')->name('register');
 
-  Route::get('/reinitialisation',function(){
+  Route::namespace("Resac\Auth")->group(function () {
+    Route::get('reinitialiser/mot-de-passe','ForgotPasswordController')->name('app.reset.email');
+    Route::post('reinitialiser/mot-de-passe','ValidatePasswordRequest');
 
-    return view("app.auth.passwords.reset");
-
-  })->name('reset');
-
-  Route::post('/reinitialisation',function(Request $request){
-
-    dump("Voici ");
-
-    # return redirect()->route('route');
-
+    Route::get('password/reset/{token}','ResetPasswordController@get')->name('password.reset');
+    Route::post('password/reset','ResetPasswordController@post')->name('app.reinit.password');
   });
 
 });
@@ -145,7 +134,5 @@ Route::prefix('v1/api')->group(function () {
 
   Route::post('admin/login','AdminController@api_login')->name('admin_api_login');
 });
-
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

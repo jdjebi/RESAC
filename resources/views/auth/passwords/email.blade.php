@@ -5,21 +5,13 @@
   body{
     background-color: #f1f3f6
   }
-  @@media(max-width: 768px) {
-    body{
-      background-color: #fff;
-    }
-    #login-box{
-      border-color: transparent !important
-    }
-  }
 </style>
 @endsection
 
 @section('content')
 @include('flash')
 
-<div class="container">
+<div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

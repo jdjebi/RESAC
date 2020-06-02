@@ -16,8 +16,8 @@
         RESAC
       @endif
     </title>
-    <link rel="stylesheet" href="asset/css/cerulean/bootstrap.min.css">
-    <link rel="stylesheet" href="asset/css/fontawsome/all.css">
+    <link rel="stylesheet" href="{{ asset('asset/css/cerulean/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/css/fontawsome/all.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/mobile/css/main.css') }}">
     <style media="screen">
       body{
@@ -42,8 +42,8 @@
     @if(Auth::is_admin_logged())
       @include('app.mobile-nav992')
     @endif
-    <script src="asset/js/jquery-3.4.1.min.js" type="text/javascript"></script>
-    <script src="asset/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="{{ asset('asset/js/jquery-3.4.1.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('asset/js/bootstrap.min.js') }}" type="text/javascript"></script>
     @yield('scripts')
   </body>
 </html>

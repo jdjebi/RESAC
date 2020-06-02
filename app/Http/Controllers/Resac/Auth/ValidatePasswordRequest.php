@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Resac\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Password;
 
 
@@ -17,19 +15,16 @@ class ValidatePasswordRequest extends Controller
     $response = $this->sendResetEmail($request);
 
     if($response == 'passwords.throttled'){
-      return redirect()->back()->withErrors(['error' => trans('A Network Error occurred. Please try again.')]);
+      return redirect()->back()->withErrors(['error' => trans('Veuillez patienter, avant de réessayer.')]);
     }else if($response == 'passwords.user'){
       return redirect()->back()->withErrors(['email' => 'Adresse E-mail non reconnue.']);
     }else if($response == 'passwords.sent'){
       \Flash::add('Consultez votre adresse E-mail, un lien de réinitialisation de mot de passe vous a été envoyé.','success');
       return redirect()->back();
+    }else{
+      Flash::add("Désolé, une erreur c'est produite. Réessayez ou contactez un administrateur.",'error');
     }
 
-    die();
-
-    return view('auth.passwords.reset',[
-      'token' => '123'
-    ]);
   }
 
   protected function sendResetEmail($request)
