@@ -23,7 +23,7 @@
         </div>
         <div class="form-group">
           <label for="password">Mot de passe:</label>
-          <input class="form-control" type="password" name="password" id="password">
+          <input id="pass-input" class="form-control" type="password" name="password" id="password">
         </div>
         <div class="mt-4">
           <button id="submit-btn" class="btn btn-block btn-primary" name="button" v-bind:disabled="submit_btn">
@@ -73,9 +73,11 @@ var vm = new Vue({
       });
     },
     onSuccess: function(data,status){
+      this.submit_btn = false;
       if(data.is_error){
         this.is_error = true;
         this.error_message = data.errors.messages.global;
+        $('#pass-input').val('');
       }else{
         window.location = admin_index_url;
       }
@@ -85,6 +87,7 @@ var vm = new Vue({
       this.submit_btn = false;
       this.error_message = "Une erreur c'est produite. Vérifiez votre connexion internet ou contactez l'administrateur."
       console.log(error);
+      $('#pass-input').val('');
     },
   }
 });

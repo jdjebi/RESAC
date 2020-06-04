@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
     public function logout(){
-      logout();
+      \Resac\logout();
       return redirect()->route("admin");
     }
 
@@ -124,7 +125,7 @@ class AdminController extends Controller
       return redirect()->back();
     }
 
-    public function api_login(){
+    public function api_login(Request $request){
 
       // guest middleware
 
@@ -138,12 +139,13 @@ class AdminController extends Controller
       if($form->is_validate()){
         $email = $form->get("email");
         $password = $form->get("password");
-        $user = authenticate($email,$password);
-        if($user){
 
+        $user = \Resac\authenticate($email,$password);
+
+        if($user){
           if($user->is_staff){
             $success = true;
-            login_as_admin($user);
+             \Resac\login($request,$user);
           }else{
             $form->add_error('global',"Connexion impossible.");
           }
