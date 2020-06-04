@@ -104,13 +104,13 @@ var vm = new Vue({
         else
           url = url_profil;
 
-        window.location = '';
+        window.location = url;
       }
     },
     onError: function (data,status,error){
       alert("Une erreur c'est produite. Contactez l'administrateur.");
       console.log(error);
-      // $('#pass-input').val("");
+      $('#pass-input').val("");
       this.submit_btn = false;
     },
   }

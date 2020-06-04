@@ -19,7 +19,7 @@ class ApiController extends Controller
         $user = \Resac\authenticate($email,$password);
 
         if($user){
-          \Resac\login($user);
+          \Resac\login($request,$user);
           $success = true;
         }else{
           $form->add_error('global',"Adresse E-mail ou mot de passe incorrecte.");

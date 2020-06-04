@@ -39,6 +39,9 @@ class Users{
   public $is_staff;
   public $staff_role;
 
+  // Version
+  public $version;
+
   public function __construct($data){
     global $DB;
     $this->db = $DB;
@@ -69,6 +72,9 @@ class Users{
     // Role et droit
     $this->is_staff = $data["is_staff"];
     $this->staff_role = $data["staff_role"];
+
+    // Version
+    $this->version = $data["version"];
   }
 
   static function auth(){
@@ -104,7 +110,7 @@ class Users{
 
   static public function create($data){
     global $DB;
-    $sql = "INSERT INTO users(nom,prenom,email,password) VALUES(:nom,:prenom,:email,:password)";
+    $sql = "INSERT INTO users(nom,prenom,email,password,version) VALUES(:nom,:prenom,:email,:password,:version)";
     $q = $DB->prepare($sql);
     $q->execute($data);
   }
@@ -223,6 +229,7 @@ class Users{
         'pays' => \Country::get($user->pays),
         'role' => $user->get_staff_role(),
         'photo' => $user->get_photo(),
+        'version' => $user->version,
         'profil_url' => route('profil')."?id=".$user->id,
         'admin_profil_url' => route('admin_user_profil',['user_id' => $user->id])
       ];

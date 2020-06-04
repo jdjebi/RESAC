@@ -2,20 +2,21 @@
 
 - Créer une news pour les mots de passe oublié
 - Créer une news pour la conservation de session
-- Revoir les middlewares avec le nouveau service auth2
+
+
 
 # v4
-- Gérer les comptes la mise à jour des comptes lors de la connexion !important
-  - intégrer la fonction de hashage à l'inscription
+- Gérer les comptes la mise à jour des comptes lors de la connexion !important (Finaliser)
   - Revoir toutes les méthodes de login
-  - Revoir la mise à jour du du mot de passe
-  - Revoir le created_at du Modèle utilisateur
+  - Revoir la moification du du mot de passe
 
-- Gestion des publications côtés utilisateur
+- Création de l'index dès l'inscription et à la mise à jour du compte
+
 
 ---
-- Conservation de session
-- Création de l'index dès l'inscription et à la mise à jour du compte
+- Revoir les middlewares avec le nouveau service auth2
+- Revoir le formulaire de connexion administrateur
+- Gestion des publications côtés utilisateur
 
 # v5
 
@@ -36,9 +37,10 @@
 ---
 
 - Utiliser ajax pour les annonces
-
+-
 # FAIT
 - Mot de passe oublié
+- Conservation de session
 
 
 
@@ -47,6 +49,8 @@
 
 
 # Extras
+- user_author_id Retirer le delete CASCADE
+- Faire la création de compte avec Laravel
 - Révoir l'affichage des erreurs sur la page de connexion (toutes les pages)
 - Une Espace dédié à chaque administrateur
 - Revoir les middlewares spécifiques au api

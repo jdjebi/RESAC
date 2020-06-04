@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 
 class AuthController extends Controller
@@ -23,11 +24,13 @@ class AuthController extends Controller
 
       $redirect_url = $request->has('redirect') ? $request->redirect : "";
 
+      /*
       if (\Illuminate\Support\Facades\Auth::check()) {
         dump("Utilisateur connecté");
       }else{
         dump("Utilisateur non-connecté");
       }
+      */
 
       return view('app.connexion',[
         "redirect_url" => $redirect_url,
@@ -54,7 +57,8 @@ class AuthController extends Controller
             "nom" => $data["nom"],
             "prenom" => $data["prenom"],
             "email" => $data["email"],
-            "password" => crypt_password($data["password"])
+            "password" => Hash::make($data["password"]),
+            "version" => 2 // version actuelle des comptes
           ];
 
           $user = \Users::create($data);

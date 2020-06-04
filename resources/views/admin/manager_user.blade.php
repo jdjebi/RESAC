@@ -53,6 +53,7 @@
               <th scope="col">Emploi</th>
               <th scope="col">Pays</th>
               <th scope="col">Rôle</th>
+              <th scope="col">Version</th>
               <th scope="col" class="text-center">Actions</th>
             </tr>
           </thead>
@@ -70,6 +71,7 @@
               <td>@{{ user.emploi }}</td>
               <td>@{{ user.pays }}</td>
               <td>@{{ user.role }}</td>
+              <td class="text-center">@{{ user.version }}</td>
               <td class="text-center">
                 <a v-bind:href="user.admin_profil_url" class="text-info" title="Profil dans l'administration."><i class="fa fa-user-cog"></i></a>
                 <a v-bind:href="user.profil_url" class="text-muted" target="_blank" title="Profil sur RESAC."><i class="fa fa-user"></i></a>
