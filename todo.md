@@ -4,18 +4,13 @@
 - Créer une news pour la conservation de session
 
 
-
 # v4
-- Gérer les comptes la mise à jour des comptes lors de la connexion !important (Finaliser)
-  - Revoir toutes les méthodes de login
-  - Revoir la moification du du mot de passe
-
 - Création de l'index dès l'inscription et à la mise à jour du compte
 
+- Revoir les middlewares avec le nouveau service auth2
 
 ---
-- Revoir les middlewares avec le nouveau service auth2
-- Revoir le formulaire de connexion administrateur
+
 - Gestion des publications côtés utilisateur
 
 # v5
@@ -35,13 +30,14 @@
 
 
 ---
-
+- La vérification de la connexion utilisateur doit dépendre de Laravel
+- Créer un middleware pour assurer la mise à jour du compte de l'utilisateur (le middleware va déconnecter l'utilisateur pour qu'il se reconnecte afin d'opérer la mise à jour globale)
 - Utiliser ajax pour les annonces
--
+
 # FAIT
 - Mot de passe oublié
 - Conservation de session
-
+- Gérer les comptes la mise à jour des comptes lors de la connexion
 
 
 # Brainstorming
@@ -75,7 +71,7 @@
 - Lorsque tous les champs obligatoires ne sont pas remplit aucune validation n'est faite
 - Dans les publications(dans le constructeur), si l'id d'un utilisateur n'exsite pas alors ce dernier ne sera pas instancié donc l'affichage sera de la publication au niveau du nom de l'auteur sera érroné voir rien ne va s'afficher ou il y'aura une erreur (Pas delete CASCADE)
 - Suggestion !important
-- Tous le champs du formulaire de paramètre ne subissent pas de style en vas d'erreur
+- Tous le champs du formulaire de paramètre ne subissent pas de style en cas d'erreur
 - Intégrer le marquer comme lu
 - Publication de contenu
   - Pas de limite textuelle

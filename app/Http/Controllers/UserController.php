@@ -4,9 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+
 
 class UserController extends Controller
 {
+
+    protected $user;
+
+    public function __construct(){
+      $this->user = \Users::auth();
+    }
 
     public function profil(){
 
@@ -35,7 +44,7 @@ class UserController extends Controller
       ]);
     }
 
-    public function account(){
+    public function account(Request $request){
 
       $user = \Users::auth();
 
@@ -131,10 +140,11 @@ class UserController extends Controller
         }
       }elseif(isset($_POST["change_pass"]) && $FormPass->is_validate()) {
         $data = $FormPass->get_data();
-        $password = crypt_password($data["pass"]);
-        if($user->password == $password){
+        $password = $data["pass"];
+        
+        if(Hash::check($password, $user->password)){
           if($data['nw_pass'] == $data['conf_pass']){
-            $user->password = crypt_password($data['nw_pass']);
+            $user->password = Hash::make($data['nw_pass']);
             $user->save();
             \Flash::add("Mot de passe mis à jour.","success");
           }else{
@@ -172,6 +182,7 @@ class UserController extends Controller
         'json_countries' => $json_countries
       ]);
     }
+
 }
 
 ?>

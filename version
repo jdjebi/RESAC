@@ -5,6 +5,7 @@
 - Système de mise à jour de compte
 - Intégration de la conservation de session
 - La connexion à l'admintration utilise desormais les fonctions d'authentification du service auth2
+- Le changement de mot de passe est mainteant basé sur la Facade Hash de Laravel
 
 ## Mise à jour de la version 3.3
 
