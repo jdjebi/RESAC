@@ -1,7 +1,16 @@
 # A FAIRE
 
+- Créer une news pour les mots de passe oublié
+- Créer une news pour la conservation de session
+- Revoir les middlewares avec le nouveau service auth2
+
 # v4
 - Gérer les comptes la mise à jour des comptes lors de la connexion !important
+  - intégrer la fonction de hashage à l'inscription
+  - Revoir toutes les méthodes de login
+  - Revoir la mise à jour du du mot de passe
+  - Revoir le created_at du Modèle utilisateur
+
 - Gestion des publications côtés utilisateur
 
 ---
@@ -38,6 +47,7 @@
 
 
 # Extras
+- Révoir l'affichage des erreurs sur la page de connexion (toutes les pages)
 - Une Espace dédié à chaque administrateur
 - Revoir les middlewares spécifiques au api
 - La Certification des publications n'enregistre que l'utilisateur qui a fait l'opération courante (validate_by) c'est à dire validation ou annulation on ne peut donc pas connaitre l'utilisateur qui avait validé une publication après que celle ai été annulé en terme de certification

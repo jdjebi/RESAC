@@ -38,7 +38,7 @@
           <input class="form-control" type="text" name="email" id="email" placeholder="Adresse E-mail">
         </div>
         <div class="form-group">
-          <input class="form-control" type="password" name="password" id="password" placeholder="Mot de passe">
+          <input id="pass-input" class="form-control" type="password" name="password" id="password" placeholder="Mot de passe">
         </div>
         <div class="mt-4">
           <button id="submit-btn" class="btn btn-block btn-primary" name="button" v-bind:disabled="submit_btn">
@@ -69,7 +69,8 @@ var vm = new Vue({
     url: "{{ route('api_login') }}",
     submit_btn: false,
     is_error: false,
-    error_message: "test"
+    error_message: "test",
+    pass_input: $('#pass-input')
   },
   beforeCreate: function(){
     $('#submit-btn .loader').removeClass("d-none");
@@ -93,24 +94,23 @@ var vm = new Vue({
     },
     onSuccess: function(data,status){
       this.submit_btn = false;
-
-      console.log(data);
-
       if(data.is_error){
         this.is_error = true;
         this.error_message = data.errors.messages.global;
+        $('#pass-input').val("");
       }else{
         if(url_redirect != "")
           url = url_redirect;
         else
           url = url_profil;
 
-        window.location = url;
+        window.location = '';
       }
     },
     onError: function (data,status,error){
       alert("Une erreur c'est produite. Contactez l'administrateur.");
       console.log(error);
+      // $('#pass-input').val("");
       this.submit_btn = false;
     },
   }

@@ -11,7 +11,7 @@ class AuthController extends Controller
 
     /* Déconnexion */
     public function logout(){
-      logout();
+      \Resac\logout();
       return redirect()->route("home");
     }
 
@@ -22,6 +22,12 @@ class AuthController extends Controller
       $title2 = "Connexion";
 
       $redirect_url = $request->has('redirect') ? $request->redirect : "";
+
+      if (\Illuminate\Support\Facades\Auth::check()) {
+        dump("Utilisateur connecté");
+      }else{
+        dump("Utilisateur non-connecté");
+      }
 
       return view('app.connexion',[
         "redirect_url" => $redirect_url,

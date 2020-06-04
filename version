@@ -1,5 +1,11 @@
 ## Master
 
+- Ajout du champ version au Modèle d'un utilisateur
+- Création d'un nouveau service auth/auth2.php pour gérer la connexion à l'aide des méthodes de Laravel
+- Intégration de la conservation de session
+
+## Mise à jour de la version 3.3
+
 - Table utilisateurs ajout du rememberToken et du timestamp | Faire la migration de add_remember_token pour les ajouter en ligne
 - Migration pour la réinitialisation du mot de passe
 

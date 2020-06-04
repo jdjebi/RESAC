@@ -21,11 +21,6 @@
     }
   }
 
-  if(!function_exists("static")){
-
-    
-
-  }
 
   function crypt_password($password){
     return sha1($password);

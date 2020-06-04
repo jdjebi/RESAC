@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class ApiController extends Controller
 {
-    public function login(){
+    public function login(Request $request){
       $form = new \LoginForm($_POST);
       $success = false;
       $is_error = false;
@@ -15,9 +15,11 @@ class ApiController extends Controller
       if($form->is_validate()){
         $email = $form->get("email");
         $password = $form->get("password");
-        $user = authenticate($email,$password);
+
+        $user = \Resac\authenticate($email,$password);
+
         if($user){
-          login($user);
+          \Resac\login($user);
           $success = true;
         }else{
           $form->add_error('global',"Adresse E-mail ou mot de passe incorrecte.");
@@ -32,4 +34,5 @@ class ApiController extends Controller
         'success' => $success
       ]);
     }
+
 }
