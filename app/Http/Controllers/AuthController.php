@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Models\SearchUserIndex;
+use App\User;
+
 
 
 class AuthController extends Controller
@@ -47,21 +50,23 @@ class AuthController extends Controller
       $errors = null;
 
       if($_POST){
+
         // Validation
         if($form->is_validate()){
 
-          // Enregistrement
           $data = $form->get_data();
 
-          $data = [
+          // Enregistrement
+          $user = User::create([
             "nom" => $data["nom"],
             "prenom" => $data["prenom"],
             "email" => $data["email"],
             "password" => Hash::make($data["password"]),
             "version" => 2 // version actuelle des comptes
-          ];
+          ]);
 
-          $user = \Users::create($data);
+          // L'utilisateur est enregistré dans l'index de recherche
+          SearchUserIndex::register($user);
 
           // Notification
           \Flash::add("Inscription réussie. Vous pouvez vous connecter.","success");

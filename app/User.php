@@ -12,6 +12,8 @@ class User extends Authenticatable
 
     protected $table = 'users';
 
+    protected $fillable = ['nom','prenom','email','password','version'];
+
     public function getFullNameAttribute()
     {
         return "{$this->attributes['nom']} {$this->attributes['prenom']}";

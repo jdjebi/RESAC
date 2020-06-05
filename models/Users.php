@@ -81,6 +81,10 @@ class Users{
     return Users::get(Auth::user());
   }
 
+  static function auth2(){
+    return \Illuminate\Support\Facades\Auth::user();
+  }
+
   static public function get($id){
     /* Le retour de données multiple n'est pas géré */
     global $DB;

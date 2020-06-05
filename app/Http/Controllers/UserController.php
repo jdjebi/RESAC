@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Models\SearchUserIndex;
 
 
 class UserController extends Controller
@@ -14,7 +15,7 @@ class UserController extends Controller
     protected $user;
 
     public function __construct(){
-      $this->user = \Users::auth();
+      
     }
 
     public function profil(){
@@ -70,6 +71,7 @@ class UserController extends Controller
       if(isset($_POST["change_info"])){
         if($FormInfo->is_validate()){
           $data = $FormInfo->get_data();
+
           $user->nom = $data["nom"];
           $user->prenom = $data["prenom"];
           $user->email = $data["email"];
@@ -82,7 +84,13 @@ class UserController extends Controller
           $user->emploi = $data["emploi"];
           $user->universite = $data["universite"];
           $user->save();
+
+          $user_auth = \Users::auth2();
+
+          SearchUserIndex::update_row($user_auth); // Mise à jour de la ligne d'index de l'utilisateur
+
           \Flash::add("Modifications enregisrées.","success");
+
           return redirect()->route('param');
         }else{
           $empty_field_message = "Veuillez remplir ce champs.";
@@ -141,7 +149,7 @@ class UserController extends Controller
       }elseif(isset($_POST["change_pass"]) && $FormPass->is_validate()) {
         $data = $FormPass->get_data();
         $password = $data["pass"];
-        
+
         if(Hash::check($password, $user->password)){
           if($data['nw_pass'] == $data['conf_pass']){
             $user->password = Hash::make($data['nw_pass']);

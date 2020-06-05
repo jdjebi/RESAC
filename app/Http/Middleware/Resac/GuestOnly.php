@@ -3,6 +3,7 @@
 namespace App\Http\Middleware\Resac;;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class GuestOnly
 {
@@ -10,7 +11,10 @@ class GuestOnly
 
     public function handle($request, Closure $next)
     {
-        if(\Auth::check()){
+
+        #die('test');
+
+        if(Auth::check()){
           return redirect()->route("profil");
         }
 

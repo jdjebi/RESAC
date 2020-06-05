@@ -3,6 +3,7 @@
 namespace App\Http\Middleware\Resac;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class AuthOnly
 {
@@ -18,7 +19,7 @@ class AuthOnly
 
         $redirect_url = route("login")."?redirect=".  $request->path();
 
-        if(!\Auth::check()){
+        if(!Auth::check()){
           \Flash::add("Vous devez être connecté pour avoir accès à la page demandée.","warning");
           return redirect($redirect_url);
         }

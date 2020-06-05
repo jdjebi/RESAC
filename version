@@ -6,6 +6,8 @@
 - Intégration de la conservation de session
 - La connexion à l'admintration utilise desormais les fonctions d'authentification du service auth2
 - Le changement de mot de passe est mainteant basé sur la Facade Hash de Laravel
+- L'index de recherhce utilisateur est mainteant mise à jour lors de la création et la mise jour d'un utilisateur
+- Les middlewares d'authentification sont mainteant basées sur auth2
 
 ## Mise à jour de la version 3.3
 

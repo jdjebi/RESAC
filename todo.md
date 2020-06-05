@@ -5,9 +5,9 @@
 
 
 # v4
-- Création de l'index dès l'inscription et à la mise à jour du compte
 
 - Revoir les middlewares avec le nouveau service auth2
+- La vérification de la connexion utilisateur doit dépendre de Laravel
 
 ---
 
@@ -30,7 +30,6 @@
 
 
 ---
-- La vérification de la connexion utilisateur doit dépendre de Laravel
 - Créer un middleware pour assurer la mise à jour du compte de l'utilisateur (le middleware va déconnecter l'utilisateur pour qu'il se reconnecte afin d'opérer la mise à jour globale)
 - Utiliser ajax pour les annonces
 
@@ -38,6 +37,8 @@
 - Mot de passe oublié
 - Conservation de session
 - Gérer les comptes la mise à jour des comptes lors de la connexion
+- Création de l'index dès l'inscription et à la mise à jour du compte
+
 
 
 # Brainstorming

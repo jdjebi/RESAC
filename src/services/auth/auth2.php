@@ -3,6 +3,7 @@
 namespace Resac;
 
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 
 function authenticate($email,$password){
@@ -65,5 +66,22 @@ function account_update($request,$user){
     $user->save();
   }
 }
+
+class Auth2{
+
+  static function is_admin_logged(){
+    if(Auth::check() && Auth2::is_admin()){
+      return 1;
+    }else{
+      return 0;
+    }
+  }
+
+  static function is_admin(){
+    return $_SESSION["is_staff"];
+  }
+
+}
+
 
 ?>

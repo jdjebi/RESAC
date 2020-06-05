@@ -3,6 +3,7 @@
 namespace App\Http\Middleware\Resac\Admin;
 
 use Closure;
+use Resac\Auth2;
 
 class GuestAdmin
 {
@@ -15,7 +16,7 @@ class GuestAdmin
      */
     public function handle($request, Closure $next)
     {
-      if(\Auth::is_admin_logged()){
+      if(Auth2::is_admin_logged()){
         return redirect()->route('admin_index');
       }
       return $next($request);

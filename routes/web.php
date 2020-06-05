@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Hash;
+use App\Models\SearchUserIndex;
+
+
 
 Route::middleware("guest")->group(function(){
 
@@ -34,7 +38,7 @@ Route::middleware("auth")->group(function(){
 
   Route::get('/feed','ActuController@feed')->name('app.feed');
 
-  Route::get('/profil','UserController@profil')->name('profil');
+  Route::get('/profil','UserController@profil')->name('profil')->middleware('auth');
 
   Route::get('/compte','UserController@account')->name('edit');
 
@@ -133,4 +137,34 @@ Route::prefix('v1/api')->group(function () {
   Route::get('get/v1/users','AdminController@api_get_user_list')->name('api_get_user_list');
 
   Route::post('admin/login','AdminController@api_login')->name('admin_api_login');
+});
+
+Route::get('test_index',function(){
+
+
+  $user = App\User::create([
+    "nom" => 'test'.Str::random(4),
+    "prenom" => 'test'.Str::random(4),
+    "email" => 'test'.Str::random(4).'@gmail.com',
+    "password" => Hash::make('123'),
+    "version" => 2 // version actuelle des comptes
+  ]);
+
+  SearchUserIndex::register($user); // L'utilisateur est enregistré dans l'index de recherche
+
+  return 'test';
+
+});
+
+Route::get('dump_session',function(){
+
+
+dump($_SESSION);
+
+if(Auth::check()){
+  dump('Utilisateur connecté');
+}else{
+  dump('Utilisateur non-sconnecté');
+}
+
 });
