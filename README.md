@@ -13,11 +13,13 @@ Consulter le fichier **todo.md** pour suivre l'évolution du développement.
 ## Fonctionnalités
 
 ### Récentes
+
+- Mot de passe oublié
 - Moteur de recherche d'utilisateurs (nouveau)
 - Gestion des nouveautés
 
-
 ### Anciennes
+
 - Actualités
 - Gestion des publications
 - Administration

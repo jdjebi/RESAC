@@ -7,6 +7,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\SearchUserIndex;
+use Illuminate\Support\Facades\Auth;
 
 
 class UserController extends Controller
@@ -15,12 +16,15 @@ class UserController extends Controller
     protected $user;
 
     public function __construct(){
-      
+
+      $this->user =  \Illuminate\Support\Facades\Auth::user();
+
     }
 
     public function profil(){
 
       $user = \Users::auth();
+
       $user_visited = null;
       $show_portofolio = false;
 

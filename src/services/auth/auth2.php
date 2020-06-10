@@ -70,7 +70,7 @@ function account_update($request,$user){
 class Auth2{
 
   static function is_admin_logged(){
-    if(Auth::check() && Auth2::is_admin()){
+    if(\Illuminate\Support\Facades\Auth::check() && Auth2::is_admin()){
       return 1;
     }else{
       return 0;
@@ -78,7 +78,7 @@ class Auth2{
   }
 
   static function is_admin(){
-    return $_SESSION["is_staff"];
+    return \Illuminate\Support\Facades\Auth::user()->is_staff;
   }
 
 }

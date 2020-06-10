@@ -37,30 +37,26 @@
 
   <div class="collapse navbar-collapse" id="navbarNav">
 
-    @if(Auth::check())
+    @auth
     <form class="d-none d-md-block d-lg-block" action="{{ route("app.search",[],false) }}" method="GET" class="has-search form-inline my-2 my-lg-0 pt-1">
       <input name="q" type="text" class="form-control form-control-sm" placeholder="Rechercher un utilisateur" value="{{ isset($_GET['q']) ? $_GET['q'] : '' }}">
     </form>
-    @endif
+    @endauth
+
 
     <ul class="navbar-nav mr-auto">
 
-      @if(!Auth::check())
-
+      @auth
       <li class="nav-item">
         <a class="nav-link" href="{{ route("home") }}"><i class="fa fa-home"></i> Accueil</a>
       </li>
+      @endauth
 
-      @endif
-
-
-      @if(Auth::check())
-
+      @auth
       <li class="nav-item d-none d-md-block d-lg-block">
         <a class="nav-link" href="{{ route("actu") }}"><i class="far fa-newspaper"></i> Actualités</a>
       </li>
-
-      @endif
+      @endauth
 
       <li class="nav-item d-none d-md-block d-lg-block">
         <a class="nav-link" href="{{ route("annuaire") }}"> <i class="fa fa-address-book"></i> Annuaire</a>
@@ -72,29 +68,24 @@
 
     </ul>
 
-    @if(!Auth::check())
-
+    @auth
     <ul  class="navbar-nav">
-
       <li class="nav-item">
         <a class="nav-link" href="{{ route("login") }}"><i class="fa fa-sign-in-alt"></i> Connexion</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ route("register") }}"><i class="fas fa-user"></i> Créer un compte</a>
       </li>
-
     </ul>
+    @endauth
 
-    @endif
-
-    @if(Auth::check())
-
+    @auth
     <ul  class="navbar-nav">
 
       <li class="nav-item">
         <a class="nav-link" href="{{ route("profil") }}"><i class="fa fa-user-circle"></i> {{ $user->prenom }}</a>
       </li>
-      @if(Auth::is_admin_logged())
+      @if(Resac\Auth2::is_admin_logged())
         <li class="nav-item">
           <a class="nav-link" href="{{ route("admin_user_manager") }}"><i class="fa fa-tachometer-alt"></i> Administration</a>
         </li>
@@ -108,12 +99,12 @@
         <a class="nav-link" href="{{ route("logout") }}"><i class="fa fa-sign-out-alt"></i> Déconnexion</a>
       </li>
     </ul>
+    @endauth
 
-    @endif
   </div>
 </nav>
 
-@if(Auth::check())
+@auth
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12">
@@ -123,4 +114,4 @@
     </div>
   </div>
 </div>
-@endif
+@endauth

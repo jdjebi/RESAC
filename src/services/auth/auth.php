@@ -38,9 +38,11 @@ function logout(){
 
 class Auth{
   static function check(){
+
     if(isset($_SESSION["user"]) && !empty($_SESSION["user"])){
       return 1;
     }
+
     return 0;
   }
 

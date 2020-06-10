@@ -1,17 +1,14 @@
 # A FAIRE
 
-- Créer une news pour les mots de passe oublié
-- Créer une news pour la conservation de session
-
+- La vérification de la connexion utilisateur doit dépendre de Laravel
 
 # v4
 
-- Revoir les middlewares avec le nouveau service auth2
-- La vérification de la connexion utilisateur doit dépendre de Laravel
+- Gestion des publications côtés utilisateur
 
 ---
-
-- Gestion des publications côtés utilisateur
+- Revoir la langue de l'E-mail de réinitialisation
+- Revoir le langue de base de Laravel
 
 # v5
 
@@ -30,14 +27,16 @@
 
 
 ---
-- Créer un middleware pour assurer la mise à jour du compte de l'utilisateur (le middleware va déconnecter l'utilisateur pour qu'il se reconnecte afin d'opérer la mise à jour globale)
-- Utiliser ajax pour les annonces
+
+Conservation de session. Récupérer les l'utilisateur uniquement via la auth de laravel
+
 
 # FAIT
 - Mot de passe oublié
 - Conservation de session
 - Gérer les comptes la mise à jour des comptes lors de la connexion
 - Création de l'index dès l'inscription et à la mise à jour du compte
+- Revoir les middlewares avec le nouveau service auth2
 
 
 
@@ -46,6 +45,8 @@
 
 
 # Extras
+- Créer un middleware pour assurer la mise à jour du compte de l'utilisateur (le middleware va déconnecter l'utilisateur pour qu'il se reconnecte afin d'opérer la mise à jour globale)
+- Utiliser ajax pour les annonces
 - user_author_id Retirer le delete CASCADE
 - Faire la création de compte avec Laravel
 - Révoir l'affichage des erreurs sur la page de connexion (toutes les pages)
