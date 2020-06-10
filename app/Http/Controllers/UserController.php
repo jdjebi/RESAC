@@ -17,18 +17,16 @@ class UserController extends Controller
 
     public function __construct(){
 
-      $this->user =  \Illuminate\Support\Facades\Auth::user();
-
     }
 
     public function profil(){
 
-      $user = \Users::auth();
+      $user = \Illuminate\Support\Facades\Auth::user();
 
       $user_visited = null;
       $show_portofolio = false;
 
-      $title =  $user->nom.' '.$user->prenom;
+      $title =  $user->fullname;
 
       if(isset($_GET['id']) && !empty($_GET['id'])){
         $id = $_GET['id'];

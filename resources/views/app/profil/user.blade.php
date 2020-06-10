@@ -14,15 +14,15 @@
 
               </div>
               <h1 class="profile-title text-dark">
-              <?= $user->nom ?> <?= $user->prenom ?>
+              {{ $user->fullname }}
               </h1>
               <h2 class="profile-position">Promotion:
                 <span>
-                  <?php if(empty($user->pays)): ?>
-                    <a style="font-size: 15px" href="<?= route("param") ?>#promo1"><i class="fa fa-plus"></i> Ajouter une promotion</a>
-                  <?php else: ?>
-                    <?= $user->promo1 ?> - <?= $user->promo2 ?>
-                  <?php endif ?>
+                  @if(empty($user->pays))
+                    <a style="font-size: 15px" href="{{ route("param") }}#promo1"><i class="fa fa-plus"></i> Ajouter une promotion</a>
+                  @else
+                    {{ $user->promo1 }} - {{ $user->promo2 }}
+                  @endif
                 </span>
               </h2>
             </div>
@@ -30,68 +30,64 @@
               <li class="clearfix">
                 <strong class="title">Université/Ecole</strong>
                 <span class="cont">
-                  <?php if(empty($user->universite)): ?>
+                  @if(empty($user->universite))
                     Lycée Classique d'Abidjan
-                  <?php else: ?>
-                    <?= $user->universite ?>
-                  <?php endif ?>
+                  @else
+                    {{ $user->universite }}
+                  @endif
                 </span>
               </li>
               <li class="clearfix">
                 <strong class="title">Emploi</strong>
                 <span class="cont">
-                  <?php if(empty($user->emploi)): ?>
+                  @if(empty($user->emploi))
                     Etudiant
-                  <?php else: ?>
-                    <?= $user->emploi ?>
-                  <?php endif ?>
+                  @else
+                    {{ $user->emploi }}
+                  @endif
                 </span>
               </li>
               <li class="clearfix">
                 <strong class="title">Pays</strong>
                 <span class="cont">
-
-                  <?php if(empty($user->pays)): ?>
-                    <a href="<?= route("param") ?>#pays"><i class="fa fa-plus"></i> Ajouter un pays</a>
-                  <?php else: ?>
-                    <?= Country::get($user->pays) ?>
-                  <?php endif ?>
-
+                  @if(empty($user->pays)): ?>
+                    <a href="{{ route("param") }}#pays"><i class="fa fa-plus"></i> Ajouter un pays</a>
+                  @else
+                    {{ $user->pays }}
+                  @endif
                 </span>
               </li>
               <li class="clearfix">
                 <strong class="title">Ville</strong>
                 <span class="cont">
-                  <?php if(empty($user->ville) && empty($user->commune)): ?>
-                    <a href="<?= route("param") ?>#ville"><i class="fa fa-plus"></i> Ajouter une ville</a>
-                  <?php elseif(empty($user->commune)): ?>
-                    <?= $user->ville ?>
-                  <?php elseif(empty($user->vill)): ?>
-                    <?= $user->commune ?>
-                  <?php else: ?>
-                    <?= $user->ville ?>, <?= $user->commune ?>
-                  <?php endif ?>
+                  @if(empty($user->ville) && empty($user->commune))
+                    <a href="{{ route("param") }}#ville"><i class="fa fa-plus"></i> Ajouter une ville</a>
+                  @elseif(empty($user->commune))
+                    {{ $user->ville }}
+                  @elseif(empty($user->ville))
+                    {{ $user->commune }}
+                  @else
+                    {{ $user->ville }}, {{ $user->commune }}
+                  @endif
                 </span>
               </li>
               <li class="clearfix">
                 <strong class="title">E-mail</strong>
-                <span class="cont"><?= $user->email ?></span>
+                <span class="cont">{{ $user->email }}</span>
               </li>
               <li class="clearfix">
                 <strong class="title">Téléphone</strong>
                 <span class="cont">
-
-                  <?php if(empty($user->numero)): ?>
-                    <a href="<?= route("param") ?>#numero"><i class="fa fa-plus"></i> Ajouter un numéro</a>
-                  <?php else: ?>
-                      <?= $user->numero ?>
-                  <?php endif ?>
-
+                  @if(empty($user->numero))
+                    <a href="{{ route("param") }}#numero"><i class="fa fa-plus"></i> Ajouter un numéro</a>
+                  @else
+                      {{ $user->numero }}
+                  @endif
                 </span>
               </li>
             </ul>
             <div class="text-right mt-4">
-              <a class="btn btn-primary" href="<?= route('edit') ?>"><i class="fa fa-edit"></i> Mettre à jour</a>
+              <a class="btn btn-primary" href="{{ route('edit') }}"><i class="fa fa-edit"></i> Mettre à jour</a>
             </div>
           </div>
         </div>

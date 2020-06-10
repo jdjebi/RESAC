@@ -68,7 +68,7 @@
 
     </ul>
 
-    @auth
+    @guest
     <ul  class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" href="{{ route("login") }}"><i class="fa fa-sign-in-alt"></i> Connexion</a>
@@ -77,7 +77,7 @@
         <a class="nav-link" href="{{ route("register") }}"><i class="fas fa-user"></i> Créer un compte</a>
       </li>
     </ul>
-    @endauth
+    @endguest
 
     @auth
     <ul  class="navbar-nav">
