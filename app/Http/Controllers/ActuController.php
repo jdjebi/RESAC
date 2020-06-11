@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use Resac\Auth2;
 use App\Features;
+
 
 
 class ActuController extends Controller
@@ -14,18 +16,18 @@ class ActuController extends Controller
     protected $user;
 
     public function __construct(){
-        $this->user = \Users::auth();
+        $this->user = Auth2::user();
     }
 
     public function index(){
 
-      $user = \Users::auth();
+      $user = Auth2::user();
 
       // Publication de test
       if(isset($_POST['new_post_test'])){
         $content = "Lorem ipsum dolor sit amet.";
         \Post::create([
-          "user" =>   $this->user->id,
+          "user" =>   $user->id,
           "content" => $content
         ]);
       }
@@ -35,7 +37,7 @@ class ActuController extends Controller
         if(isset($_POST['content'])){
           if(!empty($_POST['content'])){
             \Post::create([
-              "user" => $this->user->id,
+              "user" => $user->id,
               "content" => $_POST['content']
             ]);
             \Redirect::back();

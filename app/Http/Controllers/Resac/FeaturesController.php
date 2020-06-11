@@ -4,17 +4,15 @@ namespace App\Http\Controllers\Resac;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 use App\Features;
+use Resac\Auth2;
 
 class FeaturesController extends Controller
 {
   public function __invoke()
   {
-      $user = null;
-
-      if(\Auth::check()){
-        $user = \Users::auth();
-      }
+      $user = Auth2::user();
 
       $features = Features::get_all();
 

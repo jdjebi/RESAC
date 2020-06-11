@@ -168,3 +168,5 @@ if(Auth::check()){
 }
 
 });
+
+Auth::routes();

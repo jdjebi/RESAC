@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\SearchUserIndex;
 use Illuminate\Support\Facades\Auth;
 
+use Resac\Auth2;
+
 
 class UserController extends Controller
 {
@@ -21,7 +23,7 @@ class UserController extends Controller
 
     public function profil(){
 
-      $user = \Illuminate\Support\Facades\Auth::user();
+      $user = Auth2::user();
 
       $user_visited = null;
       $show_portofolio = false;
@@ -49,7 +51,7 @@ class UserController extends Controller
 
     public function account(Request $request){
 
-      $user = \Users::auth();
+      $user = Auth2::user();
 
       $FormInfo = new \Form\User\Update\Info($_POST);
       $FormPass = new \Form\User\Update\Password($_POST);
@@ -59,7 +61,7 @@ class UserController extends Controller
         "prenom" => $user->prenom,
         "email" => $user->email,
         "numero" => $user->numero,
-        "pays" => $user->pays,
+        "pays" => $user->code_pays,
         "ville" => $user->ville,
         "commune" => $user->commune,
         "promo1" => $user->promo1,

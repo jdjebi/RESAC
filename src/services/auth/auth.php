@@ -39,7 +39,7 @@ function logout(){
 class Auth{
   static function check(){
 
-    if(isset($_SESSION["user"]) && !empty($_SESSION["user"])){
+    if(\Illuminate\Support\Facades\Auth::check()){
       return 1;
     }
 
@@ -55,11 +55,11 @@ class Auth{
   }
 
   static function user(){
-    return $_SESSION["user"];
+    return \Illuminate\Support\Facades\Auth::user();
   }
 
   static function is_admin(){
-    return $_SESSION["is_staff"];
+    return \Illuminate\Support\Facades\Auth::user()->is_staff;
   }
 
   static function role(){

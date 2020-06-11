@@ -69,6 +69,10 @@ function account_update($request,$user){
 
 class Auth2{
 
+  static function check(){
+    return \Illuminate\Support\Facades\Auth::check();
+  }
+
   static function is_admin_logged(){
     if(\Illuminate\Support\Facades\Auth::check() && Auth2::is_admin()){
       return 1;
@@ -79,6 +83,10 @@ class Auth2{
 
   static function is_admin(){
     return \Illuminate\Support\Facades\Auth::user()->is_staff;
+  }
+
+  static function user(){
+    return \Illuminate\Support\Facades\Auth::user();
   }
 
 }

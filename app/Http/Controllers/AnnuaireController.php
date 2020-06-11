@@ -5,16 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\User;
 
+use Resac\Auth2;
+
 class AnnuaireController extends Controller
 {
 
     public function __invoke()
     {
-      $user = null;
-
-      if(\Auth::check()){
-        $user =  \Users::auth();
-      }
+      $user =  Auth2::user();
 
       $profile_url = route("profil")."?id=";
 

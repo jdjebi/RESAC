@@ -66,7 +66,7 @@ var vm = new Vue({
   el: '#portofolio',
   data:{
     users:  <?= $users_json ?>,
-    user_connected: {{ Auth::check() }},
+    user_connected: {{ \Resac\Auth2::check() }},
 
   },
 

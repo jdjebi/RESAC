@@ -39,6 +39,10 @@ class User extends Authenticatable
       return empty($this->pays) ? \Country::get("CI") : \Country::get($this->pays);
     }
 
+    public function getCodePaysAttribute(){
+      return empty($this->pays) ? "CI" : $this->attributes["pays"];
+    }
+
     public function getStaffRoleAttribute(){
       $staff_role = $this->attributes["staff_role"];
       if($staff_role == "admin"){
