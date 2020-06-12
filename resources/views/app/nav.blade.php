@@ -46,15 +46,19 @@
 
     <ul class="navbar-nav mr-auto">
 
-      @auth
+      @guest
       <li class="nav-item">
         <a class="nav-link" href="{{ route("home") }}"><i class="fa fa-home"></i> Accueil</a>
       </li>
-      @endauth
+      @endguest
 
       @auth
       <li class="nav-item d-none d-md-block d-lg-block">
         <a class="nav-link" href="{{ route("actu") }}"><i class="far fa-newspaper"></i> Actualités</a>
+      </li>
+
+      <li class="nav-item d-none d-md-block d-lg-block">
+        <a class="nav-link" href="{{ route("app.post") }}"><i class="far fa-edit"></i> Publications</a>
       </li>
       @endauth
 

@@ -12,7 +12,7 @@
 - Revision de la page de profil
 - Intégrer les modérateurs et les super utilisateurs
 - Utiliser un nom utilisateur pour identifier un utilisateur
-
+- Guide lors de la connexion
 ---
 - Gestion des utilisateurs
   - [?] Un admin lui ne pas se rendre membre ni se supprimer
@@ -24,7 +24,7 @@
 ---
 
 Conservation de session. Récupérer les l'utilisateur uniquement via la auth de laravel (il reste l'administration) et autre bugs lié
-
+Revoir la barre de recherche
 
 # FAIT
 - Mot de passe oublié

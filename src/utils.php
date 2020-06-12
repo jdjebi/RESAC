@@ -42,4 +42,10 @@
     }
   }
 
+  if(!function_exists("is_current_url")){
+    function is_current_url($route_name, $active='active'){
+      return Route::currentRouteName() == $route_name ? $active : '';
+    }
+  }
+
 ?>

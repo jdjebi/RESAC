@@ -48,6 +48,8 @@ Route::middleware("auth")->group(function(){
 
   Route::get('rechercher',"Resac\SearchController@user_for_app")->name('app.search');
 
+  Route::get('publications',"Resac\PostController@index")->name('app.post');
+
 });
 
 Route::get('/deconnexion','AuthController@logout')->name('logout');
@@ -168,5 +170,3 @@ if(Auth::check()){
 }
 
 });
-
-Auth::routes();
