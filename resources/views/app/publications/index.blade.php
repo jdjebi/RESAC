@@ -3,7 +3,7 @@
 
 @section('content')
 
-<div class="container-fluid mt-5">
+<div class="container-fluid mt-3">
 
   <div class="row">
     <div class="col-md-2 col-sm-12">
@@ -23,8 +23,25 @@
     </div>
 
     <div class="col-md-10 col-sm-12">
+      <div class="container">
 
+        <div class="row">
+          <div class="col">
+            <div class="d-flex align-items-center justify-content-between">
+              <div class="">
+                <h3>Mes publications</h3>
+              </div>
+              <div class="">
+                <a class="btn btn-success btn-sm" href="#"><i class="fa fa-plus"></i> Créer une Publication</a>
+              </div>
+            </div>
+            <hr>
+          </div>
+        </div>
+
+      </div>
     </div>
+
   </div>
 
 
