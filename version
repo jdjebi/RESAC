@@ -8,6 +8,7 @@
 - Le changement de mot de passe est mainteant basé sur la Facade Hash de Laravel
 - L'index de recherhce utilisateur est mainteant mise à jour lors de la création et la mise jour d'un utilisateur
 - Les middlewares d'authentification sont mainteant basées sur auth2
+- Création de la fonction is_current_url pour vérifier si une url est l'url courante
 
 ## Mise à jour de la version 3.3
 
