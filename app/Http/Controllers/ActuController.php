@@ -71,6 +71,10 @@ class ActuController extends Controller
 
       $title =  "Actualités";
 
+      dump($user);
+
+      dump($user->photo);
+
       return view("app.actu",[
         'title' => $title,
         'user' => $user,

@@ -15,6 +15,7 @@
 }
 </style>
 
+
 <div id="resume">
   <div class="border bg-primary user-cover-pic">
     <div class="text-center">
