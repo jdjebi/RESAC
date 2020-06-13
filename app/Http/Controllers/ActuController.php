@@ -75,6 +75,8 @@ class ActuController extends Controller
 
       dump($user->photo);
 
+      dump(asset("asset/imgs/user_default_pic.png"));
+
       return view("app.actu",[
         'title' => $title,
         'user' => $user,
