@@ -53,4 +53,8 @@ class User extends Authenticatable
         return "Membre";
       }
     }
+
+    public function get_photo(){
+      return asset("asset/imgs/user_default_pic.png");
+    }
 }
