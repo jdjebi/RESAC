@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use Resac\Auth2;
 use App\Features;
+use App\User;
 
 
 
@@ -22,6 +23,8 @@ class ActuController extends Controller
     public function index(){
 
       $user = Auth2::user();
+
+      $user = User::find($user->id);
 
       // Publication de test
       if(isset($_POST['new_post_test'])){
