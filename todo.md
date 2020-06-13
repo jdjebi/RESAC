@@ -23,8 +23,12 @@
 
 ---
 
-Conservation de session. Récupérer les l'utilisateur uniquement via la auth de laravel (il reste l'administration) et autre bugs lié
-Revoir la barre de recherche
+- Conservation de session. Récupérer les l'utilisateurs uniquement via la auth de laravel (il reste l'administration) et autre bugs lié
+- Revoir la barre de recherche
+
+- Créer une section pour faire des flash infos
+
+- Créer une historique de navigation en terme de flyers - information qui une fois disparait ou disparait après un certains temps (utiliser ). Ces derniers sont rédiger par un admin
 
 # FAIT
 - Mot de passe oublié

@@ -16,7 +16,7 @@ try {
   exit();
 }
 
-$db->exec('SET NAMES utf8');
+$db->exec('SET NAMES utf8mb4');
 
 $DB = $db;
 

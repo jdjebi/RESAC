@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use Resac\Auth2;
 
 
 class PubsController extends Controller
@@ -11,7 +12,7 @@ class PubsController extends Controller
     public function dashboard()
     {
 
-      $user = \Users::auth();
+      $user = Auth2::user();
 
       return view("admin.pubs.dashboard",[
         "user" => $user
@@ -21,7 +22,7 @@ class PubsController extends Controller
 
     public function pub($id){
 
-      $user = \Users::auth();
+      $user = Auth2::user();
 
       $post = \Post::get($id);
 

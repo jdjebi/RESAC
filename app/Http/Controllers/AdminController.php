@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
+use Resac\Auth2;
 
 class AdminController extends Controller
 {
@@ -25,7 +26,7 @@ class AdminController extends Controller
 
     public function index(){
 
-      $user = \Users::auth();
+      $user = Auth2::user();
 
       $title2 = "Gestion des utilisateurs";
 
@@ -37,7 +38,7 @@ class AdminController extends Controller
 
     public function user_manager(){
 
-      $user = \Users::auth();
+      $user = Auth2::user();
 
       $title = "Gestion des utilisateurs";
 
@@ -49,7 +50,7 @@ class AdminController extends Controller
 
     public function user_profil($user_id){
 
-      $user = \Users::auth();
+      $user = Auth2::user();
       $user_visited = \Users::get($user_id);
 
       if(!$user_visited){
@@ -168,7 +169,7 @@ class AdminController extends Controller
 
       // Clé de sécurité
 
-      $user = \Users::auth();
+      $user = Auth2::user();
 
       $users = \Users::all_min();
 

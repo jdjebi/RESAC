@@ -22,7 +22,7 @@ class SearchController extends Controller
       \Flash::add("Veuillez renseigner le nom de l'utilisateur à rechercher.",'warning');
     }
 
-    $user = \Users::auth();
+    $user = Auth2::user();
 
     $title = "Rechercher: ".$search_query;
 
