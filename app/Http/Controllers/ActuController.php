@@ -71,8 +71,6 @@ class ActuController extends Controller
 
       $title =  "Actualités";
 
-      dump($user);
-
       dump($user->photo);
 
       dump(asset("asset/imgs/user_default_pic.png"));
