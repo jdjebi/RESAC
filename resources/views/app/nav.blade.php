@@ -57,14 +57,22 @@
         <a class="nav-link" href="{{ route("actu") }}"><i class="far fa-newspaper"></i> Actualités</a>
       </li>
 
-      <li class="nav-item d-none d-md-block d-lg-block">
+      <li class="nav-item">
         <a class="nav-link" href="{{ route("app.post") }}"><i class="far fa-edit"></i> Publications</a>
       </li>
       @endauth
 
+      @auth
       <li class="nav-item d-none d-md-block d-lg-block">
         <a class="nav-link" href="{{ route("annuaire") }}"> <i class="fa fa-address-book"></i> Annuaire</a>
       </li>
+      @endauth
+      @guest
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route("annuaire") }}"> <i class="fa fa-address-book"></i> Annuaire</a>
+        </li>
+      @endguest
+
 
       <li class="nav-item d-none d-md-block d-lg-block">
         <a class="nav-link" href="{{ route("dev_news") }}"> <i class="far fa-lightbulb" style="color: #2196f3"></i> Nouveautés</a>
