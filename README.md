@@ -29,7 +29,8 @@ Consulter le fichier **todo.md** pour suivre l'évolution du développement.
 - Validateur de formulaire
 - Emetteur de notifications
 
-## Mise à jour de la version 3.2
+## Mise à jour de la version 3.3
 
-- Table new_features pour les nouveautés crées avec Laravel
-- Table SearchUserIndex, joue le rôle d'index de recherche pour la recherche d'utilisateur
+- Table utilisateurs ajout du rememberToken et du timestamp | Faire la migration de add_remember_token pour les ajouter en ligne
+
+- Migration pour la réinitialisation du mot de passe
