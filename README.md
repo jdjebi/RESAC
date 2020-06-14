@@ -31,6 +31,6 @@ Consulter le fichier **todo.md** pour suivre l'évolution du développement.
 
 ## Mise à jour de la version 3.3
 
-- Table utilisateurs ajout du rememberToken et du timestamp | Faire la migration de add_remember_token pour les ajouter en ligne
+- Table utilisateurs, ajout du rememberToken et du timestamp
 
-- Migration pour la réinitialisation du mot de passe
+- Ajout de la table pour la réinitialisation du mot de passe
