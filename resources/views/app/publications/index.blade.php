@@ -29,7 +29,13 @@
           <div class="col-sm-12">
             <div class="d-flex align-items-center justify-content-between">
               <div class="">
-                <h3>Mes publications</h3>
+                @if($request->has('certified'))
+                <h3>Publications certifiées</h3>
+                @elseif ($request->has('not-certified'))
+                  <h3>Publications non certifiées</h3>
+                @else
+                  <h3>Mes publications</h3>
+                @endif
               </div>
               <div class="">
                 <a class="btn btn-success btn-sm" href="{{ route('app.post.hub') }}"><i class="fa fa-plus"></i> Créer une Publication</a>
@@ -48,7 +54,7 @@
     </div>
 
   </div>
-  
+
 </div>
 
 @endsection

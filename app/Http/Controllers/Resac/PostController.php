@@ -22,8 +22,13 @@ class PostController extends Controller
 
       $title = 'Publications';
 
-      $posts = Post::where('user',$user->id)->orderBy('date','desc')->get();
-
+      if($request->has('certified')){
+        $posts = Post::where('user',$user->id)->where('validate',true)->orderBy('date','desc')->get();
+      }else if ($request->has('not-certified')){
+        $posts = Post::where('user',$user->id)->where('validate',false)->orderBy('date','desc')->get();
+      }else{
+        $posts = Post::where('user',$user->id)->orderBy('date','desc')->get();
+      }
 
       return view('app.publications.index',[
         'title' => $title,
