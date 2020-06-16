@@ -48,7 +48,7 @@ class PubsController extends Controller
         if (!isset($_GET['action'])) {
           \Flash::add($param_error,"danger");
         }else{
-          $user = \Users::auth();
+          $user = Auth2::user();
           // Certification de la publication
           if($_GET["action"] == "validate"){
             \Post::certificate($id,$user->id);
