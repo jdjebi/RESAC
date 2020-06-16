@@ -50,6 +50,8 @@ Route::middleware("auth")->group(function(){
 
   Route::get('publications',"Resac\PostController@index")->name('app.post');
 
+  Route::get('publications/creer',"Resac\PostController@create")->name('app.post.hub');
+
 });
 
 Route::get('/deconnexion','AuthController@logout')->name('logout');

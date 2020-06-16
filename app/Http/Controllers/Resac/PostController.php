@@ -16,19 +16,35 @@ class PostController extends Controller
 
     }
 
-    public function index(){
+    public function index(Request $request){
 
       $user = Auth2::user();
 
-      $title2 = 'Publications';
+      $title = 'Publications';
 
-      $posts = Post::all();
+      $posts = Post::where('user',$user->id)->orderBy('date','desc')->get();
 
-      # dump($posts);
 
       return view('app.publications.index',[
-        'title2' => $title2,
-        'user' => $user
+        'title' => $title,
+        'user' => $user,
+        'posts' => $posts,
+        'request' => $request,
+      ]);
+
+    }
+
+    public function create(Request $request){
+
+      $user = Auth2::user();
+
+      $title = 'Publications - Créer';
+
+      return view('app.publications.create',[
+        'title' => $title,
+        'user' => $user,
+        'request' => $request,
+
       ]);
 
     }

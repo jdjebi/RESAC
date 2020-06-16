@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Post;
 
 class User extends Authenticatable
 {
@@ -56,5 +57,19 @@ class User extends Authenticatable
 
     public function get_photo(){
       return asset("asset/imgs/user_default_pic.png");
+    }
+
+    # Fonctions statics
+
+    public function count_posts(){
+      return Post::where('user',$this->id)->count();
+    }
+
+    public function count_certified_posts(){
+      return Post::where('user',$this->id)->where('validate',true)->count();
+    }
+
+    public function count_not_certified_posts(){
+      return Post::where('user',$this->id)->where('validate',false)->count();
     }
 }
