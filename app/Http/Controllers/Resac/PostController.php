@@ -53,4 +53,17 @@ class PostController extends Controller
       ]);
 
     }
+
+    public function create_free_post(Request $request){
+
+      $user = Auth2::user();
+
+      $title = 'Publication - Libre';
+
+      return view('app.publications.creator.free_post', [
+        'title' => $title,
+        'user' => $user,
+        'request' => $request,
+      ]);
+    }
 }

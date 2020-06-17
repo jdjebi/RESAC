@@ -48,7 +48,7 @@
           </div>
 
           <div class="col-sm-12 col-lg-4 col-md-6">
-            <a class="post-tool-link" href="#">
+            <a class="post-tool-link" href="{{ route('app.post.create.free') }}">
               <div class="post-tool bg-white border p-3">
                   <div class="d-flex">
                     <div class="">

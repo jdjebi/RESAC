@@ -52,6 +52,8 @@ Route::middleware("auth")->group(function(){
 
   Route::get('publications/creer',"Resac\PostController@create")->name('app.post.hub');
 
+  Route::get('publications/c/libre',"Resac\PostController@create_free_post")->name('app.post.create.free');
+
 });
 
 Route::get('/deconnexion','AuthController@logout')->name('logout');
