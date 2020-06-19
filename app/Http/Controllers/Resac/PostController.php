@@ -34,6 +34,8 @@ class PostController extends Controller
         $posts = Post::where('user',$user->id)->orderBy('date','desc')->get();
       }
 
+      $user = User::find($user->id);
+      
       $count_posts = $user->count_posts();
       $count_certified_posts = $user->count_certified_posts();
       $count_not_certified_posts = $user->count_not_certified_posts();
