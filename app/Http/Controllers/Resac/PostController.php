@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Resac\Auth2;
 use App\Models\Post;
+use App\User;
+
 
 class PostController extends Controller
 {
@@ -19,6 +21,8 @@ class PostController extends Controller
     public function index(Request $request){
 
       $user = Auth2::user();
+
+      $user = User::find($user->id);
 
       $title = 'Publications';
 
