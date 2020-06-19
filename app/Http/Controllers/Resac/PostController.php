@@ -53,10 +53,17 @@ class PostController extends Controller
 
       $title = 'Publications - Créer';
 
+      $count_posts = $user->count_posts();
+      $count_certified_posts = $user->count_certified_posts();
+      $count_not_certified_posts = $user->count_not_certified_posts();
+
       return view('app.publications.create',[
         'title' => $title,
         'user' => $user,
         'request' => $request,
+        'count_posts' => $count_posts,
+        'count_certified_posts' => $count_certified_posts,
+        'count_not_certified_posts' => $count_not_certified_posts
 
       ]);
 
@@ -85,10 +92,17 @@ class PostController extends Controller
         }
       }
 
+      $count_posts = $user->count_posts();
+      $count_certified_posts = $user->count_certified_posts();
+      $count_not_certified_posts = $user->count_not_certified_posts();
+
       return view('app.publications.creator.free_post', [
         'title' => $title,
         'user' => $user,
         'request' => $request,
+        'count_posts' => $count_posts,
+        'count_certified_posts' => $count_certified_posts,
+        'count_not_certified_posts' => $count_not_certified_posts
       ]);
     }
 }
