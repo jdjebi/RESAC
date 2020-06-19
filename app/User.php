@@ -59,17 +59,15 @@ class User extends Authenticatable
       return asset("asset/imgs/user_default_pic.png");
     }
 
-    # Fonctions statics
-
-    public function count_posts(){
-      return Post::where('user',$this->id)->count();
+    public function getCountPostsAttribute(){
+      return Post::where('user',$this->attributes['id'])->count();
     }
 
-    public function count_certified_posts(){
-      return Post::where('user',$this->id)->where('validate',true)->count();
+    public function getCountCertifiedPostsAttribute(){
+      return Post::where('user',$this->attributes['id'])->where('validate',true)->count();
     }
 
-    public function count_not_certified_posts(){
-      return Post::where('user',$this->id)->where('validate',false)->count();
+    public function getCountNotCertifiedPostsAttribute(){
+      return Post::where('user',$this->attributes['id'])->where('validate',false)->count();
     }
 }

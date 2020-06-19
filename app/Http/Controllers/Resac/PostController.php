@@ -18,6 +18,14 @@ class PostController extends Controller
 
     }
 
+    public function posts_counter($user){
+      return [
+        'posts' => $user->count_posts,
+        'posts_certified' => $user->count_posts,
+        'posts_not_certified' => $user->count_not_certified_posts
+      ];
+    }
+
     public function index(Request $request){
 
       $user = Auth2::user();
@@ -35,20 +43,13 @@ class PostController extends Controller
       }
 
       $user = User::find($user->id);
-      
-      $count_posts = $user->count_posts();
-      $count_certified_posts = $user->count_certified_posts();
-      $count_not_certified_posts = $user->count_not_certified_posts();
-
 
       return view('app.publications.index',[
         'title' => $title,
         'user' => $user,
         'posts' => $posts,
         'request' => $request,
-        'count_posts' => $count_posts,
-        'count_certified_posts' => $count_certified_posts,
-        'count_not_certified_posts' => $count_not_certified_posts
+        'count' => $this->posts_counter($user)
       ]);
 
     }
@@ -59,18 +60,11 @@ class PostController extends Controller
 
       $title = 'Publications - Créer';
 
-      $count_posts = $user->count_posts();
-      $count_certified_posts = $user->count_certified_posts();
-      $count_not_certified_posts = $user->count_not_certified_posts();
-
       return view('app.publications.create',[
         'title' => $title,
         'user' => $user,
         'request' => $request,
-        'count_posts' => $count_posts,
-        'count_certified_posts' => $count_certified_posts,
-        'count_not_certified_posts' => $count_not_certified_posts
-
+        'count' => $this->posts_counter($user)
       ]);
 
     }
@@ -98,17 +92,12 @@ class PostController extends Controller
         }
       }
 
-      $count_posts = $user->count_posts();
-      $count_certified_posts = $user->count_certified_posts();
-      $count_not_certified_posts = $user->count_not_certified_posts();
-
       return view('app.publications.creator.free_post', [
         'title' => $title,
         'user' => $user,
         'request' => $request,
-        'count_posts' => $count_posts,
-        'count_certified_posts' => $count_certified_posts,
-        'count_not_certified_posts' => $count_not_certified_posts
+        'count' => $this->posts_counter($user)
       ]);
     }
+
 }
