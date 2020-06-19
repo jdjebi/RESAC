@@ -4,7 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Resac\Auth2;
 use App\Features;
 
 class FeaturesController extends Controller
@@ -13,7 +13,7 @@ class FeaturesController extends Controller
 
       $features = Features::orderBy('created_at','desc')->get();
 
-      $user = \Users::auth();
+      $user = Auth2::user();
 
       return view("admin.features.dashboard",[
         'title' => 'Espace Nouveautés',
@@ -28,7 +28,7 @@ class FeaturesController extends Controller
 
       $feature = Features::findOrFail($id);
 
-      $user = \Users::auth();
+      $user = Auth2::user();
 
       $title = "Nouveautés - ".$feature->title;
 
@@ -45,7 +45,7 @@ class FeaturesController extends Controller
 
     public function create(){
 
-      $user = \Users::auth();
+      $user = Auth2::user();
 
       return view('admin.features.create',[
         'title' => 'Créer un nouveauté',
@@ -91,7 +91,7 @@ class FeaturesController extends Controller
 
       $feature = Features::findOrFail($id);
 
-      $user = \Users::auth();
+      $user = Auth2::user();
 
       if($user->id == $feature->user_author_id){
         \Flash::add("Vous n'avez pas le droit de modifier cette nouveauté.","warning");

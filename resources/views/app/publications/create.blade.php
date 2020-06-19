@@ -18,6 +18,16 @@
   .post-tool:hover{
     box-shadow: 1px 1px 1px 1px #f1efef;
   }
+  .post-tool.unable{
+    background: #f1f1f1 !important;
+  }
+  .post-tool.unable h5{
+    color: gray
+  }
+  .post-tool.unable:hover{
+    box-shadow: none;
+    cursor: default;
+  }
 </style>
 @endsection
 
@@ -50,9 +60,9 @@
           <div class="col-sm-12 col-lg-4 col-md-6">
             <a class="post-tool-link" href="{{ route('app.post.create.free') }}">
               <div class="post-tool bg-white border p-3">
-                  <div class="d-flex">
+                  <div class="d-flex align-items-center">
                     <div class="">
-                      <img class="resac-w-100" src="{{ asset('asset/imgs/posts/post-free.svg') }}" alt="">
+                      <img class="resac-w-100  resac-h-100" src="{{ asset('asset/imgs/posts/post-free.svg') }}" alt="">
                     </div>
                     <div class="pl-3">
                       <h5>Publication libre</h5>
@@ -66,11 +76,29 @@
           </div>
 
           <div class="col-sm-12 col-lg-4 col-md-6">
-            <a class="post-tool-link" href="#">
+            <a class="post-tool-link" href="{{ route('app.post.create.free') }}">
               <div class="post-tool bg-white border p-3">
                   <div class="d-flex align-items-center">
                     <div class="">
-                      <img class="resac-w-100" src="{{ asset('asset/imgs/posts/post-stage.svg') }}" alt="">
+                      <img class="resac-w-100  resac-h-100" src="{{ asset('asset/imgs/posts/post-free-advance.svg') }}" alt="">
+                    </div>
+                    <div class="pl-3">
+                      <h5>Publication libre avancée</h5>
+                      <p class="text-muted small">
+                        Utiliser un éditeur plus fournit pour créer des publications libres
+                      </p>
+                    </div>
+                  </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-sm-12 col-lg-4 col-md-6">
+            <a class="post-tool-link" href="#">
+              <div class="post-tool unable bg-white border p-3">
+                  <div class="d-flex align-items-center">
+                    <div class="">
+                      <img class="resac-w-100  resac-h-100" src="{{ asset('asset/imgs/posts/post-stage.svg') }}" alt="">
                     </div>
                     <div class="pl-3">
                       <h5>Offre de stage</h5>
@@ -85,10 +113,10 @@
 
           <div class="col-sm-12 col-lg-4 col-md-6">
             <a class="post-tool-link" href="#">
-              <div class="post-tool bg-white border p-3">
+              <div class="post-tool unable bg-white border p-3">
                   <div class="d-flex align-items-center">
                     <div class="">
-                      <img class="resac-w-100" src="{{ asset('asset/imgs/posts/post-job.svg') }}" alt="">
+                      <img class="resac-w-100  resac-h-100" src="{{ asset('asset/imgs/posts/post-job.svg') }}" alt="">
                     </div>
                     <div class="pl-3">
                       <h5>Offre d'emploi</h5>
@@ -103,10 +131,10 @@
 
           <div class="col-sm-12 col-lg-4 col-md-6">
             <a class="post-tool-link" href="#">
-              <div class="post-tool bg-white border p-3">
+              <div class="post-tool unable bg-white border p-3">
                   <div class="d-flex align-items-center">
                     <div class="">
-                      <img class="resac-w-100" src="{{ asset('asset/imgs/posts/post-bourse.svg') }}" alt="">
+                      <img class="resac-w-100  resac-h-100" src="{{ asset('asset/imgs/posts/post-bourse.svg') }}" alt="">
                     </div>
                     <div class="pl-3">
                       <h5>Bourse d'étude</h5>
@@ -121,7 +149,7 @@
 
           <div class="col-sm-12 col-lg-4 col-md-6">
             <a class="post-tool-link" href="#">
-              <div class="post-tool bg-white border p-3">
+              <div class="post-tool unable bg-white border p-3">
                   <div class="d-flex align-items-center">
                     <div class="">
                       <img class="resac-w-100 resac-h-100" src="{{ asset('asset/imgs/posts/post-ask-job.svg') }}" alt="">
@@ -139,7 +167,7 @@
 
           <div class="col-sm-12 col-lg-4 col-md-6">
             <a class="post-tool-link" href="#">
-              <div class="post-tool bg-white border p-3">
+              <div class="post-tool unable bg-white border p-3">
                   <div class="d-flex align-items-center">
                     <div class="">
                       <img class="resac-w-100 resac-h-100" src="{{ asset('asset/imgs/posts/post-ask-stage.svg') }}" alt="">

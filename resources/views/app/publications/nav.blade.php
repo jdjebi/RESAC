@@ -16,4 +16,7 @@
   <li class="nav-item nav-pills">
     <a class='small nav-link {{ is_current_url('app.post.hub') }}' href="{{ route('app.post.hub') }}">Créer une publication </a>
   </li>
+  <li class="nav-item nav-pills">
+    <a class='small nav-link {{ is_current_url('app.post.create.free') }}' href="{{ route('app.post.create.free') }}">Publication libre </a>
+  </li>
 </ul>

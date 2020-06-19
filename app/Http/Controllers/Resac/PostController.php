@@ -60,6 +60,23 @@ class PostController extends Controller
 
       $title = 'Publication - Libre';
 
+      if($request->isMethod('post')){
+
+        if($request->filled('content')){
+          \Post::create([
+            "user" => $user->id,
+            "content" => $_POST['content']
+          ]);
+
+          \Flash::add("Publication enregistré. En attente de certification.","success");
+
+          return redirect()->route('app.post.not_certified');
+
+        }else{
+          \Flash::add("Votre publication est vide.","warning");
+        }
+      }
+
       return view('app.publications.creator.free_post', [
         'title' => $title,
         'user' => $user,

@@ -50,9 +50,11 @@ Route::middleware("auth")->group(function(){
 
   Route::get('publications',"Resac\PostController@index")->name('app.post');
 
+  Route::get('publications?not-certified',"Resac\PostController@index")->name('app.post.not_certified');
+
   Route::get('publications/creer',"Resac\PostController@create")->name('app.post.hub');
 
-  Route::get('publications/c/libre',"Resac\PostController@create_free_post")->name('app.post.create.free');
+  Route::match(['get', 'post'],'publications/c/libre',"Resac\PostController@create_free_post")->name('app.post.create.free');
 
 });
 

@@ -3,6 +3,7 @@
 # v4
 
 - Gestion des publications côtés utilisateur
+  - Gérer la supression, l'affichage propre ainsi que l'édition des publications
 
 
 # v5

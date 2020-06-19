@@ -20,6 +20,9 @@
 
         <div class="row">
           <div class="col-sm-12">
+            @include('flash')
+          </div>
+          <div class="col-sm-12">
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item active breadcrumb-item-resac-support"><a href="#">Publication</a></li>
