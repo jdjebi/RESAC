@@ -76,8 +76,8 @@
           </div>
 
           <div class="col-sm-12 col-lg-4 col-md-6">
-            <a class="post-tool-link" href="{{ route('app.post.create.free') }}">
-              <div class="post-tool bg-white border p-3">
+            <a class="post-tool-link" href="#">
+              <div class="post-tool unablebg-white border p-3">
                   <div class="d-flex align-items-center">
                     <div class="">
                       <img class="resac-w-100  resac-h-100" src="{{ asset('asset/imgs/posts/post-free-advance.svg') }}" alt="">

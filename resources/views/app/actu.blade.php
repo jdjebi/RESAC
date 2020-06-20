@@ -84,6 +84,7 @@
                         </div>
 
                         <span class="text-muted small">
+                          <span class="post-badge post-badge-info mr-1">INFORMATION</span>&nbsp;
                           <time class="timeago" datetime="{{ $post->date }}" title="{{ $post->date }}"> <i class="far fa-clock"></i></time>
                           &middot
                           <span title="La publication peut être vu par tout le monde."> <i class="fa fa-globe-africa"></i> {{ $post->scope }}</span>
@@ -92,9 +93,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="body pl-4 pr-4 pb-3">
-                    <?= $post->content ?>
-                  </div>
+                  <div class="body pl-4 pr-4 pb-3"><?= $post->content ?></div>
                   @if($post->user_id != $user->id && false)
                   <div class="footer p-2 pr-4 border-top text-right">
                     <button disabled class="btn btn-sm btn-primary" type="button" name="button" title="Les publications marquées comme lu n'apparaitrons plus dans la fil.">Maquer comme lu</button>

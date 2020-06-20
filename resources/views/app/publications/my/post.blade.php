@@ -6,7 +6,6 @@
           <img class="pub-user-photo" src="{{ $post->user_object->photo }}" alt="Photo {{ $post->user_object->fullname }}">
         </a>
         <div class="ml-3 media-body">
-
           <div class="dropdown float-right">
             <a class="dropdown-toggle" href="#" role="button" id="pub-box-menu-option-{{ $post->id }}" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
               <i class="text-muted fa fa-ellipsis-h"></i>
@@ -22,25 +21,21 @@
               @endif
             </div>
           </div>
-
           <div class="mt-0 pub-user-name">
             <a href="{{ route('profil') }}?id={{ $post->user_id }}">
               {{ $post->user_object->fullname }}
             </a> &nbsp;
             <span title="Publication {{ $post->validate ? "approuvée" : "non approuvée"}}" class="text-{{ $post->validate ? "success" : "danger"}}"><i class="fa fa-check-circle"></i></span>
           </div>
-
           <span class="text-muted small">
+            <span class="post-badge post-badge-info mr-1">INFORMATION</span>&nbsp;
             <time class="timeago" datetime="{{ $post->date }}" title="{{ $post->date }}"> <i class="far fa-clock"></i></time>
             &middot
             <span title="La publication peut être vu par tout le monde."> <i class="fa fa-globe-africa"></i> {{ $post->scope }}</span>
           </span>
-
         </div>
       </div>
     </div>
-    <div class="body pl-4 pr-4 pb-3">
-      {{ $post->content }}
-    </div>
+    <div class="body pl-4 pr-4 pb-3">{{ $post->content }}</div>
   </div>
 </div>

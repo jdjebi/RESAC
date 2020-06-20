@@ -14,6 +14,7 @@
 - Intégrer les modérateurs et les super utilisateurs
 - Utiliser un nom utilisateur pour identifier un utilisateur
 - Guide lors de la connexion
+- Modification des publications
 ---
 - Gestion des utilisateurs
   - [?] Un admin lui ne pas se rendre membre ni se supprimer
@@ -23,6 +24,8 @@
 
 
 ---
+
+- Créer une documentation
 
 - Conservation de session. Récupérer les l'utilisateurs uniquement via la auth de laravel (il reste l'administration) et autre bugs lié
 - Revoir la barre de recherche

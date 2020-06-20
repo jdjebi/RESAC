@@ -57,3 +57,20 @@
 .bg-post .pub-box .dropdown-toggle::after {
     display: none;
 }
+
+
+/* Publication */
+
+.pub-box .body{
+  white-space: pre-line
+}
+
+/* Badge de publication */
+
+.post-badge.post-badge-info{
+  background: #2196F3;
+  font-size: 8px;
+  padding: 2px 9px 2px 9px;
+  color: #fff;
+  font-weight: 500;
+}

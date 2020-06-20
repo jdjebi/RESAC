@@ -12,6 +12,8 @@
 
 <hr>
 
+<h6>Publications</h6>
+
 <ul class="nav flex-column">
   <li class="nav-item nav-pills">
     <a class='small nav-link {{ is_current_url('app.post.hub') }}' href="{{ route('app.post.hub') }}">Créer une publication </a>
