@@ -63,6 +63,12 @@
   #slogan-style{
     border-left: 3px #2FA4E7 solid;
   }
+
+  .resac-section p{
+    line-height: 1.8;
+    font-size: 20px;
+    font-weight: 500;
+  }
 </style>
 @endsection
 
@@ -89,21 +95,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-
-<div class="container mt-5">
-  <div class="container">
-    @include("app.news.last")
-  </div>
-  <hr>
-  <div class="d-flex justify-content-between mb-3">
-    <div class="small">
-      <a href="https://github.com/jdjebi/RESAC"><i class="fab fa-github"></i> RESAC</a>
-    </div>
-    <div class="small">
-      &copy; RESAC &middot 2020
     </div>
   </div>
 </div>
