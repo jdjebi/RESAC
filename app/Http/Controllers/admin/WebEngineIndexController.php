@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Resac\Auth2;
 use App\Models\SearchUserIndex;
 
 class WebEngineIndexController extends Controller
