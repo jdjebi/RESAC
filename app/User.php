@@ -21,7 +21,7 @@ class User extends Authenticatable
     }
 
     public function getPhotoAttribute(){
-      return asset("asset/imgs/user_default_pic.png");
+      return "asset/imgs/user_default_pic.png";
     }
 
     public function getPromoAttribute(){

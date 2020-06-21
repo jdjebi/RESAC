@@ -58,7 +58,7 @@ $('form').on('submit',function(e){
   var length = editor.getLength();
   var text = editor.getText(0, length);
   $('input[name=content]').first().val(text);
-  console.log(JSON.stringify(text))
+  form.submit();
 });
 
 </script>

@@ -2,8 +2,7 @@
 
 # v4
 
-- Gestion des publications côtés utilisateur
-  - Gérer la supression, l'affichage propre ainsi que l'édition des publications
+
 
 
 # v5
@@ -15,6 +14,8 @@
 - Utiliser un nom utilisateur pour identifier un utilisateur
 - Guide lors de la connexion
 - Modification des publications
+- Gestion des publications côtés utilisateur [Améliorer]
+  - Gérer la supression, l'affichage propre ainsi que l'édition des publications
 ---
 - Gestion des utilisateurs
   - [?] Un admin lui ne pas se rendre membre ni se supprimer

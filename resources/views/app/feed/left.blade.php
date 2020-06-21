@@ -19,7 +19,7 @@
 <div id="resume">
   <div class="border bg-primary user-cover-pic">
     <div class="text-center">
-      <img class="user-photo" src="{{ $user->photo }}" alt="">
+      <img class="user-photo" src="{{ asset($user->photo) }}" alt="">
     </div>
   </div>
   <div class="bg-white pt-5 pb-3 border-bottom border-left border-right">
