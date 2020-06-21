@@ -18,7 +18,7 @@
           <div class="col-sm-12">
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('app.post') }}">Publication</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('app.post') }}">Publications</a></li>
                 <li class="breadcrumb-item"><a href="{{ route('app.post.hub') }}">Créer</a></li>
                 <li class="breadcrumb-item active breadcrumb-item-resac-support">Publication libre</li>
               </ol>
