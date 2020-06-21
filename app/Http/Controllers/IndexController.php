@@ -27,6 +27,23 @@ class IndexController extends Controller
 
     }
 
+    public function index2()
+    {
+
+      $user = null;
+
+      if(\Auth::check()){
+        $user =  \Users::auth();
+      }
+
+      $feature = Features::last();
+
+      return view('app.index2',[
+        'feature' => $feature
+      ]);
+
+    }
+
 }
 
 ?>

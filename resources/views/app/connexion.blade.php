@@ -3,11 +3,16 @@
 @section('extras_style')
 <style media="screen">
   body{
-    background-color: #f1f3f6
+    background-color: #f1f3f6;
+    background-image: url({{ asset('asset/imgs/intro/bgs/etu4.jpg') }});
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-color: transparent !important
   }
   @@media(max-width: 768px) {
     body{
       background-color: #fff;
+      background-image: none
     }
     #login-box{
       border-color: transparent !important
@@ -15,6 +20,7 @@
   }
 </style>
 @endsection
+
 
 @section('content')
 @include('flash')
@@ -47,7 +53,7 @@
             <span class="sr-only">Loading...</span>
           </div>
           </button>
-          <div class="text-center mt-3">
+          <div class="text-center mt-3 small">
           <a href="{{ route("register") }}">Créer un compte</a> &middot <a href="{{ route("app.reset.email") }}">Mot de passe oublié</a>
           </div>
         </div>

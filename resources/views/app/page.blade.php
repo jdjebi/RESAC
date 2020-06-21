@@ -23,6 +23,9 @@
       body{
           padding-top: 64px
       }
+      .resac-bg-light{
+        background-color: #ffffff
+      }
       .resac-logo-25{
         font-size: 25px
       }

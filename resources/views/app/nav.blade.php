@@ -18,8 +18,11 @@
     }
   }
 </style>
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-  <a class="navbar-brand resac-logo-font resac-logo-25" href="{{ route("home") }}">Resac</a>
+<nav class="navbar navbar-expand-lg navbar-light resac-bg-light fixed-top">
+  <a class="navbar-brand resac-logo-font" href="{{ route("home") }}">
+    <img src="{{ asset('asset/imgs/icons/android-chrome-192x192.png') }}" width="30" height="30" alt="">
+    <span class="align-middle">Resac</span>
+  </a>
   <div class="d-flex align-items-center">
     <div class="nav-extras-items">
       <ul class="nav">
