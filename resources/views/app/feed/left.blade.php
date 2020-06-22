@@ -13,21 +13,31 @@
 #resume .resume-content{
   position: relative;
 }
+
+.resac-nav-ul .nav-link{
+    padding-left: 0px;
+}
 </style>
 
-
-<div id="resume">
-  <div class="border bg-primary user-cover-pic">
-    <div class="text-center">
-      <img class="user-photo" src="{{ asset($user->photo) }}" alt="">
+<div class="media">
+  <img class="wh-40 border resac-border-light-2 rounded-circle" src="{{ asset($user->photo) }}" alt="Photo {{ $user->fullname }}">
+  <div class="media-body ml-2 small">
+    <div>
+      {{ $user->fullname }}
     </div>
-  </div>
-  <div class="bg-white pt-5 pb-3 border-bottom border-left border-right">
-    <div class="text-center resume-content">
-      <div class="h6 text-dark">{{ $user->fullname }}</div>
-      <div class="small">
-        {{ $user->emploi }} &middot {{ $user->universite }}
-      </div>
+    <div class="">
+      {{ $user->emploi }} &middot {{ $user->universite }}
     </div>
   </div>
 </div>
+
+<hr>
+
+<h6 class="text-muted">Publications</h6>
+<ul class="nav flex-column resac-nav-ul">
+  <li class="nav-item nav-pills">
+    <a class='nav-link small' href="{{ route('app.post.hub') }}">Editeur de publication </a>
+    <a class='nav-link small' href="{{ route('app.post.create.free') }}">
+      Créer publication libre</a>
+  </li>
+</ul>

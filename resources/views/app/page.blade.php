@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{ asset('asset/css/cerulean/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/css/fontawsome/all.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/mobile/css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/css/resac/resac.css') }}">
     <style media="screen">
       body{
           padding-top: 64px
