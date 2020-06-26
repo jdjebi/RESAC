@@ -70,6 +70,31 @@
     font-weight: 500;
   }
 </style>
+<style media="screen">
+  .w-200{
+    width: 150px;
+  }
+  .w-150{
+    width: 100px;
+  }
+</style>
+<style media="screen">
+  .customer-logos.title{
+    text-align: center;
+    font-weight: 100;
+  }
+  .customer-logos.slider{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+  }
+  .customer-logos.slider .slide{
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+</style>
 @endsection
 
 @section('content')
@@ -98,4 +123,20 @@
     </div>
   </div>
 </div>
+<div class="resac-bg-light pt-3">
+  <div class="container">
+    <h3 class="customer-logos title text-muted mb-3">Les Académies du Réseau</h3>
+    <section class="customer-logos slider">
+      <div class="slide"><img class="w-200" title="Lycéé Classique d'Abidjan" src="{{ asset('asset/imgs/intro/e-logos/lca.png') }}" alt=""></div>
+      <div class="slide"><img class="w-150" title="Science Po bordeaux" src="{{ asset('asset/imgs/intro/e-logos/sc-po.jpg') }}" alt=""></div>
+      <div class="slide"><img class="w-200" title="ESATIC" src="{{ asset('asset/imgs/intro/e-logos/esatic.png') }}" alt=""></div>
+      <div class="slide"><img class="w-150" title="INPHB" src="{{ asset('asset/imgs/intro/e-logos/inp.png') }}" alt=""></div>
+      <div class="slide"><img class="w-150" title="Université Félix Houphouet-Boigny" src="{{ asset('asset/imgs/intro/e-logos/min/ufb.png') }}" alt=""></div>
+    </section>
+  </div>
+</div>
+<div class="">
+
+</div>
+
 @endsection

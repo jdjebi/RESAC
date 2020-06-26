@@ -3,8 +3,6 @@
 # v4
 
 
-
-
 # v5
 
 - Version mobile de l'interface
@@ -36,6 +34,9 @@
 - Créer une historique de navigation en terme de flyers - information qui une fois disparait ou disparait après un certains temps (utiliser ). Ces derniers sont rédiger par un admin
 
 # FAIT
+
+# v4
+
 - Mot de passe oublié
 - Conservation de session
 - Gérer les comptes la mise à jour des comptes lors de la connexion
