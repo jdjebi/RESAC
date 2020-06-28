@@ -9,7 +9,7 @@
     background-repeat: no-repeat;
     border-color: transparent !important
   }
-  @@media(max-width: 768px) {
+  @media(max-width: 768px) {
     body{
       background-color: #fff;
       background-image: none
