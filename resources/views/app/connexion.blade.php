@@ -9,7 +9,7 @@
     background-repeat: no-repeat;
     border-color: transparent !important
   }
-  @@media(max-width: 768px) {
+  @media(max-width: 768px) {
     body{
       background-color: #fff;
       background-image: none
@@ -66,7 +66,7 @@
 @section('scripts')
 <script src="asset/js/vue.js" type="text/javascript"></script>
 <script type="text/javascript">
-var url_profil = "{{ route('profil') }}";
+var url_post_login = "{{ route('actu') }}";
 var url_redirect = "{{ $redirect_url }}" ;
 
 var vm = new Vue({
@@ -108,7 +108,7 @@ var vm = new Vue({
         if(url_redirect != "")
           url = url_redirect;
         else
-          url = url_profil;
+          url = url_post_login;
 
         window.location = url;
       }

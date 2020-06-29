@@ -5,6 +5,15 @@
   body{
     background-color: #f1f3f6
   }
+
+  @media(max-width: 768px) {
+    body{
+      background-color: #fff;
+    }
+    #password-reset-box{
+      border-color: transparent !important
+    }
+  }
 </style>
 @endsection
 
@@ -14,24 +23,26 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Réintialisation du mot de passe</div>
+            <div id="password-reset-box" class="card">
 
-                <div class="card-body">
+                <div class="card-body rounded">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
 
-                    <form method="POST" action="{{ route('app.reset.email') }}">
+                    <form  method="POST" action="{{ route('app.reset.email') }}">
                         @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">Adresse E-mail</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        <div class="h5 text-muted p-2 text-center">
+                          Réintialisation du mot de passe
+                        </div>
+                        <div class="text-center mb-3">
+                          <img class="resac-w-150" src="{{ asset("asset/imgs/icons/svg/password.svg") }}" alt="">
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-lg-6">
+                                <input id="email" placeholder="Enter votre adresse E-mail" type="email" class="form-control text-center @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -41,10 +52,10 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                  Valider
+                        <div class="justify-content-center row mt-4 mb-2">
+                            <div class="col-lg-6 text-center">
+                                <button class="btn btn-primary btn-block" type="submit" class="btn btn-primary">
+                                  Envoyer
                                 </button>
                             </div>
                         </div>
