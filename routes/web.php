@@ -121,6 +121,10 @@ Route::namespace('admin')->group(function () {
 
       });
 
+      Route::prefix('/v2/admin/')->group(function () {
+        Route::get('dev/flash/creator','DevController@create_flash')->name('dev.create_flash');
+      });
+
     });
 
 
