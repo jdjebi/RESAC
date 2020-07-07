@@ -2,9 +2,6 @@
 
 - Ajout des photo de profil par nom
 
-# v4
-
-
 # v5
 
 - Version mobile de l'interface
