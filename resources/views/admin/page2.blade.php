@@ -18,7 +18,7 @@
         RESAC Admin
       @endif
     </title>
-    <link rel="stylesheet" href="{{ asset('asset/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/css/bootstrap/4.5/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/css/fontawsome/all.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/css/resac/admin/dashboard.css') }}">
     <style media="screen">

@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{{ asset('asset/css/resac/resac.css') }}">
     <style media="screen">
       body{
-          padding-top: 64px
+          padding-top: 60px
       }
       .resac-bg-light{
         background-color: #ffffff

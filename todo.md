@@ -1,5 +1,7 @@
 # A FAIRE
 
+- Ajout des photo de profil par nom
+
 # v4
 
 

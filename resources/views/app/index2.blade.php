@@ -216,8 +216,17 @@
 @endsection
 
 @section('content')
-<div class="container">
-  @include('flash')
+<div>
+  <?php foreach (Flash::get() as $notif): ?>
+  <div class="alert alert-<?= $notif["type"] ?> mb-0">
+    <div class="text-center">
+      <?= $notif["message"] ?>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+  <?php endforeach;  ?>
 </div>
 
 <div id="landing-page">
@@ -254,6 +263,7 @@
       <div class="slide"><img class="w-200" title="ESATIC" src="{{ asset('asset/imgs/intro/e-logos/esatic.png') }}" alt=""></div>
       <div class="slide"><img class="w-150" title="INPHB" src="{{ asset('asset/imgs/intro/e-logos/inp.png') }}" alt=""></div>
       <div class="slide"><img class="w-150" title="Université Félix Houphouet-Boigny" src="{{ asset('asset/imgs/intro/e-logos/min/ufb.png') }}" alt=""></div>
+      <div class="slide"><img class="w-150" title="IUGB" src="{{ asset('asset/imgs/intro/e-logos/IUGB.jpg') }}" alt=""></div>
     </section>
   </div>
 </div>
