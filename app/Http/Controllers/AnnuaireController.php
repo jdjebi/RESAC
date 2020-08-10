@@ -38,6 +38,7 @@ class AnnuaireController extends Controller
 
       $title2 = "Annuaire";
 
+
       return view('app.explorer.annuaire',[
         'user' => $user,
         'title2' =>  $title2,

@@ -9,7 +9,7 @@
 - Revision de la page de profil
 - Intégrer les modérateurs et les super utilisateurs
 - Utiliser un nom utilisateur pour identifier un utilisateur
-- Guide lors de la connexion
+
 - Modification des publications
 - Gestion des publications côtés utilisateur [Améliorer]
   - Gérer la supression, l'affichage propre ainsi que l'édition des publications
@@ -31,6 +31,8 @@
 - Créer une section pour faire des flash infos
 
 - Créer une historique de navigation en terme de flyers - information qui une fois disparait ou disparait après un certains temps (utiliser ). Ces derniers sont rédiger par un admin
+
+- Guide lors de la connexion
 
 # FAIT
 

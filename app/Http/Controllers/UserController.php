@@ -21,7 +21,7 @@ class UserController extends Controller
 
     }
 
-    public function profil(){
+    public function profil(Request $request){
 
       $user = Auth2::user();
 
@@ -165,6 +165,8 @@ class UserController extends Controller
         }else{
           $FormPass->add_error('global',"Mot de passe du compte incorrecte.");
         }
+      }elseif($request->has('change_photo')){
+
       }
 
       // dump($_POST);
@@ -176,6 +178,8 @@ class UserController extends Controller
         $edit_form = "password";
       else if(isset($_GET['privacy']))
         $edit_form = "privacy";
+      elseif($request->has('photo'))
+        $edit_form = "photo";
       else
         $edit_form = "infos";
 

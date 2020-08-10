@@ -1,5 +1,13 @@
 @extends('app.page')
 
+@section('extras_style')
+<style media="screen">
+  body{
+    background-color: #f1f3f6
+  }
+</style>
+@endsection
+
 @section('content')
 <div class="container mt-5">
   <div class="row">
@@ -7,18 +15,16 @@
 
       <ul class="list-group list-group-flush">
 
-
         <li class="list-group-item d-flex justify-content-between align-items-center">
           <i class="fa fa-address-card text-primary"></i> <a href="<?= route('param') ?>?infos">Informations personnelles</a>
         </li>
 
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <i class="fa fa-camera text-primary"></i> <a href="<?= route('param') ?>?photo">Photo de profil</a>
+        </li> 
 
         <li class="list-group-item d-flex justify-content-between align-items-center">
           <i class="fa fa-key text-primary"></i> <a href="<?= route('param') ?>?password">Mot de passe</a>
-        </li>
-
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <small class="text-muted">RESAC &middot v0.3.3</small>
         </li>
 
       </ul>
@@ -36,9 +42,14 @@
         </div>
       @endif
 
-      @if($edit_form == "password"):
+      @if($edit_form == "photo")
+        @include("app.params.photo")
+      @endif
+
+      @if($edit_form == "password")
         @include("app.params.pass")
       @endif
+      
     </div>
   </div>
 </div>
