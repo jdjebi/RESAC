@@ -24,7 +24,7 @@ class User extends Authenticatable
 
       dump($this->attributes['photo']);
 
-      if($this->attributes['photo'] != null)
+      if($this->attributes['photo'])
         return "storage/{$this->attributes['photo']}";
       else
         return "asset/imgs/user_default_pic.png";    
