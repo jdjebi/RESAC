@@ -42,6 +42,8 @@ class Users{
   // Version
   public $version;
 
+  public $photo;
+
   public function __construct($data){
     global $DB;
     $this->db = $DB;
@@ -75,6 +77,9 @@ class Users{
 
     // Version
     $this->version = $data["version"];
+
+    // Photo
+    $this->version = $data["photo"];
   }
 
   static function auth(){
@@ -151,7 +156,8 @@ class Users{
       universite = :universite,
       emploi = :emploi,
       is_staff = :is_staff,
-      staff_role = :staff_role
+      staff_role = :staff_role,
+      photo = :photo,
       WHERE id = :id
     ";
 
@@ -172,13 +178,18 @@ class Users{
       "universite" => $this->universite,
       "emploi" => $this->emploi,
       "is_staff" => $this->is_staff,
-      "staff_role" => $this->staff_role
+      "staff_role" => $this->staff_role,
+      "photo" => $this->photo
     ]);
 
   }
 
   public function get_photo(){
-    return asset("asset/imgs/user_default_pic.png");
+
+    if($this->photo == null)
+      return "asset/imgs/user_default_pic.png";
+    else
+      return "storage/{$this->photo}";
   }
 
   public function get_complete_name(){
@@ -338,7 +349,7 @@ class Users2{
       'emploi' => $user->get_emploi(),
       'pays' => \Country::get($user->pays),
       'role' => $user->get_staff_role(),
-      'photo' => $user->get_photo(),
+      'photo' => asset($user->get_photo()),
       'profil_url' => route('profil')."?id=".$user->id,
       'admin_profil_url' => route('admin_user_profil',['user_id' => $user->id])
     ];

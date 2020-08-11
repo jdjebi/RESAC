@@ -1,5 +1,13 @@
 ## Master
 
+## version 4
+- Mot de passe oublié
+- Conservation de session
+- Gérer les comptes la mise à jour des comptes lors de la connexion
+- Création de l'index dès l'inscription et à la mise à jour du compte
+- Revoir les middlewares avec le nouveau service auth2
+- Revoir la langue de l'E-mail de réinitialisation
+- Revoir le langue de base de Laravel
 - Création d'une page dans l'admin pour générer des notifications flash plus facilement (app/http/controller/admin/DevController)
 - Ajout du photo au Modèle d'un utilisateur
 - Affichage des post ne dépend plus Framework built-in

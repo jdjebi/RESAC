@@ -18,10 +18,10 @@ class AnnuaireController extends Controller
 
       $users = [];
 
-      foreach (\Users::all() as $u) {
+      foreach (User::all() as $u) {
         $users[] = [
           "id" => $u->id,
-          "photo" => $u->get_photo(),
+          "photo" => asset($u->photo),
           "nom" => $u->nom,
           "prenom" => $u->prenom,
           "emploi" => (empty($u->emploi)) ? "Lycée Classique d'Abidjan" : $u->emploi,
@@ -37,7 +37,6 @@ class AnnuaireController extends Controller
       $users_json = json_encode($users);
 
       $title2 = "Annuaire";
-
 
       return view('app.explorer.annuaire',[
         'user' => $user,

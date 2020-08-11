@@ -2,14 +2,11 @@
 
 @section('extras_style')
   @include('app.explorer.style')
-
-
   <style media="screen">
     body{
       background-color: #f1f3f6
     }
   </style>
-
 @endsection
 
 
@@ -40,7 +37,9 @@
               <span class="small p-1 text-primary">@{{ user.promo }}</span>
             </div>
             <div class="d-flex justify-content-center mb-3">
-              <div class="u-photo"></div>
+              <div>
+                <img class="u-photo rounded rounded-circle" v-bind:src="user.photo" alt="">
+              </div>
             </div>
             <div class="text-center" style="font-size: 13px;">
               <div style="font-weight: 500" class="">

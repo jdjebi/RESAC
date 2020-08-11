@@ -1,12 +1,10 @@
 # A FAIRE
+- Revision de la page de profil
 
-- Ajout des photo de profil par nom
 
 # v5
-
 - Version mobile de l'interface
 - Optimiser la plateforme
-- Revision de la page de profil
 - Intégrer les modérateurs et les super utilisateurs
 - Utiliser un nom utilisateur pour identifier un utilisateur
 
@@ -14,6 +12,7 @@
 - Gestion des publications côtés utilisateur [Améliorer]
   - Gérer la supression, l'affichage propre ainsi que l'édition des publications
 - Corriger l'utilisation des photos de profil sur toutes les pages concernées
+- Revoir les photos dans l'admin
 ---
 - Gestion des utilisateurs
   - [?] Un admin lui ne pas se rendre membre ni se supprimer
@@ -37,19 +36,10 @@
 
 # FAIT
 
-# v4
-
-- Mot de passe oublié
-- Conservation de session
-- Gérer les comptes la mise à jour des comptes lors de la connexion
-- Création de l'index dès l'inscription et à la mise à jour du compte
-- Revoir les middlewares avec le nouveau service auth2
-- Revoir la langue de l'E-mail de réinitialisation
-- Revoir le langue de base de Laravel
-
 
 # Brainstorming
 - Ajout des utilisateurs de type modérateur
+- Ajout des photos de profil en se basant sur le nom
 
 
 # Extras
