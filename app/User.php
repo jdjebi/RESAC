@@ -22,9 +22,7 @@ class User extends Authenticatable
 
     public function getPhotoAttribute(){
 
-      dump($this->attributes['photo']);
-
-      if($this->attributes['photo'])
+      if($this->attributes['photo'] != "")
         return "storage/{$this->attributes['photo']}";
       else
         return "asset/imgs/user_default_pic.png";    
