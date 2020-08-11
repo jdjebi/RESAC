@@ -13,14 +13,6 @@ class IndexController extends Controller
     public function __invoke()
     {
 
-      $user = null;
-
-      if(\Auth::check()){
-        $user =  \Users::auth();
-      }
-
-      $feature = Features::last();
-
       return redirect()->route("home");
 
     }
