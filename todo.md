@@ -13,6 +13,7 @@
 - Modification des publications
 - Gestion des publications côtés utilisateur [Améliorer]
   - Gérer la supression, l'affichage propre ainsi que l'édition des publications
+- Corriger l'utilisation des photos de profil sur toutes les pages concernées
 ---
 - Gestion des utilisateurs
   - [?] Un admin lui ne pas se rendre membre ni se supprimer

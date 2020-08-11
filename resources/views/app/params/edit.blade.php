@@ -5,6 +5,24 @@
   body{
     background-color: #f1f3f6
   }
+  .upload-btn-wrapper{
+    position: relative;
+    overflow: hidden;
+  }
+  .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+  .upload-btn-wrapper button{
+    cursor: pointer;
+  }
+
+  #upload-file-input{
+    opacity: 0;
+  }
 </style>
 @endsection
 
@@ -73,4 +91,24 @@
 
   }
 </script>
+
+@if($edit_form == "photo")
+
+<script type="text/javascript">
+
+  $('.upload-btn-wrapper button').on('click', function(e){
+    e.preventDefault()
+    $("#upload-file-input").trigger('click')
+  });
+
+  $('#upload-file-input').on('change', function(e){
+    local_path = $(e.target).val()
+    $("#upload-file").text(local_path)
+    console.log(local_path)
+  });
+
+</script>
+
+@endif
+
 @endsection

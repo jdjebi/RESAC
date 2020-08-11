@@ -21,7 +21,11 @@ class User extends Authenticatable
     }
 
     public function getPhotoAttribute(){
-      return "asset/imgs/user_default_pic.png";
+
+      if($this->attributes['photo'] == null)
+        return "asset/imgs/user_default_pic.png";
+      else
+        return "storage/{$this->attributes['photo']}";
     }
 
     public function getPromoAttribute(){

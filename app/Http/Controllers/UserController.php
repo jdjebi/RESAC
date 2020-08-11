@@ -72,7 +72,7 @@ class UserController extends Controller
 
       $FormInfo->register_array('pays',\Country::codes());
 
-      if(isset($_POST["change_info"])){
+      if($request->has("change_info")){
         if($FormInfo->is_validate()){
           $data = $FormInfo->get_data();
 
@@ -150,7 +150,7 @@ class UserController extends Controller
           }
 
         }
-      }elseif(isset($_POST["change_pass"]) && $FormPass->is_validate()) {
+      }elseif($request->has("change_pass") && $FormPass->is_validate()) {
         $data = $FormPass->get_data();
         $password = $data["pass"];
 
@@ -166,17 +166,33 @@ class UserController extends Controller
           $FormPass->add_error('global',"Mot de passe du compte incorrecte.");
         }
       }elseif($request->has('change_photo')){
+        if($request->photo){
+          /* 
+            Retourne le chemin du fichier de la photo dans le dossier de stockage
+            Ex: public/avatars/photo.jpeg
+          */
+          $path = $request->file('photo')->store('public/avatars');
 
+          // On retire le l'expression public/ du chemin
+          $path = str_replace("public/","",$path);
+
+          $user->photo = $path;
+          $user->save();
+          
+          \Flash::add("Photo de profil mise à jour.","success");
+        }else{
+          \Flash::add("Veuiller importer une photo.","danger");
+        }
       }
 
       // dump($_POST);
       // dump($FormInfo->errors);
 
-      if(isset($_GET['infos']))
+      if($request->has('infos'))
         $edit_form = "infos";
-      else if(isset($_GET['password']))
+      else if($request->has('password'))
         $edit_form = "password";
-      else if(isset($_GET['privacy']))
+      else if($request->has('privacy'))
         $edit_form = "privacy";
       elseif($request->has('photo'))
         $edit_form = "photo";

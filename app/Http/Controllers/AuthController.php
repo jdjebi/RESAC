@@ -62,7 +62,7 @@ class AuthController extends Controller
             "prenom" => $data["prenom"],
             "email" => $data["email"],
             "password" => Hash::make($data["password"]),
-            "version" => 2 // version actuelle des comptes
+            "version" => 2, // version actuelle des comptes
           ]);
 
           // L'utilisateur est enregistré dans l'index de recherche

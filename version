@@ -1,8 +1,9 @@
 ## Master
 
 - Création d'une page dans l'admin pour générer des notifications flash plus facilement (app/http/controller/admin/DevController)
+- Ajout du photo au Modèle d'un utilisateur
 
-##
+## Mise à jour de la version 3.4
 
 - Ajout du champ version au Modèle d'un utilisateur
 - Création d'un nouveau service auth/auth2.php pour gérer la connexion à l'aide des méthodes de Laravel
