@@ -5,7 +5,11 @@
         <div class="row">
           <div class="col-sm-12 col-md-5 mb-3">
             <div class="profile-photo d-flex justify-content-center">
-              <div class="border" style="width:299px; height:347px; background:#eee"></div>
+              <div class="d-flex justify-content-center align-items-center" style="width:299px; height:347px;">
+                <div class="resac-w-200 resac-h-200">
+                  <img class="rounded resac-w-200" src="{{ asset("$user_visited->photo") }}" alt="">
+                </div>
+              </div>
             </div>
           </div>
           <div class="col-sm-12 col-md-7">

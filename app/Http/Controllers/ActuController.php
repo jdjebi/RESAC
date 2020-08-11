@@ -9,8 +9,6 @@ use Resac\Auth2;
 use App\Features;
 use App\User;
 
-
-
 class ActuController extends Controller
 {
 
@@ -68,7 +66,7 @@ class ActuController extends Controller
         \Redirect::route('actu');
       }
 
-      $feed_posts = \Post::all();
+      $feed_posts = \App\Models\Post::select("*")->orderBy('date', 'desc')->get();
 
       $last_feature = Features::last();
 

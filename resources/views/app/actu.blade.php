@@ -55,8 +55,8 @@
               <div class="box border bg-white mb-3">
                   <div class="header pl-4 pt-3 pb-3 pr-4">
                     <div class="media">
-                      <a title="{{ $post->user->get_complete_name() }}" href="{{ route('profil') }}?id={{ $post->user_id  }}">
-                      <img class="pub-user-photo" src="{{ $post->user->get_photo() }}" alt="Photo {{ $post->user->get_complete_name() }}">
+                      <a title="{{ $post->user_object->fullname }}" href="{{ route('profil') }}?id={{ $post->user_object->id  }}">
+                      <img class="pub-user-photo" src="{{ $post->user_object->photo }}" alt="Photo {{ $post->user_object->fullname }}">
                       </a>
                       <div class="ml-3 media-body">
 
@@ -66,19 +66,19 @@
                           </a>
                           <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left" aria-labelledby="pub-box-menu-option-{{ $post->id }}">
                             <h6 class="dropdown-header">Options</h6>
-                            @if($post->user_id != $user->id && false)
+                            @if($post->user_object->id != $user->id && false)
                             <a class="dropdown-item" href="#"><i class="far fa-check-circle"></i> &nbsp; Marquer comme lu</a>
                             @endif
 
-                            @if($post->user_id == $user->id)
+                            @if($post->user_object->id == $user->id)
                             <a class="dropdown-item" href="?origin=feed&delete={{ $post->id }}"><i class="fa fa-trash"></i> &nbsp; Supprimer la publication</a>
                             @endif
                           </div>
                         </div>
 
                         <div class="mt-0 pub-user-name">
-                          <a href="{{ route('profil') }}?id={{ $post->user_id }}">
-                            {{ $post->user->get_complete_name() }}
+                          <a href="{{ route('profil') }}?id={{ $post->user_object->id }}">
+                            {{ $post->user_object->fullname }}
                           </a> &nbsp;
                           <span title="Publication {{ $post->validate ? "approuvée" : "non approuvée"}}" class="text-{{ $post->validate ? "success" : "danger"}}"><i class="fa fa-check-circle"></i></span>
                         </div>

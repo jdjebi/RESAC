@@ -30,9 +30,9 @@ class UserController extends Controller
 
       $title =  $user->fullname;
 
-      if(isset($_GET['id']) && !empty($_GET['id'])){
-        $id = $_GET['id'];
-        $user_visited = \Users::get($id);
+      if($request->has('id')){
+        $id = $request->id;
+        $user_visited = User::find($id);
         if(!$user_visited){
           \Flash::add("Utilisateur introuvable","danger");
           return redirect()->route('explorer');

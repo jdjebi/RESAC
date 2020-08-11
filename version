@@ -2,6 +2,7 @@
 
 - Création d'une page dans l'admin pour générer des notifications flash plus facilement (app/http/controller/admin/DevController)
 - Ajout du photo au Modèle d'un utilisateur
+- Affichage des post ne dépend plus Framework built-in
 
 ## Mise à jour de la version 3.4
 
