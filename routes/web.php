@@ -11,7 +11,7 @@ use App\Models\SearchUserIndex;
 
 Route::middleware("guest")->group(function(){
 
-  Route::get('/','IndexController')->name('home');
+  Route::get('/','IndexController');
   Route::get('/v2','IndexController@index2')->name('home');
 
   Route::get('/connexion','AuthController@login')->name('login');

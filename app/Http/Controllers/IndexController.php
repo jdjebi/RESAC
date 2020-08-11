@@ -21,9 +21,7 @@ class IndexController extends Controller
 
       $feature = Features::last();
 
-      return view('app.index',[
-        'feature' => $feature
-      ]);
+      return redirect()->route("home");
 
     }
 
