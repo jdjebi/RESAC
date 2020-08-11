@@ -24,10 +24,10 @@ class User extends Authenticatable
 
       dump($this->attributes['photo']);
 
-      if($this->attributes['photo'] == null)
-        return "asset/imgs/user_default_pic.png";
-      else
+      if($this->attributes['photo'] != null)
         return "storage/{$this->attributes['photo']}";
+      else
+        return "asset/imgs/user_default_pic.png";    
     }
 
     public function getPromoAttribute(){
