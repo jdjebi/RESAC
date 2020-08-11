@@ -1,5 +1,6 @@
 # A FAIRE
 - Revision de la page de profil
+- Utiliser Dropbox comme CDN pour les photos
 
 
 # v5
