@@ -40,7 +40,7 @@ class User extends Authenticatable
     public function get_photo2(){
 
       if($this->attributes['photo'] != ""){
-        if(env('APP_ENV') == "local"){
+        if(env('APP_ENV') == "web"){
           $url = \Storage::disk('dropbox')->url($this->attributes['photo']);
         }
         else{
