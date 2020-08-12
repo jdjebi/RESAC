@@ -21,7 +21,7 @@ class AnnuaireController extends Controller
       foreach (User::all() as $u) {
         $users[] = [
           "id" => $u->id,
-          "photo" => asset($u->photo),
+          "photo" => asset($u->get_photo2()),
           "nom" => $u->nom,
           "prenom" => $u->prenom,
           "emploi" => (empty($u->emploi)) ? "Lycée Classique d'Abidjan" : $u->emploi,
