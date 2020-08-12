@@ -37,6 +37,22 @@ class User extends Authenticatable
       return $url;
     }
 
+    public function get_photo2(){
+
+      if($this->attributes['photo'] != ""){
+        if(env('APP_ENV') == "local"){
+          $url = \Storage::disk('dropbox')->url($this->attributes['photo']);
+        }
+        else{
+          $url = "storage/{$this->attributes['photo']}";
+        }
+      }
+      else{
+        $url = "asset/imgs/user_default_pic.png"; 
+      }   
+      return $url;
+    }
+
     public function getPromoAttribute(){
       return empty($this->promo1) || empty($this->promo2) ? "xxxx-xxxx" : $this->promo1.'-'.$this->promo2;
     }
