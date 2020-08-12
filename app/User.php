@@ -22,13 +22,19 @@ class User extends Authenticatable
 
     public function getPhotoAttribute(){
 
-      if($this->attributes['photo'] != "")
-        if(env('APP_ENV') == "web")
-          return \Storage::disk('dropbox')->url($this->attributes['photo']);
-        else
-          return "storage/{$this->attributes['photo']}";
-      else
-        return "asset/imgs/user_default_pic.png";    
+      if($this->attributes['photo'] != ""){
+        if(env('APP_ENV') == "local"){
+          $url = \Storage::disk('dropbox')->url($this->attributes['photo']);
+        }
+        else{
+          $url = "storage/{$this->attributes['photo']}";
+        }
+      }
+      else{
+        $url = "asset/imgs/user_default_pic.png"; 
+      }   
+      dump($url);
+      return $url;
     }
 
     public function getPromoAttribute(){
