@@ -33,7 +33,6 @@ class User extends Authenticatable
       else{
         $url = "asset/imgs/user_default_pic.png"; 
       }   
-      dump($url);
       return $url;
     }
 
