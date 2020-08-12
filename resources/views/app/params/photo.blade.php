@@ -11,7 +11,7 @@
                 </p>
             </div>
             <div class="text-center">
-                <img class="border resac-w-200 resac-h-200  rounded-circle" src="{{ asset($user->photo) }}" alt="">
+                <img class="border resac-w-200 resac-h-200  rounded-circle" src="{{ asset($user->get_photo2()) }}" alt="">
             </div>
             <div class="d-flex justify-content-center m-3">
                 <div class="upload-btn-wrapper">
