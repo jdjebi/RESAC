@@ -15,6 +15,7 @@
 - Corriger l'utilisation des photos de profil sur toutes les pages concernées
 - Revoir les photos dans l'admin
 ---
+- Vérifier l'existence d'un fichier avant de retourner son chemin
 - Gestion des utilisateurs
   - [?] Un admin lui ne pas se rendre membre ni se supprimer
   - Gestion des utilisateurs

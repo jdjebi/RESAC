@@ -17,7 +17,8 @@
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
-        "laravolt/avatar": "^3.2"
+        "laravolt/avatar": "^3.2",
+        "spatie/flysystem-dropbox": "^1.2"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

@@ -181,3 +181,17 @@ if(Auth::check()){
 }
 
 });
+
+Route::get('test/storage_driver',function(){
+
+  return env("APP_ENV");
+
+  $file_exist = Storage::disk('dropbox')->exists('op.jpg');;
+  
+  if($file_exist)
+    return "Test de l'interaction avec dropbox OK";
+  else
+    return "Test de l'interaction avec dropbox échoué";
+  
+});
+  
