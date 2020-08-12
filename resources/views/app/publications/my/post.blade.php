@@ -3,7 +3,7 @@
     <div class="header pl-4 pt-3 pb-3 pr-4">
       <div class="media">
         <a title="{{ $post->user_object->fullname }}" href="{{ route('profil') }}?id={{ $post->user  }}">
-          <img class="pub-user-photo" src="{{ $post->user_object->get_photo2() }}" alt="Photo {{ $post->user_object->fullname }}">
+          <img class="pub-user-photo" src="{{ $post->user_object->photo }}" alt="Photo {{ $post->user_object->fullname }}">
         </a>
         <div class="ml-3 media-body">
           <div class="dropdown float-right">
