@@ -171,11 +171,17 @@ class UserController extends Controller
             Retourne le chemin du fichier de la photo dans le dossier de stockage
             Ex: public/avatars/photo.jpeg
           */
-          $path = $request->file('photo')->store('public/avatars');
 
-          // On retire le l'expression public/ du chemin
-          $path = str_replace("public/","",$path);
-
+          // Si on est en production on utilise Dropbox
+          if(env('APP_ENV') == "web"){
+            $path = $request->file('photo')->store('avatars','dropbox');
+          }
+          // sinon on utilise le stockage local
+          else{
+            $path = $request->file('photo')->store('public/avatars');
+            $path = str_replace("public/","",$path);  // On retire le l'expression public/ du chemin
+          }
+          
           $user->photo = $path;
           $user->save();
           

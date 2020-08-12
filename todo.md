@@ -21,7 +21,8 @@
   - Gestion des utilisateurs
     - [?] Suppression ajax des utilisateurs
     - Révision de la page d'accueil
-
+- Trouver suivre le stockage des images sur dropbox
+- Renforcer l'accéssibilité aux photos de profil
 
 ---
 

@@ -184,8 +184,6 @@ if(Auth::check()){
 
 Route::get('test/storage_driver',function(){
 
-  return env("APP_ENV");
-
   $file_exist = Storage::disk('dropbox')->exists('op.jpg');;
   
   if($file_exist)

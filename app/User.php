@@ -23,7 +23,10 @@ class User extends Authenticatable
     public function getPhotoAttribute(){
 
       if($this->attributes['photo'] != "")
-        return "storage/{$this->attributes['photo']}";
+        if(env('APP_ENV') == "web")
+          return \Storage::disk('dropbox')->url($this->attributes['photo']);
+        else
+          return "storage/{$this->attributes['photo']}";
       else
         return "asset/imgs/user_default_pic.png";    
     }

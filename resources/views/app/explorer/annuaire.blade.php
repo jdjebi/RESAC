@@ -34,11 +34,11 @@
         <div class="card d-none" style="width: 17rem; position: relative">
           <div class="card-body">
             <div style="position: absolute; top: 3px">
-              <span class="small p-1 text-primary">@{{ user.promo }}</span>
+              <span class="small p-1 text-secondary">@{{ user.promo }}</span>
             </div>
             <div class="d-flex justify-content-center mb-3">
               <div>
-                <img class="u-photo rounded rounded-circle" v-bind:src="user.photo" alt="">
+                <img class="u-photo shadow-sm rounded-circle" v-bind:src="user.photo" alt="">
               </div>
             </div>
             <div class="text-center" style="font-size: 13px;">
