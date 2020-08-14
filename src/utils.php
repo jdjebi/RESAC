@@ -61,11 +61,7 @@
       if(env('APP_ENV') == "web"){
         # die($path);
 
-        try {
           $url = Storage::disk('dropbox')->url($path);
-         } catch (Exception $e) {
-          dump($e->getTrace());
-        }
   
       }
 
