@@ -53,4 +53,18 @@
     }
   }
 
+  if(!function_exists("dropbox_asset")){
+    function photos_cdn_asset($path){
+
+      if(env('APP_ENV') == "web"){
+        $url = Storage::disk('dropbox')->url($path);
+      }
+      else{
+        $url = $path;
+      }
+
+      return $url;
+    }  
+  }
+
 ?>

@@ -1,13 +1,13 @@
 <div class="container">
-  <div class="section section-about">
+  <div class="resac-style-2 section section-about">
     <div class="section-box">
       <div class="profile">
         <div class="row">
           <div class="col-sm-12 col-md-5 mb-3">
             <div class="profile-photo d-flex justify-content-center">
-              <div class="d-flex justify-content-center align-items-center" style="width:299px; height:347px;">
+              <div class="d-flex justify-content-center" style="width:299px; height:347px;">
                 <div class="resac-w-200 resac-h-200">
-                  <img class="rounded shadow-lg resac-w-200 resac-h-200" src="{{ asset($user->get_photo2()) }}" alt="Photo de {{ $user->fullname }}">
+                  <img class="rounded-circle border resac-w-200 resac-h-200" src="{{ photos_cdn_asset($user->photo) }}" alt="Photo de {{ $user->fullname }}">
                 </div>
               </div>
             </div>
