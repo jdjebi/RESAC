@@ -7,7 +7,7 @@
             <div class="profile-photo d-flex justify-content-center">
               <div class="d-flex justify-content-center">
                 <div class="resac-w-200 resac-h-200">
-                  <img class="rounded-circle border resac-w-200 resac-h-200" src="{{ photos_cdn_asset($user->photo) }}" alt="Photo de {{ $user->fullname }}">
+                  <img class="rounded-circle border resac-w-200 resac-h-200" src="{{ photos_cdn_asset($user) }}" alt="Photo de {{ $user->fullname }}">
                 </div>
               </div>
             </div>

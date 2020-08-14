@@ -54,9 +54,9 @@
   }
 
   if(!function_exists("dropbox_asset")){
-    function photos_cdn_asset($path){
+    function photos_cdn_asset($user){
 
-      $url = $path;
+      $url = $user->photo;
 
       if(env('APP_ENV') == "web"){
         # die($path);

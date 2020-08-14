@@ -20,7 +20,7 @@
 </style>
 
 <div class="media">
-  <img class="wh-40 border resac-border-light-2 rounded-circle" src="{{ asset($user->photo) }}" alt="Photo {{ $user->fullname }}">
+  <img class="wh-40 border resac-border-light-2 rounded-circle" src="{{ photos_cdn_asset($user) }}" alt="Photo {{ $user->fullname }}">
   <div class="media-body ml-2 small">
     <div>
       {{ $user->fullname }}
