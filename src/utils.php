@@ -56,12 +56,17 @@
   if(!function_exists("dropbox_asset")){
     function photos_cdn_asset($path){
 
+      $url = $path;
+
       if(env('APP_ENV') == "web"){
         # die($path);
-        $url = Storage::disk('dropbox')->url($path);
-      }
-      else{
-        $url = $path;
+
+        try {
+          $url = Storage::disk('dropbox')->url($path);
+         } catch (Exception $e) {
+          echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+  
       }
 
       return $url;
