@@ -1,11 +1,11 @@
 # A FAIRE
 - Revision de la page de profil
-- Utiliser Dropbox comme CDN pour les photos
-
-
-# v5
 - Version mobile de l'interface
 - Optimiser la plateforme
+- Améliorer l'édition des publications
+- Améliorer l'affichage des publications
+
+# v5
 - Intégrer les modérateurs et les super utilisateurs
 - Utiliser un nom utilisateur pour identifier un utilisateur
 
@@ -38,11 +38,13 @@
 - Guide lors de la connexion
 
 # FAIT
+- Utiliser Dropbox comme CDN pour les photos
 
 
 # Brainstorming
 - Ajout des utilisateurs de type modérateur
 - Ajout des photos de profil en se basant sur le nom
+- Améliorer la gestion du CDN
 
 
 # Extras

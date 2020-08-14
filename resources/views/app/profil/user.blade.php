@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-sm-12 col-md-5 mb-3">
             <div class="profile-photo d-flex justify-content-center">
-              <div class="d-flex justify-content-center" style="width:299px; height:347px;">
+              <div class="d-flex justify-content-center">
                 <div class="resac-w-200 resac-h-200">
                   <img class="rounded-circle border resac-w-200 resac-h-200" src="{{ photos_cdn_asset($user->photo) }}" alt="Photo de {{ $user->fullname }}">
                 </div>
@@ -19,7 +19,7 @@
               <h1 class="profile-title text-dark">
               {{ $user->fullname }}
               </h1>
-              <h2 class="profile-position">Promotion:
+              <small class="profile-position">Promo
                 <span>
                   @if(empty($user->pays))
                     <a style="font-size: 15px" href="{{ route("param") }}#promo1"><i class="fa fa-plus"></i> Ajouter une promotion</a>
@@ -27,7 +27,10 @@
                     {{ $user->promo1 }} - {{ $user->promo2 }}
                   @endif
                 </span>
-              </h2>
+              </small>
+              <div class="mt-2">
+                <a class="btn btn-sm btn-primary" href="{{ route('edit') }}"><i class="fa fa-edit"></i> Mettre à jour</a>
+              </div>
             </div>
             <ul class="profile-list">
               <li class="clearfix">
@@ -89,9 +92,6 @@
                 </span>
               </li>
             </ul>
-            <div class="text-right mt-4">
-              <a class="btn btn-primary" href="{{ route('edit') }}"><i class="fa fa-edit"></i> Mettre à jour</a>
-            </div>
           </div>
         </div>
       </div>
