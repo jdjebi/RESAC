@@ -57,7 +57,6 @@
     function photos_cdn_asset($path){
 
       if(env('APP_ENV') == "web"){
-        die($path);
         $url = Storage::disk('dropbox')->url($path);
       }
       else{
