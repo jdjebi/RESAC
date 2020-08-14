@@ -93,7 +93,7 @@ class FeaturesController extends Controller
 
       $user = Auth2::user();
 
-      if($user->id == $feature->user_author_id){
+      if($user->id != $feature->user_author_id){
         \Flash::add("Vous n'avez pas le droit de modifier cette nouveauté.","warning");
         return redirect()->route("admin.feature.show",$id);
       }
