@@ -64,9 +64,7 @@
         try {
           $url = Storage::disk('dropbox')->url($path);
          } catch (Exception $e) {
-          echo 'Exception reçue : ',  $e->getMessage(), "\n";
-          dump($e->getMessage());
-          die();
+          dump($e->getTrace());
         }
   
       }
