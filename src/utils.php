@@ -59,10 +59,9 @@
       $url = $user->photo;
 
       if(env('APP_ENV') == "web"){
-        # die($path);
-
+        try {
           $url = Storage::disk('dropbox')->url($path);
-  
+        } catch (Exception $e) {}
       }
 
       return $url;
