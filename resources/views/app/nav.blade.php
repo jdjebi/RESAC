@@ -27,7 +27,7 @@
     <div class="nav-extras-items">
       <ul class="nav">
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="{{ route("app.search") }}">
             <i class="fa fa-search text-muted" style="font-size: 21px"></i>
           </a>
         </li>
@@ -124,14 +124,3 @@
   </div>
 </nav>
 
-@auth
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-12">
-      <form action="{{ route("app.search",[],false) }}" method="GET" class="has-search form-inline my-2 my-lg-0 pt-1">
-        <input id="mobile-search-bar" name="q" type="text" class="form-control form-control-md" placeholder="Rechercher un utilisateur" value="{{ isset($_GET['q']) ? $_GET['q'] : '' }}">
-      </form>
-    </div>
-  </div>
-</div>
-@endauth

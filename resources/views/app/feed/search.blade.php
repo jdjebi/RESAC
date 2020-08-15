@@ -17,6 +17,19 @@
 
 @section('content')
 
+@auth
+<div class="">
+  <div class="row">
+    <div class="col-md-12">
+      <form action="{{ route("app.search",[],false) }}" method="GET" class="has-search form-inline">
+        <input id="mobile-search-bar" name="q" type="text" class="form-control form-control-md" placeholder="Rechercher une personne" value="{{ isset($_GET['q']) ? $_GET['q'] : '' }}">
+      </form>
+    </div>
+  </div>
+</div>
+@endauth
+
+
 <div class="container mt-3">
 
   <div class="row">

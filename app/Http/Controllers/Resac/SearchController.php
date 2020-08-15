@@ -40,10 +40,12 @@ class SearchController extends Controller
     $results = [];
 
     if($request->has("q")){
-      $search_query = $request->q;
-      $results = \Search::user_with_TopLevelEngine($search_query);
-    }else{
-      \Flash::add("Veuillez renseigner le nom de l'utilisateur à rechercher.",'warning');
+      if($request->filled("q")){
+        $search_query = $request->q;
+        $results = \Search::user_with_TopLevelEngine($search_query);
+      }else{
+        \Flash::add("Veuillez renseigner le nom de l'utilisateur à rechercher.",'warning');
+      }
     }
 
     $user = Auth2::user();

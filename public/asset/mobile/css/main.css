@@ -71,7 +71,7 @@ body {
 }
 
 #mobile-search-bar{
-  border-radius: 17px;
+  border-radius: 0px;
   background-color: #ECEFF1;
   display: block;
   width: 100%
