@@ -76,7 +76,7 @@
 
       $url = "";
 
-      if(env('APP_ENV') == "local"){
+      if(env('APP_ENV') == "web"){
         $url = "https://www.countryflags.io/{$flag_code}/shiny/{$size}.png";
       }
 
@@ -92,9 +92,7 @@
 
       $url = "";
 
-      if(env('APP_ENV') == "web"){
-        $url = countryflags_cdn($flag_code,$size);     
-      }
+      $url = countryflags_cdn($flag_code,$size);     
 
       return "<img src=\"{$url}\" alt=\"\"> ";
     }  
