@@ -1,9 +1,9 @@
 # A FAIRE
-- Revision de la page de profil
 - Version mobile de l'interface
-- Optimiser la plateforme
 - Améliorer l'édition des publications
 - Améliorer l'affichage des publications
+- Optimiser la plateforme
+
 
 # v5
 - Intégrer les modérateurs et les super utilisateurs
@@ -39,6 +39,7 @@
 
 # FAIT
 - Utiliser Dropbox comme CDN pour les photos
+- Revision de la page de profil
 
 
 # Brainstorming
