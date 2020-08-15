@@ -93,7 +93,7 @@
       $url = "";
 
       if(env('APP_ENV') == "local"){
-        $url = countryflags_cdn($flag_code);     
+        $url = countryflags_cdn($flag_code,$size);     
       }
 
 

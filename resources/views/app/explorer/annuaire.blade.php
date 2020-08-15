@@ -34,7 +34,10 @@
         <div class="card d-none" style="width: 17rem; position: relative">
           <div class="card-body">
             <div style="position: absolute; top: 3px">
-              <span class="small p-1 text-secondary">@{{ user.promo }}</span>
+              <span class="small p-1 text-secondary font-weight-bold">@{{ user.promo }}</span>
+            </div>
+            <div style="position: absolute; top:3px; right: 20px">
+              <span class="small p-1 text-secondary" v-html="user.drapeau"></span>
             </div>
             <div class="d-flex justify-content-center mb-3">
               <div>

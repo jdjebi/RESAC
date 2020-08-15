@@ -1,5 +1,7 @@
 ## Master
 
+- Désactivation du cache en ligne à l'aide de la variable d'environement CACHE_DRIVER=none. Les paramètres du cache à none on été ajouté au fichier cache.php dans le but régler le problème des méthodes renommées en production
+
 ## version 4
 - Mot de passe oublié
 - Conservation de session

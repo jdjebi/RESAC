@@ -30,7 +30,8 @@ class AnnuaireController extends Controller
           "promo" => (empty($u->promo1) ? "xxxx-xxxx" : $u->promo1.'-'.$u->promo2),
           "pays" => \Country::get($u->pays),
           "ville" => $u->ville,
-          "profil_url" => $profile_url.$u->id
+          "profil_url" => $profile_url.$u->id,
+          "drapeau" => html_countryflags($u->code_pays,24)
         ];
       };
 
