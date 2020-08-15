@@ -10,6 +10,7 @@ use App\Models\SearchUserIndex;
 use Illuminate\Support\Facades\Auth;
 
 use Resac\Auth2;
+use App\Models\Post;
 
 
 class UserController extends Controller
@@ -25,28 +26,41 @@ class UserController extends Controller
 
       $user = Auth2::user();
 
+      $id = $user->id;
+
       $user_visited = null;
       $show_portofolio = false;
 
-      $title =  $user->fullname;
+      $title = $user->fullname;
+
+      $user_visited = $user;
 
       if($request->has('id')){
         $id = $request->id;
         $user_visited = User::find($id);
+
         if(!$user_visited){
           \Flash::add("Utilisateur introuvable","danger");
           return redirect()->route('explorer');
         }
+
         $show_portofolio = true;
         $title =  $user_visited->nom.' '.$user_visited->prenom;
       }
 
+      $posts = Post::where("user",$id)->get();
+
       return view('app.profil.index',[
         'title' => $title,
+        'posts' => $posts,
         'user' => $user,
         'user_visited' => $user_visited,
         'show_portofolio' => $show_portofolio
       ]);
+    }
+
+    public function profil2(Request $request, $id=null){
+      return $id;
     }
 
     public function account(Request $request){

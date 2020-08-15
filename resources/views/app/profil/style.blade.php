@@ -6,15 +6,16 @@ body{
 .section-about {
   padding-top: 40px;
   position: relative;
+
 }
 
 .section-about .section-box {
     padding: 0px;
+
 }
 
 .section-box{
   background-color: rgb(255, 255, 255);
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.24) 0px 1px 4px;
 }
 
 .section-about .profile {
@@ -158,7 +159,6 @@ body{
 
 .resac-style-2 .section-box{
     background-color: transparent;
-    box-shadow: none
 }
 
 .resac-style-2 .profile {

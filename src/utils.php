@@ -53,7 +53,7 @@
     }
   }
 
-  if(!function_exists("dropbox_asset")){
+  if(!function_exists("photos_cdn_asset")){
     function photos_cdn_asset($user){
 
       $url = $user->photo;
@@ -67,5 +67,41 @@
       return $url;
     }  
   }
+
+  if(!function_exists("countryflags_cdn")){
+    function countryflags_cdn($flag_code, $size=32){
+      /*
+        Retourne le lien vers l'image du drapeau correspondant code au code spécifié
+      */
+
+      $url = "";
+
+      if(env('APP_ENV') == "local"){
+        $url = "https://www.countryflags.io/{$flag_code}/shiny/{$size}.png";
+      }
+
+      return $url;
+    }  
+  }
+
+  if(!function_exists("html_countryflags")){
+    function html_countryflags($flag_code, $size=32){
+      /*
+        Retourne le lien vers l'image du drapeau correspondant code au code spécifié
+      */
+
+      $url = "";
+
+      if(env('APP_ENV') == "local"){
+        $url = countryflags_cdn($flag_code);     
+      }
+
+
+
+      return "<img src=\"{$url}\" alt=\"\"> ";
+    }  
+  }
+
+
 
 ?>

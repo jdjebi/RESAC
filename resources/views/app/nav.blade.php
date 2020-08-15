@@ -27,6 +27,11 @@
     <div class="nav-extras-items">
       <ul class="nav">
         <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fa fa-search text-muted" style="font-size: 21px"></i>
+          </a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="{{ route("dev_news") }}">
             <i class="far fa-lightbulb" style="color: #2196f3; font-size: 21px"></i>
           </a>

@@ -2,6 +2,7 @@
 
 @section('extras_style')
   @include('app.profil.style')
+  <link rel="stylesheet" href="{{ asset("asset/css/resac/pubs.css") }}">
 @endsection
 
 @section('content')
@@ -17,3 +18,8 @@
 @endif
 
 @endsection
+
+@section('scripts')
+<script type="module" src="asset/js/resac/init.timeago.js"></script>
+@endsection
+
