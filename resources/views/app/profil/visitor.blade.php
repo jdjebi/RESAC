@@ -59,7 +59,7 @@
                   <li class="clearfix">
                     <strong class="title">Pays</strong>
                     <span class="cont">
-                      {{ Country::get($user_visited->pays) }}
+                      {{ Country::get($user_visited->code_pays) }}
                     </span>
                   </li>
                   <li class="clearfix">
