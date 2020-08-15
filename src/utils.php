@@ -96,8 +96,6 @@
         $url = countryflags_cdn($flag_code,$size);     
       }
 
-
-
       return "<img src=\"{$url}\" alt=\"\"> ";
     }  
   }
