@@ -42,7 +42,7 @@
                         </div>
                         <div class="row justify-content-center">
                             <div class="col-lg-6">
-                                <input id="email" placeholder="Enter votre adresse E-mail" type="email" class="form-control text-center @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="email" placeholder="Entrer votre adresse E-mail" type="email" class="form-control text-center @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
