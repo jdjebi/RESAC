@@ -53,23 +53,23 @@ class User extends Authenticatable
     }
 
     public function getPromoAttribute(){
-      return empty($this->promo1) || empty($this->promo2) ? "xxxx-xxxx" : $this->promo1.'-'.$this->promo2;
+      return empty($this->attributes['promo1']) || empty($this->attributes['promo2']) ? "xxxx-xxxx" : $this->attributes['promo1'].'-'.$this->attributes['promo2'];
     }
 
     public function getUniversiteAttribute(){
-      return empty($this->universite) ? "LCA" : $this->universite;
+      return empty($this->attributes['universite']) ? "LCA" :$this->attributes['universite'];
     }
 
     public function getEmploiAttribute(){
-      return empty($this->emploi) ? "Etudiant" : $this->emploi;
+      return empty($this->attributes['emploi']) ? "Etudiant" : $this->attributes['emploi'];
     }
 
     public function getPaysAttribute(){
-      return empty($this->pays) ? \Country::get("CI") : \Country::get($this->pays);
+      return empty($this->attributes['pays']) ? \Country::get("CI") : \Country::get($this->pays);
     }
 
     public function getCodePaysAttribute(){
-      return empty($this->pays) ? "CI" : $this->attributes["pays"];
+      return empty($this->attributes["pays"]) ? "CI" : $this->attributes["pays"];
     }
 
     public function getStaffRoleAttribute(){

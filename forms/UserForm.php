@@ -74,7 +74,7 @@ class Info extends \Form{
     $this->clear_integers();
     $this->clear_promos();
 
-    $user = \Users::auth();
+    $user = \Users::auth2();
     $email = $this->data['email'];
     $numero = $this->data['numero'];
 

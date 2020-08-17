@@ -101,6 +101,7 @@ class UserController extends Controller
           $user->promo2 = $data["promo2"];
           $user->emploi = $data["emploi"];
           $user->universite = $data["universite"];
+
           $user->save();
 
           $user_auth = \Users::auth2();
