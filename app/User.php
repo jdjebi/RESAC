@@ -65,7 +65,7 @@ class User extends Authenticatable
     }
 
     public function getPaysAttribute(){
-      return empty($this->attributes['pays']) ? \Country::get("CI") : \Country::get($this->pays);
+      return empty($this->attributes['pays']) ? \Country::get("CI") : \Country::get($this->attributes['pays']);
     }
 
     public function getCodePaysAttribute(){

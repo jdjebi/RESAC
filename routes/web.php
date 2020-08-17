@@ -39,15 +39,15 @@ Route::middleware("auth")->group(function(){
 
   Route::get('/feed','ActuController@feed')->name('app.feed');
 
-  Route::get('/profil','UserController@profil')->name('profil')->middleware('auth');
+  Route::get('/profil','UserController@profil')->name('profil');
+
+  Route::get('/profil/{id}','UserController@profil2')->name('visitor_profil');
 
   Route::get('/compte','UserController@account')->name('edit');
 
   Route::match(['get', 'post'],'/parametres','UserController@account')->name('param');
 
   Route::match(['get', 'post'],'/actualités','ActuController@index')->name('actu');
-
-  Route::get('rechercher',"Resac\SearchController@user_for_app")->name('app.search');
 
   Route::get('publications',"Resac\PostController@index")->name('app.post');
 
@@ -56,6 +56,8 @@ Route::middleware("auth")->group(function(){
   Route::get('publications/creer',"Resac\PostController@create")->name('app.post.hub');
 
   Route::match(['get', 'post'],'publications/c/libre',"Resac\PostController@create_free_post")->name('app.post.create.free');
+
+  Route::get('rechercher',"Resac\SearchController@user_for_app")->name('app.search');
 
 });
 
