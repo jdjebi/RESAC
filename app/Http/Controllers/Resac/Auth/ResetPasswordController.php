@@ -63,6 +63,8 @@ class ResetPasswordController extends Controller
 
     protected function setUserPassword($user, $password)
     {
+        dump($password);
+        die();
         $user->password = Hash::make($password);
     }
 
