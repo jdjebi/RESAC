@@ -26,6 +26,8 @@
 
 ---
 
+- Gérer le cas au le où le mail ne part pas
+
 - Créer une documentation
 
 - Conservation de session. Récupérer les l'utilisateurs uniquement via la auth de laravel (il reste l'administration) et autre bugs lié

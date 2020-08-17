@@ -33,7 +33,7 @@ class ResetPasswordController extends Controller
 
       $response = $this->reset_password($request);
 
-      \Flash::add('Votre mot de passe a bien été réinitialisation.','success');
+      \Flash::add('Votre mot de passe a bien été réinitialé.','success');
 
       return redirect()->route('login');
 
