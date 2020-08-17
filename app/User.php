@@ -83,6 +83,10 @@ class User extends Authenticatable
       }
     }
 
+    public function getStaffRoleCodeAttribute(){
+      return $this->attributes["staff_role"];
+    }
+
     public function get_photo(){
       return asset("asset/imgs/user_default_pic.png");
     }

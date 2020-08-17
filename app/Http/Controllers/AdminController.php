@@ -51,7 +51,7 @@ class AdminController extends Controller
     public function user_profil($user_id){
 
       $user = Auth2::user();
-      $user_visited = \Users::get($user_id);
+      $user_visited = User::find($user_id);
 
       if(!$user_visited){
         return view('admin.user.profil_404',[
@@ -63,7 +63,7 @@ class AdminController extends Controller
         $form = new \UserAdminSettingsForm($_POST);
 
         $form->set_default([
-          "role" => $user_visited->staff_role
+          "role" => $user_visited->staff_role_code
         ]);
 
         $form->register_array('role',['admin','member']);

@@ -10,42 +10,34 @@
         <div class="col-sm-12 col-md-7">
           <div class="profile-info">
             <h1 class="profile-title text-dark">
-              <?= $user_visited->nom ?> <?= $user_visited->prenom ?>
+              {{ $user_visited->fullname }} 
             </h1>
             <div class="profile-position"> Promotion:
-              <?= $user_visited->get_promo() ?>
+              {{ $user_visited->promo }} 
             </div>
           </div>
           <ul class="profile-list">
             <li class="clearfix">
               <strong class="title">Date Inscription</strong>
               <span class="cont">
-                <?= $user_visited->date_inscription ?>
+                {{ $user_visited->date_inscription }} 
               </span>
             </li>
             <li class="clearfix">
               <strong class="title">Université/Ecole</strong>
               <span class="cont">
-                <?php if(empty($user_visited->universite)): ?>
-                  Lycée Classique d'Abidjan
-                <?php else: ?>
-                  <?= $user_visited->universite ?>
-                <?php endif ?>
+                {{ $user_visited->universite }}    
               </span>
             </li>
             <li class="clearfix">
               <strong class="title">Emploi</strong>
               <span class="cont">
-                <?php if(empty($user_visited->emploi)): ?>
-                  Etudiant
-                <?php else: ?>
-                  <?= $user_visited->emploi ?>
-                <?php endif ?>
+                {{ $user_visited->emploi }}   
               </span>
             </li>
             <li class="clearfix">
               <strong class="title">Pays</strong>
-              <span class="cont"><?= Country::get($user_visited->pays) ?></span>
+              <span class="cont">{{ $user_visited->pays }}   </span>
             </li>
             <li class="clearfix">
               <strong class="title">Ville</strong>
