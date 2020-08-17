@@ -79,7 +79,7 @@ class Users{
     $this->version = $data["version"];
 
     // Photo
-    $this->version = $data["photo"];
+    $this->photo = $data["photo"];
   }
 
   static function auth(){
@@ -243,8 +243,8 @@ class Users{
         'emploi' => $user->get_emploi(),
         'pays' => \Country::get($user->pays),
         'role' => $user->get_staff_role(),
-        'photo' => $user->get_photo(),
-        'version' => $user->version,
+        'photo' => photos_cdn_asset($user),
+        'version' => $user->version, 
         'profil_url' => route('profil')."?id=".$user->id,
         'admin_profil_url' => route('admin_user_profil',['user_id' => $user->id])
       ];

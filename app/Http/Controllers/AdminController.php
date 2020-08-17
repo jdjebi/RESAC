@@ -168,10 +168,29 @@ class AdminController extends Controller
     public function api_get_user_list(){
 
       // Clé de sécurité
+      $user_connected = Auth2::user();
 
-      $user = Auth2::user();
-
-      $users = \Users::all_min();
+      $users_tmp = User::all();
+      
+      $users = [];
+  
+      foreach ($users_tmp as $user) {
+  
+        $users[] = [
+          'id' => $user->id,
+          'nom' => $user->nom,
+          'prenom' => $user->prenom,
+          'promo' => $user->promo,
+          'universite' => $user->universite,
+          'emploi' => $user->emploi,
+          'pays' => $user->pays,
+          'role' => $user->staff_role,
+          'photo' => asset(photos_cdn_asset($user)),
+          'version' => $user->version, 
+          'profil_url' => route('profil')."?id=".$user->id,
+          'admin_profil_url' => route('admin_user_profil',['user_id' => $user->id])
+        ];
+      }
 
       return json_encode($users);
     }
