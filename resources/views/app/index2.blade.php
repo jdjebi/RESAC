@@ -237,7 +237,7 @@
     <div class="row align-items-center">
       <div class="col-sm-12 col-md-12 col-lg-8">
         <div class="text-white">
-          <h1 id="well" class="text-white">Bienvenue sur RESAC<br>La Plate-forme du Réseau des Anciens Caimans de la Diaspora</h1>
+          <h1 id="well" class="text-white">Bienvenue sur RESAC<br>La Plate-forme du Réseau des Anciens Caimans</h1>
           <div id="landing-footer">
             <div id="slogan-style" class="mt-3 text-white pl-2">
               <span class="align-middle">Caimans, cherche, trouve et jamais n'abandonne.</span>
