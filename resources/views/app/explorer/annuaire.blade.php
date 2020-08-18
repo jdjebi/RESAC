@@ -13,7 +13,7 @@
 
     .resac-user-card .resac-user-card-content{
       background-color: #fff;
-      width: 18rem;
+      width: 17rem;
       position: relative;
     }
 
@@ -66,10 +66,10 @@
 
           <div class="d-flex justify-content-center">
             <div class="resac-user-card-content text-center border rounded p-4">
-              <div style="position: absolute; top: 3px">
+              <div style="position: absolute; top: 8px">
                 <span class="small p-1 text-secondary font-weight-bold">@{{ user.promo }}</span>
               </div>
-              <div style="position: absolute; top:3px; right: 20px">
+              <div style="position: absolute; top: 8px; right: 20px">
                 <span class="small p-1 text-secondary" v-html="user.drapeau"></span>
               </div>
               <div>
