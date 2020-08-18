@@ -7,8 +7,14 @@
       background-color: #f1f3f6
     }
 
-    .resac-user-card{
-      
+    .resac-user-card .info{
+      font-size: 13px;
+    }
+
+    .resac-user-card .resac-user-card-content{
+      background-color: #fff;
+      width: 18rem;
+      position: relative;
     }
 
     @media(max-width: 768px) {
@@ -20,23 +26,24 @@
         height: 170px;
       }
 
-      .resac-user-card{
-        
+      .resac-user-card .resac-user-card-content{
+        background-color: #fff;
+        width: 25rem;
       }
+     
     }
   </style>
 @endsection
 
 
 @section('content')
-<div class="container mt-5">
+<div class="container mt-3">
   @include("flash")
 </div>
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <h2 class="p-3">Annuaire des caïmans</h2>
-      <hr>
+      <h2 class="p-3 text-center">Annuaire des caïmans</h2>
     </div>
   </div>
 </div>
@@ -51,19 +58,24 @@
   <div class="row">
     <div 
       v-for="user in users" 
-      class="card-user col-sm-12 col-md-6 p-0 mb-3"
+      class="card-user col-sm-12 col-md-6 col-lg-4 p-0 mb-5"
     >
-
         <a v-bind:href="user.profil_url">
 
         <div class="resac-user-card d-none">
 
           <div class="d-flex justify-content-center">
-            <div class="text-center">
+            <div class="resac-user-card-content text-center border rounded p-4">
+              <div style="position: absolute; top: 3px">
+                <span class="small p-1 text-secondary font-weight-bold">@{{ user.promo }}</span>
+              </div>
+              <div style="position: absolute; top:3px; right: 20px">
+                <span class="small p-1 text-secondary" v-html="user.drapeau"></span>
+              </div>
               <div>
                 <img class="u-photo shadow-sm rounded-circle" v-bind:src="user.photo" alt="">
               </div>
-              <div>
+              <div class="info mt-2">
                 <div style="font-weight: 500" class="">
                   <span>@{{ user.nom }} @{{ user.prenom }}</span>
                 </div>
