@@ -4,7 +4,8 @@
 - Améliorer l'affichage des publications
 - Optimiser la plateforme
 
-
+# Bugs
+- La redirection vers une page consultée
 # v5
 - Intégrer les modérateurs et les super utilisateurs
 - Utiliser un nom utilisateur pour identifier un utilisateur
@@ -44,10 +45,14 @@
 - Revision de la page de profil
 
 
+
 # Brainstorming
 - Ajout des utilisateurs de type modérateur
 - Ajout des photos de profil en se basant sur le nom
 - Améliorer la gestion du CDN
+- Marquage des utilisateurs RESAC
+- Message de bienvenue sur RESAC lors de la première connexion
+
 
 
 # Extras
