@@ -22,13 +22,13 @@
         background-color: #fff;
       }
       .u-photo{
-        width: 170px;
-        height: 170px;
+        width: 160px;
+        height: 160px;
       }
 
       .resac-user-card .resac-user-card-content{
         background-color: #fff;
-        width: 25rem;
+        width: 21rem;
       }
      
     }

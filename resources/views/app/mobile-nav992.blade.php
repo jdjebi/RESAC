@@ -4,7 +4,7 @@
          <div>
            <a class="selector-holder" href="{{ route('actu') }}">
              <i class="far fa-newspaper"></i>
-             <span>Actualités</span>
+             <span class="d-none d-sm-block">Actualités</span>
            </a>
          </div>
       </button>
@@ -12,7 +12,7 @@
         <div>
           <a class="selector-holder" href="{{ route('annuaire') }}">
             <i class="fa fa-address-book"></i>
-            <span>Annuaire</span>
+            <span class="d-none d-sm-block">Annuaire</span>
           </a>
         </div>
       </button>
@@ -20,7 +20,7 @@
         <div>
           <a class="selector-holder" href="{{ route('profil') }}">
             <i class="fa fa-user-circle"></i>
-            <span>Mon Profil</span>
+            <span class="d-none d-sm-block">Mon Profil</span>
           </a>
         </div>
       </button>
@@ -29,7 +29,7 @@
            <div>
              <a class="selector-holder" href="{{ route('admin_user_manager') }}">
                <i class="fa fa-tachometer-alt"></i>
-               <span>Administration</span>
+               <span class="d-none d-sm-block">Administration</span>
              </a>
            </div>
         </button>
