@@ -6,6 +6,24 @@
     body{
       background-color: #f1f3f6
     }
+
+    .resac-user-card{
+      
+    }
+
+    @media(max-width: 768px) {
+      body{
+        background-color: #fff;
+      }
+      .u-photo{
+        width: 170px;
+        height: 170px;
+      }
+
+      .resac-user-card{
+        
+      }
+    }
   </style>
 @endsection
 
@@ -22,39 +40,43 @@
     </div>
   </div>
 </div>
+
 <div id="loader" class="mt-5 text-center">
   <div class="spinner-border text-primary" role="status">
     <span class="sr-only">Chargement...</span>
   </div>
 </div>
+
 <div id="portofolio" class="container">
   <div class="row">
-    <div v-for="user in users" class="card-user col-sm-12 col-md-4 col-lg-4 d-flex justify-content-center p-3">
-      <a v-bind:href="user.profil_url">
-        <div class="card d-none" style="width: 17rem; position: relative">
-          <div class="card-body">
-            <div style="position: absolute; top: 3px">
-              <span class="small p-1 text-secondary font-weight-bold">@{{ user.promo }}</span>
-            </div>
-            <div style="position: absolute; top:3px; right: 20px">
-              <span class="small p-1 text-secondary" v-html="user.drapeau"></span>
-            </div>
-            <div class="d-flex justify-content-center mb-3">
+    <div 
+      v-for="user in users" 
+      class="card-user col-sm-12 col-md-6 p-0 mb-3"
+    >
+
+        <a v-bind:href="user.profil_url">
+
+        <div class="resac-user-card d-none">
+
+          <div class="d-flex justify-content-center">
+            <div class="text-center">
               <div>
                 <img class="u-photo shadow-sm rounded-circle" v-bind:src="user.photo" alt="">
               </div>
-            </div>
-            <div class="text-center" style="font-size: 13px;">
-              <div style="font-weight: 500" class="">
-                <span>@{{ user.nom }} @{{ user.prenom }}</span>
+              <div>
+                <div style="font-weight: 500" class="">
+                  <span>@{{ user.nom }} @{{ user.prenom }}</span>
+                </div>
+                <div style="font-weight: 500" class="">
+                  @{{ user.emploi }} &middot @{{ user.universite }}
+                </div>
               </div>
-              <div style="font-weight: 500" class="">
-                @{{ user.emploi }} &middot @{{ user.universite }}
-              </div>
             </div>
-            </div>
+          </div>
         </div>
-      </a>
+
+        </a>
+
     </div>
   </div>
 </div>
@@ -73,7 +95,7 @@ var vm = new Vue({
   },
 
   mounted: function(){
-    $(".card-user .card").each(function(){
+    $(".card-user .resac-user-card").each(function(){
       $(this).removeClass("d-none");
       $("#loader").hide();
     })
