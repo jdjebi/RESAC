@@ -3,7 +3,7 @@
       <button id="home" type="button" class="btn btn-secondary button-active">
          <div>
            <a class="selector-holder" href="{{ route('actu') }}">
-             <i class="far fa-newspaper"></i>
+             <i class="far fa-2x fa-newspaper"></i>
              <span class="d-none d-sm-block">Actualités</span>
            </a>
          </div>
@@ -11,7 +11,7 @@
       <button id="feed" type="button" class="btn btn-secondary">
         <div>
           <a class="selector-holder" href="{{ route('annuaire') }}">
-            <i class="fa fa-address-book"></i>
+            <i class="fa fa-2x fa-address-book"></i>
             <span class="d-none d-sm-block">Annuaire</span>
           </a>
         </div>
@@ -19,7 +19,7 @@
       <button id="create" type="button" class="btn btn-secondary button-inactive">
         <div>
           <a class="selector-holder" href="{{ route('profil') }}">
-            <i class="fa fa-user-circle"></i>
+            <i class="fa fa-2x fa-user-circle"></i>
             <span class="d-none d-sm-block">Mon Profil</span>
           </a>
         </div>
@@ -28,7 +28,7 @@
         <button id="account" type="button" class="btn btn-secondary button-inactive">
            <div>
              <a class="selector-holder" href="{{ route('admin_user_manager') }}">
-               <i class="fa fa-tachometer-alt"></i>
+               <i class="fa fa-2x fa-tachometer-alt"></i>
                <span class="d-none d-sm-block">Administration</span>
              </a>
            </div>
