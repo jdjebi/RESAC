@@ -1,14 +1,16 @@
 # A FAIRE
-- Version mobile de l'interface
 - Améliorer l'édition des publications
-- Améliorer l'affichage des publications
 - Optimiser la plateforme
 - Création d'un serveur de fichiers (NodeJS)
+- Améliorer l'affichage des publications
+- Version mobile de l'interface
 
 # Bugs
 - La redirection vers une page consultée
 - Rétablir le cache
-- Suppression impossible sur la page des publicationq
+- Suppression impossible sur la page des publication
+- Réduire la répétition du code d'affichage des publications
+- Revoir l'affichage des publications
 
 # v5
 - Intégrer les modérateurs et les super utilisateurs
