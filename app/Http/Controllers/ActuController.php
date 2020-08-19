@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Resac\Auth2;
 use App\Features;
 use App\User;
+use App\Resac\Core\Posts\PostRenderer;
 
 class ActuController extends Controller
 {
@@ -71,6 +72,8 @@ class ActuController extends Controller
       $last_feature = Features::last();
 
       $title =  "Actualités";
+
+      $feed_posts = PostRenderer::render_posts($feed_posts);
 
       return view("app.actu",[
         'title' => $title,

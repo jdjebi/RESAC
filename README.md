@@ -14,23 +14,32 @@ Consulter le fichier **todo.md** pour suivre l'évolution du développement.
 
 ### Récentes
 
-- Mot de passe oublié
-- Moteur de recherche d'utilisateurs (nouveau)
+- Photo de profil (nouveau)
+- Moteur de recherche d'utilisateurs
 - Gestion des nouveautés
 
 ### Anciennes
 
+- Mot de passe oublié
 - Actualités
 - Gestion des publications
 - Administration
+
 
 ## Fonctionnalités built-in principale
 
 - Validateur de formulaire
 - Emetteur de notifications
 
-## Mise à jour de la version 3.3
+## Mise à jour de la version 4
 
-- Table utilisateurs, ajout du rememberToken et du timestamp
-
-- Ajout de la table pour la réinitialisation du mot de passe
+- Mot de passe oublié
+- Conservation de session
+- Mise à jour des comptes lors de la connexion
+- Création de l'index dès l'inscription et à la mise à jour du compte
+- Revision des middlewares avec le nouveau service auth2
+- Revision de la langue de l'E-mail de réinitialisation
+- Revision de la langue de base de Laravel, on passe au français
+- Création d'une page dans l'admin pour générer des notifications flash plus facilement (app/http/controller/admin/DevController)
+- Ajout de photo au Modèle d'un utilisateur
+- l'affichage des post ne dépend plus Framework built-in

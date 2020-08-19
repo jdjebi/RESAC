@@ -182,25 +182,25 @@ class UserController extends Controller
         }
       }elseif($request->has('change_photo')){
         if($request->photo){
-          /* 
-            Retourne le chemin du fichier de la photo dans le dossier de stockage
-            Ex: public/avatars/photo.jpeg
-          */
+          if($request->photo->isValid()){
 
-          // Si on est en production on utilise Dropbox
-          if(env('APP_ENV') == "web"){
-            $path = $request->file('photo')->store('avatars','dropbox');
+            // Si on est en production on utilise Dropbox
+            if(env('APP_ENV') == "web"){
+              $path = $request->file('photo')->store('avatars','dropbox');
+            }
+            // sinon on utilise le stockage local
+            else{
+              $path = $request->file('photo')->store('public/avatars');
+              $path = str_replace("public/","",$path);  // On retire le l'expression public/ du chemin
+            }
+            
+            $user->photo = $path;
+            $user->save();
+            
+            \Flash::add("Photo de profil mise à jour.","success");
+          }else{
+            \Flash::add("Fichier de la photo invalide.","danger");
           }
-          // sinon on utilise le stockage local
-          else{
-            $path = $request->file('photo')->store('public/avatars');
-            $path = str_replace("public/","",$path);  // On retire le l'expression public/ du chemin
-          }
-          
-          $user->photo = $path;
-          $user->save();
-          
-          \Flash::add("Photo de profil mise à jour.","success");
         }else{
           \Flash::add("Veuiller importer une photo.","danger");
         }

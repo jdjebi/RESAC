@@ -3,9 +3,13 @@
 - Améliorer l'édition des publications
 - Améliorer l'affichage des publications
 - Optimiser la plateforme
+- Création d'un serveur de fichiers (NodeJS)
 
 # Bugs
 - La redirection vers une page consultée
+- Rétablir le cache
+- Suppression impossible sur la page des publicationq
+
 # v5
 - Intégrer les modérateurs et les super utilisateurs
 - Utiliser un nom utilisateur pour identifier un utilisateur
@@ -24,6 +28,8 @@
     - Révision de la page d'accueil
 - Trouver suivre le stockage des images sur dropbox
 - Renforcer l'accéssibilité aux photos de profil
+- Améliorer la prise en charge des liens dans les publications
+  - Lien de type www.domaine.extension, domain.extension
 
 ---
 
@@ -43,6 +49,7 @@
 # FAIT
 - Utiliser Dropbox comme CDN pour les photos
 - Revision de la page de profil
+- Rendre les liens des pulication cliquable
 
 
 

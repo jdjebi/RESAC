@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Resac;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Resac\Auth2;
+
 use App\Models\Post;
 use App\User;
+use App\Resac\Core\Posts\PostRenderer;
 
 
 class PostController extends Controller
@@ -16,14 +18,6 @@ class PostController extends Controller
 
     public function __construct(){
 
-    }
-
-    public function posts_counter($user){
-      return [
-        'posts' => $user->count_posts,
-        'posts_certified' => $user->count_posts,
-        'posts_not_certified' => $user->count_not_certified_posts
-      ];
     }
 
     public function index(Request $request){
@@ -41,6 +35,8 @@ class PostController extends Controller
       }else{
         $posts = Post::where('user',$user->id)->orderBy('date','desc')->get();
       }
+
+      $posts = PostRenderer::render_posts($posts);
 
       $user = User::find($user->id);
 
@@ -98,6 +94,14 @@ class PostController extends Controller
         'request' => $request,
         'count' => $this->posts_counter($user)
       ]);
+    }
+
+    public function posts_counter($user){
+      return [
+        'posts' => $user->count_posts,
+        'posts_certified' => $user->count_posts,
+        'posts_not_certified' => $user->count_not_certified_posts
+      ];
     }
 
 }

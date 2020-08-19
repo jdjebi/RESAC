@@ -36,6 +36,6 @@
         </div>
       </div>
     </div>
-    <div class="body pl-4 pr-4 pb-3">{{ $post->content }}</div>
+    <div class="body pl-4 pr-4 pb-3">{!! $post->content !!}</div>
   </div>
 </div>
