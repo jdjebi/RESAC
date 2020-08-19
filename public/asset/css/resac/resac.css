@@ -28,3 +28,22 @@
 .resac-w-100{
   width: 100px
 }
+
+@media (max-width: 540px){
+  .resac-padding-left-right-on-sm{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+ 
+  .resac-feed .resac-clear-rounded-on-sm{
+    border-radius: 0 !important;
+  }
+
+  .resac-feed .resac-clear-border-left-on-sm{
+    border-left: none !important;
+  }
+
+  .resac-feed .resac-clear-border-right-on-sm{
+    border-right: none !important;
+  }
+}

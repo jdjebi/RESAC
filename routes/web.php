@@ -47,7 +47,7 @@ Route::middleware("auth")->group(function(){
 
   Route::match(['get', 'post'],'/parametres','UserController@account')->name('param');
 
-  Route::match(['get', 'post'],'/actualités','ActuController@index')->name('actu');
+  Route::match(['get', 'post'],'/actualites','ActuController@index')->name('actu');
 
   Route::get('publications',"Resac\PostController@index")->name('app.post');
 

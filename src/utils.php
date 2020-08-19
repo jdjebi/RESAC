@@ -8,7 +8,7 @@
   }
 
 
-  if(!function_exists("route")){
+  if(!function_exists("redirect")){
     function redirect($target){
       header("Location:$target");
       exit();
