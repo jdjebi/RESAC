@@ -1,6 +1,12 @@
+<style>
+.selector-holder{
+    color: #5c6469;
+    font-weight: 500;
+}
+</style>
 <footer id="mobile-nav" class="footer">
    <div id="buttonGroup" class="btn-group selectors" role="group" aria-label="Basic example">
-      <button id="home" type="button" class="btn btn-secondary button-active">
+      <button id="home" type="button" class="btn button-active">
          <div>
            <a class="selector-holder" href="{{ route('actu') }}">
              <i class="far fa-newspaper"></i>
@@ -8,7 +14,7 @@
            </a>
          </div>
       </button>
-      <button id="feed" type="button" class="btn btn-secondary">
+      <button id="feed" type="button" class="btn">
         <div>
           <a class="selector-holder" href="{{ route('annuaire') }}">
             <i class="fa fa-address-book"></i>
@@ -16,7 +22,7 @@
           </a>
         </div>
       </button>
-      <button id="create" type="button" class="btn btn-secondary button-inactive">
+      <button id="create" type="button" class="btn button-inactive">
         <div>
           <a class="selector-holder" href="{{ route('profil') }}">
             <i class="fa fa-user-circle"></i>
@@ -25,7 +31,7 @@
         </div>
       </button>
       @if(Auth::is_admin_logged())
-        <button id="account" type="button" class="btn btn-secondary button-inactive">
+        <button id="account" type="button" class="btn button-inactive">
            <div>
              <a class="selector-holder" href="{{ route('admin_user_manager') }}">
                <i class="fa fa-tachometer-alt"></i>

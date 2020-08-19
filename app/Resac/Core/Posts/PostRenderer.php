@@ -33,7 +33,7 @@ class PostRenderer{
 
         $regex = "#(https?://)(\w+\.)*(\w+)(\.([a-z]{2,4})|:\d+)(((/)|(\\\))([a-zA-Z0-9._/-]*))*#";
 
-        $replace_by = '<a href="$0">$0</a>';
+        $replace_by = '<a class="resac-post-link" href="$0">$0</a>';
 
         $content = preg_replace($regex,$replace_by,$content);
                 
