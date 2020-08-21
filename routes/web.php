@@ -58,6 +58,8 @@ Route::middleware("auth")->group(function(){
   Route::match(['get', 'post'],'publications/c/libre',"Resac\PostController@create_free_post")->name('app.post.create.free');
 
   Route::get('rechercher',"Resac\SearchController@user_for_app")->name('app.search');
+  //Ajout Suggestions
+  Route::get('suggestions', "SuggestionController@index")->name('app.suggestion');
 
 });
 
