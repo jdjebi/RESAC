@@ -25,7 +25,7 @@
           <div class="col-sm-12">
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item active breadcrumb-item-resac-support"><a href="#">Publications</a></li>
+                <li class="breadcrumb-item active breadcrumb-item-resac-support"><a href="#">Suggestions</a></li>
               </ol>
             </nav>
           </div>
@@ -33,11 +33,11 @@
             <div class="d-flex align-items-center justify-content-between">
               <div class="">
                 @if($request->has('certified'))
-                <h3>Publications certifiées</h3>
+                <h3>Suggestions notées</h3>
                 @elseif ($request->has('not-certified'))
-                  <h3>Publications non certifiées</h3>
+                  <h3>Suggestions non notées</h3>
                 @else
-                  <h3>Mes publications</h3>
+                  <h3>Mes Suggestions</h3>
                 @endif
               </div>
               <div class="">
