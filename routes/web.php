@@ -49,15 +49,19 @@ Route::middleware("auth")->group(function(){
 
   Route::match(['get', 'post'],'/actualites','ActuController@index')->name('actu');
 
+  Route::get('rechercher',"Resac\SearchController@user_for_app")->name('app.search');
+
+  Route::match(['get', 'post'],'publications/c/libre',"Resac\PostController@create_free_post")->name('app.post.create.free');
+
   Route::get('publications',"Resac\PostController@index")->name('app.post');
 
   Route::get('publications?not-certified',"Resac\PostController@index")->name('app.post.not_certified');
 
   Route::get('publications/creer',"Resac\PostController@create")->name('app.post.hub');
 
-  Route::match(['get', 'post'],'publications/c/libre',"Resac\PostController@create_free_post")->name('app.post.create.free');
 
-  Route::get('rechercher',"Resac\SearchController@user_for_app")->name('app.search');
+
+  Route::get('publications/delete/{id}',"Resac\Posts\PostDeleteController")->where('id', '[0-9]+')->name('app.post.delete');
 
 });
 

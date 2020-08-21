@@ -4,6 +4,7 @@
 - Ajout du les models du dossier app dans le dossier app/Models
 - Création d'un controlleur pour la suppression des publications App\Http\Controllers\Resac\Posts\PostDeleteController
 - Création d'une classe pour assurer le rendu d'unr publication App\Resac\Core\Posts\PostController
+- Création d'un middleware pour autoriser la suppresion d'un post que par le propriétaire ou un admin
 
 ## version 4
 - Mot de passe oublié
