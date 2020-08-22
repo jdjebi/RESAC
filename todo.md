@@ -15,10 +15,6 @@
 - Dans le controlleur de suppression de post, s
 
 
-
-
-
-
 Mise i la page de redirection est la page elle on redirige sur la page d'accueil
 
 # v5
