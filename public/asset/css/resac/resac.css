@@ -29,7 +29,7 @@
   width: 100px
 }
 
-@media (max-width: 540px){
+@media (max-width: 768px){
   .resac-padding-left-right-on-sm{
     padding-left: 0 !important;
     padding-right: 0 !important;

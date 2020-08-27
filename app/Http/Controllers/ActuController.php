@@ -23,8 +23,6 @@ class ActuController extends Controller
 
       $user = Auth2::user();
 
-      $user = User::find($user->id);
-
       // Nouvelle publication
       if(isset($_POST['new_post'])){
         if(isset($_POST['content'])){
@@ -39,7 +37,6 @@ class ActuController extends Controller
           }
         }
       }
-
 
       $feed_posts = \App\Models\Post::select("*")->orderBy('date', 'desc')->get();
 

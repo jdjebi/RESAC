@@ -4,6 +4,7 @@
 - Création d'un serveur de fichiers (NodeJS)
 - Améliorer l'affichage des publications
 - Version mobile de l'interface
+- Ajouter une role de type délévoppeur
 
 # Bugs
 - La redirection vers une page consultée
@@ -11,8 +12,17 @@
 - Suppression impossible sur la page des publication
 - Réduire la répétition du code d'affichage des publications
 - Revoir l'affichage des publications
+- Dans le controlleur de suppression de post, s
+
+
+
+
+
+
+Mise i la page de redirection est la page elle on redirige sur la page d'accueil
 
 # v5
+- Amélioration du système de permission
 - Intégrer les modérateurs et les super utilisateurs
 - Utiliser un nom utilisateur pour identifier un utilisateur
 
