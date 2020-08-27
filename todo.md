@@ -1,10 +1,10 @@
 # A FAIRE
 - Améliorer l'édition des publications
+
 - Optimiser la plateforme
-- Création d'un serveur de fichiers (NodeJS)
-- Améliorer l'affichage des publications
-- Version mobile de l'interface
-- Ajouter une role de type délévoppeur
+  - Version mobile de l'interface
+  - Création d'un serveur de fichiers (NodeJS)
+
 
 # Bugs
 - La redirection vers une page consultée
@@ -12,14 +12,7 @@
 - Suppression impossible sur la page des publication
 - Réduire la répétition du code d'affichage des publications
 - Revoir l'affichage des publications
-- Dans le controlleur de suppression de post, s
-
-
-
-
-
-
-Mise i la page de redirection est la page elle on redirige sur la page d'accueil
+- Dans le controlleur de suppression de post
 
 # v5
 - Amélioration du système de permission
@@ -62,6 +55,8 @@ Mise i la page de redirection est la page elle on redirige sur la page d'accueil
 - Utiliser Dropbox comme CDN pour les photos
 - Revision de la page de profil
 - Rendre les liens des pulication cliquable
+- Améliorer l'affichage des publications
+- 
 
 
 
@@ -71,11 +66,9 @@ Mise i la page de redirection est la page elle on redirige sur la page d'accueil
 - Améliorer la gestion du CDN
 - Marquage des utilisateurs RESAC
 - Message de bienvenue sur RESAC lors de la première connexion
-
-
+- Utiliser un système de balisage pour la création des publications
 
 # Extras
-- Améliorer les pages utilisateur visiteur
 - Créer un middleware pour assurer la mise à jour du compte de l'utilisateur (le middleware va déconnecter l'utilisateur pour qu'il se reconnecte afin d'opérer la mise à jour globale)
 - Utiliser ajax pour les annonces
 - user_author_id Retirer le delete CASCADE
