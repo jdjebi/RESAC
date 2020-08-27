@@ -25,15 +25,6 @@ class ActuController extends Controller
 
       $user = User::find($user->id);
 
-      // Publication de test
-      if(isset($_POST['new_post_test'])){
-        $content = "Lorem ipsum dolor sit amet.";
-        \Post::create([
-          "user" =>   $user->id,
-          "content" => $content
-        ]);
-      }
-
       // Nouvelle publication
       if(isset($_POST['new_post'])){
         if(isset($_POST['content'])){
@@ -49,23 +40,6 @@ class ActuController extends Controller
         }
       }
 
-      // Supression d'une publication
-      if(isset($_GET['delete']) && !empty($_GET['delete'])){
-
-        $post = \Post::get($_GET['delete']);
-
-        if($post){
-          if($post->user_id == $user->id){
-            \Flash::add("Publication supprimée.","success");
-            $post->delete();
-          }else{
-            \Flash::add("Supression de la publication impossible.","danger");
-          }
-        }else{
-          \Flash::add("Publication inexistante.","warning");
-        }
-        \Redirect::route('actu');
-      }
 
       $feed_posts = \App\Models\Post::select("*")->orderBy('date', 'desc')->get();
 
