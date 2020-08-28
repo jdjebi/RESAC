@@ -40,7 +40,7 @@
                   <h3>Mes publications</h3>
                 @endif
               </div>
-              <div class="">
+              <div class="resac-d-lg-none">
                 <a class="btn btn-success btn-sm" href="{{ route('app.post.hub') }}"><i class="fa fa-plus"></i> Créer une Publication</a>
               </div>
             </div>
