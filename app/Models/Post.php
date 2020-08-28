@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     protected $table = "pub_v1";
+    protected $fillable = ["user","content"];
+    public $timestamps = false;
+
 
     public function user(){
       return $this->belongsTo("App\User","user");

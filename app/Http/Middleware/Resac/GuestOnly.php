@@ -12,10 +12,8 @@ class GuestOnly
     public function handle($request, Closure $next)
     {
 
-        #die('test');
-
         if(Auth::check()){
-          return redirect()->route("profil");
+          return redirect()->route("actu");
         }
 
         return $next($request);

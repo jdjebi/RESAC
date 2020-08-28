@@ -5,6 +5,7 @@
 - Création d'un controlleur pour la suppression des publications App\Http\Controllers\Resac\Posts\PostDeleteController
 - Création d'une classe pour assurer le rendu d'unr publication App\Resac\Core\Posts\PostController
 - Création d'un middleware pour autoriser la suppresion d'un post que par le propriétaire ou un admin
+- Création de l'utils UserAuth() pour retourner l'instance d'un utilisateur pour éviter l'utilisation de use Resac\Auth2 à répétition
 
 ## version 4
 - Mot de passe oublié

@@ -27,7 +27,7 @@
       @include('flash')
 
       <div class="post-box" id="post-box-v1">
-        <form action="" method="post">
+        <form action="{{ route('app.post.publish') }}" method="post">
           @csrf
           <div class="box border bg-white">
               <div class="header pl-4 pt-3 pb-3">

@@ -98,6 +98,16 @@
     }  
   }
 
+  if(!function_exists("UserAuth")){
+    function UserAuth(){
+      /*
+        Retourne l'instance du l'utilisateur connecté. Si aucun alors on retourne nul
+      */   
+
+      return Resac\Auth2::user();
+    }  
+  }
+
 
 
 ?>
