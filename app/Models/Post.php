@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     protected $table = "pub_v1";
-    protected $fillable = ["user","content"];
+    protected $fillable = ["user","content","validate"];
     public $timestamps = false;
 
 

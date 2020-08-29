@@ -36,8 +36,6 @@ class PostController extends Controller
 
       $posts = PostRenderer::render_posts($posts);
 
-      $user = User::find($user->id);
-
       return view('app.publications.index',[
         'title' => $title,
         'user' => $user,

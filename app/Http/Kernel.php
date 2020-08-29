@@ -68,6 +68,7 @@ class Kernel extends HttpKernel
         'auth' => \App\Http\Middleware\Resac\AuthOnly::class,
         'admin.guest' => \App\Http\Middleware\Resac\Admin\GuestAdmin::class,
         'admin.login' => \App\Http\Middleware\Resac\Admin\LoginAdmin::class,
-        'post.delete.only.membre_or_admin' => \App\Http\Middleware\Resac\Posts\DeleteOnlyMemberOrAdmin::class,
+        'post.delete.only.member_or_admin' => \App\Http\Middleware\Resac\Posts\DeleteOnlyMemberOrAdmin::class,
+        'post.view.only.author' => \App\Http\Middleware\Resac\Posts\AuthorOnly::class,
     ];
 }
