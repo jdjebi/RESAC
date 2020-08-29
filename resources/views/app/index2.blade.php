@@ -4,7 +4,7 @@
 <style media="screen">
   #landing-page{
     background-color: #e3e7eb;
-    background-image: url({{ asset('asset/imgs/intro/bgs/etu.jpg') }});
+    background-image: url({{ cdn_asset('asset/imgs/intro/bgs/etu.jpg') }});
     background-size: cover;
     background-repeat: no-repeat;
     height: 500px;
@@ -274,7 +274,7 @@
 @endsection
 
 @section('scripts')
-<script src="{{ asset('asset/lib/slick/slick.js') }}" type="text/javascript"></script>
+<script src="{{ cdn_asset('asset/lib/slick/slick.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function(){
   $('.customer-logos').slick({

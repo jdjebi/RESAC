@@ -1,4 +1,8 @@
 # A FAIRE
+
+- Créer une fonction qui détermine si le serveur cdn est actif
+
+
 - Améliorer l'édition des publications
   - Modification des publications
   - affichage unique d'une publication

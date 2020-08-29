@@ -4,7 +4,7 @@
 <style media="screen">
   body{
     background-color: #f1f3f6;
-    background-image: url({{ asset('asset/imgs/intro/bgs/etu4.jpg') }});
+    background-image: url({{ cdn_asset('asset/imgs/intro/bgs/etu4.jpg') }});
     background-size: cover;
     background-repeat: no-repeat;
     border-color: transparent !important
@@ -64,7 +64,7 @@
 @endsection
 
 @section('scripts')
-<script src="asset/js/vue.js" type="text/javascript"></script>
+<script src="{{ cdn_asset("asset/js/vue.js") }}" type="text/javascript"></script>
 <script type="text/javascript">
 var url_post_login = "{{ route('actu') }}";
 var url_redirect = "{{ $redirect_url }}" ;

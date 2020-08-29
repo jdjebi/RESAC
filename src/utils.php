@@ -1,12 +1,5 @@
 <?php
 
-  if(!function_exists("route")){
-    function route($name){
-      global $routes;
-      return $routes[$name];
-    }
-  }
-
 
   if(!function_exists("redirect")){
     function redirect($target){
@@ -109,5 +102,44 @@
   }
 
 
+  if(!function_exists("local_asset")){
+    function local_asset($path){
+      /*
+        Retourne lien vers la ressource stocké sur le serveur local
+      */   
+
+ 
+      $url = asset("asset/{$path}");
+
+      return $url;
+    }
+  }
+
+  if(!function_exists("cdn_asset")){
+    function cdn_asset($path,$version=1){
+      /*
+        Retourne lien vers la ressource stocké sur le serveur CDN à partir de path
+        - Si $path commence par asset, alors asset sera retiré
+      */   
+
+      $url = "";
+      $use_cdn = config("cdn.use_cdn");
+      
+      if(true){
+        $cdn_host = config("cdn.cdn_host"); 
+
+        // Retire asset/ au début de $path
+        $path = preg_replace("#^asset/(.+)#","$1",$path);
+
+        $url = "{$cdn_host}/{$path}";
+
+      }else{
+        $url = local_asset($path);
+      }
+
+      return $url;
+     
+    }  
+  }
 
 ?>
