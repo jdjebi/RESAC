@@ -48,7 +48,7 @@ class UserController extends Controller
         $title =  $user_visited->nom.' '.$user_visited->prenom;
       }
 
-      $posts = Post::where("user",$id)->get();
+      $posts = Post::where("user",$id)->orderBy('date', 'desc')->get();
 
       $posts = PostRenderer::render_posts($posts);
 
