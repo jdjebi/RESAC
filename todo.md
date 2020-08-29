@@ -12,8 +12,14 @@
 # Bugs
 - La redirection vers une page consultée
 - Rétablir le cache
-- Dans le controlleur de suppression de post
 
+- Suppression impossible sur la page des publication
+- Réduire la répétition du code d'affichage des publications
+- Revoir l'affichage des publications
+- Dans le controlleur de suppression de post, s
+
+
+Mise i la page de redirection est la page elle on redirige sur la page d'accueil
 
 # v5
 - Amélioration du système de permission
