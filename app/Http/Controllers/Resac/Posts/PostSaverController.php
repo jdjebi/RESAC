@@ -19,7 +19,8 @@ class PostSaverController extends Controller
         }else{
             $post = new Post([
                 "user" => $user->id,
-                "content" => $request->content
+                "content" => $request->content,
+                "validate" => false
             ]);
             $post->save();
         }

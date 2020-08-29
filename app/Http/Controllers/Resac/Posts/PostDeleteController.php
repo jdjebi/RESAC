@@ -12,7 +12,7 @@ class PostDeleteController extends Controller
 {
     public function __construct(){
 
-        $this->middleware('post.delete.only.membre_or_admin');
+        $this->middleware('post.delete.only.member_or_admin');
 
     }
 

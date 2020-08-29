@@ -55,6 +55,8 @@ Route::middleware("auth")->group(function(){
 
   Route::get('publications',"Resac\PostController@index")->name('app.post');
 
+  Route::get('publications/{id}',"Resac\Posts\PostViewerController@show")->where('id', '[0-9]+')->name('app.post.show');
+
   Route::get('publications?not-certified',"Resac\PostController@index")->name('app.post.not_certified');
 
   Route::get('publications/creer',"Resac\PostController@create")->name('app.post.hub');

@@ -27,11 +27,11 @@ class User extends Authenticatable
           $url = \Storage::disk('dropbox')->url($this->attributes['photo']);
         }
         else{
-          $url = "storage/{$this->attributes['photo']}";
+          $url = asset("storage/{$this->attributes['photo']}",true);
         }
       }
       else{
-        $url = "asset/imgs/user_default_pic.png"; 
+        $url = asset("asset/imgs/user_default_pic.png"); 
       }   
       return $url;
     }
@@ -91,15 +91,5 @@ class User extends Authenticatable
       return asset("asset/imgs/user_default_pic.png");
     }
 
-    public function getCountPostsAttribute(){
-      return Post::where('user',$this->attributes['id'])->count();
-    }
-
-    public function getCountCertifiedPostsAttribute(){
-      return Post::where('user',$this->attributes['id'])->where('validate',true)->count();
-    }
-
-    public function getCountNotCertifiedPostsAttribute(){
-      return Post::where('user',$this->attributes['id'])->where('validate',false)->count();
-    }
+  
 }

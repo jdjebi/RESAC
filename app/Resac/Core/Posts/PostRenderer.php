@@ -6,23 +6,29 @@ class PostRenderer{
 
     static function render_posts($posts_to_render){
         // Transforme les liens de chaque publication en lien cliquable
+        // Colorie les hashtags
 
         $posts = [];
         
         foreach($posts_to_render as $post){
 
-            $content = $post->content;
-
-            $content = PostRenderer::link_to_html_link($content);
-            $content = PostRenderer::mark_hashtags_content($content);
-
-            $post->content = $content;
-
-            $posts[] = $post;
+            $posts[] = PostRenderer::render_post($post);
             
         }
 
         return $posts;
+    }
+
+     static function render_post($post_to_render){
+    
+        $content = $post_to_render->content;
+
+        $content = PostRenderer::link_to_html_link($content);
+        $content = PostRenderer::mark_hashtags_content($content);
+
+        $post_to_render->content = $content;
+
+        return $post_to_render;
     }
 
     /* Marquage des hashtags */

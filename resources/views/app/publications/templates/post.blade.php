@@ -3,7 +3,7 @@
         <div class="header pl-4 pt-3 pb-3 pr-4">
           <div class="media">
             <a title="{{ $post->user_object->fullname }}" href="{{ route('profil') }}?id={{ $post->user_object->id  }}">
-              <img class="pub-user-photo" src="{{ $post->user_object->photo }}" alt="Photo {{ $post->user_object->fullname }}">
+              <img class="pub-user-photo" src="{{ photos_cdn_asset($post->user_object) }}" alt="Photo {{ $post->user_object->fullname }}">
             </a>
             <div class="ml-3 media-body">
               <div class="dropdown float-right">
@@ -17,6 +17,10 @@
                       <b>(Admin)</b>
                       @endif
                     </h6>
+
+                    @if($post->user_object->id == $user->id)
+                        <a class="dropdown-item small" href="{{ route("app.post.show",$post->id) }}"><i class="fa fa-eye"></i> &nbsp; Afficher la publication</a>
+                    @endif
 
                     @if($post->user_object->id == $user->id || Auth::is_admin_logged())
                         <a class="dropdown-item small" href="{{ route("app.post.delete",$post->id) }}?origin=feed"><i class="fa fa-trash"></i> &nbsp; Supprimer la publication</a>
