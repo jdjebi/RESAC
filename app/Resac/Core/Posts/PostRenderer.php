@@ -51,7 +51,7 @@ class PostRenderer{
     static function link_to_html_link($content){
         // Transforme les liens de la publication en lien cliquable
 
-        $regex = "#(https?://)(\w+\.)*(\w+)(\.([a-z]{2,4})|:\d+)(((/)|(\\\))([a-zA-Z0-9._/-]*))*#";
+        $regex = "#(https?://)(\w+\.)*(\w+)(\.([a-z]{2,4})|:\d+)(((/)|(\\\))([a-zA-Z0-9._/-/?=~]*))*#";
 
         $replace_by = '<a class="resac-post-link" href="$0">$0</a>';
 
