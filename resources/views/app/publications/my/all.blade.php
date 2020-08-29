@@ -2,7 +2,11 @@
 
   <div class="row">
     <div class="col-sm-12 col-md-7">
-        @include('app.publications.my.post')
+      @foreach ($posts as $key => $post)
+
+        @include("app.publications.templates.post")
+
+      @endforeach
     </div>
   </div>
 

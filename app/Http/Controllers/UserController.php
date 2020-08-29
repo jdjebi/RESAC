@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 use Resac\Auth2;
 use App\Models\Post;
-
+use App\Resac\Core\Posts\PostRenderer;
 
 class UserController extends Controller
 {
@@ -49,6 +49,8 @@ class UserController extends Controller
       }
 
       $posts = Post::where("user",$id)->get();
+
+      $posts = PostRenderer::render_posts($posts);
 
       return view('app.profil.index',[
         'title' => $title,

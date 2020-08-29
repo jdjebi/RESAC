@@ -47,7 +47,7 @@ Route::middleware("auth")->group(function(){
 
   Route::match(['get', 'post'],'/parametres','UserController@account')->name('param');
 
-  Route::match(['get', 'post'],'/actualites','ActuController@index')->name('actu');
+  Route::match(['get', 'post'],'/actualites','Resac\Actu\ActuController@index')->name('actu');
 
   Route::get('rechercher',"Resac\SearchController@user_for_app")->name('app.search');
 
@@ -59,9 +59,9 @@ Route::middleware("auth")->group(function(){
 
   Route::get('publications/creer',"Resac\PostController@create")->name('app.post.hub');
 
-
-
   Route::get('publications/delete/{id}',"Resac\Posts\PostDeleteController")->where('id', '[0-9]+')->name('app.post.delete');
+
+  Route::post('publications/publier',"Resac\Posts\PostSaverController")->name('app.post.publish');
 
 });
 
@@ -175,18 +175,6 @@ Route::get('test_index',function(){
 
 });
 
-Route::get('dump_session',function(){
-
-
-dump($_SESSION);
-
-if(Auth::check()){
-  dump('Utilisateur connecté');
-}else{
-  dump('Utilisateur non-sconnecté');
-}
-
-});
 
 Route::get('test/storage_driver',function(){
 

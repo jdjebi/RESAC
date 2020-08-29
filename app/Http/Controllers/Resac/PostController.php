@@ -22,9 +22,7 @@ class PostController extends Controller
 
     public function index(Request $request){
 
-      $user = Auth2::user();
-
-      $user = User::find($user->id);
+      $user = UserAuth();
 
       $title = 'Publications';
 

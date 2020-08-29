@@ -11,7 +11,7 @@
   @include("flash")
 </div>
 
-@if ($show_portofolio)
+@if($show_portofolio)
   @include("app.profil.visitor")
 @else
   @include("app.profil.user")

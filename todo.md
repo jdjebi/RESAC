@@ -1,14 +1,18 @@
 # A FAIRE
 - Améliorer l'édition des publications
+  - Modification des publications
+  - affichage unique d'une publication
+
+
 - Optimiser la plateforme
-- Création d'un serveur de fichiers (NodeJS)
-- Améliorer l'affichage des publications
-- Version mobile de l'interface
-- Ajouter une role de type délévoppeur
+  - Version mobile de l'interface
+  - Création d'un serveur de fichiers (NodeJS)
+
 
 # Bugs
 - La redirection vers une page consultée
 - Rétablir le cache
+
 - Suppression impossible sur la page des publication
 - Réduire la répétition du code d'affichage des publications
 - Revoir l'affichage des publications
@@ -22,10 +26,8 @@ Mise i la page de redirection est la page elle on redirige sur la page d'accueil
 - Intégrer les modérateurs et les super utilisateurs
 - Utiliser un nom utilisateur pour identifier un utilisateur
 
-- Modification des publications
 - Gestion des publications côtés utilisateur [Améliorer]
-  - Gérer la supression, l'affichage propre ainsi que l'édition des publications
-- Corriger l'utilisation des photos de profil sur toutes les pages concernées
+  - Gérer la supression
 - Revoir les photos dans l'admin
 ---
 - Vérifier l'existence d'un fichier avant de retourner son chemin
@@ -42,23 +44,19 @@ Mise i la page de redirection est la page elle on redirige sur la page d'accueil
 ---
 
 - Gérer le cas au le où le mail ne part pas
-
 - Créer une documentation
-
 - Conservation de session. Récupérer les l'utilisateurs uniquement via la auth de laravel (il reste l'administration) et autre bugs lié
 - Revoir la barre de recherche
-
 - Créer une section pour faire des flash infos
-
 - Créer une historique de navigation en terme de flyers - information qui une fois disparait ou disparait après un certains temps (utiliser ). Ces derniers sont rédiger par un admin
-
 - Guide lors de la connexion
 
 # FAIT
 - Utiliser Dropbox comme CDN pour les photos
 - Revision de la page de profil
-- Rendre les liens des pulication cliquable
-
+- Amélioration de l'affichage des publications
+  - Lien cliquable avec coloration des liens
+  - Coloration des hashtags
 
 
 # Brainstorming
@@ -67,11 +65,9 @@ Mise i la page de redirection est la page elle on redirige sur la page d'accueil
 - Améliorer la gestion du CDN
 - Marquage des utilisateurs RESAC
 - Message de bienvenue sur RESAC lors de la première connexion
-
-
+- Utiliser un système de balisage pour la création des publications
 
 # Extras
-- Améliorer les pages utilisateur visiteur
 - Créer un middleware pour assurer la mise à jour du compte de l'utilisateur (le middleware va déconnecter l'utilisateur pour qu'il se reconnecte afin d'opérer la mise à jour globale)
 - Utiliser ajax pour les annonces
 - user_author_id Retirer le delete CASCADE

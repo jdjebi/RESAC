@@ -5,3 +5,5 @@
   2. La connexion: Cette étape permet d'assurer l'effectivité de la connexion par la création des variables de session de connexion. En particulier, elle permet de mettre à jour les informations liées au compte d'un utilisateur dans le but de garantir la stabilité de l'état des comptes utilisateur
 
 - Pour une publication, seul le propriétaire et un administrateur peuvent la supprimer
+
+- Un hashtag contient: les caracrères alphanumériques et les tirets du 6 et 8

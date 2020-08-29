@@ -74,6 +74,7 @@
       <li class="nav-item">
         <a class="nav-link" href="{{ route("app.post") }}"><i class="far fa-edit"></i> Publications</a>
       </li>
+
       @endauth
 
       @auth
