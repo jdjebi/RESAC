@@ -36,7 +36,7 @@
                 </div>
               </div>
               <div class="body pl-4 pr-4 pb-3">
-                <textarea class="form-control" id="post-area" rows="3" name="content" placeholder="Exprimez vous..."></textarea>
+                <textarea id="textarea-post-box" class="form-control" id="post-area" rows="3" name="content" placeholder="Exprimez vous..."></textarea>
               </div>
               <div class="footer p-2 pr-4 border-top text-right">
                 <button class="btn btn-sm btn-primary" type="submit" name="new_post">Publier</button>
@@ -55,7 +55,6 @@
 
         @endforeach
 
-
       </div>
 
     </div>
@@ -66,7 +65,6 @@
 
   </div>
 
-
 </div>
 
 @endsection
@@ -75,4 +73,8 @@
 <script type="module" src="asset/js/resac/init.timeago.js"></script>
 <script src="{{ asset("asset/js/vue.js") }}" type="text/javascript"></script>
 <script src="{{ asset("asset/js/resac/vue.truncate_filter.js") }}" type="text/javascript"></script>
+<script src="{{ asset("asset/js/lib/autosize.min.js") }}" type="text/javascript"></script>
+<script>
+  autosize($('#textarea-post-box'));
+</script>
 @endsection
