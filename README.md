@@ -14,17 +14,17 @@ Consulter le fichier **todo.md** pour suivre l'évolution du développement.
 
 ### Récentes
 
-- Photo de profil (nouveau)
-- Moteur de recherche d'utilisateurs
-- Gestion des nouveautés
+- Photo de profil
+- Redimensionnement automatique du formulaire de publication (page d'actualité)
 
 ### Anciennes
 
+- Moteur de recherche d'utilisateurs
+- Gestion des nouveautés
 - Mot de passe oublié
 - Actualités
 - Gestion des publications
 - Administration
-
 
 ## Fonctionnalités built-in principale
 

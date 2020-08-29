@@ -1,7 +1,7 @@
 # A FAIRE
 - Améliorer l'édition des publications
   - Modification des publications
-  - affichage propre ainsi que l'édition des publications
+  - affichage unique d'une publication
 
 
 - Optimiser la plateforme
@@ -48,8 +48,9 @@
 # FAIT
 - Utiliser Dropbox comme CDN pour les photos
 - Revision de la page de profil
-- Rendre les liens des pulication cliquable
-- Améliorer l'affichage des publications
+- Amélioration de l'affichage des publications
+  - Lien cliquable avec coloration des liens
+  - Coloration des hashtags
 
 
 # Brainstorming

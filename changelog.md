@@ -1,13 +1,21 @@
 ## Master
 
+### 29-08-2020
+- Redimensionnement automatique du formulaire de publication sur la page d'accueil
+  - Il est assuré par asset/js/lib/autosize.min.js
+
+### v5.1
+
 - Désactivation du cache en ligne à l'aide de la variable d'environement CACHE_DRIVER=none. Les paramètres du cache à none on été ajouté au fichier cache.php dans le but tenter de régler le problème des méthodes renommées en production
 - Ajout du les models du dossier app dans le dossier app/Models
 - Création d'un controlleur pour la suppression des publications App\Http\Controllers\Resac\Posts\PostDeleteController
 - Création d'une classe pour assurer le rendu d'unr publication App\Resac\Core\Posts\PostController
 - Création d'un middleware pour autoriser la suppresion d'un post que par le propriétaire ou un admin
-- Création de l'utils UserAuth() pour retourner l'instance d'un utilisateur pour éviter l'utilisation de use Resac\Auth2 à répétition
+- Création de l'utilitaire UserAuth() pour retourner l'instance d'un utilisateur pour éviter l'utilisation de use Resac\Auth2 à répétition
 
-## version 4
+### v5
+
+## v4
 - Mot de passe oublié
 - Conservation de session
 - Gérer les comptes la mise à jour des comptes lors de la connexion
@@ -19,7 +27,7 @@
 - Ajout du photo au Modèle d'un utilisateur
 - Affichage des post ne dépend plus Framework built-in
 
-## Mise à jour de la version 3.4
+## v3.4
 
 - Ajout du champ version au Modèle d'un utilisateur
 - Création d'un nouveau service auth/auth2.php pour gérer la connexion à l'aide des méthodes de Laravel
@@ -31,21 +39,21 @@
 - Les middlewares d'authentification sont mainteant basées sur auth2
 - Création de la fonction is_current_url pour vérifier si une url est l'url courante
 
-## Mise à jour de la version 3.3
+## v3.3
 
 - Table utilisateurs ajout du rememberToken et du timestamp | Faire la migration de add_remember_token pour les ajouter en ligne
 - Migration pour la réinitialisation du mot de passe
 
-## Mise à jour de la version 3.2
+## v3.2
 
 - Table new_features pour les nouveautés crées avec Laravel
 - Table SearchUserIndex, joue le rôle d'index de recherche pour la recherche d'utilisateur
 
-## Mise à jour de la version 3.1
+## v3.1
 
 - Amélioration de la prise en charge de Laravel
 
-## Mise à jour de la version 3
+## v3
 
 - Les fonctionnalités du Framework de base ont été intégré à Laravel comme extension
 
@@ -63,7 +71,7 @@
 
 - Supression en CASCADE sur la les publications avec pour référence la table user
 
-## Mises à jour de la version 2
+## v2
 
 - src/redirect.php
   - Ajout de la methode route_back()
