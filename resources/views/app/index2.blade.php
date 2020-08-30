@@ -4,7 +4,7 @@
 <style media="screen">
   #landing-page{
     background-color: #e3e7eb;
-    background-image: url({{ asset('asset/imgs/intro/bgs/etu.jpg') }});
+    background-image: url({{ cdn_asset('asset/imgs/intro/bgs/etu.jpg') }});
     background-size: cover;
     background-repeat: no-repeat;
     height: 500px;
@@ -258,12 +258,12 @@
   <div class="container">
     <h3 class="customer-logos title text-muted mb-3">Les Académies du Réseau</h3>
     <section class="customer-logos slider">
-      <div class="slide"><img class="w-200" title="Lycéé Classique d'Abidjan" src="{{ asset('asset/imgs/intro/e-logos/lca.png') }}" alt=""></div>
-      <div class="slide"><img class="w-150" title="Science Po bordeaux" src="{{ asset('asset/imgs/intro/e-logos/sc-po.jpg') }}" alt=""></div>
-      <div class="slide"><img class="w-200" title="ESATIC" src="{{ asset('asset/imgs/intro/e-logos/esatic.png') }}" alt=""></div>
-      <div class="slide"><img class="w-150" title="INPHB" src="{{ asset('asset/imgs/intro/e-logos/inp.png') }}" alt=""></div>
-      <div class="slide"><img class="w-150" title="Université Félix Houphouet-Boigny" src="{{ asset('asset/imgs/intro/e-logos/min/ufb.png') }}" alt=""></div>
-      <div class="slide"><img class="w-150" title="IUGB" src="{{ asset('asset/imgs/intro/e-logos/IUGB.jpg') }}" alt=""></div>
+      <div class="slide"><img class="w-200" title="Lycéé Classique d'Abidjan" src="{{ cdn_asset('asset/imgs/intro/e-logos/lca.png') }}" alt=""></div>
+      <div class="slide"><img class="w-150" title="Science Po bordeaux" src="{{ cdn_asset('asset/imgs/intro/e-logos/sc-po.jpg') }}" alt=""></div>
+      <div class="slide"><img class="w-200" title="ESATIC" src="{{ cdn_asset('asset/imgs/intro/e-logos/esatic.png') }}" alt=""></div>
+      <div class="slide"><img class="w-150" title="INPHB" src="{{ cdn_asset('asset/imgs/intro/e-logos/inp.png') }}" alt=""></div>
+      <div class="slide"><img class="w-150" title="Université Félix Houphouet-Boigny" src="{{ cdn_asset('asset/imgs/intro/e-logos/min/ufb.png') }}" alt=""></div>
+      <div class="slide"><img class="w-150" title="IUGB" src="{{ cdn_asset('asset/imgs/intro/e-logos/IUGB.jpg') }}" alt=""></div>
     </section>
   </div>
 </div>
@@ -274,7 +274,7 @@
 @endsection
 
 @section('scripts')
-<script src="{{ asset('asset/lib/slick/slick.js') }}" type="text/javascript"></script>
+<script src="{{ cdn_asset('asset/lib/slick/slick.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function(){
   $('.customer-logos').slick({

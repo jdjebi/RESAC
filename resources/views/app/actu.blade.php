@@ -1,8 +1,8 @@
 @extends('app.page')
 
 @section('extras_style')
-<link rel="stylesheet" href="asset/css/placeholder-loading.min.css">
-<link rel="stylesheet" href="{{ asset("asset/css/resac/pubs.css") }}">
+<link rel="stylesheet" href="{{ cdn_asset("asset/css/placeholder-loading.min.css") }}">
+<link rel="stylesheet" href="{{ cdn_asset("asset/css/resac/pubs.css") }}">
 <style media="screen">
   body{
     background-color: #f1f3f6
@@ -70,10 +70,10 @@
 @endsection
 
 @section('scripts')
-<script type="module" src="asset/js/resac/init.timeago.js"></script>
-<script src="{{ asset("asset/js/vue.js") }}" type="text/javascript"></script>
-<script src="{{ asset("asset/js/resac/vue.truncate_filter.js") }}" type="text/javascript"></script>
-<script src="{{ asset("asset/js/lib/autosize.min.js") }}" type="text/javascript"></script>
+<script type="module" src="{{ asset("asset/js/resac/init.timeago.js") }}"></script>
+<script src="{{ cdn_asset("asset/js/vue.js") }}" type="text/javascript"></script>
+<script src="{{ cdn_asset("asset/js/resac/vue.truncate_filter.js") }}" type="text/javascript"></script>
+<script src="{{ cdn_asset("asset/js/lib/autosize.min.js") }}" type="text/javascript"></script>
 <script>
   autosize($('#textarea-post-box'));
 </script>

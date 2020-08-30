@@ -96,7 +96,7 @@
 @endsection
 
 @section('scripts')
-<script src="asset/js/vue.js" type="text/javascript"></script>
+<script src=" {{ asset('asset/js/vue.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
 var vm = new Vue({
   el: '#portofolio',

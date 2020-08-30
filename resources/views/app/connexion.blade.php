@@ -4,7 +4,7 @@
 <style media="screen">
   body{
     background-color: #f1f3f6;
-    background-image: url({{ asset('asset/imgs/intro/bgs/etu4.jpg') }});
+    background-image: url({{ cdn_asset('asset/imgs/intro/bgs/etu4.jpg') }});
     background-size: cover;
     background-repeat: no-repeat;
     border-color: transparent !important
@@ -31,7 +31,7 @@
       <form v-on:submit.prevent="onSubmit">
         @csrf
         <div class="text-center">
-          <img class="text-center" src="{{ asset('asset/imgs/icons/android-chrome-192x192.png') }}" alt="" width="80px">
+          <img class="text-center" src="{{ cdn_asset('asset/imgs/icons/android-chrome-192x192.png') }}" alt="" width="80px">
         </div>
         <h3 class="mt-3 mb-4 text-center">Se connecter</h3>
         <div v-if="is_error" id="error-box" class="alert alert-danger d-none">
@@ -64,7 +64,7 @@
 @endsection
 
 @section('scripts')
-<script src="asset/js/vue.js" type="text/javascript"></script>
+<script src="{{ cdn_asset("asset/js/vue.js") }}" type="text/javascript"></script>
 <script type="text/javascript">
 var url_post_login = "{{ route('actu') }}";
 var url_redirect = "{{ $redirect_url }}" ;

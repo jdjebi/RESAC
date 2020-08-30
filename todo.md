@@ -1,4 +1,6 @@
 # A FAIRE
+
+
 - Améliorer l'édition des publications
   - Modification des publications
   - affichage unique d'une publication
@@ -6,8 +8,6 @@
 
 - Optimiser la plateforme
   - Version mobile de l'interface
-  - Création d'un serveur de fichiers (NodeJS)
-
 
 # Bugs
 - La redirection vers une page consultée
@@ -17,6 +17,7 @@
 - Réduire la répétition du code d'affichage des publications
 - Revoir l'affichage des publications
 - Dans le controlleur de suppression de post, s
+- Trouver une solution pour vérifier que le CDN fonctionne
 
 
 Mise i la page de redirection est la page elle on redirige sur la page d'accueil
@@ -57,6 +58,7 @@ Mise i la page de redirection est la page elle on redirige sur la page d'accueil
 - Amélioration de l'affichage des publications
   - Lien cliquable avec coloration des liens
   - Coloration des hashtags
+  - Création d'un serveur de fichiers (NodeJS)
 
 
 # Brainstorming

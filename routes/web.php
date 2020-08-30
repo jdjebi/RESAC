@@ -3,10 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\Hash;
 use App\Models\SearchUserIndex;
 
+use Illuminate\Support\Facades\Http;
 
 
 Route::middleware("guest")->group(function(){
@@ -188,4 +188,3 @@ Route::get('test/storage_driver',function(){
     return "Test de l'interaction avec dropbox échoué";
   
 });
-  
