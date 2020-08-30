@@ -74,7 +74,7 @@
 @endsection
 
 @section('scripts')
-<script type="text/javascript" src="asset/js/vue.js"></script>
+<script type="text/javascript" src="{{ cdn_asset("asset/js/vue.js") }}"></script>
 <script type="text/javascript">
   var infos_form_id = "#infos-form";
   var infos_form = $(infos_form_id);
