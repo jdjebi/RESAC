@@ -192,7 +192,8 @@ class UserController extends Controller
             }
             // sinon on utilise le stockage local
             else{
-              $path = $request->file('photo')->store('public/avatars');
+              $filename = $user->id.".".$request->file('photo')->extension();
+              $path = $request->file('photo')->storeAs('public/avatars',$filename);
               $path = str_replace("public/","",$path);  // On retire le l'expression public/ du chemin
             }
             
