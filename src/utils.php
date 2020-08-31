@@ -142,4 +142,39 @@ if(!function_exists("cdn_asset")){
   }  
 }
 
+
+if(!function_exists("web_asset")){
+  function web_asset($path,$web_url,$version=1){
+    /*
+      Retourne lien vers la ressource stocké sur le serveur CDN ou sur l'url précisée dans $web_url
+    */   
+
+    if(env('APP_ENV') == "web"){
+      $url = $web_url;
+    }else{
+      $url = cdn_asset($path,$version);
+    }
+
+    return $url;
+    
+  }  
+}
+
+if(!function_exists("web_local_asset")){
+  function web_local_asset($path,$web_url,$version=1){
+    /*
+      Retourne lien vers la ressource stocké sur le serveur local ou sur l'url précisée dans $web_url
+    */   
+
+    if(env('APP_ENV') == "web"){
+      $url = $web_url;
+    }else{
+      $url = local_asset($path,$version);
+    }
+
+    return $url;
+    
+  }  
+}
+
 ?>

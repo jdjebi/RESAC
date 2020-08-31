@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{{ asset('asset/css/fontawsome/all.css') }}">
     <link rel="stylesheet" href="{{ cdn_asset('asset/mobile/css/main.css') }}">
     <link rel="stylesheet" href="{{ cdn_asset('asset/css/resac/resac.css') }}">
+
     <style media="screen">
       body{
           padding-top: 60px
