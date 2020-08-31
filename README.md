@@ -14,8 +14,9 @@ Consulter le fichier **todo.md** pour suivre l'évolution du développement.
 
 ### Récentes
 
-- Photo de profil
+- Serveur CDN
 - Redimensionnement automatique du formulaire de publication (page d'actualité)
+- Photo de profil
 
 ### Anciennes
 
