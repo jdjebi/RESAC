@@ -64,5 +64,5 @@
 
 
 @section('scripts')
-<script type="module" src="{{ asset('asset/js/resac/init.timeago.js') }}"></script>
+<script type="module" src="{{ cdn_asset('asset/js/resac/init.timeago.js') }}"></script>
 @endsection
