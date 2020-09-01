@@ -30,13 +30,13 @@
 @endauth
 
 
-<div class="container mt-3">
+<div class="container">
 
   <div class="row">
 
-    <div class="col-sm-12 col-md-12 bg-white border">
+    @if(!empty($search_query))
+      <div class="col-sm-12 col-md-12 bg-white border">
 
-      @if(!empty($search_query))
         <div class=" mt-4 h5 mb-5 text-dark">
           Recherche pour "{{ $search_query }}" - Résultats {{ count($results) }}
         </div>
@@ -59,25 +59,23 @@
           </div>
         @endif
 
-      @else
-
-      <div class="text-center mt-5">
-        <div class="h3">
+      </div>
+    @else
+    <div class="col-sm-12">
+      <div class="text-center text-muted h3 mt-5">
+        <div >
           <i class="fa fa-search"></i>
         </div>
-        <div class="h3">
+        <div>
           Rechercher un utilisateur
         </div>
       </div>
-
-      @endif
-
     </div>
 
 
+    @endif
+
   </div>
-
-
 </div>
 
 
@@ -85,6 +83,6 @@
 
 @section('scripts')
 <script type="module" src="asset/js/resac/init.timeago.js"></script>
-<script src="{{ asset("asset/js/vue.js") }}" type="text/javascript"></script>
-<script src="{{ asset("asset/js/resac/vue.truncate_filter.js") }}" type="text/javascript"></script>
+<script src="{{ cdn_asset("asset/js/vue.js") }}" type="text/javascript"></script>
+<script src="{{ cdn_asset("asset/js/resac/vue.truncate_filter.js") }}" type="text/javascript"></script>
 @endsection
