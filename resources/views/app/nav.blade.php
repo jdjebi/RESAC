@@ -25,7 +25,7 @@
     @auth{{ route("actu") }}@endauth
     ">
     <img src="{{ cdn_asset('asset/imgs/icons/android-chrome-192x192.png') }}" width="30" height="30" alt="">
-    <span class="align-middle">Resac</span>
+    @guest<span class="align-middle">Resac</span>@endguest
   </a>
   <div class="d-flex align-items-center">
     <div class="nav-extras-items">

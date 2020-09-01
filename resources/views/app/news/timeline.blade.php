@@ -6,7 +6,7 @@ body{
 	background-color: #f1f3f6
 }
 .feature{
-	background: #fff;
+  background: #fff;
   margin-left: 2em !important;
   padding: 1em 1em 1em 1em;
   border-radius: 5px;

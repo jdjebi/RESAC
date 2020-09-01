@@ -64,6 +64,7 @@
 .pub-box .body{
   white-space: pre-line;
   font-size: 16px;
+  overflow-wrap: break-word;
 }
 
 .resac-post-link{

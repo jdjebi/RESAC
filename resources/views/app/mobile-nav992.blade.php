@@ -35,7 +35,7 @@
            <div>
              <a class="selector-holder" href="{{ route('admin_user_manager') }}">
                <i class="fa fa-tachometer-alt"></i>
-               <span>Administration</span>
+               <span>Admin</span>
              </a>
            </div>
         </button>

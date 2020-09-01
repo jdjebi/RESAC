@@ -1,21 +1,3 @@
-<style>
-.resac-d-none{
-  display:none
-}
-
-
-@media (max-width: 960px){
-  .resac-d-lg-block{
-    display: block
-  }
-  .resac-d-lg-none{
-    display:none
-  }
-}
-
-
-</style>
-
 <div class="resac-d-none resac-d-lg-block mb-3">
   <ul class="nav nav-tabs">
     <li class="nav-item dropdown">

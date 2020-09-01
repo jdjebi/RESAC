@@ -12,10 +12,10 @@
 }
 
 .resac-w-200{
-  height: 200px
+  width: 200px
 }
 .resac-h-200{
-  width: 200px
+  height: 200px
 }
 
 .resac-w-150{
@@ -45,5 +45,26 @@
 
   .resac-feed .resac-clear-border-right-on-sm{
     border-right: none !important;
+  }
+}
+
+/* Utilitaire d'affichage */
+
+.resac-d-none{
+  display:none
+}
+
+@media (max-width: 768px){
+  .resac-d-sm-none{
+    display:none
+  }
+}
+
+@media (max-width: 960px){
+  .resac-d-lg-block{
+    display: block
+  }
+  .resac-d-lg-none{
+    display:none
   }
 }

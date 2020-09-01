@@ -19,7 +19,7 @@ ul.timeline > li {
 }
 ul.timeline > li:before {
   content: ' ';
-  background: white;
+  background: white;ooo
   display: inline-block;
   position: absolute;
   border-radius: 50%;
@@ -29,4 +29,24 @@ ul.timeline > li:before {
   height: 20px;
   z-index: 400;
 }
+
+@media (max-width: 768px){
+  ul.timeline {
+    padding: 0;
+  }
+  ul.timeline > li {
+    margin-left: 0;
+  }
+  ul.timeline:before {
+    display: none
+  }
+  ul.timeline > li:before {
+    display: none
+  }
+  .feature {
+    margin-left: 0 !important;
+  }
+}
+
+
 </style>
