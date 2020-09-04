@@ -29,6 +29,12 @@
       .resac-bg-light{
         background-color: #ffffff
       }
+      .resac-bg-dark{
+        background-color:#283e4a;
+      }
+      .resac-bg-dark .navbar-nav .nav-link {
+          font-size: 14px;
+      }
       .resac-logo-25{
         font-size: 25px
       }

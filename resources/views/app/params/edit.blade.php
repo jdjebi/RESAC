@@ -1,58 +1,29 @@
 @extends('app.page')
 
 @section('extras_style')
-<style media="screen">
-  body{
-    background-color: #f1f3f6
-  }
-  .upload-btn-wrapper{
-    position: relative;
-    overflow: hidden;
-  }
-  .upload-btn-wrapper input[type=file] {
-    font-size: 100px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-  }
-  .upload-btn-wrapper button{
-    cursor: pointer;
-  }
-
-  #upload-file-input{
-    opacity: 0;
-  }
-</style>
+  @include("app.params.style")
 @endsection
 
 @section('content')
-<div class="container mt-5">
+<div class="container mt-4">
   <div class="row">
-    <div class="col-sm-12 col-md-5 col-lg-3">
-
-      <ul class="list-group list-group-flush">
-
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <i class="fa fa-address-card text-primary"></i> <a href="<?= route('param') ?>?infos">Informations personnelles</a>
-        </li>
-
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <i class="fa fa-camera text-primary"></i> <a href="<?= route('param') ?>?photo">Photo de profil</a>
-        </li> 
-
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <i class="fa fa-key text-primary"></i> <a href="<?= route('param') ?>?password">Mot de passe</a>
-        </li>
-
-      </ul>
-
+    <div class="col-sm-12 col-md-5 col-lg-3">    
+      <nav class="menu mb-3">
+        <div class="menu-heading d-flex">
+          <img class="avatar avatar-user mr-2" src="{{ photos_cdn_asset($user) }}" width="32" height="32" alt="{{ $user->fullname }}">
+          <div class="flex-1 lh-condensed">
+            <div class="f5 text-gray-dark text-bold css-truncate css-truncate-target">{{ $user->prenom }}</div>
+            <div class="f6 text-gray text-normal">Mon compte</div>
+          </div>
+        </div>
+        <a class="menu-item" href="{{ route('edit') }}?infos">Général</a>
+        <a class="menu-item" href="{{ route('edit') }}?photo">Photo de profil</a>
+        <a class="menu-item" href="{{ route('edit') }}?password">Mot de passe</a>
+      </nav>
     </div>
-
     <div class="col-sm-12 col-md-7 col-lg-8">
-      <div class="m-2">
-        @include('flash')
-      </div>
+      
+      @include('flash')
 
       @if($edit_form == "infos")
         <div id="infos-form">

@@ -18,7 +18,7 @@
     }
   }
 </style>
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark resac-bg-dark fixed-top">
   <a class="navbar-brand resac-logo-font" 
     href="
     @guest{{ route("home") }}@endguest
@@ -33,13 +33,13 @@
         @auth
         <li class="nav-item">
           <a class="nav-link" href="{{ route("app.search") }}">
-            <i class="fa fa-search text-muted" style="font-size: 21px"></i>
+            <i class="fa fa-search text-white" style="font-size: 21px"></i>
           </a>
         </li>
         @endauth
         <li class="nav-item">
           <a class="nav-link" href="{{ route("dev_news") }}">
-            <i class="far fa-lightbulb" style="color: #2196f3; font-size: 21px"></i>
+            <i class="far fa-lightbulb text-white" style="font-size: 21px"></i>
           </a>
         </li>
       </ul>
@@ -53,7 +53,7 @@
 
     @auth
     <form class="d-none d-md-block d-lg-block" action="{{ route("app.search",[],false) }}" method="GET" class="has-search form-inline my-2 my-lg-0 pt-1">
-      <input name="q" type="text" class="form-control form-control-sm" placeholder="Rechercher un utilisateur" value="{{ isset($_GET['q']) ? $_GET['q'] : '' }}">
+      <input name="q" type="text" class="form-control form-control-sm" placeholder="Rechercher un utilisateur" value="{{ isset($_GET['q']) ? $_GET['q'] : '' }}" style="color:#000; background:#e1e9ee; border:none; width: 210px">
     </form>
     @endauth
 
@@ -90,7 +90,7 @@
 
 
       <li class="nav-item d-none d-md-block d-lg-block">
-        <a class="nav-link" href="{{ route("dev_news") }}"> <i class="far fa-lightbulb" style="color: #2196f3"></i> Nouveautés</a>
+        <a class="nav-link" href="{{ route("dev_news") }}"> <i class="far fa-lightbulb"></i> Nouveautés</a>
       </li>
 
     </ul>

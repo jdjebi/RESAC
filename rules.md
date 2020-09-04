@@ -9,3 +9,7 @@
 - Un hashtag contient: les caracrères alphanumériques et les tirets du 6 et 8
 
 - La photo de profil de l'utilisateur est nommée à partir du l'id de l'utlisateur puis de l'extension du fichier d'origine
+
+## Déploiement 
+
+- Mettre le CDN à jour avant chaque deploiement
