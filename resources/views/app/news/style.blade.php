@@ -19,7 +19,7 @@ ul.timeline > li {
 }
 ul.timeline > li:before {
   content: ' ';
-  background: #22c0e8;
+  background: #2196F3;
   display: inline-block;
   position: absolute;
   border-radius: 50%;

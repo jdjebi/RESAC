@@ -14,7 +14,7 @@
 <div class="container">
   <div class="row">
     <div class="resac-padding-left-right-on-sm col-md-12  resac-feed ">
-      <div class="resac-style-2 section section-about bg-white border rounded resac-clear-border-left-on-sm resac-feed resac-clear-border-right-on-sm resac-clear-rounded-on-sm">
+      <div class="resac-style-2 section section-about bg-white resac-linkedin-shadow resac-rounded-2px resac-clear-border-left-on-sm resac-feed resac-clear-border-right-on-sm resac-clear-rounded-on-sm">
         @if($show_portofolio)
           @include("app.profil.visitor-top")
         @else

@@ -1,10 +1,16 @@
+.resac-border-light-2{
+  border: 1px solid #ced2d7
+}
+.resac-border-no{
+  border: 0;
+}
+.resac-rounded-2px{
+  border-radius: 2px;
+}
+
 .wh-40{
   width: 40px;
   height: 40px;
-}
-
-.resac-border-light-2{
-  border: 1px solid #ced2d7
 }
 
 .resac-w-20{
@@ -72,4 +78,8 @@
   .resac-d-lg-none{
     display:none
   }
+}
+
+.resac-linkedin-shadow{
+  box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 2px 3px rgba(0,0,0,.2);
 }

@@ -1,5 +1,5 @@
 <div class="pub-box" id="">
-    <div class="box border bg-white mb-3 resac-clear-rounded-on-sm resac-clear-border-left-on-sm resac-clear-border-right-on-sm">
+    <div class="box resac-linkedin-shadow bg-white mb-3 resac-clear-rounded-on-sm resac-clear-border-left-on-sm resac-clear-border-right-on-sm">
         <div class="header pl-4 pt-3 pb-3 pr-4">
           <div class="media">
             <a title="{{ $post->user_object->fullname }}" href="{{ route('profil') }}?id={{ $post->user_object->id  }}">

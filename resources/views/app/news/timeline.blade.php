@@ -9,8 +9,6 @@ body{
   background: #fff;
   margin-left: 2em !important;
   padding: 1em 1em 1em 1em;
-  border-radius: 5px;
-  box-shadow: 2px 2px 2px 1px #e8e8e8;
 }
 .ill{
 	width: 250px;
@@ -28,7 +26,7 @@ body{
 			@if(count($features) != 0)
 			<ul class="timeline">
 				@foreach ($features as $i => $feature)
-					<li class="feature">
+					<li class="resac-rounded-2px resac-linkedin-shadow feature">
 						<span class="text-primary bold @if($i==0) font-weight-bold @endif">{{ $feature->title }}</span>
 						<div class="text-muted small"><i class="far fa-clock"></i> {{ $feature->get_sm_created_at() }}</div>
 							{!! $feature->content !!}

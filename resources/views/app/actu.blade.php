@@ -29,7 +29,7 @@
       <div class="post-box" id="post-box-v1">
         <form action="{{ route('app.post.publish') }}" method="post">
           @csrf
-          <div class="box border bg-white">
+          <div class="box bg-white resac-linkedin-shadow">
               <div class="header pl-4 pt-3 pb-3">
                 <div class="header-post-message">
                   <i class="fa fa-edit"></i> Publication
