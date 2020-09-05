@@ -66,7 +66,7 @@
           <i class="fa fa-search"></i>
         </div>
         <div>
-          Rechercher un utilisateur
+          Recherche
         </div>
       </div>
     </div>

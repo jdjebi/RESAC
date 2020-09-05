@@ -16,12 +16,10 @@ body{
 	width: 250px;
 }
 </style>
+@include('app.news.style')
 @endsection
 
 @section('content')
-
-@include('app.news.style')
-
 
 <div class="container mt-5 mb-5">
 	<div class="row">

@@ -19,14 +19,13 @@ ul.timeline > li {
 }
 ul.timeline > li:before {
   content: ' ';
-  background: white;ooo
+  background: #22c0e8;
   display: inline-block;
   position: absolute;
   border-radius: 50%;
-  border: 3px solid #22c0e8;
-  left: 20px;
-  width: 20px;
-  height: 20px;
+  left: 22px;
+  width: 18px;
+  height: 18px;
   z-index: 400;
 }
 

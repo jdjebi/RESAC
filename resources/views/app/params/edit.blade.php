@@ -2,6 +2,7 @@
 
 @section('extras_style')
   @include("app.params.style")
+  <link rel="stylesheet" href="{{ cdn_asset('asset/js/lib/croppie/croppie.css') }}">
 @endsection
 
 @section('content')
@@ -42,44 +43,99 @@
     </div>
   </div>
 </div>
+
+<div id="vgt" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div style="height: 300px">
+          <div id="croppie-photo-uploader"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 @endsection
 
 @section('scripts')
 <script type="text/javascript" src="{{ cdn_asset("asset/js/vue.js") }}"></script>
+<script type="text/javascript" src="{{ cdn_asset("asset/js/lib/croppie/croppie.min.js") }}"></script>
 <script type="text/javascript">
   var infos_form_id = "#infos-form";
   var infos_form = $(infos_form_id);
   var json_countries = <?= $json_countries ?>;
 
   if(infos_form.length){
-
     infos_vm = new Vue({
       el: infos_form_id,
       data:{
         countries:json_countries
       }
     });
-
   }
 </script>
 
 @if($edit_form == "photo")
-
 <script type="text/javascript">
 
-  $('.upload-btn-wrapper button').on('click', function(e){
-    e.preventDefault()
-    $("#upload-file-input").trigger('click')
+  // Initialisation de croppie
+  var $uploadCrop = $("#croppie-photo-uploader").croppie({
+    viewport: {
+      width: 200,
+      height: 200,
+      type: "circle",
+    },
+    boundary: {
+      height: 300,
+    },
   });
 
-  $('#upload-file-input').on('change', function(e){
-    local_path = $(e.target).val()
-    $("#upload-file").text(local_path)
-    console.log(local_path)
+  var reader = new FileReader();
+
+  reader.onload = function (event) {
+    $uploadCrop.croppie('bind', {
+      url: event.target.result,
+    });
+  };
+
+  $('.upload-btn-wrapper button').on('click', function(e){
+   
+    e.preventDefault()
+
+    $("#upload-file-input").trigger('click')
+
+  });
+
+  $('#upload-file-input').on('change', function(event){
+    local_path = $(event.target).val();
+
+    reader.readAsDataURL(this.files[0]);
+
+    $("#upload-file").text(local_path);
+
+    $('#vgt').modal('show')
+
+
   });
 
 </script>
 
 @endif
+
+<script>
+ 
+ 
+</script>
 
 @endsection
