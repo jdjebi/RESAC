@@ -1,12 +1,11 @@
 @extends('app.page')
 
 @section('extras_style')
-<link rel="stylesheet" href="asset/css/placeholder-loading.min.css">
-
-<link rel="stylesheet" href="{{ asset("asset/css/resac/pubs.css") }}">
+<link rel="stylesheet" href="{{ cdn_asset("asset/css/placeholder-loading.min.css") }}">
 <style media="screen">
   body{
-    background-color: #f1f3f6
+    background-color: #f1f3f6;
+    padding-top: 55px
   }
   .search-user-photo{
     width: 100px;
@@ -18,9 +17,9 @@
 @section('content')
 
 @auth
-<div class="">
+<div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 resac-padding-no-left-right">
       <form action="{{ route("app.search",[],false) }}" method="GET" class="has-search form-inline">
         <input id="mobile-search-bar" name="q" type="text" class="form-control form-control-md" placeholder="Rechercher une personne" value="{{ isset($_GET['q']) ? $_GET['q'] : '' }}">
       </form>
@@ -43,7 +42,7 @@
 
         @foreach ($results as $u)
           <div class="mt-4 media">
-            <img src="{{ $u->photo }}" class="search-user-photo mr-3" alt="...">
+            <img src="{{ $u->photo }}" class="rounded search-user-photo mr-3" alt="...">
             <div class="media-body">
               <h5 class="mt-0"><a href="{{ route('profil') }}?id={{ $u->id }}">{{ $u->fullname }}</a></h5>
               <div class="text-muted small">{{ $u->promo }}</div>

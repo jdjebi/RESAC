@@ -2,6 +2,9 @@
 
 @section('extras_style')
 <style media="screen">
+  body{
+    padding-top: 55px
+  }
   #landing-page{
     background-color: #e3e7eb;
     background-image: url({{ cdn_asset('asset/imgs/intro/bgs/etu.jpg') }});

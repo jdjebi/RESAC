@@ -29,6 +29,11 @@
   width: 100px
 }
 
+.resac-padding-no-left-right{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
 @media (max-width: 768px){
   .resac-padding-left-right-on-sm{
     padding-left: 0 !important;

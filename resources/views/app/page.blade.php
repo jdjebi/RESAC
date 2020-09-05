@@ -24,7 +24,7 @@
 
     <style media="screen">
       body{
-          padding-top: 58px
+          padding-top: 60px
       }
       .resac-bg-light{
         background-color: #ffffff
@@ -36,6 +36,9 @@
           font-size: 14px;
           padding-top: 13px;
       }
+      .resac-bg-dark .navbar-brand{
+          padding-top: 2px;
+      } 
       .resac-logo-25{
         font-size: 25px
       }
