@@ -65,7 +65,7 @@
         <div class="resac-user-card d-none">
 
           <div class="d-flex justify-content-center">
-            <div class="resac-user-card-content text-center border rounded p-4">
+            <div class="resac-user-card-content text-center resac-rounded-2px p-4 resac-linkedin-shadow">
               <div style="position: absolute; top: 8px">
                 <span class="small p-1 text-secondary font-weight-bold">@{{ user.promo }}</span>
               </div>

@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{{ asset('asset/css/fontawsome/all.css') }}">
     <link rel="stylesheet" href="{{ cdn_asset('asset/mobile/css/main.css') }}">
     <link rel="stylesheet" href="{{ cdn_asset('asset/css/resac/resac.css') }}">
+
     <style media="screen">
       body{
           padding-top: 60px
@@ -28,6 +29,16 @@
       .resac-bg-light{
         background-color: #ffffff
       }
+      .resac-bg-dark{
+        background-color:#283e4a;
+      }
+      .resac-bg-dark .navbar-nav .nav-link {
+          font-size: 14px;
+          padding-top: 13px;
+      }
+      .resac-bg-dark .navbar-brand{
+          padding-top: 2px;
+      } 
       .resac-logo-25{
         font-size: 25px
       }

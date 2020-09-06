@@ -28,7 +28,6 @@ Route::middleware("guest")->group(function(){
 
 });
 
-
 Route::get('/annuaire','AnnuaireController')->name('annuaire');
 
 Route::get('/nouveautes',"Resac\FeaturesController")->name('dev_news');
@@ -43,7 +42,7 @@ Route::middleware("auth")->group(function(){
 
   Route::get('/profil/{id}','UserController@profil2')->name('visitor_profil');
 
-  Route::get('/compte','UserController@account')->name('edit');
+  Route::match(['get', 'post'],'/compte','UserController@account')->name('edit');
 
   Route::match(['get', 'post'],'/parametres','UserController@account')->name('param');
 
@@ -160,8 +159,10 @@ Route::prefix('v1/api')->group(function () {
   Route::post('admin/login','AdminController@api_login')->name('admin_api_login');
 });
 
-Route::get('test_index',function(){
+/* Routes de test */
 
+
+Route::get('test_index',function(){
 
   $user = App\User::create([
     "nom" => 'test'.Str::random(4),

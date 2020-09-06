@@ -9,7 +9,7 @@
 <div class="container-fluid mt-3">
 
   <div class="row">
-    <div class="col-lg-2 col-sm-12">
+    <div class="col-lg-2 col-sm-12 resac-feed resac-padding-left-right-on-sm">
 
       @include('app.publications.nav')
 
@@ -64,5 +64,5 @@
 
 
 @section('scripts')
-<script type="module" src="{{ asset('asset/js/resac/init.timeago.js') }}"></script>
+<script type="module" src="{{ cdn_asset('asset/js/resac/init.timeago.js') }}"></script>
 @endsection

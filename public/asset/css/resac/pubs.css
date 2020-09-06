@@ -1,5 +1,5 @@
 .post-box .box{
-  border-radius: 0.25em;
+  border-radius: 2px;
   position: relative;
   box-sizing: content-box;
   overflow: hidden;
@@ -10,7 +10,7 @@
 }
 
 .pub-box .box{
-  border-radius: 0.25em;
+  border-radius: 2px;
 }
 
 .pub-box .pub-user-photo{
@@ -64,6 +64,7 @@
 .pub-box .body{
   white-space: pre-line;
   font-size: 16px;
+  overflow-wrap: break-word;
 }
 
 .resac-post-link{
