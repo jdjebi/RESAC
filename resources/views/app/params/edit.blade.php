@@ -44,28 +44,6 @@
   </div>
 </div>
 
-<div id="vgt" class="modal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div style="height: 300px">
-          <div id="croppie-photo-uploader"></div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 @endsection
 
 @section('scripts')
@@ -110,32 +88,30 @@
   };
 
   $('.upload-btn-wrapper button').on('click', function(e){
-   
     e.preventDefault()
-
     $("#upload-file-input").trigger('click')
-
   });
 
   $('#upload-file-input').on('change', function(event){
     local_path = $(event.target).val();
-
     reader.readAsDataURL(this.files[0]);
-
-    $("#upload-file").text(local_path);
-
     $('#vgt').modal('show')
+  });
 
-
+  $('#change-photo').on('click',function(){
+    $uploadCrop
+      .croppie("result", {
+        type: "canvas",
+        size: "viewport",
+      })
+      .then(function (resp) {
+        $('#base64-upload-file-input').val(resp);
+        $('#user-photo').attr('src',resp);
+      });
   });
 
 </script>
 
 @endif
-
-<script>
- 
- 
-</script>
 
 @endsection
