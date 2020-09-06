@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card resac-account-card-support">
   <div class="card-header">
     Changement du mot de passe
   </div>
@@ -41,7 +41,7 @@
         <input type="password" class="form-control" value="{{ $FormInfo->get("conf_pass") }}" name="conf_pass" value="" id="conf_pass">
       </div>
 
-      <button type="submit" class="btn btn-primary" name="change_pass">Envoyer</button>
+      <button type="submit" class="btn btn-sm btn-primary" name="change_pass">Envoyer</button>
     </form>
   </div>
 </div>

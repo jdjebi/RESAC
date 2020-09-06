@@ -1,10 +1,16 @@
+.resac-border-light-2{
+  border: 1px solid #ced2d7
+}
+.resac-border-no{
+  border: 0;
+}
+.resac-rounded-2px{
+  border-radius: 2px;
+}
+
 .wh-40{
   width: 40px;
   height: 40px;
-}
-
-.resac-border-light-2{
-  border: 1px solid #ced2d7
 }
 
 .resac-w-20{
@@ -12,10 +18,10 @@
 }
 
 .resac-w-200{
-  height: 200px
+  width: 200px
 }
 .resac-h-200{
-  width: 200px
+  height: 200px
 }
 
 .resac-w-150{
@@ -27,6 +33,11 @@
 
 .resac-w-100{
   width: 100px
+}
+
+.resac-padding-no-left-right{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 @media (max-width: 768px){
@@ -46,4 +57,29 @@
   .resac-feed .resac-clear-border-right-on-sm{
     border-right: none !important;
   }
+}
+
+/* Utilitaire d'affichage */
+
+.resac-d-none{
+  display:none
+}
+
+@media (max-width: 768px){
+  .resac-d-sm-none{
+    display:none
+  }
+}
+
+@media (max-width: 960px){
+  .resac-d-lg-block{
+    display: block
+  }
+  .resac-d-lg-none{
+    display:none
+  }
+}
+
+.resac-linkedin-shadow{
+  box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 2px 3px rgba(0,0,0,.2);
 }

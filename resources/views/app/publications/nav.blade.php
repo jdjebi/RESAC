@@ -1,21 +1,3 @@
-<style>
-.resac-d-none{
-  display:none
-}
-
-
-@media (max-width: 960px){
-  .resac-d-lg-block{
-    display: block
-  }
-  .resac-d-lg-none{
-    display:none
-  }
-}
-
-
-</style>
-
 <div class="resac-d-none resac-d-lg-block mb-3">
   <ul class="nav nav-tabs">
     <li class="nav-item dropdown">
@@ -27,11 +9,7 @@
       </div>
     </li>
     <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Création</a>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="{{ route('app.post.hub') }}">Publications</a>
-        <a class="dropdown-item" href="{{ route('app.post.create.free') }}">Publication libre</a>
-      </div>
+      <a class="nav-link" href="{{ route('app.post.hub') }}">Création</a>
     </li>
   </ul>
 </div>

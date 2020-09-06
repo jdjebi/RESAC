@@ -1,35 +1,33 @@
 # A FAIRE
 
+- Mettre à jour le CDN
 
 - Améliorer l'édition des publications
-  - Modification des publications
-  - affichage unique d'une publication
+  - [] Modification des publications
+    - [] Modification effective
+  - Affichage unique d'une publication
+    - [] Pour la fil d'actu
 
-
-- Optimiser la plateforme
+- [] Optimiser la plateforme
   - Version mobile de l'interface
 
 # Bugs
 - La redirection vers une page consultée
-- Rétablir le cache
-
 - Suppression impossible sur la page des publication
 - Réduire la répétition du code d'affichage des publications
 - Revoir l'affichage des publications
-- Dans le controlleur de suppression de post, s
-- Trouver une solution pour vérifier que le CDN fonctionne
-
-
-Mise i la page de redirection est la page elle on redirige sur la page d'accueil
+- Trouver une solution pour vérifier que le CDN fonctionne (utiliser une requête asynchrone)
+- Si la page de redirection est la page elle même on redirige sur la page d'accueil
+- Les notifications flash ne s'affichent pas sur la page de recherche
+- Améliorer la prise en charge des liens dans les publications
+  - Lien de type www.domaine.extension, domain.extension
 
 # v5
 - Amélioration du système de permission
 - Intégrer les modérateurs et les super utilisateurs
-- Utiliser un nom utilisateur pour identifier un utilisateur
 
 - Gestion des publications côtés utilisateur [Améliorer]
   - Gérer la supression
-- Revoir les photos dans l'admin
 ---
 - Vérifier l'existence d'un fichier avant de retourner son chemin
 - Gestion des utilisateurs
@@ -37,20 +35,10 @@ Mise i la page de redirection est la page elle on redirige sur la page d'accueil
   - Gestion des utilisateurs
     - [?] Suppression ajax des utilisateurs
     - Révision de la page d'accueil
-- Trouver suivre le stockage des images sur dropbox
-- Renforcer l'accéssibilité aux photos de profil
-- Améliorer la prise en charge des liens dans les publications
-  - Lien de type www.domaine.extension, domain.extension
-
----
 
 - Gérer le cas au le où le mail ne part pas
 - Créer une documentation
 - Conservation de session. Récupérer les l'utilisateurs uniquement via la auth de laravel (il reste l'administration) et autre bugs lié
-- Revoir la barre de recherche
-- Créer une section pour faire des flash infos
-- Créer une historique de navigation en terme de flyers - information qui une fois disparait ou disparait après un certains temps (utiliser ). Ces derniers sont rédiger par un admin
-- Guide lors de la connexion
 
 # FAIT
 - Utiliser Dropbox comme CDN pour les photos
@@ -59,6 +47,9 @@ Mise i la page de redirection est la page elle on redirige sur la page d'accueil
   - Lien cliquable avec coloration des liens
   - Coloration des hashtags
   - Création d'un serveur de fichiers (NodeJS)
+- Revoir les photos dans l'admin
+- Créer une section pour faire des flash infos
+- Revoir la barre de recherche
 
 
 # Brainstorming
@@ -69,6 +60,10 @@ Mise i la page de redirection est la page elle on redirige sur la page d'accueil
 - Message de bienvenue sur RESAC lors de la première connexion
 - Utiliser un système de balisage pour la création des publications
 - Trouver une solution pour que les messages flash ne se répètent pas s'il en la mm origine ou le mm contenu
+- Option pour retirer la photo de profil
+- Utiliser un nom utilisateur pour identifier un utilisateur
+- Créer une historique de navigation en terme de flyers - information qui une fois disparait ou disparait après un certains temps (utiliser ). Ces derniers sont rédiger par un admin
+- Guide lors de la connexion
 
 # Extras
 - Créer un middleware pour assurer la mise à jour du compte de l'utilisateur (le middleware va déconnecter l'utilisateur pour qu'il se reconnecte afin d'opérer la mise à jour globale)

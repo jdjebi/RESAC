@@ -1,4 +1,4 @@
-<div class="card m-2">
+<div class="card resac-account-card-support">
   <div class="card-header">
     Informations personnelles
   </div>
@@ -109,7 +109,7 @@
         <p><small><b>Les champs marqués du caractère <span class="text-danger">*</span> sont obligatoires.</b></small></p>
       </div>
       <div class="mt-4">
-        <button type="submit" class="btn btn-primary" name="change_info">Envoyer</button>
+        <button type="submit" class="btn btn-sm btn-primary" name="change_info">Envoyer</button>
       </div>
     </form>
   </div>
