@@ -4,14 +4,16 @@ namespace App\Http\Controllers\UI\Web\Compte;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Hash;
+use App\Models\SearchUserIndex;
 
 class CompteController extends Controller
 {
  
     public function photo(Request $request){
 
-        $user = UserAuth(); 
+        $user = UserAuth();
   
         $edit_form = "photo";
 
@@ -86,7 +88,7 @@ class CompteController extends Controller
 
         \Flash::add("Modifications enregisrées.","success");
 
-        return redirect()->route('param');
+        return redirect()->route('compte.index');
       }else{
         $empty_field_message = "Veuillez remplir ce champs.";
         $email_format_error = "Format de l'adresse E-mail incorrecte.";
@@ -148,7 +150,7 @@ class CompteController extends Controller
       $title = "Compte - Général";
       $edit_form = "infos";
 
-      return view("app.params.edit",[
+      return view("app.params.general",[
         'user' => $user,
         'title' => $title,
         'FormInfo' => $FormInfo,
