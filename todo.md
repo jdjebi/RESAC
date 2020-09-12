@@ -1,7 +1,5 @@
 # A FAIRE
 
-- Mettre à jour le CDN
-
 - Améliorer l'édition des publications
   - [] Modification des publications
     - [] Modification effective

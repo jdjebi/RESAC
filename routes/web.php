@@ -44,6 +44,14 @@ Route::middleware("auth")->group(function(){
 
   Route::match(['get', 'post'],'/compte','UserController@account')->name('edit');
 
+
+  Route::prefix('/compte2')->group(function () {
+    Route::get('','UI\Web\Compte\CompteController@general')->name('edit5');
+    Route::get('general','UI\Web\Compte\CompteController@general')->name('edit2');
+    Route::get('photo','UI\Web\Compte\CompteController@general')->name('edit3');
+    Route::get('mot-de-passe','UI\Web\Compte\CompteController@general')->name('edit4');
+  });
+
   Route::match(['get', 'post'],'/parametres','UserController@account')->name('param');
 
   Route::match(['get', 'post'],'/actualites','Resac\Actu\ActuController@index')->name('actu');

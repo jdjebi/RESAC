@@ -10,7 +10,7 @@
             </div>
             <div class="d-flex justify-content-center m-3">
                 <div class="upload-btn-wrapper">
-                    <button class="btn btn-outline-dark btn-sm ">Importer une photo</button>
+                  <button class="btn btn-outline-dark btn-sm ">Importer une photo</button>
                 </div>
             </div>
             <div class="text-center">
@@ -18,6 +18,7 @@
             </div>
             <input id="upload-file-input" name="photo" type="file" accept=".png, .jpeg, .jpg">
             <input id="base64-upload-file-input" name="base64-photo" type="hidden">
+            <input name="change_photo" type="hidden">
             <div class="text-center mt-1">
                 <button class="btn  btn-sm btn-primary" name="change_photo" type="submit">Changer la photo</button>
                 <a class="btn btn-sm btn-outline-danger" href="#"> Retirer la photo</a>

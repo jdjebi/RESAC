@@ -183,7 +183,9 @@ class UserController extends Controller
           $FormPass->add_error('global',"Mot de passe du compte incorrecte.");
         }
       }elseif($request->has('change_photo')){
+
         if($request->photo){
+
           if($request->photo->isValid()){
 
             // Si on est en production on utilise Dropbox

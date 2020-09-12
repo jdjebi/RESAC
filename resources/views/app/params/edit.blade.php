@@ -49,6 +49,8 @@
 @section('scripts')
 <script type="text/javascript" src="{{ cdn_asset("asset/js/vue.js") }}"></script>
 <script type="text/javascript" src="{{ cdn_asset("asset/js/lib/croppie/croppie.min.js") }}"></script>
+
+@if($edit_form == "infos")
 <script type="text/javascript">
   var infos_form_id = "#infos-form";
   var infos_form = $(infos_form_id);
@@ -63,11 +65,11 @@
     });
   }
 </script>
+@endif
 
 @if($edit_form == "photo")
 <script type="text/javascript">
 
-  // Initialisation de croppie
   var $uploadCrop = $("#croppie-photo-uploader").croppie({
     viewport: {
       width: 200,
@@ -102,11 +104,13 @@
     $uploadCrop
       .croppie("result", {
         type: "canvas",
-        size: "viewport",
+        size: "original",
+        circle: false
       })
       .then(function (resp) {
         $('#base64-upload-file-input').val(resp);
         $('#user-photo').attr('src',resp);
+        $('#photo-form').submit();
       });
   });
 
