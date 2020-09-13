@@ -46,9 +46,15 @@ Route::middleware("auth")->group(function(){
 
 
   Route::prefix('/compte2')->group(function () {
+    
     Route::match(['get', 'post'],'','UI\Web\Compte\CompteController@general')->name('compte.index');
     Route::get('photo','UI\Web\Compte\CompteController@photo')->name('compte.photo');
     Route::get('mot-de-passe','UI\Web\Compte\CompteController@pass')->name('compte.pass');
+  
+    Route::prefix('/update')->group(function () {
+      Route::post('general','Backend\User\GeneralController@update')->name('backend.compte.general');
+    });
+
   });
 
   Route::match(['get', 'post'],'/parametres','UserController@account')->name('param');

@@ -1,7 +1,7 @@
 @extends('app.params.base')
 
 @section('params-content')
-<div class="card resac-account-card-support">
+<div id="infos-form" class="card resac-account-card-support">
 <div class="card-header">
     Général
 </div>
@@ -16,7 +16,7 @@
             </div>
         @endif
     @endif
-    <form action="{{ route('compte.index') }}" method="post">
+    <form action="{{ route('backend.compte.general') }}" method="post">
     @csrf
     <div class="form-group">
         <label for="nom">Nom <span class="text-danger">*</span></label>

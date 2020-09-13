@@ -51,7 +51,7 @@ if(!function_exists("is_current_url")){
 if(!function_exists("photos_cdn_asset")){
   function photos_cdn_asset($user){
 
-    $url = $user->photo;
+    $url = asset($user->photo);
 
     if(env('APP_ENV') == "web"){
       try {
