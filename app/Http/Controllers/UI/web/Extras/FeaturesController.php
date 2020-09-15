@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Resac;
+namespace App\Http\Controllers\UI\Web\Extras;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;

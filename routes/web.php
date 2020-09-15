@@ -11,8 +11,8 @@ use Illuminate\Support\Facades\Http;
 
 Route::middleware("guest")->group(function(){
 
-  Route::get('/','IndexController');
-  Route::get('/v2','IndexController@index2')->name('home');
+  Route::get('/','UI\Web\Index\IndexController');
+  Route::get('/v2','UI\Web\Index\IndexController@index2')->name('home');
 
   Route::get('/connexion','AuthController@login')->name('login');
 
@@ -28,9 +28,9 @@ Route::middleware("guest")->group(function(){
 
 });
 
-Route::get('/annuaire','AnnuaireController')->name('annuaire');
+Route::get('/annuaire','UI\Web\Extras\AnnuaireController')->name('annuaire');
 
-Route::get('/nouveautes',"Resac\FeaturesController")->name('dev_news');
+Route::get('/nouveautes',"UI\Web\Extras\FeaturesController")->name('dev_news');
 
 /* Application */
 
