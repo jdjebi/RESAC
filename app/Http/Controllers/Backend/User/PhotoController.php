@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class PhotoController extends Controller
 {
@@ -13,25 +14,26 @@ class PhotoController extends Controller
 
         $user = UserAuth();
 
-        $img_base64_data = $request->input("base64-photo");
+        $success = true;
 
-        $image_array_1 = explode(";", $img_base64_data);
-        $image_array_2 = explode(",", $image_array_1[1]);
+        $data = $this->get_image_data_from_base64($request->input("base64-photo"));
 
-        $data = base64_decode($image_array_2[1]);
+        $path = 'avatars/'."base64-". time() .'.png';
 
-        $imageName = "base64-". time() .'.png';
+        Storage::disk('local')->put("public/".$path, $data);
 
-        dump($imageName);
-
-        Storage::disk('local')->put('file.txt', 'Contents');
+        $user->photo = $path;
+        $user->save();
 
         if(($request->has("change_pass"))){
-            
             session()->put('form_export', $FormPass->export_results());
         }
+
+        return json_encode([
+            "success" => $success,
+            "photo" => asset($path)
+        ]);
      
-        return redirect()->back();
     }
 
     public function api_delete(Request $request){
@@ -39,6 +41,14 @@ class PhotoController extends Controller
             "photo" => asset(config('var.user_default_photo'))
         ]);
     }
+
+    public function get_image_data_from_base64($img_base64_data){
+        $image_array_1 = explode(";", $img_base64_data);
+        $image_array_2 = explode(",", $image_array_1[1]);
+        return base64_decode($image_array_2[1]);
+    }
+
+    
  
 }
 
