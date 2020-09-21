@@ -58,7 +58,10 @@
       border-bottom: 0;
       border-bottom-right-radius: 6px;
     }
-  
+    .menu-item.active{
+      background-color: #eefaff;
+      font-weight: 500
+    }
     .avatar-user {
       border-radius: 50%!important;
     }

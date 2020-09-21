@@ -17,9 +17,9 @@
             <div class="f6 text-gray text-normal">Mon compte</div>
           </div>
         </div>
-        <a class="menu-item" href="{{ route('compte.index') }}">Général</a>
-        <a class="menu-item" href="{{ route('compte.photo') }}">Photo de profil</a>
-        <a class="menu-item" href="{{ route('compte.pass') }}">Mot de passe</a>
+        <a class="menu-item {{ is_current_url('compte.index') }}" href="{{ route('compte.index') }}">Général</a>
+        <a class="menu-item {{ is_current_url('compte.photo') }}" href="{{ route('compte.photo') }}">Photo de profil</a>
+        <a class="menu-item {{ is_current_url('compte.pass') }}" href="{{ route('compte.pass') }}">Mot de passe</a>
       </nav>
     </div>
     <div class="col-sm-12 col-md-7 col-lg-8">
@@ -30,6 +30,10 @@
 
     </div>
   </div>
+
+
+  @yield('extern-notif-content')
+
 </div>
 @endsection
 

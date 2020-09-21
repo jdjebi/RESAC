@@ -68,16 +68,51 @@
     </div>
 </div>
 
-
-</div>
-
 @endsection
+
+@section('extern-notif-content')
+<div class="p-5">
+    <div id="photo-updated" class="toast" role="alert" aria-live="assertive" aria-atomic="true" style="position: fixed; bottom: 60px; right: 30px;">
+        <div class="toast-header">
+        <div class="text-success"><i class="fas fa-info-circle"></i></div>&nbsp;&nbsp;
+        <strong class="mr-auto">Notification</strong>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="toast-body">
+        Mise à jour de votre photo éffectuée
+        </div>
+    </div>
+    <div id="photo-deleted" class="toast" role="alert" aria-live="assertive" aria-atomic="true" style="position: fixed; bottom: 60px; right: 30px;">
+        <div class="toast-header">
+        <div class="text-success"><i class="fas fa-info-circle"></i></div>&nbsp;&nbsp;
+        <strong class="mr-auto">Notification</strong>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="toast-body">
+            Photo rétirée &nbsp; &nbsp;
+        </div>
+    </div>
+</div>
+@endsection
+
 
 @section('scripts')
 @parent
 <script src="{{ cdn_asset("asset/js/vue.js") }}" type="text/javascript"></script>
 <script type="text/javascript" src="{{ cdn_asset("asset/js/lib/croppie/croppie.min.js") }}"></script>
 <script type="text/javascript">
+
+$('#photo-updated').toast({
+    'delay': 3000
+});
+
+$('#photo-deleted').toast({
+    'delay': 3000
+});
 
 var vm = new Vue({
     el: "#v-photo",
@@ -113,6 +148,7 @@ var vm = new Vue({
     },
 
     methods:{
+
         onChangePhoto: function (){
             $('#photo-form')[0].reset();
             $("#upload-file-input").trigger('click')
@@ -143,7 +179,8 @@ var vm = new Vue({
                         vm.photo.change_photo_btn.spinner = false;
                         vm.photo.change_photo_btn.disabled = false;
                         vm.photo.can_delete = true;
-                       // $('#vgt').modal('hide');
+                        $('#vgt').modal('hide');
+                        $('#photo-updated').toast('show');
                     },
                     error: vm.onError
                 });
@@ -164,6 +201,7 @@ var vm = new Vue({
                     vm.photo.delete_photo_btn.disabled = false;
                     vm.photo.can_delete = false;
                     $('#account-user-photo').attr('src',data.photo);
+                    $('#photo-deleted').toast('show');
                 },
                 error: vm.onError
             });
