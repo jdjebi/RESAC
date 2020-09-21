@@ -1,5 +1,8 @@
 ## Master
 
+### 20-09-2020
+- Création d'un nouveau fichier de configuration 'var.php', il contient par exemple le chemin vers la photo de profil par défaut
+
 ### 29-08-2020
 - Redimensionnement automatique du formulaire de publication sur la page d'accueil
   - Il est assuré par asset/js/lib/autosize.min.js
