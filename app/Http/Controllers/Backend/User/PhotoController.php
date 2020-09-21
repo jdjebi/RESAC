@@ -20,7 +20,14 @@ class PhotoController extends Controller
 
         $path = 'avatars/'."base64-". time() .'.png';
 
-        Storage::disk('local')->put("public/".$path, $data);
+        // Si on est en production on utilise Dropbox
+        if(env('APP_ENV') == "web"){
+            Storage::disk('dropbox')->put($path, $data);
+        }
+        // sinon on utilise le stockage local
+        else{
+            Storage::disk('local')->put("public/".$path, $data);
+        }
 
         $user->photo = $path;
         $user->save();
@@ -37,6 +44,9 @@ class PhotoController extends Controller
     }
 
     public function api_delete(Request $request){
+        $user = UserAuth();
+        $user->photo = null;
+        $user->save();
         return json_encode([
             "photo" => asset(config('var.user_default_photo'))
         ]);
