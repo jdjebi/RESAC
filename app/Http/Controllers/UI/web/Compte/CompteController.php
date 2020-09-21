@@ -4,7 +4,6 @@ namespace App\Http\Controllers\UI\Web\Compte;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\Hash;
 use App\Models\SearchUserIndex;
 
@@ -28,15 +27,18 @@ class CompteController extends Controller
         $user = UserAuth();
   
         $FormPass = new \Form\User\Update\Password($_POST);
+
+        if(session("form_export")){
+          $FormPass->import_data(session("form_export"));
+          session()->put("form_export",null);
+        }
   
         $title = "Compte - Mot de passe";
-        $edit_form = "password";
   
-        return view("app.params.edit",[
+        return view("app.params.pass",[
           'user' => $user,
           'title' => $title,
           'FormPass' => $FormPass,
-          'edit_form' => $edit_form,
         ]);
     }
 
@@ -46,21 +48,8 @@ class CompteController extends Controller
 
       $FormInfo = new \Form\User\Update\Info();
 
-      $FormInfo->set_default([
-        "nom" => $user->nom,
-        "prenom" => $user->prenom,
-        "email" => $user->email,
-        "numero" => $user->numero,
-        "pays" => $user->code_pays,
-        "ville" => $user->ville,
-        "commune" => $user->commune,
-        "promo1" => $user->promo1,
-        "promo2" => $user->promo2,
-        "universite" => $user->universite,
-        "emploi" => $user->emploi,
-      ]);
+      $FormInfo->set_default($this->general_user_infos($user));
 
-      
       $FormInfo->register_array('pays',\Country::codes());
 
       if(session("form_export")){
@@ -82,6 +71,22 @@ class CompteController extends Controller
         'countries_data' => $countries_data,
         'json_countries' => $json_countries
       ]);
+    }
+
+    public function general_user_infos($user){
+      return [
+        "nom" => $user->nom,
+        "prenom" => $user->prenom,
+        "email" => $user->email,
+        "numero" => $user->numero,
+        "pays" => $user->code_pays,
+        "ville" => $user->ville,
+        "commune" => $user->commune,
+        "promo1" => $user->promo1,
+        "promo2" => $user->promo2,
+        "universite" => $user->universite,
+        "emploi" => $user->emploi,
+      ];
     }
 
 }

@@ -5,7 +5,8 @@
   <link rel="stylesheet" href="{{ cdn_asset('asset/js/lib/croppie/croppie.css') }}">
 @endsection
 
-@section('content')    <?php if(isset($FormInfo->errors)): ?>
+@section('content')    
+  <?php if(isset($FormInfo->errors)): ?>
 
       <?php if(isset($FormInfo->errors["required"])): ?>
         <div class="alert alert-danger">

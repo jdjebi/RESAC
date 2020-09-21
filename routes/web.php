@@ -36,8 +36,6 @@ Route::get('/nouveautes',"UI\Web\Extras\FeaturesController")->name('dev_news');
 
 Route::middleware("auth")->group(function(){
 
-  Route::get('/feed','ActuController@feed')->name('app.feed');
-
   Route::get('/profil','UserController@profil')->name('profil');
 
   Route::get('/profil/{id}','UserController@profil2')->name('visitor_profil');
@@ -46,15 +44,19 @@ Route::middleware("auth")->group(function(){
 
 
   Route::prefix('/compte2')->group(function () {
-    
-    Route::match(['get', 'post'],'','UI\Web\Compte\CompteController@general')->name('compte.index');
-    Route::get('photo','UI\Web\Compte\CompteController@photo')->name('compte.photo');
-    Route::get('mot-de-passe','UI\Web\Compte\CompteController@pass')->name('compte.pass');
-  
+    // Frontend
+    Route::namespace('UI\Web\Compte')->group(function () {
+      Route::get('','CompteController@general')->name('compte.index');
+      Route::get('photo','CompteController@photo')->name('compte.photo');
+      Route::get('mot-de-passe','CompteController@pass')->name('compte.pass');
+    });
+    // Backend
     Route::prefix('/update')->group(function () {
       Route::post('general','Backend\User\GeneralController@update')->name('backend.compte.general');
+      Route::post('pass','Backend\User\PasswordController@update')->name('backend.compte.pass');
+      Route::post('photo/change','Backend\User\PhotoController@update')->name('backend.compte.photo.change');
+      Route::get('photo/delete','Backend\User\PhotoController@api_delete')->name('backend.compte.photo.delete');
     });
-
   });
 
   Route::match(['get', 'post'],'/parametres','UserController@account')->name('param');

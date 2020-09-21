@@ -11,7 +11,7 @@
     <div class="col-sm-12 col-md-5 col-lg-3">    
       <nav class="menu mb-3">
         <div class="menu-heading d-flex">
-          <img class="avatar avatar-user mr-2" src="{{ photos_cdn_asset($user) }}" width="32" height="32" alt="{{ $user->fullname }}">
+          <img id="account-user-photo" class="avatar avatar-user mr-2" src="{{ photos_cdn_asset($user) }}" width="32" height="32" alt="{{ $user->fullname }}">
           <div class="flex-1 lh-condensed">
             <div class="f5 text-gray-dark text-bold css-truncate css-truncate-target">{{ $user->prenom }}</div>
             <div class="f6 text-gray text-normal">Mon compte</div>

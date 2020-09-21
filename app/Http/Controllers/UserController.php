@@ -18,13 +18,9 @@ class UserController extends Controller
 
     protected $user;
 
-    public function __construct(){
-
-    }
-
     public function profil(Request $request){
 
-      $user = Auth2::user();
+      $user = UserAuth();
 
       $id = $user->id;
 

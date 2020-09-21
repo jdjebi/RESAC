@@ -110,7 +110,7 @@
     <ul  class="navbar-nav">
 
       <li class="nav-item">
-        <a class="nav-link" href="{{ route("profil") }}"><i class="fa fa-user-circle"></i> {{ $user->prenom }}</a>
+        <a class="nav-link" href="{{ route("profil") }}"><i class="fa fa-user-circle"></i> {{ UserAuth()->prenom }}</a>
       </li>
       @if(Resac\Auth2::is_admin_logged())
         <li class="nav-item">

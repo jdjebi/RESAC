@@ -31,9 +31,20 @@ class User extends Authenticatable
         }
       }
       else{
-        $url = asset("asset/imgs/user_default_pic.png"); 
+        $url = asset("asset/imgs/user_default_pic.png",true); 
       }   
       return $url;
+    }
+
+    public function getHavePhotoAttribute(){
+
+      if($this->attributes['photo'] != ""){
+        return true;
+      }
+      else{
+        return false; 
+      }   
+      
     }
 
     public function get_photo2(){
