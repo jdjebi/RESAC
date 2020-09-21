@@ -107,6 +107,8 @@ var vm = new Vue({
         
         if(have_user_photo){
             this.photo.can_delete = true;
+        }else{
+            this.photo.can_delete = false;
         }
     },
 
@@ -140,6 +142,7 @@ var vm = new Vue({
                         vm.user.photo = resp;
                         vm.photo.change_photo_btn.spinner = false;
                         vm.photo.change_photo_btn.disabled = false;
+                        vm.photo.can_delete = true;
                        // $('#vgt').modal('hide');
                     },
                     error: vm.onError
@@ -159,6 +162,7 @@ var vm = new Vue({
                     console.log(data);
                     vm.photo.delete_photo_btn.spinner = false;
                     vm.photo.delete_photo_btn.disabled = false;
+                    vm.photo.can_delete = false;
                     $('#account-user-photo').attr('src',data.photo);
                 },
                 error: vm.onError
