@@ -18,7 +18,7 @@ class PhotoController extends Controller
 
         $data = $this->get_image_data_from_base64($request->input("base64-photo"));
 
-        $path = 'avatars/'."base64-". time() .'.png';
+        $path = $user->id .'.png';
 
         // Si on est en production on utilise Dropbox
         if(env('APP_ENV') == "web"){
