@@ -1,16 +1,44 @@
 @extends('app.params.base')
 
+@section('extras_style')
+@parent
+<link rel="stylesheet" href="{{ asset("asset/css/placeholder-loading.min.css") }}">
+<style>
+.ph-item {
+    padding: 0px;
+    border: none;
+}
+</style>
+@endsection
+
 @section('params-content')
 
 <div id="v-photo">
-
 
 <div class="card resac-account-card-support">
     <div class="card-header">
         Photo de profil
     </div>
     <div class="card-body">
-        <form id="photo-form" class="" method="POST" enctype="multipart/form-data">
+
+        <div v-if="photo_form_is_not_ready" id="loader" class="ph-item d-none">
+            <div class="ph-col-4 empty"></div>
+            <div class="ph-col-4">
+              <div class="ph-avatar"></div>
+            </div>
+            <div class="ph-col-12">
+              <div class="ph-row">
+                <div class="ph-col-4 empty"></div>
+                <div class="ph-col-4"></div>
+                <div class="ph-col-4 empty"></div>
+                <div class="ph-col-4 empty"></div>
+                <div class="ph-col-4"></div>
+                <div class="ph-col-4 empty"></div>
+              </div>
+            </div>
+          </div>
+
+        <form id="photo-form" class="d-none" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="text-center">
                 <img id="user-photo"  class="resac-w-200 resac-h-200  rounded-circle" v-bind:src="user.photo" alt="">
@@ -118,6 +146,7 @@ var vm = new Vue({
     el: "#v-photo",
     data:{
         photo:{
+            photo_form_is_not_ready: false,
             can_delete:true,
             change_photo_btn:{
                 spinner:false,
@@ -145,6 +174,9 @@ var vm = new Vue({
         }else{
             this.photo.can_delete = false;
         }
+
+        this.photo_form_is_not_ready = false;
+        $('#photo-form').removeClass("d-none");
     },
 
     methods:{
@@ -237,31 +269,5 @@ reader.onload = function (event) {
     });
 };
 
-/*
-$('.upload-btn-wrapper button').on('click', function(e){
-    e.preventDefault()
-    $("#upload-file-input").trigger('click')
-});
-
-$('#upload-file-input').on('change', function(event){
-    local_path = $(event.target).val();
-    reader.readAsDataURL(this.files[0]);
-    $('#vgt').modal('show')
-});
-
-$('#change-photo').on('click',function(){
-    $uploadCrop
-    .croppie("result", {
-        type: "canvas",
-        size: "original",
-        circle: false
-    })
-    .then(function (resp) {
-        $('#base64-upload-file-input').val(resp);
-        $('#user-photo').attr('src',resp);
-        // $('#photo-form').submit();
-    });
-});
-*/
 </script>
 @endsection
