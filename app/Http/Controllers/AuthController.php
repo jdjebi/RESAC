@@ -27,14 +27,6 @@ class AuthController extends Controller
 
       $redirect_url = $request->has('redirect') ? $request->redirect : "";
 
-      /*
-      if (\Illuminate\Support\Facades\Auth::check()) {
-        dump("Utilisateur connecté");
-      }else{
-        dump("Utilisateur non-connecté");
-      }
-      */
-
       return view('app.connexion',[
         "redirect_url" => $redirect_url,
         "title2" => $title2

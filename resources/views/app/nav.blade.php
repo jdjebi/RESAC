@@ -119,7 +119,7 @@
       @endif
 
       <li class="nav-item">
-        <a class="nav-link" href="{{ route("edit") }}"><i class="fa fa-user-cog"></i> Paramètres</a>
+        <a class="nav-link" href="{{ route("compte.index") }}"><i class="fa fa-user-cog"></i> Paramètres</a>
       </li>
 
       <li class="nav-item">

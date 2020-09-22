@@ -38,12 +38,11 @@ Route::middleware("auth")->group(function(){
 
   Route::get('/profil','UserController@profil')->name('profil');
 
-  Route::get('/profil/{id}','UserController@profil2')->name('visitor_profil');
+  Route::get('/profil2','UI\Web\Profil\ProfilController@user')->name('profil.user');
+  // Backend
+  Route::get('user/connected/main_data','Backend\User\GetDataController@main_for_user_connected')->name('backend.user.connected.main_data');
 
-  Route::match(['get', 'post'],'/compte','UserController@account')->name('edit');
-
-
-  Route::prefix('/compte2')->group(function () {
+  Route::prefix('/compte')->group(function () {
     // Frontend
     Route::namespace('UI\Web\Compte')->group(function () {
       Route::get('','CompteController@general')->name('compte.index');
@@ -52,14 +51,13 @@ Route::middleware("auth")->group(function(){
     });
     // Backend
     Route::prefix('/update')->group(function () {
-      Route::post('general','Backend\User\GeneralController@update')->name('backend.compte.general');
-      Route::post('pass','Backend\User\PasswordController@update')->name('backend.compte.pass');
-      Route::post('photo/change','Backend\User\PhotoController@update')->name('backend.compte.photo.change');
-      Route::get('photo/delete','Backend\User\PhotoController@api_delete')->name('backend.compte.photo.delete');
+      Route::post('general','Backend\User\Update\GeneralController@update')->name('backend.compte.general');
+      Route::post('pass','Backend\User\Update\PasswordController@update')->name('backend.compte.pass');
+      Route::post('photo/change','Backend\User\Update\PhotoController@update')->name('backend.compte.photo.change');
+      Route::get('photo/delete','Backend\User\Update\PhotoController@api_delete')->name('backend.compte.photo.delete');
     });
-  });
 
-  Route::match(['get', 'post'],'/parametres','UserController@account')->name('param');
+  });
 
   Route::match(['get', 'post'],'/actualites','Resac\Actu\ActuController@index')->name('actu');
 
@@ -78,6 +76,7 @@ Route::middleware("auth")->group(function(){
   Route::get('publications/delete/{id}',"Resac\Posts\PostDeleteController")->where('id', '[0-9]+')->name('app.post.delete');
 
   Route::post('publications/publier',"Resac\Posts\PostSaverController")->name('app.post.publish');
+  
 
 });
 

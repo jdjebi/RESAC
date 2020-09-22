@@ -20,14 +20,14 @@
             <small class="profile-position">Promo
               <span>
                 @if(empty($user->pays))
-                  <a style="font-size: 15px" href="{{ route("param") }}#promo1"><i class="fa fa-plus"></i> Ajouter une promotion</a>
+                  <a style="font-size: 15px" href="{{ route("compte.index") }}#promo1"><i class="fa fa-plus"></i> Ajouter une promotion</a>
                 @else
                   {{ $user->promo1 }} - {{ $user->promo2 }}
                 @endif
               </span>
             </small>
             <div class="mt-2">
-              <a class="btn btn-sm btn-primary" href="{{ route('edit') }}"><i class="fa fa-edit"></i> Mettre à jour</a>
+              <a class="btn btn-sm btn-primary" href="{{ route('compte.index') }}"><i class="fa fa-edit"></i> Mettre à jour</a>
             </div>
           </div>
           <div class="d-flex justify-content-between">
@@ -61,7 +61,7 @@
                   <strong class="title">Pays</strong>
                   <span class="cont">
                     @if(empty($user->pays)): ?>
-                      <a href="{{ route("param") }}#pays"><i class="fa fa-plus"></i> Ajouter un pays</a>
+                      <a href="{{ route("compte.index") }}#pays"><i class="fa fa-plus"></i> Ajouter un pays</a>
                     @else
                       {{ $user->pays }}
                     @endif
@@ -71,7 +71,7 @@
                   <strong class="title">Ville</strong>
                   <span class="cont">
                     @if(empty($user->ville) && empty($user->commune))
-                      <a href="{{ route("param") }}#ville"><i class="fa fa-plus"></i> Ajouter une ville</a>
+                      <a href="{{ route("compte.index") }}#ville"><i class="fa fa-plus"></i> Ajouter une ville</a>
                     @elseif(empty($user->commune))
                       {{ $user->ville }}
                     @elseif(empty($user->ville))

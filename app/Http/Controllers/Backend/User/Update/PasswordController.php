@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Backend\User;
+namespace App\Http\Controllers\Backend\User\Update;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
