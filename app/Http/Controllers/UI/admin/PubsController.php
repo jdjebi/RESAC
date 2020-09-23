@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\UI\admin;
 
 use App\Http\Controllers\Controller;
 use Resac\Auth2;

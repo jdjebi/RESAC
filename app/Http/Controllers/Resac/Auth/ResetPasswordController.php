@@ -37,7 +37,6 @@ class ResetPasswordController extends Controller
 
       return redirect()->route('login');
 
-      return 'yes';
     }
 
     private function reset_password($request){

@@ -12,26 +12,12 @@ class IndexController extends Controller
 
     public function __invoke()
     {
-
       return redirect()->route("home");
-
     }
 
     public function index2()
     {
-
-      $user = null;
-
-      if(\Auth::check()){
-        $user =  \Users::auth();
-      }
-
-      $feature = Features::last();
-
-      return view('app.index2',[
-        'feature' => $feature
-      ]);
-
+      return view('app.index2');
     }
 
 }

@@ -11,8 +11,28 @@ use App\Resac\Core\Posts\PostRenderer;
 
 class ProfilController extends Controller
 {
-
     public function user(Request $request)
+    {
+        $user = UserAuth();
+
+        $show_portofolio = false;
+
+        $title = $user->fullname;
+
+        $posts = Post::where("user",$user->id)->orderBy('date', 'desc')->get();
+
+        $posts = PostRenderer::render_posts($posts);
+
+        return view('app.profil.index',[
+            'title' => $title,
+            'posts' => $posts,
+            'user' => $user,
+            'show_portofolio' => $show_portofolio
+          ]);
+
+    }
+
+    public function user_new(Request $request)
     {
         $user = UserAuth();
 

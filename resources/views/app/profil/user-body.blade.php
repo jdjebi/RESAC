@@ -13,7 +13,7 @@
           <strong class="title">Téléphone</strong>
           <span class="cont">
             @if(empty($user->numero))
-              <a href="{{ route("param") }}#numero"><i class="fa fa-plus"></i> Ajouter un numéro</a>
+              <a href="{{ route("compte.index") }}#numero"><i class="fa fa-plus"></i> Ajouter un numéro</a>
             @else
                 {{ $user->numero }}
             @endif

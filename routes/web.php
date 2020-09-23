@@ -36,9 +36,9 @@ Route::get('/nouveautes',"UI\Web\Extras\FeaturesController")->name('dev_news');
 
 Route::middleware("auth")->group(function(){
 
-  Route::get('/profil','UserController@profil')->name('profil');
+  Route::get('/profil','UI\Web\Profil\ProfilController@user')->name('profil');
 
-  Route::get('/profil2','UI\Web\Profil\ProfilController@user')->name('profil.user');
+  Route::get('/profil2','UI\Web\Profil\ProfilController@user_new')->name('profil.user');
   // Backend
   Route::get('user/connected/main_data','Backend\User\GetDataController@main_for_user_connected')->name('backend.user.connected.main_data');
 
@@ -91,15 +91,13 @@ Route::prefix('/v1/admin')->group(function (){
 
   Route::middleware('admin.login')->group(function (){
 
-    Route::get('','AdminController@index')->name('admin_index');
-
-    Route::get('deconnexion','AdminController@logout')->name('admin_logout');
-
-    Route::get('manage/users','AdminController@user_manager')->name('admin_user_manager');
-
-    Route::get('manage/user/action/','AdminController@delete_user')->name('admin_delete_user');
-
-    Route::match(['get', 'post'],'manage/user/{user_id}','AdminController@user_profil')->where('user_id', '[0-9]+')->name('admin_user_profil');
+    Route::namespace("UI\admin")->group(function (){
+      Route::get('','AdminController@index')->name('admin_index');
+      Route::get('deconnexion','AdminController@logout')->name('admin_logout');
+      Route::get('manage/users','AdminController@user_manager')->name('admin_user_manager');
+      Route::get('manage/user/action/','AdminController@delete_user')->name('admin_delete_user');
+      Route::match(['get', 'post'],'manage/user/{user_id}','AdminController@user_profil')->where('user_id', '[0-9]+')->name('admin_user_profil');
+    });
 
     Route::namespace("Resac")->group(function (){
       Route::get('rechercher',"SearchController@admin")->name('admin_search');
@@ -110,7 +108,7 @@ Route::prefix('/v1/admin')->group(function (){
 });
 
 
-Route::namespace('admin')->group(function () {
+Route::namespace('UI\admin')->group(function () {
   Route::name('admin.')->group(function () {
 
     Route::middleware('admin.login')->group(function (){
@@ -168,9 +166,9 @@ Route::prefix('v1/api')->group(function () {
 
   });
 
-  Route::get('get/v1/users','AdminController@api_get_user_list')->name('api_get_user_list');
+  Route::get('get/v1/users','UI\admin\AdminController@api_get_user_list')->name('api_get_user_list');
 
-  Route::post('admin/login','AdminController@api_login')->name('admin_api_login');
+  Route::post('admin/login','UI\admin\AdminController@api_login')->name('admin_api_login');
 });
 
 /* Routes de test */

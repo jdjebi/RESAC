@@ -80,9 +80,6 @@ class AuthController extends Controller
           $errors = $form->get_errors();
         }
 
-        // dump($form->get_errors());
-        // dump($form->get_data());
-
       }
 
       $title2 = "Créer un Compte";
