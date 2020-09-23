@@ -8,13 +8,14 @@ use App\Models\SearchUserIndex;
 
 use Illuminate\Support\Facades\Http;
 
+Route::get('/annuaire','UI\Web\Extras\AnnuaireController')->name('annuaire');
+Route::get('/nouveautes',"UI\Web\Extras\FeaturesController")->name('dev_news');
+Route::get('/deconnexion','Backend\Auth\AuthController@logout')->name('logout');
 
 Route::middleware("guest")->group(function(){
-
   Route::get('/','UI\Web\Index\IndexController');
   Route::get('/v2','UI\Web\Index\IndexController@index2')->name('home');
-
-  Route::get('/connexion','AuthController@login')->name('login');
+  Route::get('/connexion','UI\Web\Auth\AuthController@login')->name('login');
 
   Route::match(['get', 'post'],'/inscription','AuthController@register')->name('register');
 
@@ -25,18 +26,15 @@ Route::middleware("guest")->group(function(){
     Route::get('password/reset/{token}','ResetPasswordController@get')->name('password.reset');
     Route::post('password/reset','ResetPasswordController@post')->name('app.reinit.password');
   });
-
 });
-
-Route::get('/annuaire','UI\Web\Extras\AnnuaireController')->name('annuaire');
-
-Route::get('/nouveautes',"UI\Web\Extras\FeaturesController")->name('dev_news');
 
 /* Application */
 
 Route::middleware("auth")->group(function(){
 
   Route::get('/profil','UI\Web\Profil\ProfilController@user')->name('profil');
+  Route::get('/profil/{id}','UI\Web\Profil\ProfilController@visitor')->where('id', '[0-9]+')->name('profil.visitor');
+
 
   Route::get('/profil2','UI\Web\Profil\ProfilController@user_new')->name('profil.user');
   // Backend
@@ -56,7 +54,6 @@ Route::middleware("auth")->group(function(){
       Route::post('photo/change','Backend\User\Update\PhotoController@update')->name('backend.compte.photo.change');
       Route::get('photo/delete','Backend\User\Update\PhotoController@api_delete')->name('backend.compte.photo.delete');
     });
-
   });
 
   Route::match(['get', 'post'],'/actualites','Resac\Actu\ActuController@index')->name('actu');
@@ -66,21 +63,15 @@ Route::middleware("auth")->group(function(){
   Route::match(['get', 'post'],'publications/c/libre',"Resac\PostController@create_free_post")->name('app.post.create.free');
 
   Route::get('publications',"Resac\PostController@index")->name('app.post');
-
   Route::get('publications/{id}',"Resac\Posts\PostViewerController@show")->where('id', '[0-9]+')->name('app.post.show');
-
   Route::get('publications?not-certified',"Resac\PostController@index")->name('app.post.not_certified');
-
   Route::get('publications/creer',"Resac\PostController@create")->name('app.post.hub');
-
   Route::get('publications/delete/{id}',"Resac\Posts\PostDeleteController")->where('id', '[0-9]+')->name('app.post.delete');
-
   Route::post('publications/publier',"Resac\Posts\PostSaverController")->name('app.post.publish');
   
 
 });
 
-Route::get('/deconnexion','AuthController@logout')->name('logout');
 
 
 /* Administration */

@@ -2,7 +2,7 @@
     <div class="box resac-linkedin-shadow bg-white mb-3 resac-clear-rounded-on-sm resac-clear-border-left-on-sm resac-clear-border-right-on-sm">
         <div class="header pl-4 pt-3 pb-3 pr-4">
           <div class="media">
-            <a title="{{ $post->user_object->fullname }}" href="{{ route('profil') }}?id={{ $post->user_object->id  }}">
+            <a title="{{ $post->user_object->fullname }}" href="{{ route('profil.visitor',$post->user_object->id) }}">
               <img class="pub-user-photo" src="{{ photos_cdn_asset($post->user_object) }}" alt="Photo {{ $post->user_object->fullname }}">
             </a>
             <div class="ml-3 media-body">
@@ -30,7 +30,7 @@
               </div>
 
               <div class="mt-0 pub-user-name">
-                <a href="{{ route('profil') }}?id={{ $post->user_object->id }}">
+                <a href="{{ route('profil.visitor',$post->user_object->id) }}">
                   {{ $post->user_object->fullname }}
                 </a> &nbsp;
                 <span title="Publication {{ $post->validate ? "approuvée" : "non approuvée"}}" class="text-{{ $post->validate ? "success" : "danger"}}"><i class="fa fa-check-circle"></i></span>

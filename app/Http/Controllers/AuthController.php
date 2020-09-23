@@ -8,8 +8,6 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\SearchUserIndex;
 use App\User;
 
-
-
 class AuthController extends Controller
 {
 
