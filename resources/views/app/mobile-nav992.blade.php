@@ -26,7 +26,7 @@
         <div>
           <a class="selector-holder" href="{{ route('profil') }}">
             <i class="fa fa-user-circle"></i>
-            <span>Mon Profil</span>
+            <span>Profil</span>
           </a>
         </div>
       </button>
