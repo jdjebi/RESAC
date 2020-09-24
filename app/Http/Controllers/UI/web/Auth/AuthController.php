@@ -27,7 +27,15 @@ class AuthController extends Controller
     public function register(){
 
       $form = new \RegisterForm($_POST);
+
       $errors = null;
+
+      if(session("form_export")){
+        $form->import_data(session("form_export"));
+        session()->put("form_export",null);
+        $errors = $form->get_errors();
+      }
+
       $title2 = "Créer un Compte";
 
       return view('app.inscription',[

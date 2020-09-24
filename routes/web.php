@@ -16,8 +16,7 @@ Route::middleware("guest")->group(function(){
   Route::get('/','UI\Web\Index\IndexController');
   Route::get('/v2','UI\Web\Index\IndexController@index2')->name('home');
   Route::get('/connexion','UI\Web\Auth\AuthController@login')->name('login');
-
-  Route::match(['get', 'post'],'/inscription','AuthController@register')->name('register');
+  Route::get('/inscription','UI\Web\Auth\AuthController@register')->name('register');
 
   Route::namespace("Resac\Auth")->group(function () {
     Route::get('reinitialiser/mot-de-passe','ForgotPasswordController')->name('app.reset.email');
@@ -26,6 +25,10 @@ Route::middleware("guest")->group(function(){
     Route::get('password/reset/{token}','ResetPasswordController@get')->name('password.reset');
     Route::post('password/reset','ResetPasswordController@post')->name('app.reinit.password');
   });
+
+  // Backend
+  Route::post('/inscription','Backend\Auth\AuthController@register')->name('backend.register.member');
+
 });
 
 /* Application */

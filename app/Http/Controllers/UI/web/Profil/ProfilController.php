@@ -52,8 +52,13 @@ class ProfilController extends Controller
 
         $title = $user->fullname;
 
-        $user_visited = User::findOrFail($id);
-        
+        $user_visited = User::find($id);
+
+        if(!$user_visited){
+            \Flash::add("Utilisateur introuvable","danger");
+            return redirect()->route('explorer');
+        }
+  
         $title =  $user_visited->nom.' '.$user_visited->prenom;
 
         $posts = Post::where("user",$user_visited)->orderBy('date', 'desc')->get();
@@ -70,7 +75,8 @@ class ProfilController extends Controller
 
     }
 
-    public function user_new(Request $request){
+    public function user_new(Request $request)
+{
         $user = UserAuth();
 
         $show_portofolio = false;
