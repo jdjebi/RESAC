@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\UI\Web\Index;
 
 use App\Http\Controllers\Controller;
 use App\User;
@@ -12,26 +12,12 @@ class IndexController extends Controller
 
     public function __invoke()
     {
-
       return redirect()->route("home");
-
     }
 
     public function index2()
     {
-
-      $user = null;
-
-      if(\Auth::check()){
-        $user =  \Users::auth();
-      }
-
-      $feature = Features::last();
-
-      return view('app.index2',[
-        'feature' => $feature
-      ]);
-
+      return view('app.index2');
     }
 
 }

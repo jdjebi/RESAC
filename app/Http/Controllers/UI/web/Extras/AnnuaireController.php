@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\UI\Web\Extras;
 
 use App\Http\Controllers\Controller;
 use App\User;
@@ -13,8 +13,6 @@ class AnnuaireController extends Controller
     public function __invoke()
     {
       $user =  Auth2::user();
-
-      $profile_url = route("profil")."?id=";
 
       $users = [];
 
@@ -30,7 +28,7 @@ class AnnuaireController extends Controller
           "promo" => (empty($u->promo1) ? "xxxx-xxxx" : $u->promo1.'-'.$u->promo2),
           "pays" => \Country::get($u->pays),
           "ville" => $u->ville,
-          "profil_url" => $profile_url.$u->id,
+          "profil_url" => route('profil.visitor',$u->id),
           "drapeau" => html_countryflags($u->code_pays,24)
         ];
       };
@@ -42,7 +40,6 @@ class AnnuaireController extends Controller
       return view('app.explorer.annuaire',[
         'user' => $user,
         'title2' =>  $title2,
-        'profile_url' => $profile_url,
         'users_json' => $users_json
       ]);
 

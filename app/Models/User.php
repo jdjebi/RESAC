@@ -31,7 +31,7 @@ class User extends Authenticatable
         }
       }
       else{
-        $url = "asset/imgs/user_default_pic.png"; 
+        $url = asset("asset/imgs/user_default_pic.png"); 
       }   
       return $url;
     }
@@ -87,8 +87,15 @@ class User extends Authenticatable
       return $this->attributes["staff_role"];
     }
 
-    public function get_photo(){
-      return asset("asset/imgs/user_default_pic.png");
+    public function getHavePhotoAttribute(){
+
+      if($this->attributes['photo'] != ""){
+        return 1;
+      }
+      else{
+        return 0; 
+      }   
+      
     }
 
     public function getCountPostsAttribute(){

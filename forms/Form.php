@@ -194,7 +194,7 @@ class Form{
 
   public function state($field){
     /* Retourne l'état d'un champ  */
-    if($this->already_validate){
+    if($this->already_validate && $this->is_errors()){
       return $this->is_err($field) ? $this->states['valid'] : $this->states['invalid'];
     }else{
       return "";
@@ -207,5 +207,23 @@ class Form{
       "array" => $array
     ];
   }
+
+  public function export_results(){
+    return [
+      "vars" => [
+        "already_validate" =>  $this->already_validate
+      ],
+
+      "errors" => $this->get_errors(),
+      "clear_data" => $this->get_data()
+    ];
+  }
+
+  public function import_data($form){
+    $this->errors = $form["errors"];
+    $this->clear_data = $form["clear_data"];
+    $this->already_validate = $form["vars"]["already_validate"];
+  }
+  
 }
 ?>

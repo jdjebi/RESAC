@@ -11,7 +11,7 @@
   @include("flash")
 </div>
 
-<div class="v-user">
+<div id="v-user">
 
 
 <div class="container">
@@ -27,15 +27,7 @@
     </div>
   </div>
 </div>
-<div class="container pt-3">
-  <div class="row ">
-    @if($show_portofolio)
-      @include("app.profil.visitor-body")
-    @else
-      @include("app.profil.user-body")
-    @endif
-  </div>
-</div>
+
 
 
 </div>
@@ -43,7 +35,32 @@
 @endsection
 
 @section('scripts')
-<script type="module" src="asset/js/resac/init.timeago.js"></script>
+<script type="module" src="{{ cdn_asset("asset/js/resac/init.timeago.js") }}"></script>
 <script src="{{ cdn_asset("asset/js/vue.js") }}" type="text/javascript"></script>
+
+<script>
+var vm = new Vue({
+    el: "#v-user",
+    data:{
+        user:null,
+        page_ready:false,
+        url:{
+            get_user_main_data: "{{ route('backend.user.connected.main_data') }}"
+        }
+    },
+    mounted: function(){
+        $.get({
+            url: this.url.get_user_main_data,
+            dataType: 'json',
+            success: function (data,status){
+               console.log("success");
+            },
+            error: function (data,status){
+               console.log("error");
+            },
+        });
+    }
+});
+</script>
 @endsection
 

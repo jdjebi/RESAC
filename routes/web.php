@@ -8,15 +8,15 @@ use App\Models\SearchUserIndex;
 
 use Illuminate\Support\Facades\Http;
 
+Route::get('/annuaire','UI\Web\Extras\AnnuaireController')->name('annuaire');
+Route::get('/nouveautes',"UI\Web\Extras\FeaturesController")->name('dev_news');
+Route::get('/deconnexion','Backend\Auth\AuthController@logout')->name('logout');
 
 Route::middleware("guest")->group(function(){
-
-  Route::get('/','IndexController');
-  Route::get('/v2','IndexController@index2')->name('home');
-
-  Route::get('/connexion','AuthController@login')->name('login');
-
-  Route::match(['get', 'post'],'/inscription','AuthController@register')->name('register');
+  Route::get('/','UI\Web\Index\IndexController');
+  Route::get('/v2','UI\Web\Index\IndexController@index2')->name('home');
+  Route::get('/connexion','UI\Web\Auth\AuthController@login')->name('login');
+  Route::get('/inscription','UI\Web\Auth\AuthController@register')->name('register');
 
   Route::namespace("Resac\Auth")->group(function () {
     Route::get('reinitialiser/mot-de-passe','ForgotPasswordController')->name('app.reset.email');
@@ -26,25 +26,38 @@ Route::middleware("guest")->group(function(){
     Route::post('password/reset','ResetPasswordController@post')->name('app.reinit.password');
   });
 
+  // Backend
+  Route::post('/inscription','Backend\Auth\AuthController@register')->name('backend.register.member');
+
 });
-
-Route::get('/annuaire','AnnuaireController')->name('annuaire');
-
-Route::get('/nouveautes',"Resac\FeaturesController")->name('dev_news');
 
 /* Application */
 
 Route::middleware("auth")->group(function(){
 
-  Route::get('/feed','ActuController@feed')->name('app.feed');
+  Route::get('/profil','UI\Web\Profil\ProfilController@user')->name('profil');
+  Route::get('/profil/{id}','UI\Web\Profil\ProfilController@visitor')->where('id', '[0-9]+')->name('profil.visitor');
 
-  Route::get('/profil','UserController@profil')->name('profil');
 
-  Route::get('/profil/{id}','UserController@profil2')->name('visitor_profil');
+  Route::get('/profil2','UI\Web\Profil\ProfilController@user_new')->name('profil.user');
+  // Backend
+  Route::get('user/connected/main_data','Backend\User\GetDataController@main_for_user_connected')->name('backend.user.connected.main_data');
 
-  Route::match(['get', 'post'],'/compte','UserController@account')->name('edit');
-
-  Route::match(['get', 'post'],'/parametres','UserController@account')->name('param');
+  Route::prefix('/compte')->group(function () {
+    // Frontend
+    Route::namespace('UI\Web\Compte')->group(function () {
+      Route::get('','CompteController@general')->name('compte.index');
+      Route::get('photo','CompteController@photo')->name('compte.photo');
+      Route::get('mot-de-passe','CompteController@pass')->name('compte.pass');
+    });
+    // Backend
+    Route::prefix('/update')->group(function () {
+      Route::post('general','Backend\User\Update\GeneralController@update')->name('backend.compte.general');
+      Route::post('pass','Backend\User\Update\PasswordController@update')->name('backend.compte.pass');
+      Route::post('photo/change','Backend\User\Update\PhotoController@update')->name('backend.compte.photo.change');
+      Route::get('photo/delete','Backend\User\Update\PhotoController@api_delete')->name('backend.compte.photo.delete');
+    });
+  });
 
   Route::match(['get', 'post'],'/actualites','Resac\Actu\ActuController@index')->name('actu');
 
@@ -53,20 +66,15 @@ Route::middleware("auth")->group(function(){
   Route::match(['get', 'post'],'publications/c/libre',"Resac\PostController@create_free_post")->name('app.post.create.free');
 
   Route::get('publications',"Resac\PostController@index")->name('app.post');
-
   Route::get('publications/{id}',"Resac\Posts\PostViewerController@show")->where('id', '[0-9]+')->name('app.post.show');
-
   Route::get('publications?not-certified',"Resac\PostController@index")->name('app.post.not_certified');
-
   Route::get('publications/creer',"Resac\PostController@create")->name('app.post.hub');
-
   Route::get('publications/delete/{id}',"Resac\Posts\PostDeleteController")->where('id', '[0-9]+')->name('app.post.delete');
-
   Route::post('publications/publier',"Resac\Posts\PostSaverController")->name('app.post.publish');
+  
 
 });
 
-Route::get('/deconnexion','AuthController@logout')->name('logout');
 
 
 /* Administration */
@@ -77,15 +85,13 @@ Route::prefix('/v1/admin')->group(function (){
 
   Route::middleware('admin.login')->group(function (){
 
-    Route::get('','AdminController@index')->name('admin_index');
-
-    Route::get('deconnexion','AdminController@logout')->name('admin_logout');
-
-    Route::get('manage/users','AdminController@user_manager')->name('admin_user_manager');
-
-    Route::get('manage/user/action/','AdminController@delete_user')->name('admin_delete_user');
-
-    Route::match(['get', 'post'],'manage/user/{user_id}','AdminController@user_profil')->where('user_id', '[0-9]+')->name('admin_user_profil');
+    Route::namespace("UI\admin")->group(function (){
+      Route::get('','AdminController@index')->name('admin_index');
+      Route::get('deconnexion','AdminController@logout')->name('admin_logout');
+      Route::get('manage/users','AdminController@user_manager')->name('admin_user_manager');
+      Route::get('manage/user/action/','AdminController@delete_user')->name('admin_delete_user');
+      Route::match(['get', 'post'],'manage/user/{user_id}','AdminController@user_profil')->where('user_id', '[0-9]+')->name('admin_user_profil');
+    });
 
     Route::namespace("Resac")->group(function (){
       Route::get('rechercher',"SearchController@admin")->name('admin_search');
@@ -96,7 +102,7 @@ Route::prefix('/v1/admin')->group(function (){
 });
 
 
-Route::namespace('admin')->group(function () {
+Route::namespace('UI\admin')->group(function () {
   Route::name('admin.')->group(function () {
 
     Route::middleware('admin.login')->group(function (){
@@ -154,9 +160,9 @@ Route::prefix('v1/api')->group(function () {
 
   });
 
-  Route::get('get/v1/users','AdminController@api_get_user_list')->name('api_get_user_list');
+  Route::get('get/v1/users','UI\admin\AdminController@api_get_user_list')->name('api_get_user_list');
 
-  Route::post('admin/login','AdminController@api_login')->name('admin_api_login');
+  Route::post('admin/login','UI\admin\AdminController@api_login')->name('admin_api_login');
 });
 
 /* Routes de test */

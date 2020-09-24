@@ -1,3 +1,7 @@
+@extends('app.params.base')
+
+@section('params-content')
+
 <div class="card resac-account-card-support">
   <div class="card-header">
     Changement du mot de passe
@@ -24,24 +28,27 @@
       @endif
 
     @endif
-    <form method="post">
+      <form method="post" action="{{ route('backend.compte.pass') }}">
       @csrf
       <div class="form-group">
         <label for="pass">Confirmer votre mot de passe</label>
-        <input type="password" class="form-control" value="{{ $FormInfo->get("pass") }}" name="pass" value="" id="nom">
+        <input type="password" class="form-control" name="pass" value="" id="nom">
       </div>
 
       <div class="form-group">
         <label for="nw_pass">Nouveau mot de passe</label>
-        <input type="text" class="form-control" value="{{ $FormInfo->get("nw_pass") }}" name="nw_pass" value="" id="nw_pass">
+        <input type="text" class="form-control" name="nw_pass" value="" id="nw_pass">
       </div>
 
       <div class="form-group">
         <label for="conf_pass">Confirmer le nouveau mot de passe</label>
-        <input type="password" class="form-control" value="{{ $FormInfo->get("conf_pass") }}" name="conf_pass" value="" id="conf_pass">
+        <input type="password" class="form-control" name="conf_pass" value="" id="conf_pass">
       </div>
 
       <button type="submit" class="btn btn-sm btn-primary" name="change_pass">Envoyer</button>
     </form>
   </div>
 </div>
+
+@endsection
+

@@ -41,7 +41,7 @@
 
     <div class="col-lg-8 bg-white border-left p-5">
 
-      <form method="post">
+      <form method="post" action="{{ route('backend.register.member') }}">
         @csrf
         <div class="mt-3 mb-4">
           <div id="register-title" class="fa-2x">Nouveau compte</div>
