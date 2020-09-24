@@ -41,7 +41,7 @@
         <form id="photo-form" class="d-none" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="text-center">
-                <img id="user-photo"  class="resac-w-200 resac-h-200  rounded-circle" v-bind:src="user.photo" alt="">
+                <img id="user-photo"  class="border resac-w-200 resac-h-200  rounded-circle" v-bind:src="user.photo" alt="">
             </div>
             <div class="text-center">
                 <p class="small" id="upload-file"></p>  
