@@ -2,7 +2,7 @@
 .selector-holder{
     color: #5c6469;
     font-weight: 500;
-}
+} 
 </style>
 <footer id="mobile-nav" class="footer">
    <div id="buttonGroup" class="btn-group selectors" role="group" aria-label="Basic example">
