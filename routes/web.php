@@ -37,11 +37,7 @@ Route::middleware("auth")->group(function(){
 
   Route::get('/profil','UI\Web\Profil\ProfilController@user')->name('profil');
   Route::get('/profil/{id}','UI\Web\Profil\ProfilController@visitor')->where('id', '[0-9]+')->name('profil.visitor');
-
-
   Route::get('/profil2','UI\Web\Profil\ProfilController@user_new')->name('profil.user');
-  // Backend
-  Route::get('user/connected/main_data','Backend\User\GetDataController@main_for_user_connected')->name('backend.user.connected.main_data');
 
   Route::prefix('/compte')->group(function () {
     // Frontend
@@ -150,23 +146,23 @@ Route::namespace('UI\admin')->group(function () {
   });
 });
 
-/* simple API */
+/* API */
+
+// User
+Route::get('user/connected/main_data','Backend\User\GetDataController@main_for_user_connected')->name('backend.user.connected.main_data');
+Route::get('user/all/manage_data','Backend\User\GetDataController@manage_data')->name('backend.api.user.all.manage_data');
+
+// Auth
 
 Route::prefix('v1/api')->group(function () {
-
   Route::namespace('Resac\Api')->group(function () {
-
       Route::post('login','ApiController@login')->name('api_login');
-
   });
-
-  Route::get('get/v1/users','UI\admin\AdminController@api_get_user_list')->name('api_get_user_list');
-
   Route::post('admin/login','UI\admin\AdminController@api_login')->name('admin_api_login');
 });
 
-/* Routes de test */
 
+/* Routes de test */
 
 Route::get('test_index',function(){
 

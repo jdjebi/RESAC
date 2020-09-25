@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="{{ asset('asset/css/bootstrap/4.5/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/css/fontawsome/all.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/css/resac/admin/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ cdn_asset('asset/css/resac/resac.css') }}">
+
     <style media="screen">
       body{
         background-color: #f1f3f6
