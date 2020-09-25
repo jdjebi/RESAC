@@ -1,16 +1,17 @@
-@extends('admin.page')
+@extends('admin.base')
 
 @section('extras_style')
+  @parent
   @include('admin.pubs.dashboard_style')
   <style media="screen">
   body{
     background-color: #f1f3f6
   }
+  
   </style>
  @endsection
 
-@section('content')
-@include('flash')
+@section('main-content')
 
 <div>
 
@@ -20,6 +21,7 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="h4 mb-4">Dernières publications</div>
+        <hr>
       </div>
       <div class="col-sm-12">
         <div class="">
@@ -50,7 +52,7 @@
                 </td>
                 <td>
                   <p class="truncate-65">
-                    @{{ pub.content | truncate(100)}}
+                    @{{ pub.content | truncate(60)}}
                   </p>
                 </td>
                 <td>@{{ pub.date }}</td>
@@ -108,7 +110,6 @@ var vm = new Vue({
   }
 
 });
-
 
 function get_pubs(){
   var users = [];

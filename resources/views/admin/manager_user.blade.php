@@ -1,37 +1,5 @@
 @extends('admin.base')
 
-@section('extras_style')
-<link rel="stylesheet" href="{{ asset("asset/css/placeholder-loading.min.css") }}">
-<style media="screen">
-  .ph-item>* {
-    flex: 1 1 auto;
-    display: flex;
-    flex-flow: column;
-    padding-right: 0px;
-    padding-left: 0px;
-  }
-
-  .ph-item {
-      direction: ltr;
-      position: relative;
-      display: flex;
-      flex-wrap: wrap;
-      padding: 0px;
-      overflow: hidden;
-      margin-bottom: 30px;
-      background-color: #fff;
-      border: 1px solid transparent;
-      border-radius: 2px;
-  }
-  .user-photo {
-      width: 30px;
-      height: 30px;
-      background: #eee;
-      border-radius: 50%;
-  }
-</style>
-@endsection
-
 @section('main-content')
 <div id="v-table" class="mt-3 container-fluid">
   <div class="row">
@@ -43,7 +11,7 @@
       <div class="d-flex">
         <div class="resac-linkedin-shadow bg-white p-2 pl-3 resac-w-200">
           <div class="h4" v-html="member_counter">0</div>
-          <div class="h6 font-weight-bold">Membres</div>
+          <div class="h6 text-muted font-weight-bold">Membres</div>
         </div>
       </div>
     </div>

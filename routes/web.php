@@ -86,8 +86,9 @@ Route::prefix('/v1/admin')->group(function (){
       Route::get('manage/users','User\ListController@user_manager')->name('admin_user_manager');
       Route::get('manage/user/action/','AdminController@delete_user')->name('admin_delete_user');
       Route::match(['get', 'post'],'manage/user/{user_id}','AdminController@user_profil')->where('user_id', '[0-9]+')->name('admin_user_profil');
-      Route::get('deconnexion','Backend\Auth\AuthController@admin_logout')->name('admin_logout');
     });
+
+    Route::get('deconnexion','Backend\Auth\AuthController@admin_logout')->name('admin_logout');
 
     Route::namespace("Resac")->group(function (){
       Route::get('rechercher',"SearchController@admin")->name('admin_search');

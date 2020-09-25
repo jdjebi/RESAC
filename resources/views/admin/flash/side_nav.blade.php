@@ -11,6 +11,17 @@
     </ul>
 
     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+      <span>PUBLICATIONS</span>
+    </h6>
+    <ul class="nav flex-column mb-2">
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.pubs_dashboard') }}">
+          Gestion des publications
+        </a>
+      </li>
+    </ul>
+
+    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
       <span>UTILISATEURS</span>
     </h6>
     <ul class="nav flex-column mb-2">
@@ -27,10 +38,7 @@
     </ul>
 
     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-      <span>DEVELOPPEUR</span>
-      <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
-        <i class="fa fa-plus"></i>
-      </a>
+      <span>OUTILS DEVELOPPEUR</span>
     </h6>
     <ul class="nav flex-column mb-2">
       <li class="nav-item">
