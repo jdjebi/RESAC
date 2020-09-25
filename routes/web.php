@@ -81,16 +81,16 @@ Route::middleware("auth")->group(function(){
 
 Route::prefix('/v1/admin')->group(function (){
 
-  Route::get('connexion','AdminController@login')->name('admin')->middleware('admin.guest');
+  Route::get('connexion','UI\admin\Auth\AuthController@login')->name('admin')->middleware('admin.guest');
 
   Route::middleware('admin.login')->group(function (){
 
     Route::namespace("UI\admin")->group(function (){
       Route::get('','AdminController@index')->name('admin_index');
-      Route::get('deconnexion','AdminController@logout')->name('admin_logout');
-      Route::get('manage/users','AdminController@user_manager')->name('admin_user_manager');
+      Route::get('manage/users','User\ListController@user_manager')->name('admin_user_manager');
       Route::get('manage/user/action/','AdminController@delete_user')->name('admin_delete_user');
       Route::match(['get', 'post'],'manage/user/{user_id}','AdminController@user_profil')->where('user_id', '[0-9]+')->name('admin_user_profil');
+      Route::get('deconnexion','Backend\Auth\AuthController@admin_logout')->name('admin_logout');
     });
 
     Route::namespace("Resac")->group(function (){

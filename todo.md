@@ -6,8 +6,6 @@
   - Affichage unique d'une publication
     - [] Pour la fil d'actu
 
-- [] Optimiser la plateforme
-  - Version mobile de l'interface
 
 # Bugs
 - Suppression impossible sur la page des publication

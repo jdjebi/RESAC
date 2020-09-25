@@ -1,36 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\UI\admin;
+namespace App\Http\Controllers\UI\admin\User;
 
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
 use Resac\Auth2;
 
-class AdminController extends Controller
+class ListController extends Controller
 {
-
-    public function login(){
-
-      $title2 = "Connexion";
-
-      return view('admin.login',[
-        "title2" => $title2
-      ]);
-
-    }
-
-    public function index(){
-
-      $user = Auth2::user();
-
-      $title2 = "Gestion des utilisateurs";
-
-      return view("admin.index",[
-        "user" => $user,
-        "title2" => $title2
-      ]);
-    }
 
     public function user_manager(){
 

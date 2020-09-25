@@ -1,5 +1,4 @@
 @extends('admin.page2')
-
 @section('content')
 <div class="container-fluid">
   <div class="row">

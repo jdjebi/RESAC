@@ -252,8 +252,8 @@ var vm = new Vue({
 
 var $uploadCrop = $("#croppie-photo-uploader").croppie({
     viewport: {
-        width: 400,
-        height: 400,
+        width: "300",
+        height: "300",
         type: "circle",
     },
     boundary: {

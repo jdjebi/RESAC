@@ -9,6 +9,7 @@ body{
   background: #fff;
   margin-left: 2em !important;
   padding: 1em 1em 1em 1em;
+  overflow-wrap: break-word;
 }
 .ill{
 	width: 250px;
