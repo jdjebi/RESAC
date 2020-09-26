@@ -101,16 +101,24 @@ Route::prefix('/v1/admin')->group(function (){
 
 Route::namespace('UI\admin')->group(function () {
   Route::name('admin.')->group(function () {
-
+    
     Route::middleware('admin.login')->group(function (){
 
-      Route::prefix('/v1/admin/manager/')->group(function () {
+      Route::prefix('/v1/admin/')->group(function () {
 
         /* Publications */
-        Route::get('pubs','PubsController@dashboard')->name('pubs_dashboard');
-        Route::get('pubs/{id}','PubsController@pub')->where('id', '[0-9]+')->name('manage_pub');
-        Route::get('pubs/{id}/certification','PubsController@validate_pub')->name('validate_pub');
+        Route::prefix('publications')->group(function(){
+          Route::namespace('Posts')->group(function () {
 
+            Route::get('','PostsController@dashboard')->name('pubs_dashboard');
+            Route::get('{id}','PostsController@pub')->where('id', '[0-9]+')->name('manage_pub');
+            Route::get('{id}/certification','PubsController@validate_pub')->name('validate_pub');
+            Route::get('creer','CreatePostController@menu')->name('post.create');
+            Route::get('creer/libre','CreatePostController@libre')->name('post.create.libre');
+
+
+          });
+        });
 
         /* Nouveautés */
         Route::get('nouveautes','Features\FeaturesController@dashboard')->name('feature.all');
@@ -138,7 +146,7 @@ Route::namespace('UI\admin')->group(function () {
 
     Route::name('api.')->group(function () {
       Route::prefix('/v1/api/admin/')->group(function () {
-        Route::get('pubs/all','PubsController@api_get_all')->name('pubs_all');
+        Route::get('pubs/all','Posts\PostsController@api_get_all')->name('pubs_all');
       });
     });
 

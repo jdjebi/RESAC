@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\UI\admin;
+namespace App\Http\Controllers\UI\admin\Posts;
 
 use App\Http\Controllers\Controller;
 use Resac\Auth2;
 use App\Models\Post;
 
 
-class PubsController extends Controller
+class PostsController extends Controller
 {
 
     public function dashboard()

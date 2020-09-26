@@ -16,7 +16,12 @@
     <ul class="nav flex-column mb-2">
       <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.pubs_dashboard') }}">
-          Gestion des publications
+          Dernières publications
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.post.create') }}">
+          Créer une publication
         </a>
       </li>
     </ul>
