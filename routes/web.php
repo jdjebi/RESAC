@@ -113,15 +113,13 @@ Route::namespace('UI\admin')->group(function () {
 
 
         /* Nouveautés */
-        Route::get('nouveautes','FeaturesController@dashboard')->name('feature.all');
+        Route::get('nouveautes','Features\FeaturesController@dashboard')->name('feature.all');
+        Route::get('nouveautes/{id}','Features\FeaturesController@feature')->where('id', '[0-9]+')->name('feature.show');
+        Route::post('nouveautes/{id}','Features\FeaturesController@update')->where('id', '[0-9]+');
 
-        Route::get('nouveautes/{id}','FeaturesController@feature')->where('id', '[0-9]+')->name('feature.show');
-        Route::post('nouveautes/{id}','FeaturesController@update')->where('id', '[0-9]+');
-
-        Route::get('nouveautes/creer','FeaturesController@create')->name('feature.create');
-        Route::post('nouveautes/creer','FeaturesController@store');
-
-        Route::get('nouveautes/delete/{id}','FeaturesController@delete')->where('id', '[0-9]+')->name('feature.delete');
+        Route::get('nouveautes/creer','Features\FeaturesController@create')->name('feature.create');
+        Route::post('nouveautes/creer','Features\FeaturesController@store');
+        Route::get('nouveautes/delete/{id}','Features\FeaturesController@delete')->where('id', '[0-9]+')->name('feature.delete');
 
 
         /* Index de recherche utilisateur */
@@ -164,23 +162,6 @@ Route::prefix('v1/api')->group(function () {
 
 
 /* Routes de test */
-
-Route::get('test_index',function(){
-
-  $user = App\User::create([
-    "nom" => 'test'.Str::random(4),
-    "prenom" => 'test'.Str::random(4),
-    "email" => 'test'.Str::random(4).'@gmail.com',
-    "password" => Hash::make('123'),
-    "version" => 2 // version actuelle des comptes
-  ]);
-
-  SearchUserIndex::register($user); // L'utilisateur est enregistré dans l'index de recherche
-
-  return 'test';
-
-});
-
 
 Route::get('test/storage_driver',function(){
 

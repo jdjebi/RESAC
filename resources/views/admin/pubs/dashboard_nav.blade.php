@@ -15,3 +15,4 @@
     </a>
   </nav>
 </div>
+@include('flash')

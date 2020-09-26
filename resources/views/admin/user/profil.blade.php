@@ -1,15 +1,13 @@
-@extends('admin.page')
+@extends('admin.base')
 
 @section('extras_style')
+  @parent
   @include('admin.user.style')
 @endsection
 
-@section('content')
-
+@section('main-content')
   @include('flash')
-
   <div class="container-fluid">
-
     <div class="row">
       <div class="col-sm-12 col-md-9 col-lg-7">
         @include('admin.user.profil_view')
@@ -18,12 +16,11 @@
         @include('admin.user.profil_manager')
       </div>
     </div>
-
   </div>
-
 @endsection
 
 @section('scripts')
+@parent
 <script src="{{ asset("asset/js/extras/sweetalert2.all.min.js") }}" type="text/javascript"></script>
 <script type="text/javascript">
 $('#btn-delete-user').click(function(e){

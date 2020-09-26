@@ -25,7 +25,8 @@
 
     <style media="screen">
       body{
-        background-color: #f1f3f6
+        background-color: #f1f3f6;
+        padding-top: 53px;
       }
     </style>
     @yield('extras_style')

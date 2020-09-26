@@ -4,6 +4,7 @@ namespace App\Http\Controllers\UI\admin;
 
 use App\Http\Controllers\Controller;
 use Resac\Auth2;
+use App\Models\Post;
 
 
 class PubsController extends Controller
@@ -24,13 +25,7 @@ class PubsController extends Controller
 
       $user = Auth2::user();
 
-      $post = \Post::get($id);
-
-      if(!$post){
-        return view("admin.pubs.404",[
-          "user" => $user,
-        ]);
-      }
+      $post = Post::findOrFail($id);
 
       return view('admin.pubs.pub',[
         "user" => $user,

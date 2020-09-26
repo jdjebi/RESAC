@@ -16,7 +16,7 @@ class ListController extends Controller
 
       $title = "Gestion des utilisateurs";
 
-      return view("admin.manager_user",[
+      return view("admin.user.manage",[
         "user" => $user,
         "title" => $title
       ]);

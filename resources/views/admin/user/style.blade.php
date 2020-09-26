@@ -14,7 +14,6 @@ body{
 
 .section-box{
   background-color: rgb(255, 255, 255);
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.24) 0px 1px 4px;
 }
 
 .section-about .profile {

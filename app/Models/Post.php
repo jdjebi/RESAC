@@ -15,6 +15,10 @@ class Post extends Model
       return $this->belongsTo("App\User","user");
     }
 
+    public function certificate_author(){
+      return $this->belongsTo("App\User","validate_by");
+    }
+
     public function user_object(){
       return $this->belongsTo("App\User","user");
     }

@@ -37,13 +37,25 @@
       </li>
     </ul>
 
+
+    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+      <span>EXTRAS</span>
+    </h6>
+    <ul class="nav flex-column mb-2">
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.feature.all') }}">
+          <span data-feather="file-text"></span>
+          Nouveautés
+        </a>
+      </li>
+    </ul>
+
     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
       <span>OUTILS DEVELOPPEUR</span>
     </h6>
     <ul class="nav flex-column mb-2">
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('admin.dev.create_flash') }}">
-          <span data-feather="file-text"></span>
+        <a class="nav-link" href="{{ route('admin.webengine.show') }}">
           Index de recherche
         </a>
       </li>
@@ -54,5 +66,7 @@
         </a>
       </li>
     </ul>
+
+
   </div>
 </nav>

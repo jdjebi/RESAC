@@ -1,10 +1,10 @@
 <div class="section section-about">
-  <div class="section-box">
+  <div class="section-box resac-linkedin-shadow">
     <div class="profile">
       <div class="row">
         <div class="col-sm-12 col-md-5 mb-3">
           <div class="profile-photo d-flex justify-content-center">
-            <div class="border" style="width:200px; height:200px; background:#eee"></div>
+            <img class="rounded-circle border resac-w-150 resac-h-150" src="{{ photos_cdn_asset($user_visited) }} " alt="">
           </div>
         </div>
         <div class="col-sm-12 col-md-7">

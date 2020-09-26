@@ -23,6 +23,14 @@
         <div class="h4 mb-4">Dernières publications</div>
         <hr>
       </div>
+      <div class="col-sm-12 mb-4">
+        <div class="d-flex">
+          <div class="resac-linkedin-shadow bg-white p-2 pl-3 resac-w-200">
+            <div class="h4" v-html="pubs_counter">0</div>
+            <div class="h6 text-muted font-weight-bold">Publications</div>
+          </div>
+        </div>
+      </div>
       <div class="col-sm-12">
         <div class="">
           <table class="table bg-white table-hover table-responsive-sm">
@@ -99,16 +107,18 @@ var manage_pub_base_url = "{{ route("admin.manage_pub","") }}/";
 
 var vm = new Vue({
   el: '#v-table',
-
   data:{
       manage_pub_base_url: manage_pub_base_url,
       pubs: []
   },
-
+  computed: {
+    pubs_counter: function () {
+      return this.pubs.length
+    }
+  },
   beforeCreate: function(){
     get_pubs();
   }
-
 });
 
 function get_pubs(){
