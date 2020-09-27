@@ -72,7 +72,6 @@ Route::middleware("auth")->group(function(){
 });
 
 
-
 /* Administration */
 
 Route::prefix('/v1/admin')->group(function (){
@@ -98,25 +97,22 @@ Route::prefix('/v1/admin')->group(function (){
 
 });
 
+Route::name('admin.')->group(function () {
 
-Route::namespace('UI\admin')->group(function () {
-  Route::name('admin.')->group(function () {
-    
+  // Frontend
+  Route::namespace('UI\admin')->group(function () {
+  
     Route::middleware('admin.login')->group(function (){
-
       Route::prefix('/v1/admin/')->group(function () {
 
         /* Publications */
         Route::prefix('publications')->group(function(){
           Route::namespace('Posts')->group(function () {
-
             Route::get('','PostsController@dashboard')->name('pubs_dashboard');
             Route::get('{id}','PostsController@pub')->where('id', '[0-9]+')->name('manage_pub');
-            Route::get('{id}/certification','PubsController@validate_pub')->name('validate_pub');
+            Route::get('{id}/certification','PostsController@validate_pub')->name('validate_pub');
             Route::get('creer','CreatePostController@menu')->name('post.create');
             Route::get('creer/libre','CreatePostController@libre')->name('post.create.libre');
-
-
           });
         });
 
@@ -128,7 +124,6 @@ Route::namespace('UI\admin')->group(function () {
         Route::get('nouveautes/creer','Features\FeaturesController@create')->name('feature.create');
         Route::post('nouveautes/creer','Features\FeaturesController@store');
         Route::get('nouveautes/delete/{id}','Features\FeaturesController@delete')->where('id', '[0-9]+')->name('feature.delete');
-
 
         /* Index de recherche utilisateur */
         Route::get('webengine/index','WebEngineIndexController@show')->name('webengine.show');
@@ -150,6 +145,14 @@ Route::namespace('UI\admin')->group(function () {
       });
     });
 
+  });
+
+});
+
+// Backend
+Route::prefix('/v1/admin/')->group(function () {
+  Route::namespace('Backend\Post')->group(function () {
+    Route::post('creer/libre','CreatePostController@libre')->name('backend.post.create.libre');
   });
 });
 
