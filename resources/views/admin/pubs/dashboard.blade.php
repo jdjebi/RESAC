@@ -129,11 +129,9 @@ function get_pubs(){
     success: function(data,status){
       vm.pubs = data;
       show_table();
-      console.log(data);
     },
     error: function(data,status,error){
       Swal.fire("Oops !","Une erreur c'est produite. Veuillez contacter un administrateur du site.","error");
-      console.log(error);
     }
   });
 }

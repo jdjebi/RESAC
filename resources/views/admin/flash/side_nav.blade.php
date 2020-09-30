@@ -21,29 +21,38 @@
       </li>
     </ul>
 
+    <hr>
+
     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-      <span>PUBLICATIONS</span>
+      <span><i class="fa fa-edit"></i>  PUBLICATIONS</span>
     </h6>
     <ul class="nav flex-column mb-2">
+      <li class="nav-item">
+        <a class="nav-link {{ is_current_url('admin.post.create') }}" href="{{ route('admin.post.create') }}">
+          Créer une publication
+        </a>
+      </li>
       <li class="nav-item">
         <a class="nav-link {{ is_current_url('admin.pubs_dashboard') }}" href="{{ route('admin.pubs_dashboard') }}">
           Dernières publications
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{ is_current_url('admin.post.create') }}" href="{{ route('admin.post.create') }}">
-          <i class="fa fa-edit"></i> Créer une publication
+        <a class="nav-link {{ is_current_url('admin.post.my_posts') }}" href="{{ route('admin.post.my_posts') }}">
+          Mes publications
         </a>
       </li>
     </ul>
 
+    <hr>
+
     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-      <span>UTILISATEURS</span>
+      <span><i class="fa fa-users"></i> UTILISATEURS</span>
     </h6>
     <ul class="nav flex-column mb-2">
       <li class="nav-item">
         <a class="nav-link {{ is_current_url('admin_user_manager') }}" href="{{ route('admin_user_manager') }}">
-          <i class="fa fa-users"></i>  Membres
+          Membres
         </a>
       </li>
       <li class="nav-item">
@@ -53,6 +62,7 @@
       </li>
     </ul>
 
+    <hr>
 
     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
       <span>EXTRAS</span>
@@ -65,6 +75,8 @@
         </a>
       </li>
     </ul>
+
+    <hr>
 
     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
       <span>OUTILS DEVELOPPEUR</span>

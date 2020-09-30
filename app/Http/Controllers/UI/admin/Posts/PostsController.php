@@ -10,14 +10,12 @@ use App\Models\Post;
 class PostsController extends Controller
 {
 
-    public function dashboard()
-    {
+    public function dashboard(){
+      return view("admin.pubs.dashboard");
+    }
 
-      $user = Auth2::user();
-
-      return view("admin.pubs.dashboard",[
-        "user" => $user
-      ]);
+    public function my_posts(){
+      return view("admin.pubs.my_posts");
     }
 
 

@@ -6,6 +6,7 @@
   <style media="screen">
   body{
     background-color: #f1f3f6;
+    
   }
   </style>
   <style media="screen">

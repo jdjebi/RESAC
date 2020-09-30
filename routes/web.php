@@ -109,6 +109,7 @@ Route::name('admin.')->group(function () {
         Route::prefix('publications')->group(function(){
           Route::namespace('Posts')->group(function () {
             Route::get('','PostsController@dashboard')->name('pubs_dashboard');
+            Route::get('my','PostsController@my_posts')->name('post.my_posts');
             Route::get('{id}','PostsController@pub')->where('id', '[0-9]+')->name('manage_pub');
             Route::get('{id}/certification','PostsController@validate_pub')->name('validate_pub');
             Route::get('creer','CreatePostController@menu')->name('post.create');
@@ -150,17 +151,30 @@ Route::name('admin.')->group(function () {
 });
 
 // Backend
-Route::prefix('/v1/admin/')->group(function () {
-  Route::namespace('Backend\Post')->group(function () {
-    Route::post('creer/libre','CreatePostController@libre')->name('backend.post.create.libre');
+Route::middleware('admin.login')->group(function (){
+
+  Route::prefix('/v1/admin/')->group(function () {
+    Route::namespace('Backend\Post')->group(function () {
+      Route::post('creer/libre','CreatePostController@libre')->name('backend.post.create.libre');
+    });
   });
+
+  Route::namespace('Backend\Post')->group(function () {
+    Route::get('backend/post/{id}','PostDeleteController@my_post')->name('backend.post.delete.my_post');
+  });
+
 });
+
+
 
 /* API */
 
 // User
 Route::get('user/connected/main_data','Backend\User\GetDataController@main_for_user_connected')->name('backend.user.connected.main_data');
 Route::get('user/all/manage_data','Backend\User\GetDataController@manage_data')->name('backend.api.user.all.manage_data');
+
+// Post
+Route::get('post/user/{id}','Backend\Post\GetPostController@user_post')->name('backend.api.post.user');
 
 // Auth
 

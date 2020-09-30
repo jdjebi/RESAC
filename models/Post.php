@@ -35,9 +35,6 @@ class Post extends Model {
     $this->validate_by = $data["validate_by"];
     $this->validate_at = $data["validate_at"];
 
-
-
-
     /* Certification */
     // Instance du dernier utilisateur à l'origine de la dernière opération
     if($this->validate_by)
