@@ -115,6 +115,7 @@ var vm = new Vue({
             success: function(data,status){
               vm.user = data.data.user
               vm.pubs = data.data.posts;
+              $("time.timeago").timeago();
               $("#posts-lists").removeClass('d-none');
               $("#v-table-loader").hide();
             },
