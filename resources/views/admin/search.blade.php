@@ -1,4 +1,4 @@
-@extends('admin.page')
+@extends('admin.base')
 
 @section('extras_style')
 <style media="screen">
@@ -12,7 +12,7 @@ body{
 </style>
 @endsection
 
-@section('content')
+@section('main-content')
 
 @include('flash')
 
@@ -25,7 +25,7 @@ body{
 
     @foreach ($results as $u)
       <div class="mt-4 media">
-        <img src="{{ $u->photo }}" class="search-user-photo mr-3" alt="...">
+        <img src="{{ photos_cdn_asset($u) }}" class="search-user-photo mr-3 rounded" alt="...">
         <div class="media-body">
           <h5 class="mt-0"><a href="{{ route('admin_user_profil',[ $u->id]) }}">{{ $u->fullname }}</a></h5>
           <div class="text-muted small">{{ $u->promo }}</div>

@@ -1,16 +1,17 @@
-@extends('admin.page')
+@extends('admin.base')
 
 @section('extras_style')
+  @parent
   @include('admin.pubs.dashboard_style')
   <style media="screen">
   body{
     background-color: #f1f3f6
   }
+  
   </style>
  @endsection
 
-@section('content')
-@include('flash')
+@section('main-content')
 
 <div>
 
@@ -20,6 +21,15 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="h4 mb-4">Dernières publications</div>
+        <hr>
+      </div>
+      <div class="col-sm-12 mb-4">
+        <div class="d-flex">
+          <div class="resac-linkedin-shadow bg-white p-2 pl-3 resac-w-200">
+            <div class="h4" v-html="pubs_counter">0</div>
+            <div class="h6 text-muted font-weight-bold">Publications</div>
+          </div>
+        </div>
       </div>
       <div class="col-sm-12">
         <div class="">
@@ -50,7 +60,7 @@
                 </td>
                 <td>
                   <p class="truncate-65">
-                    @{{ pub.content | truncate(100)}}
+                    @{{ pub.content | truncate(60)}}
                   </p>
                 </td>
                 <td>@{{ pub.date }}</td>
@@ -97,18 +107,19 @@ var manage_pub_base_url = "{{ route("admin.manage_pub","") }}/";
 
 var vm = new Vue({
   el: '#v-table',
-
   data:{
       manage_pub_base_url: manage_pub_base_url,
       pubs: []
   },
-
+  computed: {
+    pubs_counter: function () {
+      return this.pubs.length
+    }
+  },
   beforeCreate: function(){
     get_pubs();
   }
-
 });
-
 
 function get_pubs(){
   var users = [];
@@ -118,11 +129,9 @@ function get_pubs(){
     success: function(data,status){
       vm.pubs = data;
       show_table();
-      console.log(data);
     },
     error: function(data,status,error){
       Swal.fire("Oops !","Une erreur c'est produite. Veuillez contacter un administrateur du site.","error");
-      console.log(error);
     }
   });
 }

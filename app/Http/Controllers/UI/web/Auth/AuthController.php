@@ -9,7 +9,6 @@ use App\Models\SearchUserIndex;
 use App\User;
 
 
-
 class AuthController extends Controller
 {
 

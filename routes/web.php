@@ -37,11 +37,7 @@ Route::middleware("auth")->group(function(){
 
   Route::get('/profil','UI\Web\Profil\ProfilController@user')->name('profil');
   Route::get('/profil/{id}','UI\Web\Profil\ProfilController@visitor')->where('id', '[0-9]+')->name('profil.visitor');
-
-
   Route::get('/profil2','UI\Web\Profil\ProfilController@user_new')->name('profil.user');
-  // Backend
-  Route::get('user/connected/main_data','Backend\User\GetDataController@main_for_user_connected')->name('backend.user.connected.main_data');
 
   Route::prefix('/compte')->group(function () {
     // Frontend
@@ -76,7 +72,6 @@ Route::middleware("auth")->group(function(){
 });
 
 
-
 /* Administration */
 
 Route::prefix('/v1/admin')->group(function (){
@@ -90,8 +85,9 @@ Route::prefix('/v1/admin')->group(function (){
       Route::get('manage/users','User\ListController@user_manager')->name('admin_user_manager');
       Route::get('manage/user/action/','AdminController@delete_user')->name('admin_delete_user');
       Route::match(['get', 'post'],'manage/user/{user_id}','AdminController@user_profil')->where('user_id', '[0-9]+')->name('admin_user_profil');
-      Route::get('deconnexion','Backend\Auth\AuthController@admin_logout')->name('admin_logout');
     });
+
+    Route::get('deconnexion','Backend\Auth\AuthController@admin_logout')->name('admin_logout');
 
     Route::namespace("Resac")->group(function (){
       Route::get('rechercher',"SearchController@admin")->name('admin_search');
@@ -101,31 +97,34 @@ Route::prefix('/v1/admin')->group(function (){
 
 });
 
+Route::name('admin.')->group(function () {
 
-Route::namespace('UI\admin')->group(function () {
-  Route::name('admin.')->group(function () {
-
+  // Frontend
+  Route::namespace('UI\admin')->group(function () {
+  
     Route::middleware('admin.login')->group(function (){
-
-      Route::prefix('/v1/admin/manager/')->group(function () {
+      Route::prefix('/v1/admin/')->group(function () {
 
         /* Publications */
-        Route::get('pubs','PubsController@dashboard')->name('pubs_dashboard');
-        Route::get('pubs/{id}','PubsController@pub')->where('id', '[0-9]+')->name('manage_pub');
-        Route::get('pubs/{id}/certification','PubsController@validate_pub')->name('validate_pub');
-
+        Route::prefix('publications')->group(function(){
+          Route::namespace('Posts')->group(function () {
+            Route::get('','PostsController@dashboard')->name('pubs_dashboard');
+            Route::get('my','PostsController@my_posts')->name('post.my_posts');
+            Route::get('{id}','PostsController@pub')->where('id', '[0-9]+')->name('manage_pub');
+            Route::get('{id}/certification','PostsController@validate_pub')->name('validate_pub');
+            Route::get('creer','CreatePostController@menu')->name('post.create');
+            Route::get('creer/libre','CreatePostController@libre')->name('post.create.libre');
+          });
+        });
 
         /* Nouveautés */
-        Route::get('nouveautes','FeaturesController@dashboard')->name('feature.all');
+        Route::get('nouveautes','Features\FeaturesController@dashboard')->name('feature.all');
+        Route::get('nouveautes/{id}','Features\FeaturesController@feature')->where('id', '[0-9]+')->name('feature.show');
+        Route::post('nouveautes/{id}','Features\FeaturesController@update')->where('id', '[0-9]+');
 
-        Route::get('nouveautes/{id}','FeaturesController@feature')->where('id', '[0-9]+')->name('feature.show');
-        Route::post('nouveautes/{id}','FeaturesController@update')->where('id', '[0-9]+');
-
-        Route::get('nouveautes/creer','FeaturesController@create')->name('feature.create');
-        Route::post('nouveautes/creer','FeaturesController@store');
-
-        Route::get('nouveautes/delete/{id}','FeaturesController@delete')->where('id', '[0-9]+')->name('feature.delete');
-
+        Route::get('nouveautes/creer','Features\FeaturesController@create')->name('feature.create');
+        Route::post('nouveautes/creer','Features\FeaturesController@store');
+        Route::get('nouveautes/delete/{id}','Features\FeaturesController@delete')->where('id', '[0-9]+')->name('feature.delete');
 
         /* Index de recherche utilisateur */
         Route::get('webengine/index','WebEngineIndexController@show')->name('webengine.show');
@@ -143,47 +142,51 @@ Route::namespace('UI\admin')->group(function () {
 
     Route::name('api.')->group(function () {
       Route::prefix('/v1/api/admin/')->group(function () {
-        Route::get('pubs/all','PubsController@api_get_all')->name('pubs_all');
+        Route::get('pubs/all','Posts\PostsController@api_get_all')->name('pubs_all');
       });
     });
 
   });
+
 });
 
-/* simple API */
+// Backend
+Route::middleware('admin.login')->group(function (){
 
-Route::prefix('v1/api')->group(function () {
-
-  Route::namespace('Resac\Api')->group(function () {
-
-      Route::post('login','ApiController@login')->name('api_login');
-
+  Route::prefix('/v1/admin/')->group(function () {
+    Route::namespace('Backend\Post')->group(function () {
+      Route::post('creer/libre','CreatePostController@libre')->name('backend.post.create.libre');
+    });
   });
 
-  Route::get('get/v1/users','UI\admin\AdminController@api_get_user_list')->name('api_get_user_list');
+  Route::namespace('Backend\Post')->group(function () {
+    Route::get('backend/post/{id}','PostDeleteController@my_post')->name('backend.post.delete.my_post');
+  });
 
+});
+
+
+
+/* API */
+
+// User
+Route::get('user/connected/main_data','Backend\User\GetDataController@main_for_user_connected')->name('backend.user.connected.main_data');
+Route::get('user/all/manage_data','Backend\User\GetDataController@manage_data')->name('backend.api.user.all.manage_data');
+
+// Post
+Route::get('post/user/{id}','Backend\Post\GetPostController@user_post')->name('backend.api.post.user');
+
+// Auth
+
+Route::prefix('v1/api')->group(function () {
+  Route::namespace('Resac\Api')->group(function () {
+      Route::post('login','ApiController@login')->name('api_login');
+  });
   Route::post('admin/login','UI\admin\AdminController@api_login')->name('admin_api_login');
 });
 
+
 /* Routes de test */
-
-
-Route::get('test_index',function(){
-
-  $user = App\User::create([
-    "nom" => 'test'.Str::random(4),
-    "prenom" => 'test'.Str::random(4),
-    "email" => 'test'.Str::random(4).'@gmail.com',
-    "password" => Hash::make('123'),
-    "version" => 2 // version actuelle des comptes
-  ]);
-
-  SearchUserIndex::register($user); // L'utilisateur est enregistré dans l'index de recherche
-
-  return 'test';
-
-});
-
 
 Route::get('test/storage_driver',function(){
 

@@ -1,24 +1,18 @@
-@extends('admin.page')
+@extends('admin.base')
 
-@section('extras_style')
-  @include('admin.pubs.dashboard_style')
-  <style media="screen">
-  body{
-    background-color: #f1f3f6
-  }
-  </style>
- @endsection
+@section('main-content')
+@include('admin.features.dashboard_nav')
 
-@section('content')
-@include('flash')
-
-<div class="mt-5 container">
+<div class="mt-3 container-fluid">
   <div class="row">
     <div class="col-md-12">
-
+      <div>
+        <div class="h4 mb-4">Nouveauté #{{ $feature->id }}</div>
+        <hr>
+      </div>
       <div class="border">
         <div class="p-3 bg-white border-bottom">
-          <span class="h5">Nouveauté</span>
+          <span class="h5">{{ $feature->title }}</span>
         </div>
 
         <div class="p-3 bg-white">

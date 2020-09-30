@@ -1,16 +1,16 @@
 <div class="bg-post">
 
   <div class="pub-box" id="">
-      <div class="box border bg-white mb-3">
+      <div class="box bg-white mb-3 resac-linkedin-shadow">
           <div class="header pl-4 pt-3 pb-3 pr-4">
             <div class="media">
-              <a title="{{ $post->user->get_complete_name() }}" href="{{ route('admin_user_profil',$post->user_id) }}">
-              <img class="pub-user-photo" src="{{ $post->user->get_photo() }}" alt="Photo {{ $post->user->get_complete_name() }}">
+              <a title="{{ $post->user_object->fullname }}" href="{{ route('admin_user_profil',$post->user_object->id) }}">
+              <img class="pub-user-photo" src="{{ photos_cdn_asset($post->user_object) }}" alt="Photo {{ $post->user_object->fullname }}">
               </a>
               <div class="ml-3 media-body">
                 <div class="mt-0 pub-user-name">
-                  <a href="{{ route('profil') }}?id={{ $post->user_id }}">
-                    {{ $post->user->get_complete_name() }}
+                  <a href="{{ route('profil') }}?id={{ $post->id }}">
+                    {{ $post->user_object->fullname }}
                   </a> &nbsp;
                   <span title="Publication non validée" class="text-{{ $post->validate ? "success" : "danger"}}"><i class="fa fa-check-circle"></i></span>
                 </div>
@@ -34,11 +34,11 @@
               <div class="small text-muted">
                 @if($post->validate)
                   <div>Certifier le: {{ $post->validate_at }}</div>
-                  <div>Par: {{ $post->get_certificate_author() }} </div>
+                  <div>Par: {{ $post->certificate_author->fullname }} </div>
                 @else
                   @if($post->validate_at)
                   <div>Certification annulé le: {{ $post->validate_at }}</div>
-                  <div>Par: {{ $post->get_certificate_author() }}</div>
+                  <div>Par: {{ $post->certificate_author->fullname }}</div>
                   @else
                     <div class="">Aucune opération</div>
                   @endif

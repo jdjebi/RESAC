@@ -1,12 +1,4 @@
-.resac-border-light-2{
-  border: 1px solid #ced2d7
-}
-.resac-border-no{
-  border: 0;
-}
-.resac-rounded-2px{
-  border-radius: 2px;
-}
+/* Utilitaire de dimension */
 
 .wh-40{
   width: 40px;
@@ -35,9 +27,30 @@
   width: 100px
 }
 
+/* Utilitaire de marge */
+
 .resac-padding-no-left-right{
   padding-left: 0 !important;
   padding-right: 0 !important;
+}
+
+@media (max-width: 768px){
+  .resac-padding-left-right-on-sm{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+/* Utilitaire de bordure */
+
+.resac-border-light-2{
+  border: 1px solid #ced2d7
+}
+.resac-border-no{
+  border: 0;
+}
+.resac-rounded-2px{
+  border-radius: 2px;
 }
 
 @media (max-width: 768px){
@@ -79,6 +92,8 @@
     display:none
   }
 }
+
+/* Utilitaire d'ombre */
 
 .resac-linkedin-shadow{
   box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 2px 3px rgba(0,0,0,.2);

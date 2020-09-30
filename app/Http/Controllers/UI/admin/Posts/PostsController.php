@@ -1,22 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\UI\admin;
+namespace App\Http\Controllers\UI\admin\Posts;
 
 use App\Http\Controllers\Controller;
 use Resac\Auth2;
+use App\Models\Post;
 
 
-class PubsController extends Controller
+class PostsController extends Controller
 {
 
-    public function dashboard()
-    {
+    public function dashboard(){
+      return view("admin.pubs.dashboard");
+    }
 
-      $user = Auth2::user();
-
-      return view("admin.pubs.dashboard",[
-        "user" => $user
-      ]);
+    public function my_posts(){
+      return view("admin.pubs.my_posts");
     }
 
 
@@ -24,13 +23,7 @@ class PubsController extends Controller
 
       $user = Auth2::user();
 
-      $post = \Post::get($id);
-
-      if(!$post){
-        return view("admin.pubs.404",[
-          "user" => $user,
-        ]);
-      }
+      $post = Post::findOrFail($id);
 
       return view('admin.pubs.pub',[
         "user" => $user,

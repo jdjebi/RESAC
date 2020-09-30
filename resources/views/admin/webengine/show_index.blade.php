@@ -1,11 +1,6 @@
-@extends('admin.page')
+@extends('admin.base')
 
-@section('extras_style')
-  @include('admin.pubs.dashboard_style')
- @endsection
-
-@section('content')
-@include('flash')
+@section('main-content')
 
 <div>
   <div id="v-table" class="mt-3 container-fluid">

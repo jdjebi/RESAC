@@ -1,16 +1,7 @@
-@extends('admin.page')
+@extends('admin.base')
 
-@section('extras_style')
-  @include('admin.pubs.dashboard_style')
-  <style media="screen">
-  body{
-    background-color: #f1f3f6
-  }
-  </style>
- @endsection
-
-@section('content')
-@include('flash')
+@section('main-content')
+@include('admin.features.dashboard_nav')
 
 <div>
 
@@ -18,10 +9,13 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="d-flex justify-content-between">
-          <div class="h3 mb-4">Nouveautés</div>
+          <div class="h3">Nouveautés</div>
           <div class="text-right">
             <a href="{{ route("admin.feature.create") }}" class="btn btn-primary"> <i class="fa fa-plus"></i> Créer </a>
           </div>
+        </div>
+        <div>
+          <hr>
         </div>
       </div>
       <div class="col-sm-12">
