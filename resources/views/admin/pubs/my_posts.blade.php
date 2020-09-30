@@ -82,7 +82,6 @@
 @endsection
 
 @section('scripts')
-<script type="module" src="{{ asset("asset/js/resac/init.timeago.js") }}"></script>
 
 <script type="text/javascript">
 
@@ -115,7 +114,6 @@ var vm = new Vue({
             success: function(data,status){
               vm.user = data.data.user
               vm.pubs = data.data.posts;
-              $("time.timeago").timeago();
               $("#posts-lists").removeClass('d-none');
               $("#v-table-loader").hide();
             },
