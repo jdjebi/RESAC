@@ -6,6 +6,15 @@
   - Affichage unique d'une publication
     - [] Pour la fil d'actu
 
+- Documenter la nouvelle tables des publications
+
+# Version 6
+
+- Messagerie instannées
+- Traducteur de date
+- Gestion des écoles, académies et entreprises
+- Gestion des pays
+
 
 # Bugs
 - Suppression impossible sur la page des publication

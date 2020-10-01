@@ -20,7 +20,7 @@
           <div class="" style="padding-top: 8px;">
             <span class="post-badge post-badge-info">INFORMATION</span>
           </div>
-          <button class="btn btn-sm btn-primary" type="submit" name="register-post">Publier</button>
+          <button class="btn btn-sm btn-primary" type="submit" name="register-post">Enregistrer</button>
         </div>
       </div>
     </form>
@@ -54,8 +54,6 @@ $('form').on('submit',function(e){
   var text = editor.getText(0, length);
   $('input[name=content]').first().val(text);
   form.submit();
-
-  console.log(text)
 });
 </script>
 

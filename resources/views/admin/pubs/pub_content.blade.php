@@ -24,9 +24,7 @@
               </div>
             </div>
           </div>
-          <div class="body pl-4 pr-4 pb-3">
-            {{ $post->content }}
-          </div>
+          <div class="body pl-4 pr-4 pb-3">{{ $post->content }}</div>
           <div class="footer border-top p-2 pl-4 pr-4">
             <div class="d-flex justify-content-between align-items-center">
               <div>
