@@ -101,7 +101,7 @@
 
 <script type="text/javascript">
 
-var api_get_pubs = "{{ route("admin.api.pubs_all") }}";
+var api_get_pubs = "{{ route("backend.api.post.get.published") }}";
 var manage_pub_base_url = "{{ route("admin.manage_pub","") }}/";
 
 
@@ -117,29 +117,22 @@ var vm = new Vue({
     }
   },
   beforeCreate: function(){
-    get_pubs();
+    var users = [];
+    $.get({
+      url: api_get_pubs,
+      dataType: 'json',
+      success: function(data,status){
+        vm.pubs = data.data;
+        console.log(data.data)
+        $("#v-table-row").removeClass('d-none');
+        $("#v-table-loader").hide();
+      },
+      error: function(data,status,error){
+        Swal.fire("Oops !","Une erreur c'est produite. Veuillez contacter un administrateur du site.","error");
+      }
+    });
   }
 });
-
-function get_pubs(){
-  var users = [];
-  $.get({
-    url: api_get_pubs,
-    dataType: 'json',
-    success: function(data,status){
-      vm.pubs = data;
-      show_table();
-    },
-    error: function(data,status,error){
-      Swal.fire("Oops !","Une erreur c'est produite. Veuillez contacter un administrateur du site.","error");
-    }
-  });
-}
-
-function show_table(){
-  $("#v-table-row").removeClass('d-none');
-  $("#v-table-loader").hide();
-}
 
 </script>
 @endsection

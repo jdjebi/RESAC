@@ -8,13 +8,16 @@
 
 - Documenter la nouvelle tables des publications
 
+
+
 # Version 6
 
 - Messagerie instannées
 - Traducteur de date
 - Gestion des écoles, académies et entreprises
 - Gestion des pays
-
+- Pour publier il faut posséder le pays et la commune/quartier
+- Importation et visualisation de CV
 
 # Bugs
 - Suppression impossible sur la page des publication

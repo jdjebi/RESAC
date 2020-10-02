@@ -82,7 +82,8 @@
 @endsection
 
 @section('scripts')
-
+<script src="{{ asset("asset/js/timeago/jquery.timeago.js") }}"></script>
+<script src="{{ asset("asset/js/timeago/jquery.timeago.fr-short.js") }}"></script>
 <script type="text/javascript">
 
 var vm = new Vue({
@@ -112,10 +113,10 @@ var vm = new Vue({
             url: this.url.get_posts,
             dataType: 'json',
             success: function(data,status){
-              vm.user = data.data.user
-              vm.pubs = data.data.posts;
               $("#posts-lists").removeClass('d-none');
               $("#v-table-loader").hide();
+              vm.user = data.data.user
+              vm.pubs = data.data.posts;
             },
             error: function(data,status,error){
               Swal.fire("Oops !","Une erreur c'est produite. Veuillez contacter un administrateur du site.","error");
@@ -144,6 +145,8 @@ var vm = new Vue({
 
 });
 
-
+setInterval(function (){
+  x = $("time.timeago").timeago();
+},200);
 </script>
 @endsection

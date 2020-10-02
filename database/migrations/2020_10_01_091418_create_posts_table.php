@@ -40,9 +40,9 @@ class CreatePostsTable extends Migration
             
             $table->integer('version')->default("2"); // Version de la publication
             
-            $table->enum('status',[0,1,2])->default(0);	// Etat de la publication - Brouillon; Publiée; Bloquée
+            $table->integer('status')->default(0);	// Etat de la publication - Brouillon; Publiée; Bloquée
             
-            $table->enum('validate_status',[0,1,2,3])->default(3);	// Date de validation de la publication
+            $table->integer('validate_status')->default(3);	// Date de validation de la publication
             
             $table->boolean('validate')->default(false); // Etat de validation
 

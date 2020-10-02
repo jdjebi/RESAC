@@ -1,32 +1,11 @@
-<style media="screen">
-
-#resume .user-cover-pic{
-  height: 80px;
-}
-#resume .user-photo{
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  position: relative;
-  top: 30px;
-}
-#resume .resume-content{
-  position: relative;
-}
-
-.resac-nav-ul .nav-link{
-    padding-left: 0px;
-}
-</style>
-
 <div class="media">
-  <img class="wh-40 border resac-border-light-2 rounded-circle" src="{{ photos_cdn_asset($user) }}" alt="Photo {{ $user->fullname }}">
+  <img class="wh-40 border resac-border-light-2 rounded-circle" src="{{ photos_cdn_asset(UserAuth()) }}" alt="Photo {{  UserAuth()->fullname }}">
   <div class="media-body ml-2 small">
     <div>
-      {{ $user->fullname }}
+      {{ UserAuth()->fullname }}
     </div>
     <div class="">
-      {{ $user->emploi }} &middot {{ $user->universite }}
+      {{  UserAuth()->emploi }} &middot {{  UserAuth()->universite }}
     </div>
   </div>
 </div>
