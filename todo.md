@@ -1,5 +1,12 @@
 # A FAIRE
 
+- Marquer l'état de la publication
+  - Brouillon
+  - Publié
+  - Bloqué
+  - Terminé
+
+
 - Améliorer l'édition des publications
   - [] Modification des publications
     - [] Modification effective
@@ -7,8 +14,7 @@
     - [] Pour la fil d'actu
 
 - Documenter la nouvelle tables des publications
-
-
+- Description du processus de validation la nouvelle tables des publications
 
 # Version 6
 

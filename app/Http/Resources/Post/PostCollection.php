@@ -29,6 +29,13 @@ class PostCollection extends ResourceCollection
                 'validate' => $post->validate,
                 'validate_by' => $post->validate_by, 
                 'validate_at' => $post->validate_at,
+                'validate_status' => $post->validate_status,
+                'status'  => $post->status,
+                'is_active' => $post->is_active,
+                'validate_status_title' => $post->validate_status_title,
+                'validate_status_tag' => $post->validate_status_tag
+
+                
             ];
         }
 
@@ -48,8 +55,6 @@ class PostCollection extends ResourceCollection
                 'commune' => $user->commune,
                 'numero' => $user->numero,
                 'admin_profil_url' => route('admin_user_profil',['user_id' => $user->id]),
-                'validate_status' => $post->validate_status,
-                'status'  => $post->status,
             ],
         ];
     }

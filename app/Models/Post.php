@@ -45,4 +45,16 @@ class Post extends Model
         return 'muted';
     }
 
+    public function getValidateStatusTitleAttribute(){
+      $validate_status = $this->attributes['validate_status'];
+      if($validate_status == 0)
+        return 'Publication non approuvée'; 
+      elseif($validate_status == 1)
+        return 'Publication approuvée';
+      elseif($validate_status == 2)
+        return 'Publication en attente de validation'; 
+      else 
+        return 'Publication neutre';
+    }
+
 }

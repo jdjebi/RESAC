@@ -46,6 +46,9 @@ class PostMixCollection extends ResourceCollection
                 'validate_at' => $post->validate_at,
                 'validate_status' => $post->validate_status,
                 'status'  => $post->status,
+                'is_active' => $post->is_active,
+                'validate_status_title' => $post->validate_status_title,
+                'validate_status_tag' => $post->validate_status_tag
             ];
         }
 

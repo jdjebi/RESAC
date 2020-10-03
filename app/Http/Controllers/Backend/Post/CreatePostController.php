@@ -24,7 +24,7 @@ class CreatePostController extends Controller
             "content" => $request->content,
             "validate" => false,
             "status" => Post::BROUILLON,
-            "validate_status" => Post::NEUTRE
+            "validate_status" => Post::NEUTRE,
         ]);
 
         // Si l'utilisateur a les droits de modération, la publication est directement certifiée
