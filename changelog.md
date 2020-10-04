@@ -1,5 +1,13 @@
 ## Master
 
+### 4-10-2020
+- Les posts n'utilisent plus la table "pub_v1" pour la gestion des publications mais plutôt la table "posts" - voir le fichier `database\migrations\2020_10_01_091418_create_posts_table.php`
+- Révision complète de l'interface de l'administration
+- Réorganisation des controllers: les controllers de Backend et de Frontend sont désormais séparés dans des dossiers différents (Backend/ et UI/)
+- Amélioration de la prise en charge de Vue.js
+- Ajout de Ressources pour les Posts et les utilisateurs - voir `app\Http\Ressources`
+- Ajout du helper `UserAuth()` qui retourne une instance de l'utilisateur connecté
+
 ### 20-09-2020
 - Création d'un nouveau fichier de configuration 'var.php', il contient par exemple le chemin vers la photo de profil par défaut
 
