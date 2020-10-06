@@ -181,7 +181,7 @@ class AdminController extends Controller
           'emploi' => $user->emploi,
           'pays' => $user->pays,
           'role' => $user->staff_role,
-          'photo' => asset(photos_cdn_asset($user)),
+          'photo' => photos_cdn_asset($user),
           'version' => $user->version, 
           'profil_url' => route('profil')."?id=".$user->id,
           'admin_profil_url' => route('admin_user_profil',['user_id' => $user->id])

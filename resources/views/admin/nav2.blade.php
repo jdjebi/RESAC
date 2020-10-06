@@ -20,12 +20,6 @@
       <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.feature.all') }}">Espace nouveautés</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{ route('admin.webengine.show') }}">Index de recherche</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{ route('admin.dev.create_flash') }}">Flash</a>
-      </li>
       @endif
     </ul>
 

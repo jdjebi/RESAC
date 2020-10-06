@@ -4,9 +4,8 @@ namespace App\Http\Resources\Post;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use App\User;
-use App\Http\Resources\User\MainData as UserRessources;
 
-class PostCollection extends ResourceCollection
+class PostMixCollection extends ResourceCollection
 { 
     public function toArray($request)
     {
@@ -21,6 +20,22 @@ class PostCollection extends ResourceCollection
             $posts[] = [
                 'id' => $post->id,
                 'user_id' => $post->user_object->id,
+                'user' => [
+                    'id' => $user->id,
+                    'nom' => $user->nom,
+                    'prenom' => $user->prenom,
+                    'fullname' => $user->fullname,
+                    'promo' => $user->promo,
+                    'universite' => $user->universite,
+                    'emploi' => $user->emploi,
+                    'pays' => $user->pays,
+                    'photo' => photos_cdn_asset($user), 
+                    'ville' => $user->ville,
+                    'commune' => $user->commune,
+                    'numero' => $user->numero,
+                    'admin_profil_url' => route('admin_user_profil',['user_id' => $user->id]),
+                    'profil_url' => route('profil.visitor',$user->id),
+                ],
                 'scope' => $post->scope,
                 'type' => $post->type,
                 'date' => $post->date,
@@ -34,28 +49,9 @@ class PostCollection extends ResourceCollection
                 'is_active' => $post->is_active,
                 'validate_status_title' => $post->validate_status_title,
                 'validate_status_tag' => $post->validate_status_tag
-
-                
             ];
         }
 
-        return [
-            "posts" => $posts,
-            "user" => [
-                'id' => $user->id,
-                'nom' => $user->nom,
-                'prenom' => $user->prenom,
-                'fullname' => $user->fullname,
-                'promo' => $user->promo,
-                'universite' => $user->universite,
-                'emploi' => $user->emploi,
-                'pays' => $user->pays,
-                'photo' => photos_cdn_asset($user), 
-                'ville' => $user->ville,
-                'commune' => $user->commune,
-                'numero' => $user->numero,
-                'admin_profil_url' => route('admin_user_profil',['user_id' => $user->id]),
-            ],
-        ];
+        return $posts;
     }
 }

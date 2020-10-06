@@ -66,7 +66,7 @@ Route::middleware("auth")->group(function(){
   Route::get('publications?not-certified',"Resac\PostController@index")->name('app.post.not_certified');
   Route::get('publications/creer',"Resac\PostController@create")->name('app.post.hub');
   Route::get('publications/delete/{id}',"Resac\Posts\PostDeleteController")->where('id', '[0-9]+')->name('app.post.delete');
-  Route::post('publications/publier',"Resac\Posts\PostSaverController")->name('app.post.publish');
+  Route::post('publications/publier',"Backend\Post\CreatePostController@from_member")->name('app.post.publish');
   
 
 });
@@ -133,7 +133,7 @@ Route::name('admin.')->group(function () {
 
       });
 
-      Route::prefix('/v2/admin/')->group(function () {
+      Route::prefix('/v1/admin/')->group(function () {
         Route::get('dev/flash/creator','DevController@create_flash')->name('dev.create_flash');
       });
 
@@ -160,6 +160,7 @@ Route::middleware('admin.login')->group(function (){
   });
 
   Route::namespace('Backend\Post')->group(function () {
+    Route::post('backend/post/create',"CreatePostController@from_member")->name('backend.post.create.from_member');
     Route::get('backend/post/{id}','PostDeleteController@my_post')->name('backend.post.delete.my_post');
   });
 
@@ -174,7 +175,10 @@ Route::get('user/connected/main_data','Backend\User\GetDataController@main_for_u
 Route::get('user/all/manage_data','Backend\User\GetDataController@manage_data')->name('backend.api.user.all.manage_data');
 
 // Post
-Route::get('post/user/{id}','Backend\Post\GetPostController@user_post')->name('backend.api.post.user');
+Route::get('posts/user/{id}','Backend\Post\GetPostController@user_post')->name('backend.api.post.user');
+Route::get('posts/','Backend\Post\GetPostController@all_posts')->name('backend.api.post.get.all');
+Route::get('posts/published','Backend\Post\GetPostController@published')->name('backend.api.post.get.published');
+
 
 // Auth
 

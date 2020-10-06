@@ -1,13 +1,33 @@
 # A FAIRE
 
+- Marquer l'état de la publication
+  - Brouillon
+  - Publié
+  - Bloqué
+  - Terminé
+
+
 - Améliorer l'édition des publications
   - [] Modification des publications
     - [] Modification effective
   - Affichage unique d'une publication
     - [] Pour la fil d'actu
 
+- Documenter la nouvelle tables des publications
+- Documenter la base de données
+- Description du processus de validation la nouvelle tables des publications
+
+# Version 6
+
+- Messagerie instannées
+- Traducteur de date
+- Gestion des écoles, académies et entreprises
+- Gestion des pays
+- Pour publier il faut posséder le pays et la commune/quartier
+- Importation et visualisation de CV
 
 # Bugs
+- Supprimer le on delete cascade sur user.validate_by car si un utilisateur ayant validé une publication est supprimé alors la publications l'est aussi
 - Suppression impossible sur la page des publication
 - Réduire la répétition du code d'affichage des publications
 - Revoir l'affichage des publications
@@ -32,8 +52,6 @@
     - Révision de la page d'accueil
 
 - Gérer le cas au le où le mail ne part pas
-- Créer une documentation
-- Conservation de session. Récupérer les l'utilisateurs uniquement via la auth de laravel (il reste l'administration) et autre bugs lié
 
 # FAIT
 - Utiliser Dropbox comme CDN pour les photos
@@ -45,17 +63,17 @@
 - Revoir les photos dans l'admin
 - Créer une section pour faire des flash infos
 - Revoir la barre de recherche
+- Option pour retirer la photo de profil
+- Conservation de session. Récupérer les l'utilisateurs uniquement via la auth de laravel (il reste l'administration) et autre bugs lié
 
 
 # Brainstorming
 - Ajout des utilisateurs de type modérateur
 - Ajout des photos de profil en se basant sur le nom
-- Améliorer la gestion du CDN
 - Marquage des utilisateurs RESAC
 - Message de bienvenue sur RESAC lors de la première connexion
 - Utiliser un système de balisage pour la création des publications
 - Trouver une solution pour que les messages flash ne se répètent pas s'il en la mm origine ou le mm contenu
-- Option pour retirer la photo de profil
 - Utiliser un nom utilisateur pour identifier un utilisateur
 - Créer une historique de navigation en terme de flyers - information qui une fois disparait ou disparait après un certains temps (utiliser ). Ces derniers sont rédiger par un admin
 - Guide lors de la connexion
@@ -74,7 +92,6 @@
 - La publication appartient à un utilisateur
   - Supprimer un utilisateur revient à supprimer toutes ses publications
 - Intégrer une étape de mise à jour de compte après la réussite de la connexion(app/admin)
-- Breadcumb dans l'administration
 - Controller la sécurité des API
 - Design de la page lorsque la base de donnée est inaccéssible non fait (A revoir)
 - Améliorer l'affiche des erreurs avec Ajax

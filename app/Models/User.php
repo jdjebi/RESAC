@@ -20,6 +20,10 @@ class User extends Authenticatable
         return "{$this->attributes['nom']} {$this->attributes['prenom']}";
     }
 
+    public function getIsModerateurAttribute(){
+      return ($this->attributes['is_staff'] && $this->attributes['staff_role'] == "admin");
+    }
+
     public function getPhotoAttribute(){
 
       if($this->attributes['photo'] != ""){

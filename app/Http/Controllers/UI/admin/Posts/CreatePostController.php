@@ -10,8 +10,7 @@ use App\Models\Post;
 class CreatePostController extends Controller
 {
 
-    public function menu()
-    {
+    public function menu(){
       return view("admin.pubs.menu");
     }
 

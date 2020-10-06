@@ -12,7 +12,7 @@
                   <a href="{{ route('profil') }}?id={{ $post->id }}">
                     {{ $post->user_object->fullname }}
                   </a> &nbsp;
-                  <span title="Publication non validée" class="text-{{ $post->validate ? "success" : "danger"}}"><i class="fa fa-check-circle"></i></span>
+                  <span title="{{ $post->validate_status_title }}" class="text-{{ $post->validate_status_tag }}"><i class="fa fa-check-circle"></i></span>
                 </div>
 
                 <span class="text-muted small">
@@ -24,9 +24,7 @@
               </div>
             </div>
           </div>
-          <div class="body pl-4 pr-4 pb-3">
-            {{ $post->content }}
-          </div>
+          <div class="body pl-4 pr-4 pb-3">{{ $post->content }}</div>
           <div class="footer border-top p-2 pl-4 pr-4">
             <div class="d-flex justify-content-between align-items-center">
               <div>

@@ -1,8 +1,3 @@
-<style media="screen">
-.last-feature .content{
-  font-size: 13px
-}
-</style>
 <div class="last-feature">
   <div class="resac-linkedin-shadow rounded-lg bg-white pb-2">
     <div class="font-weight-bold pt-3 pl-3 pb-2"> Dernières nouveautés</div>

@@ -12,6 +12,13 @@
       color: #474e52;
       border-color: transparent;    
     }
+
+    .posts-list-elm-tag-status{
+      vertical-align: middle;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 12px;
+    }
   </style>
 @endsection
 
@@ -46,8 +53,9 @@
                     <div class="ml-3 media-body">
                       <div class="mt-0 pub-user-name">
                         <a v-bind:href="user.admin_profil_url">
-                          @{{ user.nom }} @{{ user.prenom }}
+                          @{{ user.fullname }}
                         </a> &nbsp;
+                      <span v-bind:title="pub.validate_status_title" v-bind:class="'text-'+pub.validate_status_tag"><i class="fa fa-check-circle"></i></span>
                       </div>
                       <span class="text-muted small">
                         <i class="far fa-clock"></i> <time class="timeago" v-bind:datetime="pub.date"  v-bind:title="pub.date">@{{ pub.date }}</time>
@@ -59,15 +67,36 @@
                 </div>
                 <div class="body pl-4 pr-4 pb-3">@{{ pub.content | truncate(300,".....") }}</div>
                 <div class="footer border-top p-2 pl-4 pr-4">
-                  <div class="">
-                    <a v-bind:href="url.show_post + pub.id" class="btn btn-sm btn-primary resac-fb-btn-default">Afficher</a>
-                    <a href="#" v-on:click="OnDeletePost(pub.id,$event)" class="btn btn-sm btn-danger resac-fb-btn-default">Supprimer</a>
+                  <div class="d-flex justify-content-between">
+                    <div class="d-flex align-items-center">
+                      <div class="posts-list-elm-tag-status">
+                        <template v-if="pub.status == 0">
+                          <span class="text-muted">Brouillon</span>
+                        </template>
+                        <template v-else-if="pub.status == 1">
+                          <div v-if="pub.is_active == 1">
+                            <span class="text-success">Publié</span>
+                          </div>
+                          <div v-else>
+                            <span class="text-danger">Bloqué</span>
+                          </div>
+                        </template> 
+                        <template v-else-if="pub.status == 3">
+                          <span class="text-dark">Terminé</span>
+                        </template> 
+                      </div>
+                    </div>
+                    <div>
+                      <a v-bind:href="url.show_post + pub.id" class="btn btn-sm btn-primary resac-fb-btn-default">Afficher</a>
+                      <a v-bind:href="url.edit_post + pub.id" class="btn btn-sm btn-info resac-fb-btn-default">Modifier</a>
+                      <a href="#" v-on:click="OnDeletePost(pub.id,$event)" class="btn btn-sm btn-danger resac-fb-btn-default">Supprimer</a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>07924211
+        </div>
       </div>
       </div>
     </div>
@@ -82,8 +111,8 @@
 @endsection
 
 @section('scripts')
-<script type="module" src="{{ asset("asset/js/resac/init.timeago.js") }}"></script>
-
+<script src="{{ asset("asset/js/timeago/jquery.timeago.js") }}"></script>
+<script src="{{ asset("asset/js/timeago/jquery.timeago.fr-short.js") }}"></script>
 <script type="text/javascript">
 
 var vm = new Vue({
@@ -95,6 +124,7 @@ var vm = new Vue({
             manage: "{{ route('admin.post.my_posts') }}",
             get_posts: "{{ route('backend.api.post.user',UserAuth()->id) }}",
             show_post: "{{ route("admin.manage_pub","") }}/",
+            edit_post: "{{ route("admin.manage_pub","") }}/",
             delete_post: "{{ route('backend.post.delete.my_post',"") }}/"
         },
         manage_pub_base_url: "{{ route("admin.manage_pub","") }}/",
@@ -113,10 +143,10 @@ var vm = new Vue({
             url: this.url.get_posts,
             dataType: 'json',
             success: function(data,status){
-              vm.user = data.data.user
-              vm.pubs = data.data.posts;
               $("#posts-lists").removeClass('d-none');
               $("#v-table-loader").hide();
+              vm.user = data.data.user
+              vm.pubs = data.data.posts;
             },
             error: function(data,status,error){
               Swal.fire("Oops !","Une erreur c'est produite. Veuillez contacter un administrateur du site.","error");
@@ -145,6 +175,8 @@ var vm = new Vue({
 
 });
 
-
+setInterval(function (){
+  x = $("time.timeago").timeago();
+},200);
 </script>
 @endsection
