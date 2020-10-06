@@ -175,8 +175,9 @@ Route::get('user/connected/main_data','Backend\User\GetDataController@main_for_u
 Route::get('user/all/manage_data','Backend\User\GetDataController@manage_data')->name('backend.api.user.all.manage_data');
 
 // Post
-Route::get('posts/user/{id}','Backend\Post\GetPostController@user_post')->name('backend.api.post.user');
 Route::get('posts/','Backend\Post\GetPostController@all_posts')->name('backend.api.post.get.all');
+Route::get('posts/{id}','Backend\Post\GetPostController@by_id')->where('id', '[0-9]+')->name('backend.api.post.get.by_id');
+Route::get('posts/user/{id}','Backend\Post\GetPostController@user_posts')->where('id', '[0-9]+')->name('backend.api.post.user');
 Route::get('posts/published','Backend\Post\GetPostController@published')->name('backend.api.post.get.published');
 
 
