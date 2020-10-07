@@ -3,11 +3,29 @@
 @section('extras_style')
   @parent
   <link rel="stylesheet" href="{{ cdn_asset("asset/css/resac/pubs.css") }}">
+  <style>
+    #resac-breadcrumb .breadcrumb{
+      background-color: #fff
+    }
+    #resac-breadcrumb .breadcrumb-item+.breadcrumb-item::before {
+      content: ">";
+      font-weight: 700;
+    }
+  </style>
 @endsection
 
 @section('main-content')
   <div id="v-app">
-    @include('admin.pubs.dashboard_nav')
+    <div class="nav-scroller shadow-sm">
+      <nav id="resac-breadcrumb" aria-label="breadcrumb" >
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Moi</a></li>
+          <li class="breadcrumb-item"><a href="#">Mes publications</a></li>
+          <li class="breadcrumb-item active" aria-current="page" >Publications #{{ $post->id }}</li>
+        </ol>
+      </nav>
+    </div>
+    @include('flash')
     <div class="mt-3 container-fluid">
       <div class="row justify-content-center">
       </div>
