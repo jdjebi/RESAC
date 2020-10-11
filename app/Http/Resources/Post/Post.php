@@ -13,6 +13,16 @@ class Post extends JsonResource
         
         $user = User::find($post->user_object->id);
 
+        $user_validator = User::find($post->validate_by);
+
+        if($post->validate_status == 1){
+            $user_validator_id = $user_validator->id;
+            $user_validator_fullname = $user_validator->fullname;
+        }else{
+            $user_validator_id = null;
+            $user_validator_fullname = null;
+        }
+
         return  [
             'id' => $post->id,
             'user_id' => $post->user_object->id,
@@ -39,6 +49,10 @@ class Post extends JsonResource
             'version' => $post->version,
             'validate' => $post->validate,
             'validate_by' => $post->validate_by, 
+            'user_validator' => [
+                "id" => $user_validator_id,
+                "fullname" => $user_validator_fullname
+            ],
             'validate_at' => $post->validate_at,
             'validate_status' => $post->validate_status,
             'status'  => $post->status,

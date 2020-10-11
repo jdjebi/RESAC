@@ -1,11 +1,6 @@
 # A FAIRE
 
-- Marquer l'état de la publication
-  - Brouillon
-  - Publié
-  - Bloqué
-  - Terminé
-
+- Certification côté membre
 
 - Améliorer l'édition des publications
   - [] Modification des publications
@@ -26,7 +21,11 @@
 - Pour publier il faut posséder le pays et la commune/quartier
 - Importation et visualisation de CV
 
+# Sécurité
+- Revoir la sécurité du controller de certification
+
 # Bugs
+
 - Supprimer le on delete cascade sur user.validate_by car si un utilisateur ayant validé une publication est supprimé alors la publications l'est aussi
 - Suppression impossible sur la page des publication
 - Réduire la répétition du code d'affichage des publications

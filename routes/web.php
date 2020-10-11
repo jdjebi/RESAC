@@ -8,6 +8,11 @@ use App\Models\SearchUserIndex;
 
 use Illuminate\Support\Facades\Http;
 
+Route::get('/vue',function (){
+  return view("test_vue");
+});
+
+
 Route::get('/annuaire','UI\Web\Extras\AnnuaireController')->name('annuaire');
 Route::get('/nouveautes',"UI\Web\Extras\FeaturesController")->name('dev_news');
 Route::get('/deconnexion','Backend\Auth\AuthController@logout')->name('logout');
@@ -179,6 +184,10 @@ Route::get('posts/','Backend\Post\GetPostController@all_posts')->name('backend.a
 Route::get('posts/{id}','Backend\Post\GetPostController@by_id')->where('id', '[0-9]+')->name('backend.api.post.get.by_id');
 Route::get('posts/user/{id}','Backend\Post\GetPostController@user_posts')->where('id', '[0-9]+')->name('backend.api.post.user');
 Route::get('posts/published','Backend\Post\GetPostController@published')->name('backend.api.post.get.published');
+
+Route::get('posts/{id}/certif/start/by/{certif_author}','Backend\Post\CertificationController@start')->name('backend.api.post.certif.start');
+Route::get('posts/{id}/certif/set/by/{certif_author}','Backend\Post\CertificationController@set')->name('backend.api.post.certif.set');
+
 
 
 // Auth

@@ -2,29 +2,13 @@
 
 @section('extras_style')
   @parent
-  @include('admin.pubs.dashboard_style')
   <link rel="stylesheet" href="{{ cdn_asset("asset/css/resac/pubs.css") }}">
-  <style>
-    .resac-fb-btn-default{
-      background-color: #e1e1e1;
-      border-radius: 30px;
-      font-weight: 700;
-      color: #474e52;
-      border-color: transparent;    
-    }
-
-    .posts-list-elm-tag-status{
-      vertical-align: middle;
-      text-transform: uppercase;
-      font-weight: 700;
-      font-size: 12px;
-    }
-  </style>
 @endsection
 
 @section('main-content')
 
-@include('admin.pubs.dashboard_nav')
+@include('admin.pubs.breadcumb.my_posts')
+@include('flash')
 
 <div>
   <div id="v-table" class="mt-3 container-fluid">
@@ -176,7 +160,7 @@ var vm = new Vue({
 });
 
 setInterval(function (){
-  x = $("time.timeago").timeago();
+  $("time.timeago").timeago();
 },200);
 </script>
 @endsection
