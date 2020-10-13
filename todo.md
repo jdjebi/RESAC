@@ -3,6 +3,7 @@
 - Certification côté membre
 
 - Améliorer l'édition des publications
+  - [x] Certiication des publications
   - [] Modification des publications
     - [] Modification effective
   - Affichage unique d'une publication

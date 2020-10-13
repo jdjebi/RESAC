@@ -187,6 +187,7 @@ Route::get('posts/published','Backend\Post\GetPostController@published')->name('
 
 Route::get('posts/{id}/certif/start/by/{certif_author}','Backend\Post\CertificationController@start')->name('backend.api.post.certif.start');
 Route::get('posts/{id}/certif/set/by/{certif_author}','Backend\Post\CertificationController@set')->name('backend.api.post.certif.set');
+Route::get('posts/{id}/certif/cancel/by/{certif_author}','Backend\Post\CertificationController@cancel')->name('backend.api.post.certif.cancel');
 
 
 

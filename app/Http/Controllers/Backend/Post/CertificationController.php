@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Backend\Post;
 use App\Http\Controllers\Controller;
 use Resac\Auth2;
 use App\Models\Post;
+use App\User;
+
 use Illuminate\Http\Request;
 
 class CertificationController extends Controller
@@ -19,18 +21,39 @@ class CertificationController extends Controller
     }
 
     function set(Request $request, $id, $certif_author){
-        return "set";
         $post = Post::find($id);
+        $user = User::find($certif_author);
         $post->validate_status = Post::ACCEPTE;
         $post->validate_by = $certif_author;
-        $post->validate_at = new Datetime();
+        $post->validate_at = new \Datetime();
+        $post->save();
+        return json_encode([
+            "user" => [
+                "id" => $user->id,
+                "fullname" => $user->fullname
+            ],
+            "validate_status" => $post->validate_status,
+            "validate_by" => $post->validate_by,
+            "validate_at" => $post->validate_at->format('d-m-Y H:i:s')
+        ]);
     }
 
     function cancel(Request $request, $id, $certif_author){
-        return "start";
+        $post = Post::find($id);
+        $user = User::find($certif_author);
         $post->validate_status = Post::EN_ATTENTE;
         $post->validate_by = $certif_author;
-        $post->validate_at = new Datetime();
+        $post->validate_at = new \Datetime();
+        $post->save();
+        return json_encode([
+            "user" => [
+                "id" => $user->id,
+                "fullname" => $user->fullname
+            ],
+            "validate_status" => $post->validate_status,
+            "validate_by" => $post->validate_by,
+            "validate_at" => $post->validate_at->format('d-m-Y H:i:s')
+        ]);
     }
 
 }

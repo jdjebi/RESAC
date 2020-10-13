@@ -92,7 +92,8 @@
         get_post: "{{ route("backend.api.post.get.by_id",$post->id) }}?content=rich-text",
         certification:{
           start: "{{ route("backend.api.post.certif.start",["id" => $post->id, "certif_author" => UserAuth()->id]) }}",
-          set: "{{ route("backend.api.post.certif.set",["id" => $post->id, "certif_author" => UserAuth()->id]) }}"
+          set: "{{ route("backend.api.post.certif.set",["id" => $post->id, "certif_author" => UserAuth()->id]) }}",
+          cancel: "{{ route("backend.api.post.certif.cancel",["id" => $post->id, "certif_author" => UserAuth()->id]) }}"
         } 
       },
       editor:{
@@ -150,6 +151,51 @@
           }
         });
 
+      },
+
+      OnCertifSet: function(){
+
+        this.is_post_manager_operation = true;
+
+        $.get({
+          url: this.url.certification.set,
+          dataType: "json",
+          success: function (data,status){
+            vm.is_post_manager_operation = false;
+            vm.post.validate_status_tag = "success";
+            vm.post.validate_status_title = "Publication approuvée";
+            vm.post.validate_status = data.validate_status;
+            vm.post.validate_at = data.validate_at;
+            vm.post.user_validator = data.user
+            vm.set_flash("Publication approuvée. Une notification a été envoyé à l'auteur.","success");
+          },
+          error: function (data,status,error){
+            vm.is_post_manager_operation = false;
+            vm.OnError();
+          }
+        });
+
+      },
+
+      OnCertifCancel: function(){
+        this.is_post_manager_operation = true;
+        $.get({
+          url: this.url.certification.cancel,
+          dataType: "json",
+          success: function (data,status){
+            vm.is_post_manager_operation = false;
+            vm.post.validate_status_tag = "warning";
+            vm.post.validate_status_title = "Publication en attente";
+            vm.post.validate_status = data.validate_status;
+            vm.post.validate_at = data.validate_at;
+            vm.post.user_validator = data.user
+            vm.set_flash("Certification annulée. Publication mise en attente.","info");
+          },
+          error: function (data,status,error){
+            vm.is_post_manager_operation = false;
+            vm.OnError();
+          }
+        });
       },
 
       OnCloseFlash: function (){
