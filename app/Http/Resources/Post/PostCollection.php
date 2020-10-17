@@ -14,8 +14,6 @@ class PostCollection extends ResourceCollection
 
         $posts = [];
 
-        dump($posts_tmp);
-
         if(count($posts_tmp) > 0){
 
             foreach ($posts_tmp as $post) {
