@@ -45,3 +45,46 @@ color: #343a40;
 }
 
 </style>
+
+<style>
+    .resac-fb-btn-default{
+      background-color: #e1e1e1;
+      border-radius: 30px;
+      font-weight: 700;
+      color: #474e52;
+      border-color: transparent;    
+    }
+
+    .resac-fb-btn-success{
+      background-color: #218838;
+      border-radius: 30px;
+      font-weight: 700;
+      color: #fff;
+      border-color: transparent;    
+    }
+
+    .posts-list-elm-tag-status{
+      vertical-align: middle;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 12px;
+    }
+
+    .posts-list-elm-tag-status-media::before{
+      content:'[';
+    }
+
+    .posts-list-elm-tag-status-media::after{
+      content:']';
+    }   
+</style>
+
+<style>
+#resac-breadcrumb .breadcrumb{
+    background-color: #fff
+}
+#resac-breadcrumb .breadcrumb-item+.breadcrumb-item::before {
+    content: ">";
+    font-weight: 700;
+}
+</style>

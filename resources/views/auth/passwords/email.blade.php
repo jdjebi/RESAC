@@ -35,7 +35,7 @@
                     <form  method="POST" action="{{ route('app.reset.email') }}">
                         @csrf
                         <div class="h5 text-muted p-2 text-center">
-                          Réintialisation du mot de passe
+                          Réinitialisation du mot de passe
                         </div>
                         <div class="text-center mb-3">
                           <img class="resac-w-150" src="{{ asset("asset/imgs/icons/svg/password.svg") }}" alt="">

@@ -2,29 +2,13 @@
 
 @section('extras_style')
   @parent
-  @include('admin.pubs.dashboard_style')
   <link rel="stylesheet" href="{{ cdn_asset("asset/css/resac/pubs.css") }}">
-  <style>
-    .resac-fb-btn-default{
-      background-color: #e1e1e1;
-      border-radius: 30px;
-      font-weight: 700;
-      color: #474e52;
-      border-color: transparent;    
-    }
-
-    .posts-list-elm-tag-status{
-      vertical-align: middle;
-      text-transform: uppercase;
-      font-weight: 700;
-      font-size: 12px;
-    }
-  </style>
 @endsection
 
 @section('main-content')
 
-@include('admin.pubs.dashboard_nav')
+@include('admin.pubs.breadcumb.my_posts')
+@include('flash')
 
 <div>
   <div id="v-table" class="mt-3 container-fluid">
@@ -81,14 +65,13 @@
                             <span class="text-danger">Bloqué</span>
                           </div>
                         </template> 
-                        <template v-else-if="pub.status == 3">
+                        <template v-else-if="pub.status == 2">
                           <span class="text-dark">Terminé</span>
                         </template> 
                       </div>
                     </div>
                     <div>
                       <a v-bind:href="url.show_post + pub.id" class="btn btn-sm btn-primary resac-fb-btn-default">Afficher</a>
-                      <a v-bind:href="url.edit_post + pub.id" class="btn btn-sm btn-info resac-fb-btn-default">Modifier</a>
                       <a href="#" v-on:click="OnDeletePost(pub.id,$event)" class="btn btn-sm btn-danger resac-fb-btn-default">Supprimer</a>
                     </div>
                   </div>
@@ -176,7 +159,7 @@ var vm = new Vue({
 });
 
 setInterval(function (){
-  x = $("time.timeago").timeago();
+  $("time.timeago").timeago();
 },200);
 </script>
 @endsection

@@ -8,6 +8,7 @@ class Post extends Model
 {
     protected $table = "posts";
     protected $fillable = ["user","content","validate","user_id","status","validate_status"];
+    protected $text_plain = "";
 
     // Constantes d'état d'une publication
     const BROUILLON = 0;

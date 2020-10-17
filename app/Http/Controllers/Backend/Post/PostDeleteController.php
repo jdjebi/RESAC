@@ -37,6 +37,10 @@ class PostDeleteController extends Controller
         return redirect()->back();
 
     }   
+
+    public function api(Request $request, $id){
+        return "";
+    }
     
     
 }

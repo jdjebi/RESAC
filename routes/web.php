@@ -8,6 +8,11 @@ use App\Models\SearchUserIndex;
 
 use Illuminate\Support\Facades\Http;
 
+Route::get('/vue',function (){
+  return view("test_vue");
+});
+
+
 Route::get('/annuaire','UI\Web\Extras\AnnuaireController')->name('annuaire');
 Route::get('/nouveautes',"UI\Web\Extras\FeaturesController")->name('dev_news');
 Route::get('/deconnexion','Backend\Auth\AuthController@logout')->name('logout');
@@ -21,14 +26,12 @@ Route::middleware("guest")->group(function(){
   Route::namespace("Resac\Auth")->group(function () {
     Route::get('reinitialiser/mot-de-passe','ForgotPasswordController')->name('app.reset.email');
     Route::post('reinitialiser/mot-de-passe','ValidatePasswordRequest');
-
     Route::get('password/reset/{token}','ResetPasswordController@get')->name('password.reset');
     Route::post('password/reset','ResetPasswordController@post')->name('app.reinit.password');
   });
 
   // Backend
   Route::post('/inscription','Backend\Auth\AuthController@register')->name('backend.register.member');
-
 });
 
 /* Application */
@@ -161,7 +164,7 @@ Route::middleware('admin.login')->group(function (){
 
   Route::namespace('Backend\Post')->group(function () {
     Route::post('backend/post/create',"CreatePostController@from_member")->name('backend.post.create.from_member');
-    Route::get('backend/post/{id}','PostDeleteController@my_post')->name('backend.post.delete.my_post');
+    Route::get('backend/post/delete/{id}','PostDeleteController@my_post')->name('backend.post.delete.my_post');
   });
 
 });
@@ -175,10 +178,22 @@ Route::get('user/connected/main_data','Backend\User\GetDataController@main_for_u
 Route::get('user/all/manage_data','Backend\User\GetDataController@manage_data')->name('backend.api.user.all.manage_data');
 
 // Post
-Route::get('posts/user/{id}','Backend\Post\GetPostController@user_post')->name('backend.api.post.user');
 Route::get('posts/','Backend\Post\GetPostController@all_posts')->name('backend.api.post.get.all');
+Route::get('posts/user/{id}','Backend\Post\GetPostController@user_posts')->where('id', '[0-9]+')->name('backend.api.post.user');
 Route::get('posts/published','Backend\Post\GetPostController@published')->name('backend.api.post.get.published');
 
+Route::get('posts/{id}','Backend\Post\GetPostController@by_id')->where('id', '[0-9]+')->name('backend.api.post.get.by_id');
+Route::get('posts/{id}/lock','Backend\Post\PostStateController@lock')->where('id', '[0-9]+')->name('backend.api.post.state.lock');
+Route::get('posts/{id}/unlock','Backend\Post\PostStateController@unlock')->where('id', '[0-9]+')->name('backend.api.post.state.unlock');
+Route::get('posts/{id}/archive','Backend\Post\PostStateController@archive')->where('id', '[0-9]+')->name('backend.api.post.state.archive');
+Route::get('posts/{id}/publish','Backend\Post\PostStateController@publish')->where('id', '[0-9]+')->name('backend.api.post.state.publish');
+
+Route::get('posts/{id}/certif/start/by/{certif_author}','Backend\Post\CertificationController@start')->name('backend.api.post.certif.start');
+Route::get('posts/{id}/certif/set/by/{certif_author}','Backend\Post\CertificationController@set')->name('backend.api.post.certif.set');
+Route::get('posts/{id}/certif/cancel/by/{certif_author}','Backend\Post\CertificationController@cancel')->name('backend.api.post.certif.cancel');
+
+Route::post('posts/{id}/update','Backend\Post\PostUpdateController@content')->where('id', '[0-9]+')->name('backend.api.post.update');
+Route::get('posts/{id}/delete','Backend\Post\PostDeleteController@api')->where('id', '[0-9]+')->name('backend.api.post.delete');
 
 // Auth
 

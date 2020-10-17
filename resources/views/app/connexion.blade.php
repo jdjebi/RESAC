@@ -48,10 +48,10 @@
         </div>
         <div class="mt-4">
           <button id="submit-btn" class="btn btn-block btn-primary" name="button" v-bind:disabled="submit_btn">
-          <span v-if="!submit_btn">Connexion</span>
-          <div v-if="submit_btn" class="loader spinner-border text-white spinner-border-sm d-none" role="status">
-            <span class="sr-only">Loading...</span>
-          </div>
+            <span v-if="!submit_btn">Connexion</span>
+            <div v-if="submit_btn" class="loader spinner-border text-white spinner-border-sm d-none" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
           </button>
           <div class="text-center mt-3 small">
           <a href="{{ route("register") }}">Créer un compte</a> &middot <a href="{{ route("app.reset.email") }}">Mot de passe oublié</a>
