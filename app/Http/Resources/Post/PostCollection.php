@@ -14,6 +14,8 @@ class PostCollection extends ResourceCollection
 
         $posts = [];
 
+        $user = null;
+
         foreach ($posts_tmp as $post) {
 
             $user = User::find($post->user_object->id);
