@@ -22,6 +22,8 @@ class PostCollection extends ResourceCollection
 
             dump($user);
 
+            die();
+
             $posts[] = [
                 'id' => $post->id,
                 'user_id' => $post->user_object->id,
