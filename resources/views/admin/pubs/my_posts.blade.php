@@ -72,7 +72,6 @@
                     </div>
                     <div>
                       <a v-bind:href="url.show_post + pub.id" class="btn btn-sm btn-primary resac-fb-btn-default">Afficher</a>
-                      <a v-bind:href="url.edit_post + pub.id" class="btn btn-sm btn-info resac-fb-btn-default">Modifier</a>
                       <a href="#" v-on:click="OnDeletePost(pub.id,$event)" class="btn btn-sm btn-danger resac-fb-btn-default">Supprimer</a>
                     </div>
                   </div>

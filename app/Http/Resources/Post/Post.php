@@ -46,6 +46,7 @@ class Post extends JsonResource
             'type' => $post->type,
             'date' => $post->date,
             'content' => trim($post->content),
+            'text_plain' => trim($post->text_plain),
             'version' => $post->version,
             'validate' => $post->validate,
             'validate_by' => $post->validate_by, 

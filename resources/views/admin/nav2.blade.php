@@ -1,3 +1,13 @@
+<style>
+  .resac-form-search{
+    background: #ffffff20; 
+    color:white; 
+    border-radius: 13px !important;
+  }
+  .resac-form-search::placeholder {
+    color:rgb(173, 170, 170);
+  }
+</style>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <a class="navbar-brand" href="{{ route("admin_user_manager") }}">RESAC Admin</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -6,7 +16,7 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     @if(Auth::check())
     <form action="{{ route("admin_search",[],false) }}" method="GET" class="has-search form-inline my-2 my-lg-0">
-      <input name="q" type="text" class="form-control form-control-sm" placeholder="Rechercher un utilisateur" value="{{ isset($_GET['q']) ? $_GET['q'] : '' }}">
+      <input name="q" type="text" class="resac-form-search form-control form-control-sm" placeholder="Rechercher un utilisateur" value="{{ isset($_GET['q']) ? $_GET['q'] : '' }}">
     </form>
     @endif
     <ul class="navbar-nav mr-auto">

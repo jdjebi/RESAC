@@ -15,7 +15,8 @@
 
                         <div class="mt-0 pub-user-name">
                             <a v-bind:href="post.user.admin_profil_url" v-text="post.user.fullname"></a> &nbsp;
-                            <span v-bind:title="post.validate_status_title" v-bind:class="'text-'+post.validate_status_tag"><i class="fa fa-check-circle"></i></span> &nbsp;
+                            <span v-if="post.status != 2" v-bind:title="post.validate_status_title" v-bind:class="'text-'+post.validate_status_tag"><i class="fa fa-check-circle"></i> &nbsp;</span>
+                            <span v-if="post.status == 2" v-bind:title="'Etais une '+post.validate_status_title" class="text-dark"><i class="fa fa-check-circle"></i> &nbsp;</span> 
                             <template v-if="post.status == 0">
                                 <span class="posts-list-elm-tag-status-media text-muted">Brouillon</span>
                             </template>

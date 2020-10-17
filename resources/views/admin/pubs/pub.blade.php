@@ -39,8 +39,15 @@
         <div v-if="!editor.is_opened" class="col-sm-8">
           @include("admin.pubs.vue_components.post_edit_view")
         </div>
-        <div v-if="editor.is_opened" class="col-sm-8">
-          <div class="h4">Modification de la publication #@{{ post.id }}</div>
+        <div v-show="editor.is_opened" class="col-sm-8">
+          <div v-if="post" class="h4 d-flex justify-content-between">
+            <div>
+              Modification de la publication #<span v-text="post.id"></span>
+            </div>
+            <div>
+              <a v-on:click="OnCloseEditor" href="#" class="btn btn-sm btn-light font-weight-bold">Annuler</a>
+            </div>
+          </div>
           <hr>
           @include("admin.pubs.vue_components.post_editor")
         </div>
@@ -57,7 +64,6 @@
 <script src="{{ asset("asset/js/timeago/jquery.timeago.js") }}"></script>
 <script src="{{ asset("asset/js/timeago/jquery.timeago.fr-short.js") }}"></script>
 <script src="{{ asset('asset/lib/quill/quill.js') }}"></script>
-<script src="{{ asset("asset/js/lib/vue-quill-editor.js") }}"></script><
 <script>
   function vm_init_editor(){
     var toolbarOptions = [];
@@ -70,11 +76,8 @@
       }
     };
     var editor = new Quill('#editor', options);
+    return editor
   }
-
-  vm_init_editor();
-
-  Vue.use(window.VueQuillEditor)
 
   var vm = new Vue({
 
@@ -83,6 +86,7 @@
     data:{
       post: null,
       is_post_manager_operation: false,
+      is_post_saved_operation: false,
       flash:{
         show: false,
         message: "",
@@ -101,10 +105,12 @@
           archived: "{{ route("backend.api.post.state.archive",["id" => $post->id]) }}",
           published: "{{ route("backend.api.post.state.publish",["id" => $post->id]) }}"
         },
+        update: "{{ route("backend.api.post.update",["id" => $post->id]) }}",
         delete: "{{ route("backend.api.post.delete",["id" => $post->id]) }}"
       },
       editor:{
-        is_opened: false
+        is_opened: false,
+        quill: null,
       }
     },
 
@@ -115,12 +121,14 @@
           vm.post = data.data;
           $(".v-component").removeClass('d-none');
           $("#v-table-loader").hide();
-          vm.init_editor();
+          var editor = vm_init_editor();
+          vm.editor.quill = editor; 
         },
         error: function (data,status,error){
           Swal2_tools_emit_basic_error();
         }
       });
+    
     },
 
     methods:{
@@ -132,6 +140,33 @@
 
       OnOpenEditor: function(){
         this.editor.is_opened = true;
+        this.editor.quill.setText(this.post.text_plain);
+      },
+
+      OnSaveEditor: function(){
+        vm.is_post_saved_operation = true;
+        content = JSON.stringify(this.editor.quill.getContents());
+        length = this.editor.quill.getLength();
+        text = this.editor.quill.getText(0, length);
+        $('#post-editor input[name=content]').first().val(text);
+        form_data = $("#post-editor").serializeArray();
+        $.post({
+          url: this.url.update,
+          data:form_data,
+          dataType:"json",
+          success: function (data,status){
+            vm.is_post_saved_operation = false;
+            vm.editor.is_opened = false;
+            vm.set_flash("Publication mise à jour","success");
+            console.log(data);
+            vm.post.content = data.content;
+            vm.post.text_plain = data.text_plain;
+            window.location = "#v-main";
+          },
+          error: function (data,status,error){
+            Swal2_tools_emit_basic_error();
+          }
+        });
       },
 
       OnCloseEditor: function(){

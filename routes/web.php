@@ -192,6 +192,7 @@ Route::get('posts/{id}/certif/start/by/{certif_author}','Backend\Post\Certificat
 Route::get('posts/{id}/certif/set/by/{certif_author}','Backend\Post\CertificationController@set')->name('backend.api.post.certif.set');
 Route::get('posts/{id}/certif/cancel/by/{certif_author}','Backend\Post\CertificationController@cancel')->name('backend.api.post.certif.cancel');
 
+Route::post('posts/{id}/update','Backend\Post\PostUpdateController@content')->where('id', '[0-9]+')->name('backend.api.post.update');
 Route::get('posts/{id}/delete','Backend\Post\PostDeleteController@api')->where('id', '[0-9]+')->name('backend.api.post.delete');
 
 // Auth
