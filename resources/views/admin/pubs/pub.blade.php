@@ -85,7 +85,7 @@
       is_post_manager_operation: false,
       flash:{
         show: false,
-        message: "test",
+        message: "",
         type: "info"
       },
       url: {
@@ -93,8 +93,15 @@
         certification:{
           start: "{{ route("backend.api.post.certif.start",["id" => $post->id, "certif_author" => UserAuth()->id]) }}",
           set: "{{ route("backend.api.post.certif.set",["id" => $post->id, "certif_author" => UserAuth()->id]) }}",
-          cancel: "{{ route("backend.api.post.certif.cancel",["id" => $post->id, "certif_author" => UserAuth()->id]) }}"
-        } 
+          cancel: "{{ route("backend.api.post.certif.cancel",["id" => $post->id, "certif_author" => UserAuth()->id]) }}",
+        },
+        state:{
+          locked: "{{ route("backend.api.post.state.lock",["id" => $post->id]) }}",
+          unlocked: "{{ route("backend.api.post.state.unlock",["id" => $post->id]) }}",
+          archived: "{{ route("backend.api.post.state.archive",["id" => $post->id]) }}",
+          published: "{{ route("backend.api.post.state.publish",["id" => $post->id]) }}"
+        },
+        delete: "{{ route("backend.api.post.delete",["id" => $post->id]) }}"
       },
       editor:{
         is_opened: false
@@ -143,7 +150,6 @@
             vm.post.validate_status_title = "Publication en attente de validation";
             vm.post.validate_status = 2;
             vm.set_flash("Publication mise en attente. Une notification a été envoyé à l'auteur.","primary");
-            console.log(data);
           },
           error: function (data,status,error){
             vm.is_post_manager_operation = false;
@@ -188,8 +194,80 @@
             vm.post.validate_status_title = "Publication en attente";
             vm.post.validate_status = data.validate_status;
             vm.post.validate_at = data.validate_at;
-            vm.post.user_validator = data.user
+            vm.post.user_validator = data.user;
+            vm.post.is_active = data.is_active;
             vm.set_flash("Certification annulée. Publication mise en attente.","info");
+          },
+          error: function (data,status,error){
+            vm.is_post_manager_operation = false;
+            vm.OnError();
+          }
+        });
+      },
+
+      OnPostPublished: function(){
+        this.is_post_manager_operation = true;
+        $.get({
+          url: this.url.state.published,
+          dataType: "json",
+          success: function (data,status){
+            vm.set_flash("Publication publiée.","success");
+            vm.post.status = 1;
+            vm.post.is_active = 1;
+            vm.post.is_published = 1;
+            vm.is_post_manager_operation = false;
+          },
+          error: function (data,status,error){
+            vm.is_post_manager_operation = false;
+            vm.OnError();
+          }
+        });
+      },
+
+      OnPostLocked: function(){
+        this.is_post_manager_operation = true;
+        $.get({
+          url: this.url.state.locked,
+          dataType: "json",
+          success: function (data,status){
+            console.log("locked");
+            vm.set_flash("Publication bloquée.","primary");
+            vm.post.is_active = false;
+            vm.is_post_manager_operation = false;
+          },
+          error: function (data,status,error){
+            vm.is_post_manager_operation = false;
+            vm.OnError();
+          }
+        });
+      },
+
+      OnPostUnLocked: function(){
+        this.is_post_manager_operation = true;
+        $.get({
+          url: this.url.state.unlocked,
+          dataType: "json",
+          success: function (data,status){
+            vm.set_flash("Publication débloquée.","primary");
+            vm.post.is_active = true;
+            vm.is_post_manager_operation = false;
+          },
+          error: function (data,status,error){
+            vm.is_post_manager_operation = false;
+            vm.OnError();
+          }
+        });
+      },
+
+      OnPostArchived: function (){
+        this.is_post_manager_operation = true;
+        $.get({
+          url: this.url.state.archived,
+          dataType: "json",
+          success: function (data,status){
+            vm.set_flash("Publication retirée.","primary");
+            vm.post.status = 2;
+            vm.is_post_manager_operation = false;
           },
           error: function (data,status,error){
             vm.is_post_manager_operation = false;

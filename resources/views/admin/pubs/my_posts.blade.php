@@ -65,7 +65,7 @@
                             <span class="text-danger">Bloqué</span>
                           </div>
                         </template> 
-                        <template v-else-if="pub.status == 3">
+                        <template v-else-if="pub.status == 2">
                           <span class="text-dark">Terminé</span>
                         </template> 
                       </div>

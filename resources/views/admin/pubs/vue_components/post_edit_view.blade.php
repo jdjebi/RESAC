@@ -9,19 +9,28 @@
                     <div class="ml-3 media-body">
 
                         <div class="float-right">
-                           <a v-on:click="OnOpenEditor" href="#" class="btn btn-info btn-sm resac-fb-btn-default">Modifier</a>
+                            <button v-if="post.status != 2" v-on:click="OnPostPublished" v-bind:disabled="post.validate_status != 1 || post.status == 1 || is_post_manager_operation" class="btn btn-success btn-sm resac-fb-btn-success"><i class="fa fa-upload"></i> Publier</button>
+                            <button v-if="post.status != 2" v-on:click="OnOpenEditor" class="btn btn-info btn-sm resac-fb-btn-default">Modifier</button>
                         </div>
 
                         <div class="mt-0 pub-user-name">
                             <a v-bind:href="post.user.admin_profil_url" v-text="post.user.fullname"></a> &nbsp;
-                            <span v-bind:title="post.validate_status_title" v-bind:class="'text-'+post.validate_status_tag">
-                                <i class="fa fa-check-circle"></i>
-                            </span>   
+                            <span v-bind:title="post.validate_status_title" v-bind:class="'text-'+post.validate_status_tag"><i class="fa fa-check-circle"></i></span> &nbsp;
+                            <template v-if="post.status == 0">
+                                <span class="posts-list-elm-tag-status-media text-muted">Brouillon</span>
+                            </template>
+                            <template v-else-if="post.status == 1">
+                                <span v-if="post.is_active == 1" class="posts-list-elm-tag-status-media text-success">Publié</span>
+                                <span v-else class="posts-list-elm-tag-status-media text-warning">Bloqué</span>
+                            </template> 
+                            <template v-else-if="post.status == 2">
+                                <span class="posts-list-elm-tag-status-media text-dark">Terminé</span>
+                            </template> 
+
                         </div>
         
                         <span class="text-muted small">
-                            <span class="post-badge post-badge-info mr-1">INFO</span>&nbsp;
-                            <time class="timeago"  v-bind:datetime="post.date" v-bind:title="post.date"> <i class="far fa-clock"></i></time>
+                            <i class="far fa-clock"></i> <time class="timeago"  v-bind:datetime="post.date" v-bind:title="post.date"> <i class="far fa-clock"></i></time>
                             &middot
                             <span title="La publication peut être vu par tout le monde."> <i class="fa fa-globe-africa"></i> @{{ post.scope }}</span>
                         </span>

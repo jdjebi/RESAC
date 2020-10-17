@@ -44,6 +44,7 @@ class CertificationController extends Controller
         $post->validate_status = Post::EN_ATTENTE;
         $post->validate_by = $certif_author;
         $post->validate_at = new \Datetime();
+        $post->is_active = false;
         $post->save();
         return json_encode([
             "user" => [
@@ -52,7 +53,8 @@ class CertificationController extends Controller
             ],
             "validate_status" => $post->validate_status,
             "validate_by" => $post->validate_by,
-            "validate_at" => $post->validate_at->format('d-m-Y H:i:s')
+            "validate_at" => $post->validate_at->format('d-m-Y H:i:s'),
+            "is_active" => $post->is_active
         ]);
     }
 
