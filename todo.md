@@ -17,7 +17,7 @@
 - Description du processus de validation la nouvelle tables des publications
 - [] Réfuser la certification
 - [] Confirmation des actions sur la page d'une publication
-  
+- Gestion des demandes de publication
 # v5
 - Amélioration du système de permission
 - Intégrer les modérateurs et les super utilisateurs
