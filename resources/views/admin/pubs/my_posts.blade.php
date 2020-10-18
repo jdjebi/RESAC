@@ -7,7 +7,6 @@
 
 @section('main-content')
 
-@include('admin.pubs.breadcumb.my_posts')
 @include('flash')
 
 <div>
@@ -21,6 +20,24 @@
         <div class="d-flex">
           <div class="resac-linkedin-shadow bg-white p-2 pl-3 resac-w-200">
             <div class="h6 text-muted font-weight-bold"><span class="" v-html="pubs_counter">0</span> Publications</div>
+          </div>
+        </div>
+
+        <div class="d-flex mt-3 justify-content-between align-items-center">
+          <div>
+            <span class="font-weight-bold"><i class="fa fa-filter"></i> Filtre</span>
+          </div>
+          <div>
+            <button v-on:click="ShowAllPosts" class="btn btn-sm btn-dark resac-fb-btn-default mb-1">Tout</button>
+            |
+            <button v-on:click="ShowCertifgPosts" class="btn btn-sm btn-dark resac-fb-btn-default mb-1">Certifié</button>
+            <button v-on:click="ShowWaitingPosts" class="btn btn-sm btn-dark resac-fb-btn-default mb-1">En attente</button>
+            <button v-on:click="ShowNonePosts" class="btn btn-sm btn-dark resac-fb-btn-default mb-1">Neutre</button>
+            |
+            <button v-on:click="ShowOnlyPubPosts" class="btn btn-sm btn-dark resac-fb-btn-default mb-1">Publié</button>
+            <button v-on:click="ShowFreezePosts" class="btn btn-sm btn-dark resac-fb-btn-default mb-1">Bloqué</button>
+            <button v-on:click="ShowDraftPosts" class="btn btn-sm btn-dark resac-fb-btn-default mb-1">Brouillon</button>
+            <button v-on:click="ShowClosePosts" class="btn btn-sm btn-dark resac-fb-btn-default mb-1">Terminé</button>
           </div>
         </div>
       </div>
@@ -111,12 +128,13 @@ var vm = new Vue({
             delete_post: "{{ route('backend.post.delete.my_post',"") }}/"
         },
         manage_pub_base_url: "{{ route("admin.manage_pub","") }}/",
-        pubs: []
+        pubs: [],
+        posts_model: []
     },
 
     computed: {
         pubs_counter: function () {
-          return this.pubs.length
+          return this.posts_model.length
         }
     },
 
@@ -130,6 +148,7 @@ var vm = new Vue({
               $("#v-table-loader").hide();
               vm.user = data.data.user
               vm.pubs = data.data.posts;
+              vm.posts_model = vm.pubs;
             },
             error: function(data,status,error){
               Swal.fire("Oops !","Une erreur c'est produite. Veuillez contacter un administrateur du site.","error");
@@ -153,7 +172,82 @@ var vm = new Vue({
             window.location = this.url.delete_post + id;
           }
         });
-      }
+      },
+
+
+      ShowAllPosts: function(event){
+        vm.pubs = vm.posts_model;
+      },
+
+      ShowOnlyPubPosts: function(event){
+        tmp = [];
+        vm.posts_model.forEach(post => {
+          if(post.status == 1 && post.is_active){
+            tmp.push(post);
+          }
+        });
+        vm.pubs = tmp;
+      },
+
+      ShowDraftPosts: function(event){
+        tmp = [];
+        vm.posts_model.forEach(post => {
+          if(post.status == 0){
+            tmp.push(post);
+          }
+        });
+        vm.pubs = tmp;
+      },
+
+      ShowWaitingPosts: function(event){
+        tmp = [];
+        vm.posts_model.forEach(post => {
+          if(post.validate_status == 2){
+            tmp.push(post);
+          }
+        });
+        vm.pubs = tmp;
+      },
+
+      ShowFreezePosts: function(event){
+        tmp = [];
+        vm.posts_model.forEach(post => {
+          if(!post.is_active && post.status > 0){
+            tmp.push(post);
+          }
+        });
+        vm.pubs = tmp;
+      },
+
+      ShowCertifgPosts: function(event){
+        tmp = [];
+        vm.posts_model.forEach(post => {
+          if(post.validate_status == 1){
+            tmp.push(post);
+          }
+        });
+        vm.pubs = tmp;
+      },
+
+      ShowClosePosts: function(event){
+        tmp = [];
+        vm.posts_model.forEach(post => {
+          if(post.status == 2){
+            tmp.push(post);
+          }
+        });
+        vm.pubs = tmp;
+      },
+
+      ShowNonePosts: function(event){
+        tmp = [];
+        vm.posts_model.forEach(post => {
+          if(post.validate_status > 3){
+            tmp.push(post);
+          }
+        });
+        vm.pubs = tmp;
+      },
     }
 
 });

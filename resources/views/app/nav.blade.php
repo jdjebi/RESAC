@@ -114,7 +114,7 @@
       </li>
       @if(Resac\Auth2::is_admin_logged())
         <li class="nav-item">
-          <a class="nav-link" href="{{ route("admin_user_manager") }}"><i class="fa fa-tachometer-alt"></i> Administration</a>
+          <a class="nav-link" target="_blank" href="{{ route("admin_user_manager") }}"><i class="fa fa-tachometer-alt"></i> Administration</a>
         </li>
       @endif
 

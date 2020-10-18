@@ -33,7 +33,10 @@ class GetPostController extends Controller
     }
 
     public function published(Request $request){
-        $posts = Post::where("status",Post::PUBLIE)->orderBy('date','desc')->get();     
+        $posts = Post::where("status",Post::PUBLIE)
+            ->where("validate_status",Post::CERTIFIE)
+            ->orderBy('date','desc')
+            ->get();     
         $posts = $this->apply_params($request, $posts);
         return new PostMixResources($posts);
     }

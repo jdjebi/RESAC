@@ -3,6 +3,7 @@
 - Certification côté membre
 - Améliorer l'édition des publications
   - [x] Certification des publications (option dispo que pour les post venant des membres)
+    - Une publication publiée et dont la certification a été annulée ne sera pas considérée comme une publication publiée
   - [] Modification des publications
     - [] Modification effective
   - Affichage unique d'une publication
@@ -10,6 +11,7 @@
 
 
 ## EXTRAS
+- Revision de la page des actualités
 - Documenter la nouvelle tables des publications
 - Documenter la base de données
 - Description du processus de validation la nouvelle tables des publications
