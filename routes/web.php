@@ -8,10 +8,6 @@ use App\Models\SearchUserIndex;
 
 use Illuminate\Support\Facades\Http;
 
-Route::get('/vue',function (){
-  return view("test_vue");
-});
-
 
 Route::get('/annuaire','UI\Web\Extras\AnnuaireController')->name('annuaire');
 Route::get('/nouveautes',"UI\Web\Extras\FeaturesController")->name('dev_news');
@@ -58,7 +54,7 @@ Route::middleware("auth")->group(function(){
     });
   });
 
-  Route::match(['get', 'post'],'/actualites','Resac\Actu\ActuController@index')->name('actu');
+  Route::match(['get', 'post'],'/actualites','UI\Web\Actu\ActuController@index')->name('actu');
 
   Route::get('rechercher',"Resac\SearchController@user_for_app")->name('app.search');
 

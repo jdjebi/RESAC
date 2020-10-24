@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Resac\Actu;
+namespace App\Http\Controllers\UI\Web\Actu;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;

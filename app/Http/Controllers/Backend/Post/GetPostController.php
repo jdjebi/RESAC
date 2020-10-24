@@ -27,8 +27,25 @@ class GetPostController extends Controller
     }
 
     public function all_posts(Request $request){
-        $posts = Post::select("*")->orderBy('date','desc')->get();
+
+        $posts = NULL;
+        $posts_query = Post::select("*")->orderBy('date','desc');
+
+        if($request->has("status") && $request->input("status")){
+            $status = $request->input("status");
+            if($status == "published"){
+                $posts_query = Post::select("*")
+                            ->where("status",Post::PUBLIE)
+                            ->where("validate_status",Post::CERTIFIE)
+                            ->where("is_active",true)
+                            ->orderBy('date','desc');
+            }
+        }
+
+        $posts = $posts_query->get();
+
         $posts = $this->apply_params($request, $posts);
+
         return new PostMixResources($posts);
     }
 

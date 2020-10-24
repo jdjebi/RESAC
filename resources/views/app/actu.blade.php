@@ -49,9 +49,9 @@ body{
 
       @include('flash')
 
+      <!--
       <div class="post-box" id="post-box-v1">
         <form action="{{ route('backend.post.create.from_member') }}" method="post">
-          @csrf
           <div class="box bg-white resac-linkedin-shadow">
               <div class="header pl-4 pt-3 pb-3">
                 <div class="header-post-message">
@@ -67,12 +67,13 @@ body{
           </div>
         </form>
       </div>
+      -->
 
-      <div class="separator mt-3"></div>
+      <div class="separator"></div>
 
       <div id="v-feed" class="resac-feed d-none">
 
-        @include("app.publications.templates.post_vue")
+        @include("app.publications.templates.post_vue_v2")
 
       </div>
       <div class="resac-feed-loader text-center">
@@ -111,7 +112,7 @@ body{
       posts: [],
 
       url:{
-        get_posts: "{{ route('backend.api.post.get.all') }}?content=rich-text"
+        get_posts: "{{ route('backend.api.post.get.all') }}?content=rich-text&status=published"
       }
 
     },

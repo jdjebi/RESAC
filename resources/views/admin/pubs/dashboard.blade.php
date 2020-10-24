@@ -7,7 +7,7 @@
 
 @section('main-content')
 
-@include('admin.pubs.dashboard_nav')
+@include('flash')
 <div>
   <div id="v-table" class="mt-3 container-fluid">
     <div class="row">

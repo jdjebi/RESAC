@@ -1,11 +1,6 @@
 # A FAIRE
 
 - Certification côté membre
-- Améliorer l'édition des publications
-  - [x] Certification des publications (option dispo que pour les post venant des membres)
-    - Une publication publiée et dont la certification a été annulée ne sera pas considérée comme une publication publiée
-  - [] Modification des publications
-    - [] Modification effective
   - Affichage unique d'une publication
     - [] Pour la fil d'actu
 
@@ -54,7 +49,10 @@
 - Revoir la barre de recherche
 - Option pour retirer la photo de profil
 - Conservation de session. Récupérer les l'utilisateurs uniquement via la auth de laravel (il reste l'administration) et autre bugs lié
-
+- [x] Certification des publications (option dispo que pour les post venant des membres)
+  - Une publication publiée et dont la certification a été annulée ne sera pas considérée comme une publication publiée
+  - [x] Modification des publications
+    - [x] Modification effective
 
 # Sécurité
 - Revoir la sécurité du controller de certification
