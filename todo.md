@@ -1,31 +1,21 @@
 # A FAIRE
 
-- Certification côté membre
-  - Affichage unique d'une publication
-    - [] Pour la fil d'actu
-
-
-## EXTRAS
-- Revision de la page des actualités
-- Documenter la nouvelle tables des publications
-- Documenter la base de données
-- Description du processus de validation la nouvelle tables des publications
-- [] Réfuser la certification
-- [] Confirmation des actions sur la page d'une publication
-- Gestion des demandes de publication
-# v5
 - Amélioration du système de permission
 - Intégrer les modérateurs et les super utilisateurs
 
-- Gestion des publications côtés utilisateur [Améliorer]
-  - Gérer la supression
----
 - Gestion des utilisateurs
   - [?] Un admin lui ne pas se rendre membre ni se supprimer
   - Gestion des utilisateurs
     - [?] Suppression ajax des utilisateurs
     - Révision de la page d'accueil
 
+## EXTRAS
+- Documenter la nouvelle tables des publications
+- Documenter la base de données
+- Description du processus de validation la nouvelle tables des publications
+- [] Réfuser la certification
+- [] Confirmation des actions sur la page d'une publication
+- Gestion des demandes de publication
 - Gérer le cas au le où le mail ne part pas
 
 # Version 6
@@ -53,6 +43,8 @@
   - Une publication publiée et dont la certification a été annulée ne sera pas considérée comme une publication publiée
   - [x] Modification des publications
     - [x] Modification effective
+  - Affichage unique d'une publication
+    - [x] Pour la fil d'actu
 
 # Sécurité
 - Revoir la sécurité du controller de certification
