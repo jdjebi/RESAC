@@ -130,6 +130,10 @@ Route::name('admin.')->group(function () {
         Route::get('webengine/index/generate','WebEngineIndexController@generate_index')->name('webengine.generate_index');
         Route::get('webengine/index/clear','WebEngineIndexController@clear_index')->name('webengine.clear_index');
 
+        /* Notifications */
+        Route::get('dev/notifications','Dev\Notifications\NotifController@create')->name('dev.notification.create');
+        Route::get('backend/notification/create','Backend\Notification\CreateNotificationController@basic')->name('backend.notification.create');
+
       });
 
       Route::prefix('/v1/admin/')->group(function () {
@@ -162,6 +166,10 @@ Route::middleware('admin.login')->group(function (){
     Route::post('backend/post/create',"CreatePostController@from_member")->name('backend.post.create.from_member');
     Route::get('backend/post/delete/{id}','PostDeleteController@my_post')->name('backend.post.delete.my_post');
   });
+
+  /* Notifications */
+  Route::get('backend/notification/create','Backend\Notification\CreateNotificationController@basic')->name('backend.notification.create');
+
 
 });
 

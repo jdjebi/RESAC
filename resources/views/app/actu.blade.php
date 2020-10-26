@@ -40,7 +40,7 @@ body{
   <div class="row">
 
     <div class="col-md-2 offset-lg-1 d-none d-lg-block offset-sm-2">
-
+      
       @include('app.feed.left')
 
     </div>

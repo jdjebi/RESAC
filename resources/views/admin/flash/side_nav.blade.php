@@ -74,6 +74,11 @@
     </h6>
     <ul class="nav flex-column mb-2">
       <li class="nav-item">
+        <a class="nav-link {{ is_current_url('admin.dev.notification.create') }}" href="{{ route('admin.dev.notification.create') }}">
+          Notifications
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link {{ is_current_url('admin.webengine.show') }}" href="{{ route('admin.webengine.show') }}">
           Index de recherche
         </a>
