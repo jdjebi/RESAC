@@ -10,21 +10,11 @@
     <nav id="resac-breadcrumb" aria-label="breadcrumb" >
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('admin_user_profil',['user_id' => $user_visited->id]) }}">{{ $user_visited->fullname }} #{{ $user_visited->id }}</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Profil</li>
+            <li class="breadcrumb-item active" aria-current="page">Compte</li>
         </ol>
     </nav>
   </div>
   @include('flash')
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-12 col-md-9 col-lg-7">
-        @include('admin.user.profil_view')
-      </div>
-      <div class="col-sm-12 col-md-12 offset-lg-1 col-lg-4">
-        @include('admin.user.profil_manager')
-      </div>
-    </div>
-  </div>
 @endsection
 
 @section('scripts')

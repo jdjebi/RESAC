@@ -55,6 +55,15 @@ color: #343a40;
       border-color: transparent;    
     }
 
+    .resac-fb-btn-dark{
+      background-color: #e1e1e1;
+      border-radius: 30px;
+      font-weight: 700;
+      color: #fff;
+      background-color: #23272b;
+      border-color: #1d2124;
+    }
+
     .resac-fb-btn-success{
       background-color: #218838;
       border-radius: 30px;

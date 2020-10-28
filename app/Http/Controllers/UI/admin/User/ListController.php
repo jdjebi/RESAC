@@ -27,6 +27,8 @@ class ListController extends Controller
       $user = Auth2::user();
       $user_visited = User::find($user_id);
 
+      dump(\Gate::allows('delete-user',$user_visited));
+
       if(!$user_visited){
         return view('admin.user.profil_404',[
           "user" => $user,

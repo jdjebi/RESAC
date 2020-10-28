@@ -1,13 +1,13 @@
 # A FAIRE
 
-- Certification côté membre
-- Améliorer l'édition des publications
-  - [x] Certification des publications (option dispo que pour les post venant des membres)
-  - [] Modification des publications
-    - [] Modification effective
-  - Affichage unique d'une publication
-    - [] Pour la fil d'actu
+- Amélioration du système de permission
+- Intégrer les modérateurs et les super utilisateurs
 
+- Gestion des utilisateurs
+  - [?] Un admin lui ne pas se rendre membre ni se supprimer
+  - Gestion des utilisateurs
+    - [?] Suppression ajax des utilisateurs
+    - Révision de la page d'accueil
 
 ## EXTRAS
 - Documenter la nouvelle tables des publications
@@ -15,20 +15,7 @@
 - Description du processus de validation la nouvelle tables des publications
 - [] Réfuser la certification
 - [] Confirmation des actions sur la page d'une publication
-  
-# v5
-- Amélioration du système de permission
-- Intégrer les modérateurs et les super utilisateurs
-
-- Gestion des publications côtés utilisateur [Améliorer]
-  - Gérer la supression
----
-- Gestion des utilisateurs
-  - [?] Un admin lui ne pas se rendre membre ni se supprimer
-  - Gestion des utilisateurs
-    - [?] Suppression ajax des utilisateurs
-    - Révision de la page d'accueil
-
+- Gestion des demandes de publication
 - Gérer le cas au le où le mail ne part pas
 
 # Version 6
@@ -52,7 +39,12 @@
 - Revoir la barre de recherche
 - Option pour retirer la photo de profil
 - Conservation de session. Récupérer les l'utilisateurs uniquement via la auth de laravel (il reste l'administration) et autre bugs lié
-
+- [x] Certification des publications (option dispo que pour les post venant des membres)
+  - Une publication publiée et dont la certification a été annulée ne sera pas considérée comme une publication publiée
+  - [x] Modification des publications
+    - [x] Modification effective
+  - Affichage unique d'une publication
+    - [x] Pour la fil d'actu
 
 # Sécurité
 - Revoir la sécurité du controller de certification

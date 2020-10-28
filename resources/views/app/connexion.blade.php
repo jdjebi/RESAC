@@ -27,7 +27,7 @@
 
 <div id="v-login" class="container mt-5">
   <div class="row justify-content-center p-2">
-    <div id="login-box" class="col-md-8 col-lg-5 bg-white border rounded p-5">
+    <div id="login-box" class="col-md-10 col-lg-5 bg-white border rounded p-5">
       <form v-on:submit.prevent="onSubmit">
         @csrf
         <div class="text-center">

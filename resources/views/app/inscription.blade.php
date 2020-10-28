@@ -32,14 +32,14 @@
 <div class="container">
   <div id="register-box" class="row border">
 
-    <div class="col-lg-4 bg-white d-flex flex-column justify-content-center align-items-center" styl="border-radius: 20px 0px 0px 20px; background-size: cover; background-image: url({{ asset('asset/imgs/intro/bgs/etu1.jpg') }})">
+    <div class="col-lg-4 bg-white d-flex flex-column justify-content-center align-items-center">
       <img id="register-lca-logo" class="w-300" src="{{ cdn_asset('asset/imgs/intro/e-logos/lca.png') }}">
       <div class="text-muted">
         Caïmans un jour, Caïmans toujours !
       </div>
     </div>
 
-    <div class="col-lg-8 bg-white border-left p-5">
+    <div class="col-lg-8 col-sm-10 bg-white border-left p-5">
 
       <form method="post" action="{{ route('backend.register.member') }}">
         @csrf

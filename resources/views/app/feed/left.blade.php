@@ -11,7 +11,7 @@
 </div>
 
 <hr>
-
+<!--
 <h6 class="text-muted">Publications</h6>
 <ul class="nav flex-column resac-nav-ul">
   <li class="nav-item nav-pills">
@@ -20,3 +20,4 @@
       Créer publication libre</a>
   </li>
 </ul>
+-->

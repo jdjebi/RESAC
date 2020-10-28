@@ -1,5 +1,9 @@
 ## Master
 
+### 24-10-2020
+- Suppression du lien vers la page de publication dans barre de navigation
+- Retrait de la box de publication sur la page d'actualité
+
 ### 4-10-2020
 - Les posts n'utilisent plus la table "pub_v1" pour la gestion des publications mais plutôt la table "posts" - voir le fichier `database\migrations\2020_10_01_091418_create_posts_table.php`
 - Révision complète de l'interface de l'administration

@@ -4,11 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('asset/imgs/icons/apple-touch-icon.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('asset/imgs/icons/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('asset/imgs/icons/favicon-16x16.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('asset/imgs/icons/apple-touch-dark-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('asset/imgs/icons/favicon-dark-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('asset/imgs/icons/favicon-dark-16x16.png') }}">
 
-    <link rel="manifest" href="{{ asset('asset/imgs/icons/site.webmanifest') }}">
     <title>
       @if(isset($title))
         {{ $title }}

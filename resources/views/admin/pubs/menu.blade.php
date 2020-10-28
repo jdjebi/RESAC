@@ -6,9 +6,6 @@
 @endsection
 
 @section('main-content')
-<div>
-  @include('admin.pubs.dashboard_nav')
-</div>
 <div class="container-fluid mt-3">
     <div class="row">
       <div class="col-sm-12">

@@ -7,6 +7,19 @@
   .resac-form-search::placeholder {
     color:rgb(173, 170, 170);
   }
+  .notification {
+    text-decoration: none;
+    position: relative;
+  }
+  .notification .badge {
+    position: absolute;
+    top: 2px;
+    left: 15px;
+    padding: 3px;
+    border-radius: 3px;
+    background: #2196F3;
+    color: white;
+  }
 </style>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <a class="navbar-brand" href="{{ route("admin_user_manager") }}">RESAC Admin</a>
@@ -22,7 +35,10 @@
     <ul class="navbar-nav mr-auto">
       @if(Auth::check())
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('admin.post.create.libre') }}"><i class="fa fa-plus"></i>  Nouvelle publications</a>
+        <a class="nav-link" href="{{ route('admin.post.create.libre') }}"><i class="fa fa-plus"></i> Nouvelle publications</a>
+      </li>
+      <li class="nav-item notification notification-badge">
+        <a class="nav-link" href="{{ route('admin.notifications.show') }}"><i class="fa fa-bell"></i> <span class="badge">{{ UserAuth()->count_notifications}}</span>&nbsp; Notifications</a>
       </li>
       @endif
     </ul>
