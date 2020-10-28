@@ -29,7 +29,7 @@ class AdminNotif extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['database'];
     }
 
     /**
@@ -55,7 +55,18 @@ class AdminNotif extends Notification
     public function toArray($notifiable)
     {
         return [
-            //
+            "user_id" => $notifiable->id,
+            "verb" => "admin.info.test",
+            "message" => "Vous avez reçu une notification de test"
+        ];
+    }
+
+    public function toDatabase($notifiable)
+    {
+        return [
+            "user_id" => $notifiable->id,
+            "verb" => "admin.info.test",
+            "message" => "Vous avez reçu une notification de test"
         ];
     }
 }

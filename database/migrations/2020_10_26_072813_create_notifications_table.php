@@ -18,6 +18,7 @@ class CreateNotificationsTable extends Migration
             $table->string('type');
             $table->morphs('notifiable');
             $table->text('data');
+            $table->timestamp('seen_at')->nullable();
             $table->timestamp('read_at')->nullable();
             $table->timestamps();
         });

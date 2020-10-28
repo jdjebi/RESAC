@@ -18,7 +18,8 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
         "laravolt/avatar": "^3.2",
-        "spatie/flysystem-dropbox": "^1.2"
+        "spatie/flysystem-dropbox": "^1.2",
+        "spatie/laravel-permission": "^3.17"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",

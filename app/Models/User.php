@@ -24,6 +24,10 @@ class User extends Authenticatable
       return ($this->attributes['is_staff'] && $this->attributes['staff_role'] == "admin");
     }
 
+    public function getIsAdminAttribute(){
+      return ($this->attributes['is_staff'] && $this->attributes['staff_role'] == "admin");
+    }
+
     public function getPhotoAttribute(){
 
       if($this->attributes['photo'] != ""){
@@ -112,5 +116,19 @@ class User extends Authenticatable
 
     public function getCountNotCertifiedPostsAttribute(){
       return Post::where('user',$this->attributes['id'])->where('validate',false)->count();
+    }
+
+    /* Notifications */
+
+    public function getCountNotificationsAttribute(){
+      /* Compte de le nombre de notification non lu et non vue */
+      $unreadNotifications_count = 0;
+      $unreadNotifications = $this->unreadNotifications;
+      foreach($unreadNotifications as $n){
+        if($n->seen_at==NULL){
+          ++$unreadNotifications_count;
+        }
+      }
+      return $unreadNotifications_count;
     }
 }

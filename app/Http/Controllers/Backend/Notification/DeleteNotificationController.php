@@ -7,16 +7,16 @@ use Resac\Auth2;
 use Illuminate\Http\Request;
 use App\Notifications\AdminNotif;
 
-class CreateNotificationController extends Controller
+class DeleteNotificationController extends Controller
 {
 
     public function basic(Request $request){
 
         $user = UserAuth();
 
-        $user->notify(new AdminNotif($user));
-       
-        \Flash::add("Notification enregistrée");
+        $user->notifications()->delete();
+               
+        \Flash::add("Toute les notifications ont été supprimée");
 
         return redirect()->back();
     }

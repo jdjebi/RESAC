@@ -83,7 +83,7 @@ Route::prefix('/v1/admin')->group(function (){
       Route::get('','AdminController@index')->name('admin_index');
       Route::get('manage/users','User\ListController@user_manager')->name('admin_user_manager');
       Route::get('manage/user/action/','AdminController@delete_user')->name('admin_delete_user');
-      Route::match(['get', 'post'],'manage/user/{user_id}','AdminController@user_profil')->where('user_id', '[0-9]+')->name('admin_user_profil');
+      Route::match(['get', 'post'],'manage/user/{user_id}','User\ListController@user_profil')->where('user_id', '[0-9]+')->name('admin_user_profil');
     });
 
     Route::get('deconnexion','Backend\Auth\AuthController@admin_logout')->name('admin_logout');
@@ -103,6 +103,8 @@ Route::name('admin.')->group(function () {
   
     Route::middleware('admin.login')->group(function (){
       Route::prefix('/v1/admin/')->group(function () {
+
+        Route::get('notifications','Notifications\NotificationsController@show')->name('notifications.show');
 
         /* Publications */
         Route::prefix('publications')->group(function(){
@@ -132,7 +134,6 @@ Route::name('admin.')->group(function () {
 
         /* Notifications */
         Route::get('dev/notifications','Dev\Notifications\NotifController@create')->name('dev.notification.create');
-        Route::get('backend/notification/create','Backend\Notification\CreateNotificationController@basic')->name('backend.notification.create');
 
       });
 
@@ -169,6 +170,9 @@ Route::middleware('admin.login')->group(function (){
 
   /* Notifications */
   Route::get('backend/notification/create','Backend\Notification\CreateNotificationController@basic')->name('backend.notification.create');
+  Route::get('backend/notification/delete/auth/all','Backend\Notification\DeleteNotificationController@basic')->name('backend.notification.auth.delete.all');
+  Route::get('backend/notification/web/delete/{uuid}','Backend\Notification\StatusNotificationController@delete')->name('backend.notification.web.delete');
+  Route::get('backend/notification/web/mark/{uuid}','Backend\Notification\StatusNotificationController@mark_as_read')->name('backend.notification.web.mark_as_read');
 
 
 });
