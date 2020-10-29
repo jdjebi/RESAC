@@ -81,9 +81,10 @@ Route::prefix('/v1/admin')->group(function (){
 
     Route::namespace("UI\admin")->group(function (){
       Route::get('','AdminController@index')->name('admin_index');
-      Route::get('manage/users','User\ListController@user_manager')->name('admin_user_manager');
-      Route::get('manage/user/action/','AdminController@delete_user')->name('admin_delete_user');
+      Route::get('users','User\ListController@user_manager')->name('admin_user_manager');
+      Route::get('user/action/','AdminController@delete_user')->name('admin_delete_user');
       Route::match(['get', 'post'],'manage/user/{user_id}','User\ListController@user_profil')->where('user_id', '[0-9]+')->name('admin_user_profil');
+      Route::get('users/roles/','User\RolesAndPermissionsController@roles')->name('admin.user.roles');
     });
 
     Route::get('deconnexion','Backend\Auth\AuthController@admin_logout')->name('admin_logout');
@@ -202,6 +203,10 @@ Route::get('posts/{id}/certif/cancel/by/{certif_author}','Backend\Post\Certifica
 
 Route::post('posts/{id}/update','Backend\Post\PostUpdateController@content')->where('id', '[0-9]+')->name('backend.api.post.update');
 Route::get('posts/{id}/delete','Backend\Post\PostDeleteController@api')->where('id', '[0-9]+')->name('backend.api.post.delete');
+
+// Roles et permissions
+Route::post('roles/','Backend\Role\CreateRoleController@create')->name('backend.perm_and_role.create.role');
+
 
 // Auth
 

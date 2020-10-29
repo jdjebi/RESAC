@@ -13,13 +13,13 @@
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left" v-bind:aria-labelledby="'pub-box-menu-option-'+post.id">
                     <h6 class="dropdown-header">
                       Options 
-                      @if(Auth::is_admin_logged())
+                      @if(Resac\Auth2::is_admin_logged())
                       <b>(Admin)</b>
                       @endif
                     </h6>
                     <a v-if='post.user.id == {{ UserAuth()->id }}'
                       class="dropdown-item small" v-bind:href="'{{ route("app.post.show","") }}/' + post.id"><i class="fa fa-eye"></i> &nbsp; Afficher la publication</a>
-                    @if(Auth::is_admin_logged())
+                    @if(Resac\Auth2::is_admin_logged())
                         <a class="dropdown-item small" v-bind:href="'{{ route("app.post.delete","") }}/' + post.id + '?origin=feed'"><i class="fa fa-trash"></i> &nbsp; Supprimer la publication</a>
                     @else 
                     <a v-if='post.user.id == {{ UserAuth()->id }}'

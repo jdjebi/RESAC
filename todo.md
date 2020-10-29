@@ -64,9 +64,9 @@
 - Lorsque la certification d'une publiction est annulée, la publication doit être bloquée (seul certains utilisateur pourront éffectuer cette action)
 
 # Brainstorming
+- Mappage des pages pour définir les condition d'accès
 - Ajout des utilisateurs de type modérateur
 - Ajout des photos de profil en se basant sur le nom
-- Marquage des utilisateurs RESAC
 - Message de bienvenue sur RESAC lors de la première connexion
 - Utiliser un système de balisage pour la création des publications
 - Trouver une solution pour que les messages flash ne se répètent pas s'il en la mm origine ou le mm contenu

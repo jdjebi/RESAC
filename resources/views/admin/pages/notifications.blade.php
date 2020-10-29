@@ -14,7 +14,6 @@
     top: -4px;
     left: 24px;
   }
-
   .notification-item-unread-indicator.notification-item-primary{
     background: #2196F3;
   }

@@ -1,5 +1,9 @@
 ## Master
 
+### 28-10-2020
+- Créer d'une page pour l'affichage des notifications
+- Créer d'une page tester tester notifications
+
 ### 24-10-2020
 - Suppression du lien vers la page de publication dans barre de navigation
 - Retrait de la box de publication sur la page d'actualité

@@ -36,7 +36,7 @@
     </ul>
 
     <hr>
-
+    
     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
       <span><i class="fa fa-users"></i> UTILISATEURS</span>
     </h6>
@@ -49,6 +49,11 @@
       <li class="nav-item">
         <a class="nav-link" href="#">
           Modérateurs
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{ is_current_url('admin.user.roles') }}" href="{{ route('admin.user.roles') }}">
+          Rôles et permissions
         </a>
       </li>
     </ul>

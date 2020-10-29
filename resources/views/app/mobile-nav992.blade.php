@@ -30,7 +30,7 @@
           </a>
         </div>
       </button>
-      @if(Auth::is_admin_logged())
+      @if(Resac\Auth2::is_admin_logged())
         <button id="account" type="button" class="btn button-inactive">
            <div>
              <a class="selector-holder" href="{{ route('admin_user_manager') }}">
