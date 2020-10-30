@@ -2,7 +2,7 @@
 
 @section('extras_style')
   @include('admin.pubs.dashboard_style')
-  <link rel="stylesheet" href="{{ asset("asset/css/placeholder-loading.min.css") }}">
+  <link rel="stylesheet" href="{{ cdn_asset("asset/css/placeholder-loading.min.css") }}">
   <style media="screen">
   body{
     background-color: #f1f3f6;

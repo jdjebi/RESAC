@@ -12,16 +12,12 @@ class RolesAndPermissionsController extends Controller
 {
 
     public function roles(){
-        $user = UserAuth();
-
-        $roles = Role::orderBy('name')->get();
-
         $title = "Rôles";
 
         return view("admin.roles_permissions.roles",[
-            "title" => $title,
-            "roles" => $roles,
+            "title" => $title
         ]);
+        
     }
 
     public function permissons(){

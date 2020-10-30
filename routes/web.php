@@ -205,7 +205,8 @@ Route::post('posts/{id}/update','Backend\Post\PostUpdateController@content')->wh
 Route::get('posts/{id}/delete','Backend\Post\PostDeleteController@api')->where('id', '[0-9]+')->name('backend.api.post.delete');
 
 // Roles et permissions
-Route::post('roles/','Backend\Role\CreateRoleController@create')->name('backend.perm_and_role.create.role');
+Route::get('roles/','Backend\Role\RoleController@index')->name('backend.roles.index');
+Route::post('roles/create','Backend\Role\RoleController@create')->name('backend.roles.create');
 
 
 // Auth

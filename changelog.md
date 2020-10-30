@@ -1,8 +1,14 @@
 ## Master
 
 ### 28-10-2020
-- Créer d'une page pour l'affichage des notifications
-- Créer d'une page tester tester notifications
+- Ajout du package Spatie/Laravel-permission pour les gestions des rôles et permissions (voir `database\migrations\2020_10_28_141909_create_permission_tables.php`)
+- Création d'un module pour la gestion des permissions 
+
+### 28-10-2020
+- Création des notifications (voir `database\migrations\2020_10_26_072813_create_notifications_table.php`)
+- Création d'un models pour les modifications (voir `database\migrations\2020_10_26_072813_create_notifications_table.php`)
+- Création d'une page pour l'affichage des notifications 
+- Création d'une page tester tester notifications
 
 ### 24-10-2020
 - Suppression du lien vers la page de publication dans barre de navigation
