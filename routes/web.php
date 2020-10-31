@@ -207,13 +207,16 @@ Route::get('posts/{id}/delete','Backend\Post\PostDeleteController@api')->where('
 // Roles et permissions
 Route::get('roles/','Backend\Role\RoleController@index')->name('backend.roles.index');
 Route::post('roles/create','Backend\Role\RoleController@create')->name('backend.roles.create');
+Route::delete('roles/{id}/','Backend\Role\RoleController@delete')->where('id', '[0-9]+')->name('backend.roles.delete');
 
+Route::get('permissions/','Backend\Permission\PermissionController@index')->name('backend.permissions.index');
+Route::post('permissions/create','Backend\Permission\PermissionController@create')->name('backend.permissions.create');
+Route::delete('permissions/{id}/','Backend\Permission\PermissionController@delete')->where('id', '[0-9]+')->name('backend.permissions.delete');
 
 // Auth
-
 Route::prefix('v1/api')->group(function () {
   Route::namespace('Resac\Api')->group(function () {
-      Route::post('login','ApiController@login')->name('api_login');
+    Route::post('login','ApiController@login')->name('api_login');
   });
   Route::post('admin/login','UI\admin\AdminController@api_login')->name('admin_api_login');
 });

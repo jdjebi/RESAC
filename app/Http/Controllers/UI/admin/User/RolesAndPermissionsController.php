@@ -14,7 +14,7 @@ class RolesAndPermissionsController extends Controller
     public function roles(){
         $title = "Rôles";
 
-        return view("admin.roles_permissions.roles",[
+        return view("admin.roles_permissions.page",[
             "title" => $title
         ]);
         

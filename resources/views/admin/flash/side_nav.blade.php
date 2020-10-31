@@ -47,11 +47,6 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
-          Modérateurs
-        </a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link {{ is_current_url('admin.user.roles') }}" href="{{ route('admin.user.roles') }}">
           Rôles et permissions
         </a>

@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
 
 use App\Http\Resources\Role\RoleCollection;
 
@@ -39,10 +38,23 @@ class RoleController extends Controller
             $is_error = true;
             $data["message"] = "Aucun titre renseigné";
         }
-
         if($is_error)
             $is_error = true;
+        return json_encode($data);
+    }
 
+    public function delete(Request $request, $id){
+        $role = Role::find($id);
+        $data = [];
+        if($role){
+            $data["role"] = $role;
+            $role->delete();
+            $data["error"] = false;
+            $data["message"] = "Le rôle '".$role->name."' a bien été supprimé.";
+        }else{
+            $data["error"] = true;
+            $data["message"] = "Le rôle n'existe pas.";
+        }
         return json_encode($data);
     }
 
