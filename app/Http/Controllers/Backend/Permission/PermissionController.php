@@ -23,22 +23,22 @@ class PermissionController extends Controller
         if($request->filled("permission_name")){
             $permission = Permission::where("name",$request->permission_name)->get();
             if(count($permission) == 0){
-                $permission = Permission::create(['name' => $request->permission_name]);
+                $permission = Permission::create(['name' => strtolower($request->permission_name)]);
                 $data["permission"] = [
                     "id" => $permission->id,
                     "name" => $permission->name
                 ];
-                $data["message"] = "La permission '".$request->permission_name."' a été créé";
+                $data["message"] = "La permission '".$request->permission_name."' a été créé.";
             }else{
                 $is_error = true;
-                $data["message"] = "La permission '".$request->permission_name."' existe déjà";
+                $data["message"] = "La permission '".$request->permission_name."' existe déjà.";
             }
         }else{
             $is_error = true;
-            $data["message"] = "Aucun titre renseigné";
+            $data["message"] = "Aucun titre renseigné.";
         }
         if($is_error)
-            $is_error = true;
+            $data["error"] = true;
         return json_encode($data);
     }
 

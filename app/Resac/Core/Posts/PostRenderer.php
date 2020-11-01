@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Resac\Core\Posts;
+namespace App\RESAC\Core\Posts;
 
 class PostRenderer{
 

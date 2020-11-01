@@ -9,14 +9,14 @@
                 <hr>
             </div>
             <div class="col-md-12">
-                @include('admin.roles_permissions.roles')
+                @include('admin.roles_permissions.index.roles')
             </div>
             <div class="col-md-12">
-                @include('admin.roles_permissions.permissions')
+                @include('admin.roles_permissions.index.permissions')
             </div>
         </div>
         <div>
-            @include('admin.roles_permissions.extras')
+            @include('admin.roles_permissions.index.extras')
         </div>
     </div>
 @endsection

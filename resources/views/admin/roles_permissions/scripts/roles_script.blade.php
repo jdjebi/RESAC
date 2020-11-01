@@ -1,40 +1,41 @@
 <script src="{{ cdn_asset("asset/js/lib/axios/axios.min.js") }}"></script>
-<script src="{{ cdn_asset("asset/js/lib/lodash/lodash.min.js") }}" type="text/javascript"></script>
-
 <script>
     var vm = new Vue({
     el: "#v-app",
     data:{
         role:{
-            creating: false,
-            deleting: false,
-            role_deleting: null,
-            creating_error_msg: "",
-            form_role_name: "",
-            roles: []
+          creating: false,
+          deleting: false,
+          role_deleting: null,
+          creating_error_msg: "",
+          form_role_name: "",
+          roles: []
         },
         permissions:{
-            creating: false,
-            deleting: false,
-            permission_deleting: null,
-            creating_error_msg: "",
-            form_name: "",
-            collection: []
+          creating: false,
+          deleting: false,
+          permission_deleting: null,
+          creating_error_msg: "",
+          form: {
+            name:"",
+            error:""
+          },
+          collection: []
         },
         url: {
-            role:{
-              index: "{{ route("backend.roles.index") }}",
-              create: "{{ route("backend.roles.create") }}",
-              delete: "{{ route("backend.roles.delete","") }}",
-            },
-            permission:{
-              index: "{{ route("backend.permissions.index") }}",
-              create: "{{ route("backend.permissions.create") }}",
-              delete: "{{ route("backend.permissions.delete","") }}", 
-            }
+          role:{
+            index: "{{ route("backend.roles.index") }}",
+            create: "{{ route("backend.roles.create") }}",
+            delete: "{{ route("backend.roles.delete","") }}",
+          },
+          permission:{
+            index: "{{ route("backend.permissions.index") }}",
+            create: "{{ route("backend.permissions.create") }}",
+            delete: "{{ route("backend.permissions.delete","") }}", 
+          }
         },
         toast:{
-            message: ""
+          message: ""
         }
     },
 
@@ -55,7 +56,6 @@
       axios.get(this.url.permission.index)
         .then(function (response) {
           vm.permissions.collection = response.data.data;
-          console.log(response.data.data);
         })
         .catch(function (error) {
           Swal2_tools_emit_basic_error();
@@ -67,8 +67,12 @@
     },
 
     methods:{
-      OnError: function(){
+      OnError: function(error){
         Swal2_tools_emit_basic_error();
+      },
+      ShowToast: function(message){
+        vm.toast.message = message;
+        $('.toast').toast('show');
       },
 
       OnOpenRoleCreateForm: function(){
@@ -90,12 +94,11 @@
             }else{
                 vm.role.roles.unshift(data.role);
                 $("#create_role").modal('hide');
-                vm.toast.message = data.message;
-                $('.toast').toast('show');
+                vm.ShowToast(data.message);
             }
           },
           error: function (data,status,error){
-            Swal2_tools_emit_basic_error();
+            vm.OnError(error);
           }
         });
       },
@@ -125,12 +128,10 @@
                 }
                 vm.role.roles = new_roles_tmp;
               }
-              vm.toast.message = response.data.message;
-              $('.toast').toast('show');
+              vm.ShowToast(response.data.message);
             })
             .catch(function (error) {
-              console.log(error);
-              Swal2_tools_emit_basic_error();
+              vm.OnError(error);
             })
             .then(function () {
               vm.role.deleting = false;
@@ -139,6 +140,30 @@
         });
       },
 
+      OnCreatePermission: function (event){
+        vm.permissions.creating = true;
+        vm.permissions.form.error = "";
+        axios.post(vm.url.permission.create,{
+            permission_name: vm.permissions.form.name,
+          })
+          .then(function (response) {
+            if(!response.data.error){
+              console.log(response.data);
+              vm.permissions.collection.push(response.data.permission);
+              vm.ShowToast(response.data.message);
+            }else{
+              vm.permissions.form.error = response.data.message;
+            }
+          })
+          .catch(function (error) {
+            vm.OnError(error); 
+            console.log(error);
+          })
+          .then(function () {
+            vm.permissions.form.name = "";
+            vm.permissions.creating = false;
+          });
+      },
       OnDeletePermission: function (id,event){
         Swal.fire({
           title:'Confirmation',
@@ -165,11 +190,9 @@
                 }
                 vm.permissions.collection = new_permissions_tmp;
               }
-              vm.toast.message = response.data.message;
-              $('.toast').toast('show');
+              vm.ShowToast(response.data.message);
             })
             .catch(function (error) {
-              console.log(error);
               Swal2_tools_emit_basic_error();
             })
             .then(function () {
@@ -178,6 +201,30 @@
           }
         });
       },
+      OnDeletePermission2: function (id,event){
+        url = vm.url.permission.delete + "/" + id;
+          vm.permissions.deleting = true;
+          axios.delete(url)
+          .then(function (response) {
+            if(!response.data.error){
+              permissions_tmp = vm.permissions.collection;
+              new_permissions_tmp = [];
+              for (let index = 0; index < permissions_tmp.length; index++) {
+                r = permissions_tmp[index];     
+                if(r.id!=response.data.permission.id)
+                  new_permissions_tmp.push(r);
+              }
+              vm.permissions.collection = new_permissions_tmp;
+            }
+            vm.ShowToast(response.data.message);
+          })
+          .catch(function (error) {
+            Swal2_tools_emit_basic_error();
+          })
+          .then(function () {
+            vm.permissions.deleting = false;
+          });
+      }
     }
   });
 </script>

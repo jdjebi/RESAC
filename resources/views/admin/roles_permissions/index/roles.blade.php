@@ -11,22 +11,22 @@
                 <thead>
                 <tr>
                     <th scope="col">Rôle</th>
+                    <th scope="col">Alias</th>
                     <th scope="col">Permissions</th>
-                    <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody id="v-table-roles-row" class="d-none">
                     <tr v-for="role_tmp in role.roles">
                         <td v-bind:title="'ID ' + role_tmp.id" class="font-weight-bolder">
-                            <span class="text-success"><i class="fa fa-lock"></i></span>&nbsp; @{{ role_tmp.name }}
+                            <span class="text-success"><i class="fa fa-lock"></i></span>&nbsp; @{{ role_tmp.label }}
                         </td>
-                        <td></td>
+                        <td>@{{ role_tmp.name }}</td>
                         <td class="text-right">
-                            <a href="" class="btn btn-sm btn-dark text-center"><i class="fa fa-edit"></i></a>
+                            <a v-bind:href="role_tmp.url" class="btn btn-sm btn-dark text-center"><i class="fa fa-edit"></i></a>
                             <button v-bind:disabled="role.deleting"
                                 v-on:click="OnDeleteRole(role_tmp.id,$event)" 
-                                class="btn btn-sm btn-danger text-center"
-                            >Supprimer</button>
+                                class="btn btn-sm btn-danger"
+                            ><i class="fa fa-trash"></i></button>
                         </td>
                     </tr>
                 </tbody>

@@ -8,13 +8,47 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 
 use App\Http\Resources\Role\RoleCollection;
-
+use App\Http\Resources\Role\Role as RoleJson;
 
 
 class RoleController extends Controller
 {
     public function index(Request $request){
         return new RoleCollection(Role::orderBy('name')->get());
+    }
+
+    public function show(Request $request, $id){
+        return new RoleJson(Role::find($id));
+    }
+
+    public function update(Request $request, $id){
+        $data = [];
+        $data["error"] = false;
+        $is_error = false;
+
+        // Validation des données
+
+        $data["e"] = $request->all();
+
+        if(true){
+
+            $role = Role::find($id);
+
+            if($role){
+                // $role = Role::update(['name' => strtolower($request->role_name)]);
+                $data["role"] = new RoleJson($role);
+                $data["message"] = "Mise à jour éffectuée.";
+            }else{
+                $is_error = true;
+                $data["message"] = "Rôle introuvable.";
+            }
+
+        }
+
+        if($is_error)
+            $data["error"] = true;
+
+        return json_encode($data);
     }
 
     public function create(Request $request){
@@ -24,22 +58,22 @@ class RoleController extends Controller
         if($request->filled("role_name")){
             $role = Role::where("name",$request->role_name)->get();
             if(count($role) == 0){
-                $role = Role::create(['name' => $request->role_name]);
+                $role = Role::create(['name' => strtolower($request->role_name)]);
                 $data["role"] = [
                     "id" => $role->id,
                     "name" => $role->name
                 ];
-                $data["message"] = "Le rôle '".$request->role_name."' a été créé";
+                $data["message"] = "Le rôle '".$request->role_name."' a été créé.";
             }else{
                 $is_error = true;
-                $data["message"] = "Le rôle '".$request->role_name."' existe déjà";
+                $data["message"] = "Le rôle '".$request->role_name."' existe déjà.";
             }
         }else{
             $is_error = true;
-            $data["message"] = "Aucun titre renseigné";
+            $data["message"] = "Aucun titre renseigné.";
         }
         if($is_error)
-            $is_error = true;
+            $data["error"] = true;
         return json_encode($data);
     }
 

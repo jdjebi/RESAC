@@ -1,5 +1,8 @@
 ## Master
 
+### 1-11-2020
+- Ajout des constantes des rôles et permssions `database\migrations\2020_10_26_072813_create_notifications_table.php`
+
 ### 28-10-2020
 - Ajout du package Spatie/Laravel-permission pour les gestions des rôles et permissions (voir `database\migrations\2020_10_28_141909_create_permission_tables.php`)
 - Création d'un module pour la gestion des permissions 

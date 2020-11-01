@@ -84,7 +84,9 @@ Route::prefix('/v1/admin')->group(function (){
       Route::get('users','User\ListController@user_manager')->name('admin_user_manager');
       Route::get('user/action/','AdminController@delete_user')->name('admin_delete_user');
       Route::match(['get', 'post'],'manage/user/{user_id}','User\ListController@user_profil')->where('user_id', '[0-9]+')->name('admin_user_profil');
-      Route::get('users/roles/','User\RolesAndPermissionsController@roles')->name('admin.user.roles');
+      Route::get('roles-permissions/','User\RolesAndPermissionsController@index')->name('admin.user.roles');
+      Route::get('roles-permissions/roles/{id}/','User\RolesAndPermissionsController@show')->where('id', '[0-9]+')->name('admin.roles.show');
+
     });
 
     Route::get('deconnexion','Backend\Auth\AuthController@admin_logout')->name('admin_logout');
@@ -207,6 +209,8 @@ Route::get('posts/{id}/delete','Backend\Post\PostDeleteController@api')->where('
 // Roles et permissions
 Route::get('roles/','Backend\Role\RoleController@index')->name('backend.roles.index');
 Route::post('roles/create','Backend\Role\RoleController@create')->name('backend.roles.create');
+Route::get('roles/{id}/','Backend\Role\RoleController@show')->where('id', '[0-9]+')->name('backend.roles.show');
+Route::put('roles/{id}/','Backend\Role\RoleController@update')->where('id', '[0-9]+')->name('backend.roles.update');
 Route::delete('roles/{id}/','Backend\Role\RoleController@delete')->where('id', '[0-9]+')->name('backend.roles.delete');
 
 Route::get('permissions/','Backend\Permission\PermissionController@index')->name('backend.permissions.index');
