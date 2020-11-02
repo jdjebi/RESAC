@@ -31,18 +31,20 @@ class RoleController extends Controller
         $data["e"] = $request->all();
 
         if(true){
-
             $role = Role::find($id);
-
             if($role){
                 // $role = Role::update(['name' => strtolower($request->role_name)]);
-                $data["role"] = new RoleJson($role);
+                $permissions = $request->permissions;
+                $permissions_array = [];
+                foreach ($permissions as $permission) {
+                    $permissions_array[] = strtolower($permission['name']);
+                }
+                $role->syncPermissions($permissions_array );
                 $data["message"] = "Mise à jour éffectuée.";
             }else{
                 $is_error = true;
                 $data["message"] = "Rôle introuvable.";
             }
-
         }
 
         if($is_error)
@@ -59,10 +61,7 @@ class RoleController extends Controller
             $role = Role::where("name",$request->role_name)->get();
             if(count($role) == 0){
                 $role = Role::create(['name' => strtolower($request->role_name)]);
-                $data["role"] = [
-                    "id" => $role->id,
-                    "name" => $role->name
-                ];
+                $data["role"] = new RoleJson($role);
                 $data["message"] = "Le rôle '".$request->role_name."' a été créé.";
             }else{
                 $is_error = true;

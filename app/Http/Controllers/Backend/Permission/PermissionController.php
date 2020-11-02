@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 use App\Http\Resources\Permission\PermissionCollection;
 
@@ -13,7 +14,23 @@ use App\Http\Resources\Permission\PermissionCollection;
 class PermissionController extends Controller
 {
     public function index(Request $request){
-        return new PermissionCollection(Permission::orderBy('name')->get());
+        $permissions = null;
+        if($request->filled("skip_permissions_of_role")){
+            $role_id = $request->skip_permissions_of_role;
+            $role = Role::findOrFail($role_id);
+            $role_permissions = $role->getAllPermissions();
+            $query = Permission::orderBy('name');
+            $role_permissions_id = [];
+            foreach($role_permissions as $p){
+                $role_permissions_id[] = $p->id;
+            }
+            $permissions = Permission::orderBy('name')
+                            ->whereNotIn('id',$role_permissions_id)
+                            ->get();
+        }else{
+            $permissions = Permission::orderBy('name')->get();
+        }
+        return new PermissionCollection($permissions);
     }
 
     public function create(Request $request){

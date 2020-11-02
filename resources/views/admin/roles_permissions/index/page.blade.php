@@ -1,5 +1,14 @@
 @extends('admin.base')
 
+@section('extras_style')
+    @parent
+    <style>
+        .badge-block{
+            display: initial!important;
+        }
+    </style>
+@endsection
+
 @section('main-content')
     @include('flash')
     <div id="v-app" class="container-fluid mt-3">

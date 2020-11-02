@@ -18,9 +18,11 @@
         .rp-item-detail-row .label-val, .rp-item-detail-first-row .label-val {
             font-size: 15px;
         }
+        .permission-badge:hover{
+            cursor: pointer;
+        }
     </style>
 @endsection
-
 
 @section('main-content')
     <div class="nav-scroller shadow-sm">
@@ -50,7 +52,7 @@
                     <div class="mb-2 d-flex justify-content-between">
                         <div class="h4">Rôle #@{{ role.id }}</div>
                         <div>
-                            <a href="#" v-on:click="OnUpdateRole" class="btn btn-sm btn-success" ><i class="fa fa-edit"></i> Mettre à jour</a>
+                            <button v-on:click="OnUpdateRole" v-bind:disabled="!edited || updating" class="btn btn-sm btn-success" ><i class="fa fa-save"></i> Mettre à jour</button>
                         </div>
                     </div>
                     <div>
@@ -81,24 +83,37 @@
                         <div class="row border-top rp-item-detail-row">
                             <div class="col-md-3 col-sm-12">
                                 <span class="label">Permissions</span>
+                                <span v-if="edited" class="text-primary label">(modifiée)</span>
                             </div>
-                            <div class="col-md-6 col-sm-12">
-                                <template v-for="permission in role.permissions">
-                                    <span class="badge badge-primary" v-text="permission.name"></span>&nbsp;
+                            <div class="col-md-9 col-sm-12">
+                                <template v-for="(permission,i) in SortedRolePermissions">
+                                    <span v-on:click="RemoveRole(i,$event)" class="permission-badge badge badge-primary"> - @{{ permission.name }}</span>&nbsp;
                                 </template>
                             </div>
                         </div>
                     </div>
                     <hr>
                     <div>
-                        <div class="h6 text-secondary"><i class="fa fa-plus"></i> Cliquez sur une permission pour l'ajouter au rôle </div> 
+                        <div class="text-muted">Cliquez sur une permission pour l'ajouter au rôle </div> 
                         <div class="mt-3">
-                            <template v-for="permission in permissions">
-                                <span class="badge badge-primary" v-text="permission.name"></span>&nbsp;
+                            <template v-for="(permission,i) in SortedPermissions">
+                                <span v-on:click="AddRole(i,$event)" class="permission-badge badge badge-secondary"> + @{{ permission.name }}</span>&nbsp;
                             </template>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="toast" role="alert" data-delay="4000" aria-live="assertive" aria-atomic="true" style="position: fixed; bottom: 60px; right: 30px;">
+            <div class="toast-header">
+                <div class="text-success"><i class="fas fa-info-circle"></i></div>&nbsp;&nbsp;
+                <strong class="mr-auto">Notification</strong>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                <b>@{{ toast.message }}</b>
             </div>
         </div>
     </div>
@@ -107,19 +122,22 @@
 @section('scripts')
     @parent
     <script src="{{ cdn_asset("asset/js/lib/axios/axios.min.js") }}"></script>
+    <script src="{{ cdn_asset("asset/js/lib/lodash/lodash.min.js") }}"></script>
     <script>
         var vm = new Vue({
         el: "#v-app",
         data:{
             role: null,
             permissions:null,
+            edited: false,
             updating: false,
             url: {
                 role:{
                     get: "{{ route("backend.roles.show",$role_id) }}",
+                    update: "{{ route("backend.roles.update",$role_id) }}",
                 },
                 permissions:{
-                    get: "{{ route("backend.permissions.index") }}",
+                    get_available: "{{ route("backend.permissions.index") }}?skip_permissions_of_role={{ $role_id }}",
                 }
             },
             toast:{
@@ -142,15 +160,23 @@
                     $("#v-loader").hide();
                 });
             
-            axios.get(this.url.permissions.get)
+            axios.get(this.url.permissions.get_available)
                 .then(function (response) {
                     vm.permissions = response.data.data;
-                    console.log(vm.permissions)
                 })
                 .catch(function (error) {
                     Swal2_tools_emit_basic_error();
-                })
+                });
  
+        },
+
+        computed: {
+            SortedPermissions: function (){
+                return _.orderBy(this.permissions, 'name')
+            },
+            SortedRolePermissions: function (){
+                return _.orderBy(this.role.permissions, 'name') 
+            }
         },
 
         methods:{
@@ -162,7 +188,33 @@
                 $('.toast').toast('show');
             },
             OnUpdateRole: function(){
+                this.updating = true;
+                axios.put(this.url.role.update,{
+                        permissions: vm.role.permissions,
+                    })
+                    .then(function (response) {
+                        vm.ShowToast(response.data.message);
+                    })
+                    .catch(function (error) {
+                        Swal2_tools_emit_basic_error();
+                    })
+                    .then(function () {
+                        vm.updating = false;
+                        vm.edited = false;
+                    }); 
+            },
 
+            AddRole: function (i,event){
+                this.edited = true,
+                permission = this.permissions[i];
+                this.permissions.splice(i,1);
+                this.role.permissions.push(permission);
+            },
+            RemoveRole: function (i,event){
+                this.edited = true,
+                permission = this.role.permissions[i];
+                this.role.permissions.splice(i,1);
+                this.permissions.push(permission);
             }
         }
     });

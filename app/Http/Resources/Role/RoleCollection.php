@@ -24,6 +24,7 @@ class RoleCollection extends ResourceCollection
                 "id" => $role->id,
                 "name" => $role->name,
                 "label" => ($label == "" ? $role->name : $label),
+                "is_permission_system" => ($label == "" ? false : true),
                 "permissions" => $permissions,
                 "url" => route('admin.roles.show',$role->id),
             ];

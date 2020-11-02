@@ -4,6 +4,7 @@
     el: "#v-app",
     data:{
         role:{
+          updating: false,
           creating: false,
           deleting: false,
           role_deleting: null,
@@ -41,17 +42,7 @@
 
     mounted: function (){
       // Récupération des rôles
-      axios.get(this.url.role.index)
-        .then(function (response) {
-          vm.role.roles = response.data.data;
-        })
-        .catch(function (error) {
-          Swal2_tools_emit_basic_error();
-        })
-        .then(function () {
-          $("#v-table-roles-row").removeClass('d-none');
-          $("#v-table-roles-loader").hide();
-        });
+      this.GetRoles();
       // Récupération des permissions
       axios.get(this.url.permission.index)
         .then(function (response) {
@@ -61,6 +52,9 @@
           Swal2_tools_emit_basic_error();
         })
         .then(function () {
+          $("#v-role-updating").each(function(){
+            $(this).removeClass('d-none');
+          })
           $("#v-table-permissions-row").removeClass('d-none');
           $("#v-table-permissions-loader").hide();
         });
@@ -73,6 +67,33 @@
       ShowToast: function(message){
         vm.toast.message = message;
         $('.toast').toast('show');
+      },
+
+      GetRoles: function(){
+        axios.get(this.url.role.index)
+        .then(function (response) {
+          vm.role.roles = response.data.data;
+        })
+        .catch(function (error) {
+          Swal2_tools_emit_basic_error();
+        })
+        .then(function () {
+          $("#v-table-roles-row").removeClass('d-none');
+          $("#v-table-roles-loader").hide();
+        });
+      },
+      UpdateRoles: function(){
+        this.role.updating = true;
+        axios.get(this.url.role.index)
+        .then(function (response) {
+          vm.role.roles = response.data.data;
+        })
+        .catch(function (error) {
+          Swal2_tools_emit_basic_error();
+        })
+        .then(function () {
+          vm.role.updating = false;
+        });
       },
 
       OnOpenRoleCreateForm: function(){
@@ -149,7 +170,7 @@
           .then(function (response) {
             if(!response.data.error){
               console.log(response.data);
-              vm.permissions.collection.push(response.data.permission);
+              vm.permissions.collection.unshift(response.data.permission);
               vm.ShowToast(response.data.message);
             }else{
               vm.permissions.form.error = response.data.message;
@@ -190,6 +211,7 @@
                 }
                 vm.permissions.collection = new_permissions_tmp;
               }
+              vm.UpdateRoles();
               vm.ShowToast(response.data.message);
             })
             .catch(function (error) {
@@ -216,6 +238,7 @@
               }
               vm.permissions.collection = new_permissions_tmp;
             }
+            vm.UpdateRoles();
             vm.ShowToast(response.data.message);
           })
           .catch(function (error) {
