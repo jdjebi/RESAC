@@ -22,7 +22,7 @@
   }
 </style>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="{{ route("admin_user_manager") }}">
+  <a class="navbar-brand" href="{{ route("admin.users.index") }}">
     <img src="{{ cdn_asset('asset/imgs/icons/android-chrome-512x512-admin.png') }}" width="30" height="30" alt="">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

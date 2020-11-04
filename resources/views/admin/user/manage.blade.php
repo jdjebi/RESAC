@@ -1,6 +1,13 @@
 @extends('admin.base')
 
 @section('main-content')
+<div class="nav-scroller shadow-sm">
+  <nav id="resac-breadcrumb" aria-label="breadcrumb" >
+      <ol class="breadcrumb">
+          <li class="breadcrumb-item active"><a href="#">Utilisateurs</a></li>
+      </ol>
+  </nav>
+</div>
 <div id="v-table" class="mt-3 container-fluid">
   <div class="row">
     <div class="col-sm-12">

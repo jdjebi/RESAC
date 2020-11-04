@@ -126,7 +126,7 @@ class AdminController extends Controller
 
       // guest middleware
 
-      if(\Auth::is_admin_logged()){
+      if(\RESAC\Auth2::is_admin_logged()){
         return "";
       }
 

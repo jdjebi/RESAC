@@ -20,7 +20,7 @@
     @csrf
     <div class="form-group">
         <label for="nom">Nom <span class="text-danger">*</span></label>
-        <input type="text" class="form-control <?= $FormInfo->state('nom') ?>" value="<?= $FormInfo->get("nom") ?>" name="nom" value="" id="nom">
+        <input type="text" class="form-control <?= $FormInfo->state('nom') ?>" value="<?= $FormInfo->get("nom") ?>" name="nom" id="nom">
         <span class="text-danger small"><?= $FormInfo->get_error('required2','nom') ?></span>
     </div>
 
@@ -49,7 +49,7 @@
 
         <div class="col-lg-4 col-md-12 col-sm-12 mb-3">
         <label for="pays">Pays</label>
-        <select class="form-control" name="pays" value="" id="pays">
+        <select class="form-control" name="pays" id="pays">
 
             <?php if(empty($FormInfo->get("pays"))): ?>
             <option value="" selected>Aucun pays</option>

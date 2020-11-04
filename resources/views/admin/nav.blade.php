@@ -12,7 +12,7 @@
     <ul class="navbar-nav mr-auto">
       @if(Auth::check())
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('admin_user_manager') }}">Gestion des utilisateurs</a>
+        <a class="nav-link" href="{{ route('admin.users.index') }}">Gestion des utilisateurs</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.pubs_dashboard') }}">Espace publications</a>

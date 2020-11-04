@@ -4,7 +4,11 @@
       <div class="row">
         <div class="col-sm-12 col-md-5 mb-3">
           <div class="profile-photo d-flex justify-content-center">
-            <img class="rounded-circle border resac-w-150 resac-h-150" src="{{ photos_cdn_asset($user_visited) }} " alt="">
+            <div class="text-center">
+              <div>
+                <img class="rounded-circle border resac-w-150 resac-h-150" src="{{ photos_cdn_asset($user_visited) }} " alt="">
+              </div>
+            </div>
           </div>
         </div>
         <div class="col-sm-12 col-md-7">
@@ -53,7 +57,7 @@
             </li>
           </ul>
           <div class="text-right mt-4">
-            <a id="btn-delete-user" class="btn btn-danger" href="#delete">Supprimer</a>
+            <a href="{{ route("admin.users.account",UserAuth()->id) }}" class="btn btn-primary"><i class="fa fa-cog"></i> Paramètre du compte</a>
           </div>
         </div>
       </div>

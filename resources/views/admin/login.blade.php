@@ -42,7 +42,7 @@
 @section('scripts')
 <script src="{{ asset("asset/js/vue.js") }}" type="text/javascript"></script>
 <script type="text/javascript">
-var admin_index_url = "{{ route('admin_user_manager') }}";
+var admin_index_url = "{{ route('admin.users.index') }}";
 
 var vm = new Vue({
   el: "#v-login",

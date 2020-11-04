@@ -39,7 +39,7 @@ class Post extends JsonResource
                 'ville' => $user->ville,
                 'commune' => $user->commune,
                 'numero' => $user->numero,
-                'admin_profil_url' => route('admin_user_profil',['user_id' => $user->id]),
+                'admin_profil_url' => route('admin_user_profil',['id' => $user->id]),
                 'profil_url' => route('profil.visitor',$user->id),
             ],
             'scope' => $post->scope,
