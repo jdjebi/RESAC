@@ -42,7 +42,7 @@
     </h6>
     <ul class="nav flex-column mb-2">
       <li class="nav-item">
-        <a class="nav-link {{ is_current_url('admin_user_manager') }}" href="{{ route('admin_user_manager') }}">
+        <a class="nav-link {{ is_current_url('admin.users.index') }}" href="{{ route('admin.users.index') }}">
           Membres
         </a>
       </li>
