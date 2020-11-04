@@ -81,12 +81,12 @@ Route::prefix('/v1/admin')->group(function (){
 
     Route::namespace("UI\admin")->group(function (){
       Route::get('','AdminController@index')->name('admin_index');
-      Route::get('users','User\ListController@user_manager')->name('admin_user_manager');
+      Route::get('users','User\UserController@index')->name('admin.users.index');
       Route::get('user/action/','AdminController@delete_user')->name('admin_delete_user');
-      Route::match(['get', 'post'],'manage/user/{user_id}','User\ListController@user_profil')->where('user_id', '[0-9]+')->name('admin_user_profil');
+      Route::get('users/{id}','User\UserController@show')->where('id', '[0-9]+')->name('admin_user_profil');
+      Route::get('users/{id}/compte','User\UserController@account')->where('id', '[0-9]+')->name('admin.users.account');
       Route::get('roles-permissions/','User\RolesAndPermissionsController@index')->name('admin.user.roles');
       Route::get('roles-permissions/roles/{id}/','User\RolesAndPermissionsController@show')->where('id', '[0-9]+')->name('admin.roles.show');
-
     });
 
     Route::get('deconnexion','Backend\Auth\AuthController@admin_logout')->name('admin_logout');
@@ -179,7 +179,6 @@ Route::middleware('admin.login')->group(function (){
 
 
 });
-
 
 
 /* API */

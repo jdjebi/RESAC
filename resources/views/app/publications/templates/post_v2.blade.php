@@ -13,7 +13,7 @@
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left" aria-labelledby="pub-box-menu-option-{{ $post->id }}">
                     <h6 class="dropdown-header">
                       Options 
-                      @if(Auth::is_admin_logged())
+                      @if(Resac\Auth2::is_admin_logged())
                       <b>(Admin)</b>
                       @endif
                     </h6>

@@ -33,7 +33,7 @@
       @if(Resac\Auth2::is_admin_logged())
         <button id="account" type="button" class="btn button-inactive">
            <div>
-             <a class="selector-holder" href="{{ route('admin_user_manager') }}">
+             <a class="selector-holder" href="{{ route('admin.users.index') }}">
                <i class="fa fa-tachometer-alt"></i>
                <span>Admin</span>
              </a>

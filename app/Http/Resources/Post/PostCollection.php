@@ -55,7 +55,7 @@ class PostCollection extends ResourceCollection
                     'ville' => $user->ville,
                     'commune' => $user->commune,
                     'numero' => $user->numero,
-                    'admin_profil_url' => route('admin_user_profil',['user_id' => $user->id]),
+                    'admin_profil_url' => route('admin_user_profil',['id' => $user->id]),
                 ],
             ];
 
