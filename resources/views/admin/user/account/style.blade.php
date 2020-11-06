@@ -62,10 +62,6 @@
       font-weight: 600!important;
     }
   
-    .lh-condensed {
-        line-height: 1.25!important;
-    }
-  
     .css-truncate.css-truncate-target, .css-truncate .css-truncate-target {
         display: inline-block;
         max-width: 125px;

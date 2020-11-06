@@ -1,28 +1,8 @@
 @extends('admin.base')
 
-@section('extras_style')
-    @parent
-    <style>
-        .rp-item-detail .rp-item-detail-first-row {
-            padding-bottom: 13px;
-        }
-        .rp-item-detail .rp-item-detail-row {
-            padding-top: 13px;
-            padding-bottom: 13px;
-        }
-        .rp-item-detail .rp-item-detail-row .label, .rp-item-detail .rp-item-detail-first-row .label{
-            font-weight: 700;
-            color: #616161;
-            font-size: 15px;
-        }
-        .rp-item-detail-row .label-val, .rp-item-detail-first-row .label-val {
-            font-size: 15px;
-        }
-        .permission-badge:hover{
-            cursor: pointer;
-        }
-    </style>
-@endsection
+@push('styles')
+<link rel="stylesheet" href="{{ cdn_asset('asset/css/resac/admin/roles-permissions.css') }}">
+@endpush
 
 @section('main-content')
     <div class="nav-scroller shadow-sm">

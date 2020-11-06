@@ -33,7 +33,6 @@ class RoleController extends Controller
         if(true){
             $role = Role::find($id);
             if($role){
-                // $role = Role::update(['name' => strtolower($request->role_name)]);
                 $permissions = $request->permissions;
                 $permissions_array = [];
                 foreach ($permissions as $permission) {

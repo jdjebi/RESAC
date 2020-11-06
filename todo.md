@@ -5,9 +5,7 @@
 
 - Gestion des utilisateurs
   - [?] Un admin lui ne pas se rendre membre ni se supprimer
-  - Gestion des utilisateurs
-    - [?] Suppression ajax des utilisateurs
-    - Révision de la page d'accueil
+
 
 ## EXTRAS
 - Documenter la nouvelle tables des publications

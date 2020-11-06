@@ -29,6 +29,7 @@
       }
     </style>
     @yield('extras_style')
+    @stack('styles')
   </head>
   <body>
     @include('admin.nav2')
@@ -40,5 +41,6 @@
     <script src="{{ cdn_asset("asset/js/vue.js") }}" type="text/javascript"></script>
     <script src="{{ cdn_asset("asset/js/resac/vue.truncate_filter.js") }}" type="text/javascript"></script>
     @yield('scripts')
+    @stack('scripts')
   </body>
 </html>

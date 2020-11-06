@@ -31,9 +31,9 @@
       </div>
       <div class="col-sm-12 col-md-7 col-lg-8">
         @include('admin.user.account.modules.user',['user' => UserAuth()])
-        @include('admin.user.account.modules.roles',['user' => UserAuth()])
         @include('admin.user.account.modules.location',['user' => UserAuth()])
         @include('admin.user.account.modules.career',['user' => UserAuth()])
+        @include('admin.user.account.modules.roles',['user' => UserAuth()])
         @include('admin.user.account.modules.delete_account',['user' => UserAuth()])
       </div>
     </div>
