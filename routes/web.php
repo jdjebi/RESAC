@@ -186,10 +186,8 @@ Route::middleware('admin.login')->group(function (){
 // User
 Route::get('user/connected/main_data','Backend\User\GetDataController@main_for_user_connected')->name('backend.user.connected.main_data');
 Route::get('user/all/manage_data','Backend\User\GetDataController@manage_data')->name('backend.api.user.all.manage_data');
-Route::get('users/{id}/roles','Backend\User\RolesPermissions@get_roles')->name('backend.users.roles.get');
-Route::get('users/{id}/roles','Backend\User\RolesPermissions@put_roles')->name('backend.users.roles.put');
-Route::get('users/{id}/roles','Backend\User\RolesPermissions@get_roles')->where('id', '[0-9]+')->name('backend.users.roles.put');
-Route::put('users/{id}/roles','Backend\User\RolesPermissions@put_roles')->where('id', '[0-9]+')->name('backend.users.roles.get');
+Route::get('users/{id}/roles','Backend\User\RolesPermissions@get_roles')->where('id', '[0-9]+')->name('backend.users.roles.get');
+Route::put('users/{id}/roles','Backend\User\RolesPermissions@put_roles')->where('id', '[0-9]+')->name('backend.users.roles.put');
 
 
 // Post

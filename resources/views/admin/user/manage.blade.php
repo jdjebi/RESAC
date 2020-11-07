@@ -8,6 +8,8 @@
       </ol>
   </nav>
 </div>
+@include('flash')
+
 <div id="v-table" class="mt-3 container-fluid">
   <div class="row">
     <div class="col-sm-12">
@@ -57,7 +59,6 @@
               <td class="text-center">
                 <a v-bind:href="user.admin_profil_url" class="text-info" title="Profil dans l'administration."><i class="fa fa-user-cog"></i></a>
                 <a v-bind:href="user.profil_url" class="text-muted" target="_blank" title="Profil sur RESAC."><i class="fa fa-user"></i></a>
-                <a v-on:click="delete_user" v-bind:data-user-id="user.id" class="text-danger" href="#delete" title="Supprimer l'utilisateur"><i class="fa fa-trash"></i></a>
               </td>
             </tr>
           </tbody>
@@ -105,12 +106,6 @@ var vm = new Vue({
       return this.users.length
     }
   },
-  methods: {
-    delete_user: function(e){
-      var id = $(e.target).parent().data('user-id');
-      delete_user_dialog(id);
-    }
- }
 });
 
 

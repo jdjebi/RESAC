@@ -38,7 +38,7 @@ class RoleController extends Controller
                 foreach ($permissions as $permission) {
                     $permissions_array[] = strtolower($permission['name']);
                 }
-                $role->syncPermissions($permissions_array );
+                $role->syncPermissions($permissions_array);
                 $data["message"] = "Mise à jour éffectuée.";
             }else{
                 $is_error = true;

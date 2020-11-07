@@ -57,7 +57,7 @@
             </li>
           </ul>
           <div class="text-right mt-4">
-            <a href="{{ route("admin.users.account",UserAuth()->id) }}" class="btn btn-primary"><i class="fa fa-cog"></i> Paramètre du compte</a>
+            <a href="{{ route("admin.users.account",$user_visited->id) }}" class="btn btn-primary"><i class="fa fa-cog"></i> Paramètre du compte</a>
           </div>
         </div>
       </div>

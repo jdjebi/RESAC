@@ -21,7 +21,7 @@ class RolesPermissions extends Controller
         if(!$user){
             $data['error'] = true;
             $data['message'] = "Utilisateur introuvable";
-            return json_encode($data);
+            return response()->json($data);
         }
 
         $roles_name = $user->getRoleNames();
@@ -43,22 +43,29 @@ class RolesPermissions extends Controller
         $user = User::find($id);
 
         $data = [];
-
         $data['error'] = false;
 
         if(!$user){
             $data['error'] = true;
             $data['message'] = "Utilisateur introuvable";
-            return json_encode($data);
+            return response()->json($data);
         }
 
         // Vérifie que tous les rôles sont correctes
 
-        $user->assignRole(["admin","developer"]);
+        $roles = $request->roles;
+
+        $roles_array = [];
+
+        foreach ($roles as $role) {
+            $roles_array[] = strtolower($role['name']);
+        }
+
+        $user->syncRoles($roles_array);
 
         $data['message'] = "Mise à jour des rôles éffectuées";
         
-        return json_encode($data);
+        return response()->json($data);
     }
  
 }

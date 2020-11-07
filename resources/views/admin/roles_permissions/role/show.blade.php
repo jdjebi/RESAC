@@ -66,7 +66,7 @@
                                 <span v-if="edited" class="text-primary label">(modifiée)</span>
                             </div>
                             <div class="col-md-9 col-sm-12">
-                                <template v-for="(permission,i) in SortedRolePermissions">
+                                <template v-for="(permission,i) in role.permissions">
                                     <span v-on:click="RemoveRole(i,$event)" class="permission-badge badge badge-primary"> - @{{ permission.name }}</span>&nbsp;
                                 </template>
                             </div>
@@ -76,7 +76,7 @@
                     <div>
                         <div class="text-muted">Cliquez sur une permission pour l'ajouter au rôle </div> 
                         <div class="mt-3">
-                            <template v-for="(permission,i) in SortedPermissions">
+                            <template v-for="(permission,i) in permissions">
                                 <span v-on:click="AddRole(i,$event)" class="permission-badge badge badge-secondary"> + @{{ permission.name }}</span>&nbsp;
                             </template>
                         </div>

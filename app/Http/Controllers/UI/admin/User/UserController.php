@@ -128,7 +128,7 @@ class UserController extends Controller
 
     public function account(Request $request, $id){
 
-      $user = UserAuth();
+      $user = User::findOrFail($id);
 
       $title =  $user->fullname.' - Compte';
  

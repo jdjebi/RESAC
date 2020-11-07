@@ -14,12 +14,17 @@ Consulter le fichier **todo.md** pour suivre l'évolution du développement.
 
 ### Récentes
 
-- Serveur CDN
-- Redimensionnement automatique du formulaire de publication (page d'actualité)
-- Photo de profil
+- Importation de photo de profil
+- Système de notifications
+- Système de publications
+- Système des gestion des utilisateurs
+- Système de permissions
 
 ### Anciennes
 
+- Serveur CDN
+- Redimensionnement automatique du formulaire de publication (page d'actualité)
+- Photo de profil
 - Moteur de recherche d'utilisateurs
 - Gestion des nouveautés
 - Mot de passe oublié
@@ -31,6 +36,14 @@ Consulter le fichier **todo.md** pour suivre l'évolution du développement.
 
 - Validateur de formulaire
 - Emetteur de notifications
+
+## Mise à jour de la version 5
+
+- Importation de photo de profil
+- Système de notifications
+- Système de publications
+- Système des gestion des utilisateurs
+- Système de permissions
 
 ## Mise à jour de la version 4
 

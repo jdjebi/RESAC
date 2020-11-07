@@ -105,7 +105,7 @@ class AdminController extends Controller
         $id = $_GET['delete'];
         $user = \Users::get($id);
         if($user){
-          $user->delete();
+          // $user->delete();
           \Flash::add('Utilisateur supprimé.','success');
         }else{
           \Flash::add('Utilisateur introuvable.','danger');
