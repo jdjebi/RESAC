@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Resac\Auth;
+namespace App\Http\Controllers\Backend\Auth\Password;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -13,7 +13,7 @@ class ResetPasswordController extends Controller
 {
     public function get(Request $request, $token){
       $title2 = 'Réinitialisation du mot de passe';
-      return view('auth.passwords.reset',[
+      return view('app.auth.passwords.reset',[
         'token' => $token,
         'title2' => $title2,
       ]);
@@ -33,7 +33,7 @@ class ResetPasswordController extends Controller
 
       $response = $this->reset_password($request);
 
-      \Flash::add('Votre mot de passe a bien été réinitialé.','success');
+      \Flash::add('Votre mot de passe a bien été réinitialisé.','success');
 
       return redirect()->route('login');
 

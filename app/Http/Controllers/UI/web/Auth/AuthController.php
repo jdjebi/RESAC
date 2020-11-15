@@ -17,7 +17,7 @@ class AuthController extends Controller
       $title2 = "Connexion";
       $redirect_url = $request->has('redirect') ? $request->redirect : "";
 
-      return view('app.connexion',[
+      return view('app.auth.connexion',[
         "redirect_url" => $redirect_url,
         "title2" => $title2
       ]);
@@ -29,6 +29,7 @@ class AuthController extends Controller
 
       $errors = null;
 
+      // Récupération des erreurs issues du traitement Backend
       if(session("form_export")){
         $form->import_data(session("form_export"));
         session()->put("form_export",null);
@@ -37,7 +38,7 @@ class AuthController extends Controller
 
       $title2 = "Créer un Compte";
 
-      return view('app.inscription',[
+      return view('app.auth.inscription',[
         "form" => $form,
         "title2" => $title2,
         "errors" => $errors

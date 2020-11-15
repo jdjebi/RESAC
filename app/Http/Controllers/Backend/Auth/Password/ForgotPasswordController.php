@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Resac\Auth;
+namespace App\Http\Controllers\Backend\Auth\Password;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -11,7 +11,7 @@ class ForgotPasswordController extends Controller
 
       $title = 'Mot de passe oublié';
 
-      return view('auth.passwords.email',[
+      return view('app.auth.passwords.email',[
         'title2' => $title
       ]);
 

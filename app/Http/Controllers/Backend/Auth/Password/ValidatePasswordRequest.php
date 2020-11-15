@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Resac\Auth;
+namespace App\Http\Controllers\Backend\Auth\Password;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;

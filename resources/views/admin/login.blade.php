@@ -40,14 +40,14 @@
 @endsection
 
 @section('scripts')
-<script src="{{ asset("asset/js/vue.js") }}" type="text/javascript"></script>
+<script src="{{ cdn_asset("asset/js/vue.js") }}" type="text/javascript"></script>
 <script type="text/javascript">
 var admin_index_url = "{{ route('admin.users.index') }}";
 
 var vm = new Vue({
   el: "#v-login",
   data:{
-    url: "{{ route('admin_api_login') }}",
+    url: "{{ route('api.admin.login') }}",
     submit_btn: false,
     is_error: false,
     error_message: "test"

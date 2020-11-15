@@ -2,7 +2,7 @@
 
 
 # Version 6
-
+- Le nombre de nouveauté doit correspondrent aux nombres de nouveautés présent dans la base de données depuis une semaine
 - Messagerie instannées
 - Traducteur de date
 - Gestion des écoles, académies et entreprises

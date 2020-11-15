@@ -1,23 +1,28 @@
 ## Master
 
 ### 1-11-2020
+
 - Ajout des constantes des rôles et permssions `database\migrations\2020_10_26_072813_create_notifications_table.php`
 
 ### 28-10-2020
+
 - Ajout du package Spatie/Laravel-permission pour les gestions des rôles et permissions (voir `database\migrations\2020_10_28_141909_create_permission_tables.php`)
 - Création d'un module pour la gestion des permissions 
 
 ### 28-10-2020
+
 - Création des notifications (voir `database\migrations\2020_10_26_072813_create_notifications_table.php`)
 - Création d'un models pour les modifications (voir `database\migrations\2020_10_26_072813_create_notifications_table.php`)
 - Création d'une page pour l'affichage des notifications 
 - Création d'une page tester tester notifications
 
 ### 24-10-2020
+
 - Suppression du lien vers la page de publication dans barre de navigation
 - Retrait de la box de publication sur la page d'actualité
 
 ### 4-10-2020
+
 - Les posts n'utilisent plus la table "pub_v1" pour la gestion des publications mais plutôt la table "posts" - voir le fichier `database\migrations\2020_10_01_091418_create_posts_table.php`
 - Révision complète de l'interface de l'administration
 - Réorganisation des controllers: les controllers de Backend et de Frontend sont désormais séparés dans des dossiers différents (Backend/ et UI/)
@@ -26,9 +31,11 @@
 - Ajout du helper `UserAuth()` qui retourne une instance de l'utilisateur connecté
 
 ### 20-09-2020
+
 - Création d'un nouveau fichier de configuration 'var.php', il contient par exemple le chemin vers la photo de profil par défaut
 
 ### 29-08-2020
+
 - Redimensionnement automatique du formulaire de publication sur la page d'accueil
   - Il est assuré par asset/js/lib/autosize.min.js
 
@@ -43,7 +50,21 @@
 
 ### v5
 
+- Revision de la page de profil
+- Amélioration de l'affichage des publications
+  - Lien cliquable avec coloration des liens
+  - Coloration des hashtags
+  - Création d'un serveur de fichiers (NodeJS)
+- Création d'une section pour faire des flash infos
+- Revision la barre de recherche
+- Option pour retirer la photo de profil
+- Certification des publications
+- Intégrer les modérateurs et les super utilisateurs
+- Gestion des utilisateurs
+  - Un admin ne peut pas modifier ses droits ni se supprimer, seule le super admin peut gérer les droits
+
 ## v4
+
 - Mot de passe oublié
 - Conservation de session
 - Gérer les comptes la mise à jour des comptes lors de la connexion
@@ -90,9 +111,11 @@
 - auth, redirect, flash deviennent des services
 
 - Mise de la classe Auth
+  
   - Ajout des méthodes is_admin et role
-
+  
   - Modification de la table pub_v1
+    
     - Ajout du champ validate
     - Ajout du champ validate_by
     - Ajout du champ validate_at
@@ -102,45 +125,56 @@
 ## v2
 
 - src/redirect.php
+  
   - Ajout de la methode route_back()
 
 - config/countries.php
+  
   - Ajout d'un tableau de tous les pays du monde
 
 - src/services/countries/
+  
   - Création des services au travers de l'intégration d'un service pour gérer les pays
 
 - connexion.php
+  
   - Auto redirection avec le formuailre de connexion
 
 - src/utils.php
-  -  Ajout de la fonction dump() pour un var_dump avec la fonction pre
+  
+  - Ajout de la fonction dump() pour un var_dump avec la fonction pre
 
 - forms/Form.php
+  
   - Intégration des fonctionnalités pour la gestion des erreurs par champs
   - Intégration de la vérifcation automatiquement pour:
     - Le format de l'E-mail
     - L'égalité de deux champ(cas des mots de passe)
 
-
 - forms/RegisterForm.php
+  
   - Adaptation de la classe à la nouvelle version de la classe Form
 
 - inscription.php
-  -  Adaptation du traitement à la nouvelle version de la classe RegisterForm
+  
+  - Adaptation du traitement à la nouvelle version de la classe RegisterForm
   - Ajout des erreurs manquantes
 
 - forms/UserForm.php
+  
   - Adaptation de la classe à la nouvelle version de la classe Form
   - Ajout de la méthode Users::email_is_unique($email)
   - Ajout d'un validateur de format d'adresse E-mail
   - Ajout d'un validateur d'égalité de champ
 
 - parametres.php
+  
   - Adaptation de la classe à la nouvelle version de la classe UserForm
 
 - models/Model.php
+  
   - Ajout d'une classe de base pour les modèles
 
 - models/Post.php
+  
   - Ajout d'une classe pour la présentation des publications

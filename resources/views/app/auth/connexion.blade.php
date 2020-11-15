@@ -48,7 +48,7 @@
         </div>
         <div class="mt-4">
           <button id="submit-btn" class="btn btn-block btn-primary" name="button" v-bind:disabled="submit_btn">
-            <span v-if="!submit_btn">Connexion</span>
+            <span v-if="!sending">Connexion</span>
             <div v-if="submit_btn" class="loader spinner-border text-white spinner-border-sm d-none" role="status">
               <span class="sr-only">Loading...</span>
             </div>
@@ -72,8 +72,9 @@ var url_redirect = "{{ $redirect_url }}" ;
 var vm = new Vue({
   el: "#v-login",
   data:{
-    url: "{{ route('api_login') }}",
+    url: "{{ route('api.login') }}",
     submit_btn: false,
+    sending: false,
     is_error: false,
     error_message: "test",
     pass_input: $('#pass-input')
@@ -85,6 +86,7 @@ var vm = new Vue({
   methods:{
     onSubmit: function(event){
       this.submit_btn = true;
+      this.sending = true;
       this.submit(event.target);
     },
     submit: function(form){
@@ -99,6 +101,7 @@ var vm = new Vue({
       });
     },
     onSuccess: function(data,status){
+      this.sending = false;
       this.submit_btn = false;
       if(data.is_error){
         this.is_error = true;
@@ -110,7 +113,7 @@ var vm = new Vue({
         else
           url = url_post_login;
 
-        window.location = url;
+          window.location = url;
       }
     },
     onError: function (data,status,error){

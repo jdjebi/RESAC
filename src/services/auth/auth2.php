@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 function authenticate($email,$password){
   /*
-    Cette fonction vérifie si un utilisateur peut capble de se connecter.
+    Cette fonction vérifie si un utilisateur peut capable de se connecter.
     Elle vérifie la connexion avec plusieurs formes de hashage de mot de passe au cas où la fonction de hashage du mot de passe est modifiée
   */
 
@@ -43,12 +43,6 @@ function login($request,$user){
 }
 
 function logout(){
-  # Déconnexion avec le Framework built-in
-  unset($_SESSION["user"]);
-  unset($_SESSION["is_staff"]);
-  unset($_SESSION["staff_role"]);
-
-  # Déconnexion avec le Framework built-in
   \Illuminate\Support\Facades\Auth::logout();
 }
 

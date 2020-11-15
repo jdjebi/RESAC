@@ -32,6 +32,9 @@
       .resac-bg-dark{
         background-color:#283e4a;
       }
+      .resac-text-dark{
+        color: #283e4a !important;
+      }
       .resac-bg-dark .navbar-nav .nav-link {
           font-size: 14px;
           padding-top: 13px;

@@ -16,6 +16,34 @@ class AuthController extends Controller
       return redirect()->route("home");
     }
 
+    public function login(Request $request){
+      $form = new \LoginForm($_POST);
+      $success = false;
+      $is_error = false;
+
+      if($form->is_validate()){
+        $email = $form->get("email");
+        $password = $form->get("password");
+
+        $user = \Resac\authenticate($email,$password);
+
+        if($user){
+          \Resac\login($request,$user);
+          $success = true;
+        }else{
+          $form->add_error('global',"Adresse E-mail ou mot de passe incorrecte.");
+        }
+      }else{
+        $form->add_error('global',"Veuillez remplir tous les champs.");
+      }
+
+      return json_encode([
+        'is_error' => $form->is_errors(),
+        'errors' => $form->get_errors(),
+        'success' => $success
+      ]);
+    }
+
     public function admin_logout(){
       \Resac\logout();
       return redirect()->route("home");

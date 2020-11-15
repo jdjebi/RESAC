@@ -98,3 +98,39 @@
 .resac-linkedin-shadow{
   box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 2px 3px rgba(0,0,0,.2);
 }
+
+/* Support */
+
+.resac-account-card-support{
+    border: none
+}
+.resac-account-card-support .card-header{
+    background-color: #fff;
+    font-size: 24px;
+    font-weight: 400;
+    padding-left: 0;
+    padding-top: 0
+}
+.resac-account-card-support .card-body{
+    padding-left: 0;
+}
+.resac-account-card-support label{
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.resac-account-card-support .form-control {
+    max-width: 100%;
+    background-color: #fafbfc;
+    padding: 5px 12px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #24292e;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    outline: none;
+    box-shadow: inset 0 1px 0 rgba(225,228,232,.2);
+}

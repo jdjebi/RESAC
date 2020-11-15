@@ -8,18 +8,17 @@ use App\Models\SearchUserIndex;
 
 use Illuminate\Support\Facades\Http;
 
-
 Route::get('/annuaire','UI\Web\Extras\AnnuaireController')->name('annuaire');
 Route::get('/nouveautes',"UI\Web\Extras\FeaturesController")->name('dev_news');
 Route::get('/deconnexion','Backend\Auth\AuthController@logout')->name('logout');
 
 Route::middleware("guest")->group(function(){
   Route::get('/','UI\Web\Index\IndexController');
-  Route::get('/v2','UI\Web\Index\IndexController@index2')->name('home');
+  Route::get('/demo','UI\Web\Index\IndexController@index2')->name('home');
   Route::get('/connexion','UI\Web\Auth\AuthController@login')->name('login');
   Route::get('/inscription','UI\Web\Auth\AuthController@register')->name('register');
 
-  Route::namespace("Resac\Auth")->group(function () {
+  Route::namespace("Backend\Auth\Password")->group(function () {
     Route::get('reinitialiser/mot-de-passe','ForgotPasswordController')->name('app.reset.email');
     Route::post('reinitialiser/mot-de-passe','ValidatePasswordRequest');
     Route::get('password/reset/{token}','ResetPasswordController@get')->name('password.reset');
@@ -89,7 +88,7 @@ Route::prefix('/v1/admin')->group(function (){
       Route::get('roles-permissions/roles/{id}/','User\RolesAndPermissionsController@show')->where('id', '[0-9]+')->name('admin.roles.show');
     });
 
-    Route::get('deconnexion','Backend\Auth\AuthController@admin_logout')->name('admin_logout');
+    Route::get('deconnexion','Backend\Auth\AuthController@admin_logout')->name('admin.logout');
 
     Route::namespace("Resac")->group(function (){
       Route::get('rechercher',"SearchController@admin")->name('admin_search');
@@ -220,13 +219,8 @@ Route::post('permissions/create','Backend\Permission\PermissionController@create
 Route::delete('permissions/{id}/','Backend\Permission\PermissionController@delete')->where('id', '[0-9]+')->name('backend.permissions.delete');
 
 // Auth
-Route::prefix('v1/api')->group(function () {
-  Route::namespace('Resac\Api')->group(function () {
-    Route::post('login','ApiController@login')->name('api_login');
-  });
-  Route::post('admin/login','UI\admin\AdminController@api_login')->name('admin_api_login');
-});
-
+Route::post('backend/login','Backend\Auth\AuthController@login')->name('api.login');
+Route::post('backend/login/admin','Backend\Auth\AuthController@login')->name('api.admin.login');
 
 /* Routes de test */
 
