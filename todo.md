@@ -1,5 +1,5 @@
 # A FAIRE
-
+- le type de is_staff devient bool pas int
 
 # Version 6
 - Le nombre de nouveauté doit correspondrent aux nombres de nouveautés présent dans la base de données depuis une semaine
@@ -11,10 +11,13 @@
 - Importation et visualisation de CV 
 
 # FAIT
+- créer une constante pour le versionnage
+- Créer la nouvelle fonction de mise à jour de compte vers la version 3
+- Mettre la valeur par défaut de version à 3
 
 ## EXTRAS
 - Documenter la nouvelle tables des publications
-- Documenter la base de données
+- Documenter la réinitialisation de mot de passe
 - Description du processus de validation la nouvelle tables des publications
 - [] Réfuser la certification
 - [] Confirmation des actions sur la page d'une publication

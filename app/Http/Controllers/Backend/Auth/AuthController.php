@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Backend\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use App\Models\SearchUserIndex;
+
 use App\User;
+use App\Models\SearchUserIndex;
+use App\RESAC\Defines;
 
 class AuthController extends Controller
 {
@@ -64,8 +66,11 @@ class AuthController extends Controller
           "prenom" => $data["prenom"],
           "email" => $data["email"],
           "password" => Hash::make($data["password"]),
-          "version" => 2, // version actuelle des comptes
+          "version" => Defines::CURRENT_UPDATE_VERSION, // version actuelle des comptes
         ]);
+
+        // L'utilisateur est nommé comme membre
+        $user->assignRole("member");
 
         // L'utilisateur est enregistré dans l'index de recherche
         SearchUserIndex::register($user);

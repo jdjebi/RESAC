@@ -59,6 +59,16 @@ function account_update($request,$user){
     $user->version = 2;
     $user->save();
   }
+
+  if($account_version < 3){
+    # Ajout du rôle si l'utilisateur n'a pas de rôle
+    $roles = $user->getRoleNames();
+    if(count($roles) == 0){
+      $user->assignRole("member");
+    }
+    $user->version = 3;
+    $user->save();
+  }
 }
 
 class Auth2{

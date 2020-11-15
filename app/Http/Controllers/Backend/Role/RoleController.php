@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use Spatie\Permission\Models\Role;
-
 use App\Http\Resources\Role\RoleCollection;
 use App\Http\Resources\Role\Role as RoleJson;
 

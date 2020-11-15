@@ -1,5 +1,7 @@
 ## Master
 
+- Création du fichier `app\Resac\Defines.php` pour la sauvarges de constantes avec comme premier élément RESAC::CURRENT_UPDATE_VERSION qui donne la version courante du pack de mise à jour
+
 ### 1-11-2020
 
 - Ajout des constantes des rôles et permssions `database\migrations\2020_10_26_072813_create_notifications_table.php`

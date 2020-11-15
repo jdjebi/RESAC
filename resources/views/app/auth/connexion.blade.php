@@ -120,6 +120,7 @@ var vm = new Vue({
       alert("Une erreur c'est produite. Contactez l'administrateur.");
       console.log(error);
       $('#pass-input').val("");
+      this.sending = false;
       this.submit_btn = false;
     },
   }

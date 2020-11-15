@@ -7,12 +7,11 @@ use Illuminate\Http\Request;
 
 use App\Features;
 use App\Resac\Core\Posts\PostRenderer;
-use App\Repositories\PostRepository;
 
 class ActuController extends Controller
 {
 
-    public function index(PostRepository $post){
+    public function index(){
 
 
       $last_feature = Features::last();
