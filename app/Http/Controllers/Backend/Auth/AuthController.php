@@ -79,7 +79,7 @@ class AuthController extends Controller
         \Flash::add("Inscription réussie. Vous pouvez vous connecter.","success");
 
         // Redirection
-        return redirect()->route('home');
+        return redirect()->route('extras.register');
       }else{
 
         if($form->isset('emails','email')){

@@ -14,6 +14,7 @@
 - créer une constante pour le versionnage
 - Créer la nouvelle fonction de mise à jour de compte vers la version 3
 - Mettre la valeur par défaut de version à 3
+- Ajout d'une page de bienvenue après l'inscription menant vers la page de connexion
 
 ## EXTRAS
 - Documenter la nouvelle tables des publications
@@ -32,7 +33,6 @@
 - S'assurer que les permissions système ne pourront pas être supprimée même pas le superadmin
 - Supprimer le on delete cascade sur user.validate_by car si un utilisateur ayant validé une publication est supprimé alors la publications l'est aussi
 - Suppression impossible sur la page des publication
-- Réduire la répétition du code d'affichage des publications
 - Revoir l'affichage des publications
 - Trouver une solution pour vérifier que le CDN fonctionne (utiliser une requête asynchrone)
 - Si la page de redirection est la page elle même on redirige sur la page d'accueil

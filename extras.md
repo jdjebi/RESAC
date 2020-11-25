@@ -2,24 +2,16 @@
 
 - Mappage des pages pour définir les condition d'accès
 - Ajout des utilisateurs de type modérateur
-- Message de bienvenue sur RESAC lors de la première connexion
 - Utiliser un système de balisage pour la création des publications
 - Trouver une solution pour que les messages flash ne se répètent pas s'il en la mm origine ou le mm contenu
 - Utiliser un nom utilisateur pour identifier un utilisateur
 - Créer une historique de navigation en terme de flyers - information qui une fois disparait ou disparait après un certains temps (utiliser ). Ces derniers sont rédiger par un admin
-- Guide lors de la connexion
 
 # Extras
 
 - Créer un middleware pour assurer la mise à jour du compte de l'utilisateur (le middleware va déconnecter l'utilisateur pour qu'il se reconnecte afin d'opérer la mise à jour globale)
 
 - Utiliser ajax pour les annonces
-
-- user_author_id Retirer le delete CASCADE
-
-- Faire la création de compte avec Laravel
-
-- Révoir l'affichage des erreurs sur la page de connexion (toutes les pages)
 
 - Une Espace dédié à chaque administrateur
 

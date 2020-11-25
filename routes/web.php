@@ -12,6 +12,8 @@ Route::get('/annuaire','UI\Web\Extras\AnnuaireController')->name('annuaire');
 Route::get('/nouveautes',"UI\Web\Extras\FeaturesController")->name('dev_news');
 Route::get('/deconnexion','Backend\Auth\AuthController@logout')->name('logout');
 
+Route::get('extras/bienvenue','UI\Extras\Register')->name('extras.register');
+
 Route::middleware("guest")->group(function(){
   Route::get('/','UI\Web\Index\IndexController');
   Route::get('/demo','UI\Web\Index\IndexController@index2')->name('home');
