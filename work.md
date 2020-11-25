@@ -2,6 +2,7 @@
 - Création de la table des notifications 
 - La mise à jour de la valeur par défaut de version 2 => 3
 php artisan migrate
+- Changer le type de l'attribut is_staff en tinyint
 
 Pour la mise en place des permissions
 - php artisan migrate

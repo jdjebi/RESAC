@@ -1,5 +1,8 @@
 ## Master
 
+- Modification du fichier de migration de la table utilisateur
+#
+
 - Création du fichier `app\Resac\Defines.php` pour la sauvarges de constantes avec comme premier élément RESAC::CURRENT_UPDATE_VERSION qui donne la version courante du pack de mise à jour
 
 ### 1-11-2020

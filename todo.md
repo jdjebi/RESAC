@@ -1,5 +1,4 @@
 # A FAIRE
-- le type de is_staff devient bool pas int
 
 # Version 6
 - Le nombre de nouveauté doit correspondrent aux nombres de nouveautés présent dans la base de données depuis une semaine
@@ -11,6 +10,7 @@
 - Importation et visualisation de CV 
 
 # FAIT
+- le type de is_staff devient bool pas int
 - créer une constante pour le versionnage
 - Créer la nouvelle fonction de mise à jour de compte vers la version 3
 - Mettre la valeur par défaut de version à 3

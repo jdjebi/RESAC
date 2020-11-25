@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateVersionToUsers extends Migration
+class AddUsersIsAdmin extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class UpdateVersionToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->unsignedInteger('version')->default(3);
+            $table->boolean('is_superadmin')->default(false);
         });
     }
 
@@ -25,6 +25,6 @@ class UpdateVersionToUsers extends Migration
      */
     public function down()
     {
-
+        //
     }
 }
