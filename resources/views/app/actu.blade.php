@@ -98,7 +98,7 @@ body{
 <script src="{{ cdn_asset("asset/js/vue.js") }}" type="text/javascript"></script>
 <script src="{{ cdn_asset("asset/js/resac/vue.truncate_filter.js") }}" type="text/javascript"></script>
 <script src="{{ cdn_asset("asset/js/lib/autosize.min.js") }}" type="text/javascript"></script>
-<script src="{{ asset("asset/js/extras/sweetalert2.all.min.js") }}" type="text/javascript"></script>
+<script src="{{ cdn_asset("asset/js/extras/sweetalert2.all.min.js") }}" type="text/javascript"></script>
 <script>
   autosize($('#textarea-post-box'));
 </script>

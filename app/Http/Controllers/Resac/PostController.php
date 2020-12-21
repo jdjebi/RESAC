@@ -48,7 +48,7 @@ class PostController extends Controller
 
     public function create(Request $request){
 
-      $user = Auth2::user();
+      $user = UserAuth();
 
       $title = 'Publications - Créer';
 
@@ -63,7 +63,7 @@ class PostController extends Controller
 
     public function create_free_post(Request $request){
 
-      $user = Auth2::user();
+      $user = UserAuth();
 
       $title = 'Publication - Libre';
 

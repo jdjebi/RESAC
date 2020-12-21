@@ -1,5 +1,7 @@
 <?php
 
+$DB = null;
+
 if(!isset($_SERVER["HEROKU_APP_DIR"])){
 
   $DEBUG = false;

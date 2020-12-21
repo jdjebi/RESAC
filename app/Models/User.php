@@ -133,4 +133,18 @@ class User extends Authenticatable
       }
       return $unreadNotifications_count;
     }
+
+    static function email_is_unique($email){
+      $u = User::where('email',$email)->get();
+      if($u)
+        return false;
+      else
+        return true;
+    }
+
+    static function check_if_repeat($field,$val){
+      // Vérifie si une valeur se repète plusieurs dans le table des utilisateur
+      $c = User::where($field,$val)->count();
+      return $c > 0;
+    }
 }

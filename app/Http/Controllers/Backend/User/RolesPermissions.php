@@ -61,6 +61,11 @@ class RolesPermissions extends Controller
             $roles_array[] = strtolower($role['name']);
         }
 
+        /*
+            - Si parmis les rôles, un rôle de niveau administratrateur figure, on confère le droit d'accéder à l'admin
+            - Sinon on le lui retire
+        */
+
         $user->syncRoles($roles_array);
 
         $data['message'] = "Mise à jour des rôles éffectuées";

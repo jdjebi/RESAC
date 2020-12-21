@@ -28,7 +28,7 @@ Route::middleware("guest")->group(function(){
   });
 
   // Backend
-  Route::post('/inscription','Backend\Auth\AuthController@register')->name('backend.register.member');
+  Route::post('/inscription','Backend\Auth\RegisterController')->name('backend.register.member');
 });
 
 /* Application */
@@ -221,7 +221,7 @@ Route::post('permissions/create','Backend\Permission\PermissionController@create
 Route::delete('permissions/{id}/','Backend\Permission\PermissionController@delete')->where('id', '[0-9]+')->name('backend.permissions.delete');
 
 // Auth
-Route::post('backend/login','Backend\Auth\AuthController@login')->name('api.login');
+Route::post('backend/login','Backend\Auth\LoginController')->name('api.login');
 Route::post('backend/login/admin','Backend\Auth\AuthController@login')->name('api.admin.login');
 
 /* Routes de test */

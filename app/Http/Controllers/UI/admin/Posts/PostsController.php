@@ -21,7 +21,7 @@ class PostsController extends Controller
 
     public function pub($id){
 
-      $user = Auth2::user();
+      $user = UserAuth();
 
       $post = Post::findOrFail($id);
 
@@ -41,7 +41,7 @@ class PostsController extends Controller
         if (!isset($_GET['action'])) {
           \Flash::add($param_error,"danger");
         }else{
-          $user = Auth2::user();
+          $user = UserAuth();
           // Certification de la publication
           if($_GET["action"] == "validate"){
             \Post::certificate($id,$user->id);

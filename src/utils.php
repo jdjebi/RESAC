@@ -2,38 +2,10 @@
 
 use Illuminate\Support\Facades\Http;
 
-
 if(!function_exists("redirect")){
   function redirect($target){
     header("Location:$target");
     exit();
-  }
-}
-
-if(!function_exists("session")){
-  function session($key){
-    return $_SESSION[$key];
-  }
-}
-
-
-function crypt_password($password){
-  return sha1($password);
-}
-
-function exist($val){
-  return isset($val) && !empty($val);
-}
-
-function get_val_exist($key){
-  return exist($_GET[$key]);
-}
-
-if(!function_exists("route")){
-  function dump($data){
-    echo "<pre style='background-color: #2e2e2e; color: #4CAF50; font-weight: 900;'>";
-    var_dump($data);
-    echo "</pre>";
   }
 }
 
@@ -99,7 +71,7 @@ if(!function_exists("UserAuth")){
       Retourne l'instance du l'utilisateur connecté. Si aucun alors on retourne nul
     */   
 
-    return Resac\Auth2::user();
+    return \Illuminate\Support\Facades\Auth::user();
   }  
 }
 

@@ -12,7 +12,7 @@ class AnnuaireController extends Controller
 
     public function __invoke()
     {
-      $user =  Auth2::user();
+      $user =  UserAuth();
 
       $users = [];
 

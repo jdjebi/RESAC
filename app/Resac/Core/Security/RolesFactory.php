@@ -6,23 +6,33 @@ class RolesFactory{
     const ROLES_DATABASE = [
         "superadmin" => [
             "name" => "superadmin",
-            "label" => "Super Administrateur"
+            "label" => "Super Administrateur",
+            "level" => 5,
+            "guard"  => 'web',
         ],
         "admin" => [
             "name" => "admin",
-            "label" => "Administrateur"
+            "label" => "Administrateur",
+            "level" => 4,
+            "guard"  => 'web',
         ],
         "developer" => [
             "name" => "developer",
-            "label" => "Développeur"
+            "label" => "Développeur",
+            "level" => 3,
+            "guard"  => 'web',
         ],
         "moderator" => [
             "name" => "moderator",
-            "label" => "Modérateur"
+            "label" => "Modérateur",
+            "level" => 2,
+            "guard"  => 'web',
         ],
         "member" => [
             "name" => "member",
-            "label" => "Membre"
+            "label" => "Membre",
+            "level" => 1,
+            "guard"  => '',
         ],
     ];
 
@@ -31,6 +41,16 @@ class RolesFactory{
             return RolesFactory::ROLES_DATABASE[$name]["label"];
         else
             return "";
+    }
+
+    static function GetRole($name){
+        return RolesFactory::ROLES_DATABASE[$name];
+    }
+
+    static function is_admin_roles_in($roles_name){
+        foreach ($roles_name as $role_name) {
+            $role = RolesFactory::GetRole($role_name);
+        }
     }
 }
 

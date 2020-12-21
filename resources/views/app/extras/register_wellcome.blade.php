@@ -49,11 +49,11 @@ body{
         <div>
             <h2>Bienvenue sur RESAC</h2>
             <p class="content mt-4">
-                RESAC à pour but de réunir tous les caïmans du monde entier sur une seule et même plateforme de sorte à créer un réseau à la fois proféssionnel et académique. Et c'est pourquoi nous sommes heureux de vous accueilir, car par votre inscription vous participer à l'extension du réseau. <br> <br>
+                RESAC à pour but de réunir tous les caïmans du monde entier sur une seule et même plateforme de sorte à créer un réseau à la fois proféssionnel et académique. Et c'est pourquoi nous sommes heureux de vous accueillir, car par votre inscription vous participer à l'extension du réseau. <br> <br>
                 Toutefois, le projet est toujours en cours de réalisation et manque encore de fonctionnalités d'interaction. Mais rassurez nous y travaillons ! Ainsi vous pouvez consulter les publications venant des modérateurs de la plateforme(Bourse,Stage,Evènement,Promotion) et visiter le profil d'autres caïmans.
                 <br><br>Surtout n'hésitez pas à faire des remarques et suggestions.<br> <br>
                 
-                Merci, <i>l'Equipe RESAC</i>
+                <i>l'Equipe RESAC</i>
             </p>
         </div>
         <div class="text-right">

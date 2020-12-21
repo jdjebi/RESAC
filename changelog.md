@@ -1,7 +1,14 @@
 ## Master
 
+- Prise en charge du service models annulée
+
+- Suppression des fonctions et classes inutiles
+
+- Le test de la connexion à la base de données se fait dans la class AppServiceProvider et en cas d'echec le fichier dont le chemin est contenu dans "config(var.database_connection_failed)" est affiché. Ce dernier affiche l'erreur sql uniquement si on est en local
+
 - Modification du fichier de migration de la table utilisateur
-#
+
+# v5.2
 
 - Création du fichier `app\Resac\Defines.php` pour la sauvarges de constantes avec comme premier élément RESAC::CURRENT_UPDATE_VERSION qui donne la version courante du pack de mise à jour
 

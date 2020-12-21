@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\UI\admin\User;
 
 use App\Http\Controllers\Controller;
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Resac\Auth2;
 
@@ -19,7 +19,7 @@ class UserController extends Controller
 
     public function show($id){
 
-      $user = Auth2::user();
+      $user = UserAuth();
       $user_visited = User::findOrFail($id);
       
       $form = new \UserAdminSettingsForm($_POST);
@@ -68,7 +68,7 @@ class UserController extends Controller
 
       if(isset($_GET['delete'])){
         $id = $_GET['delete'];
-        $user = \Users::get($id);
+        $user = User::find($id);
         if($user){
           $user->delete();
           \Flash::add('Utilisateur supprimé.','success');

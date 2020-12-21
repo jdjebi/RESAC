@@ -39,7 +39,7 @@
       </div>
     </div>
 
-    <div class="col-lg-8 col-sm-10 bg-white border-left p-5">
+    <div class="col-lg-8 col-sm-12 bg-white border-left p-5">
 
       <form method="post" action="{{ route('backend.register.member') }}">
         @csrf

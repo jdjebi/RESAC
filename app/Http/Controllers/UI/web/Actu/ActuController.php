@@ -5,7 +5,7 @@ namespace App\Http\Controllers\UI\Web\Actu;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Features;
+use App\Models\Features;
 use App\Resac\Core\Posts\PostRenderer;
 
 class ActuController extends Controller

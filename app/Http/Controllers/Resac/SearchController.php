@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Resac\Auth2;
 
-use App\Features;
+use App\Models\Features;
 
 class SearchController extends Controller
 {
@@ -22,7 +22,7 @@ class SearchController extends Controller
       \Flash::add("Veuillez renseigner le nom de l'utilisateur à rechercher.",'warning');
     }
 
-    $user = Auth2::user();
+    $user = UserAuth();
 
     $title = "Rechercher: ".$search_query;
 
@@ -46,7 +46,7 @@ class SearchController extends Controller
       }
     }
 
-    $user = Auth2::user();
+    $user = UserAuth();
 
     $last_feature = Features::last();
 

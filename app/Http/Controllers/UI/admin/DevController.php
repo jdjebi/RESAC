@@ -10,7 +10,7 @@ class DevController extends Controller
 {
     public function create_flash(Request $request){
 
-      $user = Auth2::user();
+      $user = UserAuth();
 
       if($request->filled('create')){
 

@@ -9,7 +9,7 @@
     <div class="container">
       <div class="jumbotron mt-5">
         <h1 class="display-4">Connexion à la base de données impossible</h1>
-        <?php if($DEBUG): ?>
+        <?php if(env('APP_ENV','local') == 'local'): ?>
         <p class="lead text-danger"><?=  $e->getMessage(); ?></p>
         <?php endif ?>
       </div>

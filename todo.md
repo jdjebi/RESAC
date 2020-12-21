@@ -1,13 +1,9 @@
 # A FAIRE
 
 # Version 6
-- Le nombre de nouveauté doit correspondrent aux nombres de nouveautés présent dans la base de données depuis une semaine
 - Messagerie instannées
-- Traducteur de date
 - Gestion des écoles, académies et entreprises
 - Gestion des pays
-- Pour publier il faut posséder le pays et la commune/quartier
-- Importation et visualisation de CV 
 
 # FAIT
 - le type de is_staff devient bool pas int
@@ -24,7 +20,10 @@
 - [] Confirmation des actions sur la page d'une publication
 - Gestion des demandes de publication
 - Gérer le cas au le où le mail ne part pas
-
+- Le nombre de nouveauté doit correspondrent aux nombres de nouveautés présent dans la base de données depuis une semaine
+- Importation et visualisation de CV 
+- Traducteur de date
+- Pour publier il faut posséder le pays et la commune/quartier
 
 # Sécurité
 - Revoir la sécurité du controller de certification

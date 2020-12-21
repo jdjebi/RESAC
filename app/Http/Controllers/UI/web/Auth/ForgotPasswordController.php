@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Resac\Auth;
+namespace App\Http\Controllers\UI\Web\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;

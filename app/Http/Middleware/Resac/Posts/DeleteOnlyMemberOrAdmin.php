@@ -24,7 +24,7 @@ class DeleteOnlyMemberOrAdmin
             - A un l'administrateur
         */
 
-        $user = Auth2::user();
+        $user = UserAuth();
 
         $post_id = $request->route('id');
         $post = Post::findOrFail($post_id);

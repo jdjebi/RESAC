@@ -1,6 +1,9 @@
 <?php
 
+use App\Models\User;
+
 require_once __DIR__."/Form.php";
+
 
 class RegisterForm extends Form{
 
@@ -17,7 +20,7 @@ class RegisterForm extends Form{
   public function check_email(){
     // Unicité de l'adresse E-mail
     if(!$this->isset('emails','email')){
-      if(!Users::email_is_unique($this->data['email']))
+      if(User::email_is_unique($this->data['email']))
         $this->errors['uniques']['email'] = true;
     }
   }
