@@ -108,7 +108,7 @@
       <li class="nav-item">
         <a class="nav-link" href="{{ route("profil") }}"><i class="fa fa-user-circle"></i> {{ UserAuth()->prenom }}</a>
       </li>
-      @if(Resac\Auth2::is_admin_logged())
+      @if(UserAuth()::is_staff_user())
         <li class="nav-item">
           <a class="nav-link" href="{{ route("admin.users.index") }}"><i class="fa fa-tachometer-alt"></i> Administration</a>
         </li>

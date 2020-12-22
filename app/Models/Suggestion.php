@@ -11,10 +11,10 @@ class Suggestion extends Model
     protected $fillable = ['content', 'note', 'etat', 'created_at'];
 
     public function user(){
-        return $this->belongsTo("App\User","user");
+        return $this->belongsTo("App\Models\User","user");
     }
   
     public function user_object(){
-        return $this->belongsTo("App\User","user");
+        return $this->belongsTo("App\Models\User","user");
     }
 }

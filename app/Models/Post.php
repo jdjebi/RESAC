@@ -23,15 +23,15 @@ class Post extends Model
     const REFUSE = 0;
 
     public function user(){
-      return $this->belongsTo("App\User","user");
+      return $this->belongsTo("App\Models\User","user");
     }
 
     public function certificate_author(){
-      return $this->belongsTo("App\User","validate_by");
+      return $this->belongsTo("App\Models\User","validate_by");
     }
 
     public function user_object(){
-      return $this->belongsTo("App\User","user");
+      return $this->belongsTo("App\Models\User","user");
     }
 
     public function getValidateStatusTagAttribute(){

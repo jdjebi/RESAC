@@ -14,11 +14,11 @@ function authenticate($email,$password){
 
   # Tentative avec le mot de passe hashé avec sha1
   $sha1_hashed_password = sha1($password);
-  $user = \App\User::where('email', $email)->where('password',$sha1_hashed_password)->first();
+  $user = \App\Models\User::where('email', $email)->where('password',$sha1_hashed_password)->first();
 
   # Tentative avec la connexion de Laravel
   if (\Illuminate\Support\Facades\Auth::attempt(['email' => $email, 'password' => $password])) {
-    $user = \App\User::where('email', $email)->first();
+    $user = \App\Models\User::where('email', $email)->first();
   }
 
   return $user;

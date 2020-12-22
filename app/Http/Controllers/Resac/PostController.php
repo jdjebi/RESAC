@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Resac\Auth2;
 
 use App\Models\Post;
-use App\User;
+use App\Models\User;
 use App\Resac\Core\Posts\PostRenderer;
 
 

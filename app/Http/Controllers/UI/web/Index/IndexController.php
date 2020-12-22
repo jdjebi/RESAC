@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\UI\Web\Index;
 
 use App\Http\Controllers\Controller;
-use App\User;
+use App\Models\User;
 use App\Models\Features;
 
 

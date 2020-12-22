@@ -3,7 +3,7 @@
 namespace App\Http\Resources\Post;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
-use App\User;
+use App\Models\User;
 use App\Http\Resources\User\MainData as UserRessources;
 
 class PostCollection extends ResourceCollection

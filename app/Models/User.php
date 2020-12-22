@@ -46,21 +46,6 @@ class User extends Authenticatable
       return $url;
     }
 
-    public function get_photo2(){
-
-      if($this->attributes['photo'] != ""){
-        if(env('APP_ENV') == "web"){
-          $url = \Storage::disk('dropbox')->url($this->attributes['photo']);
-        }
-        else{
-          $url = "storage/{$this->attributes['photo']}";
-        }
-      }
-      else{
-        $url = "asset/imgs/user_default_pic.png"; 
-      }   
-      return $url;
-    }
 
     public function getPromoAttribute(){
       return empty($this->attributes['promo1']) || empty($this->attributes['promo2']) ? "xxxx-xxxx" : $this->attributes['promo1'].'-'.$this->attributes['promo2'];
@@ -133,6 +118,11 @@ class User extends Authenticatable
       }
       return $unreadNotifications_count;
     }
+
+    static function is_staff_user(){
+      return \Resac\Auth2::is_admin_logged();
+    }
+
 
     static function email_is_unique($email){
       $u = User::where('email',$email)->get();

@@ -93,7 +93,7 @@ body{
 @endsection
 
 @section('scripts')
-<script src="{{ asset("asset/js/timeago/jquery.timeago.js") }}"></script>
+<script src="{{ cdn_asset("asset/js/timeago/jquery.timeago.js") }}"></script>
 <script src="{{ asset("asset/js/timeago/jquery.timeago.fr-short.js") }}"></script>
 <script src="{{ cdn_asset("asset/js/vue.js") }}" type="text/javascript"></script>
 <script src="{{ cdn_asset("asset/js/resac/vue.truncate_filter.js") }}" type="text/javascript"></script>
