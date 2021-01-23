@@ -6,15 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Suggestion extends Model 
 {
-    protected $table = "suggestion";
+    protected $table = "suggestions";
 
-    protected $fillable = ['content', 'note', 'etat', 'created_at'];
+    protected $fillable = ['content', 'note', 'etat', 'date', 'noteurs', 'user_author_id'];
 
     public function user(){
-        return $this->belongsTo("App\User","user");
+        return $this->belongsTo("App\User","user_author_id");
     }
   
     public function user_object(){
-        return $this->belongsTo("App\User","user");
+        return $this->belongsTo("App\User","user_author_id");
     }
 }

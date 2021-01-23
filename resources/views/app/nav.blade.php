@@ -3,7 +3,6 @@
     visibility: visible;
     display: block;
   }
-
   .notif-badge{
     font-size: 11px;
     padding: 1px 3px 1px 3px;
@@ -19,7 +18,11 @@
   }
 </style>
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-  <a class="navbar-brand resac-logo-font" href="{{ route("home") }}">
+  <a class="navbar-brand resac-logo-font" 
+    href="
+    @guest{{ route("home") }}@endguest
+    @auth{{ route("actu") }}@endauth
+    ">
     <img src="{{ asset('asset/imgs/icons/android-chrome-192x192.png') }}" width="30" height="30" alt="">
     <span class="align-middle">Resac</span>
   </a>
@@ -129,4 +132,3 @@
 
   </div>
 </nav>
-

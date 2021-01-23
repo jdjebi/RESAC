@@ -1,12 +1,12 @@
 <ul class="nav flex-column">
     <li class="nav-item nav-pills">
-      <a class='small nav-link {{ is_current_url('app.post') }}' href="{{ route('app.post') }}">Mes Suggestions ({{ $count['posts'] }})</a>
+    <a class='small nav-link {{ $request->is('suggestions')? 'active':'' }}' href="{{route('app.suggestion')}}">Mes Suggestions ()</a>
     </li>
     <li class="nav-item nav-pills">
-      <a class='small nav-link {{ $request->has('certified') ? 'active' : '' }}' href="{{ route('app.post') }}?certified">Notées ({{ $count['posts_certified'] }})</a>
+    <a class='small nav-link {{ $request->is('suggestions/notées')? 'active':'' }}' href="{{route('app.suggestion.noted')}}">Notées ()</a>
     </li>
     <li class="nav-item nav-pills">
-      <a class='small nav-link {{ $request->has('not-certified') ? 'active' : '' }}' href="{{ route('app.post') }}?not-certified">Non-notées ({{ $count['posts_not_certified'] }})</a>
+    <a class='small nav-link {{ $request->is('suggestions/non-notées')? 'active':'' }}' href="{{route('app.suggestion.no_noted')}}">Non-notées ()</a>
     </li>
   </ul>
   
@@ -16,10 +16,9 @@
   
   <ul class="nav flex-column">
     <li class="nav-item nav-pills">
-      <a class='small nav-link {{ is_current_url('app.post.hub') }}' href="{{ route('app.post.hub') }}">Créer une suggestion </a>
+    <a class='small nav-link' href="{{ route('app.suggestion.create')}}">Créer une suggestion </a>
+    <a class='small nav-link' href="{{ route('app.suggestion.list')}}">Liste des suggestions </a>
     </li>
-    <li class="nav-item nav-pills">
-      <a class='small nav-link {{ is_current_url('app.post.create.free') }}' href="{{ route('app.post.create.free') }}">Publication libre </a>
-    </li>
+
   </ul>
   

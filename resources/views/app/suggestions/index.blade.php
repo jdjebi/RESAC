@@ -25,31 +25,42 @@
           <div class="col-sm-12">
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item active breadcrumb-item-resac-support"><a href="#">Suggestions</a></li>
+                <li class="breadcrumb-item active breadcrumb-item-resac-support"><a href="#">Suggestions </a></li>
               </ol>
             </nav>
           </div>
           <div class="col-sm-12">
             <div class="d-flex align-items-center justify-content-between">
               <div class="">
-                @if($request->has('certified'))
-                <h3>Suggestions notées</h3>
-                @elseif ($request->has('not-certified'))
-                  <h3>Suggestions non notées</h3>
+                @if($request->is('suggestions/notées'))
+                <h3>Mes suggestions notées</h3>
+                @elseif ($request->is('suggestions/non-notées'))
+                  <h3>Mes suggestions non notées</h3>
+                @elseif($request->is('suggestions/liste'))
+                  <h3>Toutes les suggestions</h3>
                 @else
-                  <h3>Mes Suggestions</h3>
+                  <h3>Mes suggestions</h3>
                 @endif
-              </div>
-              <div class="">
-                <a class="btn btn-success btn-sm" href="{{ route('app.post.hub') }}"><i class="fa fa-plus"></i> Créer une Publication</a>
-              </div>
+              </div>            
             </div>
             <hr>
+            <div class="row">
+              <div class="col">
+                @foreach ($suggestions as $suggestion)
+                  <div class="row">
+                    <div class="col-sm-12 col-md-7">
+                        @include('app.suggestions.sugg')
+                    </div>
+                  </div>
+                @endforeach
+              </div>
+            </div>
+
           </div>
         </div>
         <div class="row">
           <div class="col">
-            @include('app.publications.my.all')
+           
           </div>
         </div>
 

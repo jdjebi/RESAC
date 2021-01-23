@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Post;
+use App\Models\Suggestion;
 
 class User extends Authenticatable
 {
@@ -101,5 +102,17 @@ class User extends Authenticatable
 
     public function getCountNotCertifiedPostsAttribute(){
       return Post::where('user',$this->attributes['id'])->where('validate',false)->count();
+    }
+
+    public function getCountSuggestionsAttribute(){
+      return Suggestion::where('user_author_id',$this->attributes['id'])->count();
+    }
+
+    public function getCountSuggestionsNotedAttribute(){
+      return Suggestion::where('user_author_id',$this->attributes['id'])->where('note','>',0)->count();
+    }
+
+    public function getCountSuggestionsNoNotedAttribute(){
+      return Suggestion::where('user_author_id',$this->attributes['id'])->where('note','0')->count();
     }
 }

@@ -58,8 +58,15 @@ Route::middleware("auth")->group(function(){
   Route::match(['get', 'post'],'publications/c/libre',"Resac\PostController@create_free_post")->name('app.post.create.free');
 
   Route::get('rechercher',"Resac\SearchController@user_for_app")->name('app.search');
-  //Ajout Suggestions
+  
   Route::get('suggestions', "SuggestionController@index")->name('app.suggestion');
+
+  Route::get('suggestions/notées', "SuggestionController@index")->name('app.suggestion.noted');
+  Route::get('suggestions/non-notées', "SuggestionController@index")->name('app.suggestion.no_noted');
+  Route::get('suggestions/liste', "SuggestionController@index")->name('app.suggestion.list');
+  Route::post('suggestions/liste/{id}', "SuggestionController@note_suggestion")->name('app.suggestion.note');
+
+  Route::match(['get', 'post'],'suggestions/creer', "SuggestionController@create_suggestion")->name('app.suggestion.create');
 
 });
 
