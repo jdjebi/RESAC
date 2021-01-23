@@ -46,7 +46,7 @@ class SuggestionController extends Controller {
                     $id = strval($suggestion->id);
                     $data['id'][$id]=$test;
                 }
-                //dd($data);
+
                 return view('app.suggestions.index', $data);
 
             }
@@ -78,29 +78,37 @@ class SuggestionController extends Controller {
     {
         $user = Auth2::user();
         $user = User::find($user->id);
-        //dd($user->id);
+
         $tmp_note = Suggestion::where('id', $id)->get('note', 'noteurs');
-        //dd($tmp_note);
-        $note = $request->input('note');
-        if ($tmp_note[0]['note'] != 0) {
-            $note = intdiv($tmp_note[0]['note'] + $note, 2);
-        }
-        //dd($tmp_note[0]['noteurs']);
+
         $noteur = $user->id;
         if ($tmp_note[0]['noteurs'] != NULL) {
             $noteur = $tmp_note[0]['noteurs'] + ";" + $noteur;
         }
-        //dd($noteur);
-        
-        if (Suggestion::where('id', $id)->update(['note' => $note, 'noteurs' => $noteur])){
 
-            \Flash::add("Note enregistré","success");
+        if ($request->input('note') > 20) {
+            \Flash::add("Note supérieure à 20","danger");
 
             return redirect()->route('app.suggestion.list');
-
         }
         else {
-            return redirect()->route('app.suggestion');
+
+            $note = $request->input('note');
+            if ($tmp_note[0]['note'] != 0) {
+                $note = intdiv($tmp_note[0]['note'] + $note, 2);
+            }
+
+
+            if (Suggestion::where('id', $id)->update(['note' => $note, 'noteurs' => $noteur])){
+
+                \Flash::add("Note enregistré","success");
+    
+                return redirect()->route('app.suggestion.list');
+    
+            }
+            else {
+                return redirect()->route('app.suggestion');
+            }
         }
             
     }
