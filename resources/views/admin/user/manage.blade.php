@@ -36,6 +36,7 @@
               <th scope="col">Ecole/universite</th>
               <th scope="col">Emploi</th>
               <th scope="col">Pays</th>
+              <th scope="col">Equipe</th>
               <th scope="col">Rôle</th>
               <th scope="col">Version</th>
               <th scope="col" class="text-center">Actions</th>
@@ -54,6 +55,7 @@
               <td>@{{ user.universite }}</td>
               <td>@{{ user.emploi }}</td>
               <td>@{{ user.pays }}</td>
+              <td>@{{ user.equipe }}</td>
               <td>@{{ user.role }}</td>
               <td class="text-center">@{{ user.version }}</td>
               <td class="text-center">

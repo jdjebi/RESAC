@@ -27,6 +27,7 @@
 
 # Sécurité
 - Revoir la sécurité du controller de certification
+- Revoie la sécurité au niveau des pages de rôles et permissions
 
 # Bugs
 - S'assurer que les permissions système ne pourront pas être supprimée même pas le superadmin

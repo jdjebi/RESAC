@@ -68,9 +68,12 @@ var vm_roles = new Vue({
             user: [],
             collection: [],
             edited:false,
+            staff_status_edited:false,
             updating:false,
             permissions: null,
-            available:null
+            available:null,
+            is_staff:{{ $user->is_staff }},
+            is_superadmin:{{ $user->is_superadmin }}
         },
         url:{
             roles:{
@@ -98,6 +101,18 @@ var vm_roles = new Vue({
             .then(function () {
                 $(".v-component").removeClass('d-none');
             });
+    },
+    computed:{
+      UpdateBtnDisabled: function (){
+        if(this.roles.staff_status_edited){
+          if(this.roles.updating)
+            return true;
+          else
+            return false;
+        }else{
+          return !this.roles.edited || this.roles.updating
+        }
+      }
     },
     methods:{
         ShowToast: function(message){
@@ -129,6 +144,10 @@ var vm_roles = new Vue({
             return p;
         },
 
+        RoleEdited: function (){
+          this.roles.staff_status_edited = true;
+        },
+
         AddRole: function(i,event){
           this.roles.edited = true;
           // Ajout du rôle
@@ -158,6 +177,8 @@ var vm_roles = new Vue({
           this.roles.updating = true;
           axios.put(this.url.roles.update,{
                   roles: vm_roles.roles.user,
+                  is_staff:vm_roles.roles.is_staff,
+                  is_superadmin:vm_roles.roles.is_superadmin
               })
               .then(function (response) {
                   vm_roles.ShowToast(response.data.message);
@@ -169,6 +190,7 @@ var vm_roles = new Vue({
               .then(function () {
                   vm_roles.roles.edited = false;
                   vm_roles.roles.updating = false;
+                  this.roles.staff_status_edited = false;
               }); 
           }
     }

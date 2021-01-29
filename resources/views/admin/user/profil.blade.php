@@ -9,7 +9,7 @@
   <div class="nav-scroller shadow-sm">
     <nav id="resac-breadcrumb" aria-label="breadcrumb" >
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Utilisateur</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('admin.users.index') }}">Utilisateur</a></li>
             <li class="breadcrumb-item active"><a href="{{ route('admin_user_profil',['id' => $user_visited->id]) }}">{{ $user_visited->fullname }} #{{ $user_visited->id }}</a></li>
         </ol>
     </nav>

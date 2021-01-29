@@ -68,6 +68,11 @@ class RolesPermissions extends Controller
 
         $user->syncRoles($roles_array);
 
+        // Mise à jour des droits équipes et superadmin
+        $user->is_staff = $request->is_staff;
+        $user->is_superadmin = $request->is_superadmin;
+        $user->save();
+
         $data['message'] = "Mise à jour des rôles éffectuées";
         
         return response()->json($data);

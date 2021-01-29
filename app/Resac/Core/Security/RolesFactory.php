@@ -47,6 +47,15 @@ class RolesFactory{
         return RolesFactory::ROLES_DATABASE[$name];
     }
 
+    static function GetRoles($roles_name){
+        $roles_label = [];
+        foreach ($roles_name as $role_name) {
+            $label = RolesFactory::GetLabel($role_name);
+            $roles_label[] = $label;
+        }
+        return implode(", ",$roles_label);
+    }
+
     static function is_admin_roles_in($roles_name){
         foreach ($roles_name as $role_name) {
             $role = RolesFactory::GetRole($role_name);

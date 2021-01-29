@@ -8,6 +8,9 @@
               <div>
                 <img class="rounded-circle border resac-w-150 resac-h-150" src="{{ photos_cdn_asset($user_visited) }} " alt="">
               </div>
+              <div class="text-center mt-4">
+                {{ $user_visited->equipe }} &middot; {{ $user_visited->roles_alias }}
+              </div>
             </div>
           </div>
         </div>

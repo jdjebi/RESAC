@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Post;
 use Spatie\Permission\Traits\HasRoles;
+use App\RESAC\Core\Security\RolesFactory;
 
 class User extends Authenticatable
 {
@@ -76,6 +77,20 @@ class User extends Authenticatable
       }else{
         return "Membre";
       }
+    }
+
+    public function getEquipeAttribute(){
+      $is_staff = $this->attributes["is_staff"];
+      $is_superadmin = $this->attributes["is_superadmin"];
+      if($is_staff || $is_superadmin){
+        return "Equipe";
+      }else{
+        return "Non équipe";
+      }
+    }
+
+    public function getRolesAliasAttribute(){
+      return RolesFactory::GetRoles($this->getRoleNames());
     }
 
     public function getStaffRoleCodeAttribute(){

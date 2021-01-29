@@ -30,11 +30,6 @@ function login($request,$user){
     Assure la connexion de l'utilisateur
   */
 
-  # Varaibles de connexion du Framework built-in
-  $_SESSION["user"] = $user->id;
-  $_SESSION["is_staff"] = $user->is_staff;
-  $_SESSION["staff_role"] = $user->staff_role;
-
   # Connexion Effective avec Laravel
   \Illuminate\Support\Facades\Auth::login($user,true);
 

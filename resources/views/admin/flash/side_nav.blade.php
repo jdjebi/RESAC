@@ -53,8 +53,8 @@
       </li>
     </ul>
 
+    @can('news-manage')
     <hr>
-
     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
       <span>EXTRAS</span>
     </h6>
@@ -66,9 +66,10 @@
         </a>
       </li>
     </ul>
+    @endcan
 
+    @role('developer')
     <hr>
-
     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
       <span>OUTILS DEVELOPPEUR</span>
     </h6>
@@ -90,7 +91,7 @@
         </a>
       </li>
     </ul>
-
+    @endrole
 
   </div>
 </nav>

@@ -43,7 +43,7 @@
             <div class="d-flex justify-content-between">
                 <div>Rôles et permissions</div>
                 <div class="v-component d-none">
-                    <button v-on:click="SaveRoles" v-bind:disabled="!roles.edited || roles.updating" class="btn btn-primary btn-sm">
+                    <button v-on:click="SaveRoles" v-bind:disabled="UpdateBtnDisabled" class="btn btn-primary btn-sm">
                         <span  v-if="roles.updating" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                         Enregistrer
                     </button>
@@ -84,6 +84,21 @@
                         </template>
                     </div>
                 </div>
+                <hr>
+                <div class="form-check">
+                    <input v-on:click="RoleEdited" class="form-check-input" type="checkbox" id="is_staff"  v-model="roles.is_staff">
+                    <label class="form-check-label" for="is_staff">
+                      Membre de l'équipe
+                    </label>
+                </div>
+                @if(UserAuth()->is_superadmin)
+                <div class="form-check">
+                    <input v-on:click="RoleEdited" class="form-check-input" type="checkbox" id="is_superadmin" v-model="roles.is_superadmin">
+                    <label class="form-check-label" for="is_superadmin">
+                      Super administrateur
+                    </label>
+                </div>
+                @endif
             </div>
         </div>
     </div>

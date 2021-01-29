@@ -5,6 +5,6 @@
         </div>
         <div class="text-gray-dark text-bold css-truncate css-truncate-target mb-1">{{ $user->fullname }}</div>
         <div class="f6 text-gray text-normal mb-2">{{ $user->universite }} &middot; {{ $user->emploi }}</div>
-        <div class="f6 text-gray text-normal">Membre depuis le {{ $user->date_inscription }}</div>
+        <div class="f6 text-gray text-normal" title="{{ $user->created_at }}">Membre depuis le {{ $user->created_at }}</div>
     </div>
 </nav>
