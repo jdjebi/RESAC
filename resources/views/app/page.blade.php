@@ -24,16 +24,8 @@
 
     <style media="screen">
       body{
-          padding-top: 60px
-      }
-      .resac-bg-light{
-        background-color: #ffffff
-      }
-      .resac-bg-dark{
-        background-color:#283e4a;
-      }
-      .resac-text-dark{
-        color: #283e4a !important;
+          padding-top: 60px;
+          background-color: #f1f3f6;
       }
       .resac-bg-dark .navbar-nav .nav-link {
           font-size: 14px;
@@ -41,12 +33,6 @@
       }
       .resac-bg-dark .navbar-brand{
           padding-top: 2px;
-      } 
-      .resac-logo-25{
-        font-size: 25px
-      }
-      .resac-logo-font{
-        font-family: leckerli-one;
       }
       @@font-face {
         font-family: "leckerli-one";
@@ -61,6 +47,9 @@
     @auth
       @include('app.mobile-nav992')
     @endauth
+    
+    @include('app.extras.suggestions.modal_create')
+
     <script src="{{ cdn_asset('asset/js/jquery-3.4.1.min.js') }}" type="text/javascript"></script>
     <script src="{{ cdn_asset('asset/js/bootstrap.min.js') }}" type="text/javascript"></script>
     @yield('scripts')

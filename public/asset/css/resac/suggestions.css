@@ -1,0 +1,21 @@
+.sugg-grid{
+    column-width: 300px;
+}
+
+.sugg-grid .sugg-item{
+    -webkit-column-break-inside: avoid;
+    break-inside: avoid;
+}
+
+.sugg-grid .sugg-item .notation:hover{
+    color: #2FA4E7 !important
+}
+
+.stars-block .fa-star{
+    color: #efc443;
+}
+
+.color-star{
+    color: #efc443;
+}
+

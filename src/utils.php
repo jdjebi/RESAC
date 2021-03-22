@@ -11,12 +11,17 @@ if(!function_exists("redirect")){
 
 if(!function_exists("is_current_url")){
   function is_current_url($route_name, $active='active'){
+    return Route::currentRouteName()== $route_name ? $active : '';
+  }
+}
 
-    #echo Route::currentRouteName();
-    #echo ' '.route($route_name);
-    #echo ' '.url()->full();
-
-    return url()->full() == route($route_name) ? $active : '';
+if(!function_exists("is_currents_url")){
+  function is_currents_url($routes_name, $active='active'){
+    foreach($routes_name as $route_name){
+      if(Route::currentRouteName()== $route_name)
+        return $active;
+    }
+    return "";    
   }
 }
 

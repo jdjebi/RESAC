@@ -152,4 +152,10 @@ class User extends Authenticatable
       $c = User::where($field,$val)->count();
       return $c > 0;
     }
+
+     /* Suggestions */
+
+    public function suggestions(){
+      return $this->morphMany('App\Models\Suggestion','user_author')->orderBy('created_at','desc');
+    }
 }

@@ -1,6 +1,7 @@
 <style media="screen">
 body{
-    padding-top: 55px
+    padding-top: 55px;
+    background-color: #fff;
 }
 #landing-page{
     background-color: #e3e7eb;

@@ -3,6 +3,8 @@
 @section('extras_style')
 <link rel="stylesheet" href="{{ cdn_asset("asset/css/placeholder-loading.min.css") }}">
 <link rel="stylesheet" href="{{ cdn_asset("asset/css/resac/pubs.css") }}">
+<link rel="stylesheet" href="{{ cdn_asset("asset/css/resac/suggestions.css") }}">
+
 <style media="screen">
 body{
   background-color: #f1f3f6
@@ -72,18 +74,24 @@ body{
       <div class="separator"></div>
 
       <div id="v-feed" class="resac-feed d-none">
-
         @include("app.publications.templates.post_vue_v2")
-
       </div>
+      
       <div class="resac-feed-loader text-center">
         <div class="text-muted font-weight-bold">Chargement des publications...</div>
       </div>
 
     </div>
 
-    <div id="annonce" class="col-sm-4 d-none d-md-block d-lg-block">
-      @include('app.feed.annonce')
+    <div class="offset-lg-1 col-sm-4 col-md-4 col-lg-3 d-none d-md-block d-lg-block">
+
+      <div id="annonce">
+        @include('app.feed.annonce')
+      </div>
+  
+      <div id="suggestion-panel" class="mt-3">
+        @include('app.feed.suggestions')
+      </div>
     </div>
 
   </div>
@@ -95,10 +103,11 @@ body{
 @section('scripts')
 <script src="{{ cdn_asset("asset/js/timeago/jquery.timeago.js") }}"></script>
 <script src="{{ asset("asset/js/timeago/jquery.timeago.fr-short.js") }}"></script>
-<script src="{{ cdn_asset("asset/js/vue.js") }}" type="text/javascript"></script>
-<script src="{{ cdn_asset("asset/js/resac/vue.truncate_filter.js") }}" type="text/javascript"></script>
 <script src="{{ cdn_asset("asset/js/lib/autosize.min.js") }}" type="text/javascript"></script>
 <script src="{{ cdn_asset("asset/js/extras/sweetalert2.all.min.js") }}" type="text/javascript"></script>
+<script src="{{ cdn_asset("asset/js/vue.js") }}" type="text/javascript"></script>
+<script src="{{ cdn_asset("asset/js/resac/vue.truncate_filter.js") }}" type="text/javascript"></script>
+<script src="{{ cdn_asset("asset/js/resac/core/suggestions/suggestions.vue.js") }}"></script>
 <script>
   autosize($('#textarea-post-box'));
 </script>
@@ -151,5 +160,17 @@ body{
   setInterval(function (){
     x = $("time.timeago").timeago();
   },500);
+
+</script>
+
+<script>
+  // Front-End des suggestions - voir asset/js/resac/core/suggestions.vue.js
+  var suggestions_data = @json($suggestions);
+  var vm_suggestions = SuggestionVue({
+      suggestions: suggestions_data,
+      vue_element: "#v-suggestions",
+      grid: "#v-suggestions",
+      user_auth_id: {{ UserAuth()->id }}
+  });
 </script>
 @endsection

@@ -3,7 +3,7 @@
         <div class="header pl-4 pt-3 pb-3 pr-4">
           <div class="media">
             <a v-bind:title:="post.user.fullname" v-bind:href="post.user.profil_url">
-              <img class="pub-user-photo" v-bind:src="post.user.photo" v-bind:alt="'Photo' + post.user.fullname">
+              <img class="border pub-user-photo" v-bind:src="post.user.photo" v-bind:alt="'Photo' + post.user.fullname">
             </a>
             <div class="ml-3 media-body">
               <div class="dropdown float-right">

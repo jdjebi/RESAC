@@ -6,6 +6,7 @@
 - Trouver une solution pour que les messages flash ne se répètent pas s'il en la mm origine ou le mm contenu
 - Utiliser un nom utilisateur pour identifier un utilisateur
 - Créer une historique de navigation en terme de flyers - information qui une fois disparait ou disparait après un certains temps (utiliser ). Ces derniers sont rédiger par un admin
+- Affichage des suggestions sur la page de profil
 
 # Extras
 

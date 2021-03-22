@@ -65,6 +65,12 @@
           Nouveautés
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link {{ is_current_url('admin.suggestions.index') }}" href="{{ route('admin.suggestions.index') }}">
+          <span data-feather="file-text"></span>
+          Suggestions
+        </a>
+      </li>
     </ul>
     @endcan
 

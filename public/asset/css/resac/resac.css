@@ -1,3 +1,24 @@
+/* Utilitaire du logo */
+.resac-logo-25{
+  font-size: 25px
+}
+.resac-logo-font{
+  font-family: leckerli-one;
+}
+
+/* Utilitaire de couleur de texte */
+.resac-text-dark{
+  color: #283e4a !important;
+}
+
+/* Utilitaire de fond */
+.resac-bg-light{
+  background-color: #ffffff
+}
+.resac-bg-dark{
+  background-color:#283e4a;
+}
+
 /* Utilitaire de dimension */
 
 .wh-40{
