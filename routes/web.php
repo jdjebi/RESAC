@@ -112,6 +112,10 @@ Route::name('admin.')->group(function () {
     Route::middleware('admin.login')->group(function (){
 
       Route::prefix('/v1/admin/')->group(function () {
+        /* Membres */
+        Route::get('membres/{id}','User\UserController@show')->where('id', '[0-9]+')->name('membre.show');
+
+
         Route::get('notifications','Notifications\NotificationsController@show')->name('notifications.show');
         /* Publications */
         Route::prefix('publications')->group(function(){

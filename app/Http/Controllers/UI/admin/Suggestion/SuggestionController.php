@@ -3,15 +3,24 @@
 namespace App\Http\Controllers\UI\admin\Suggestion;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Resac\Auth2;
+
+use App\Models\User;
+use App\Models\Suggestion;
 
 class SuggestionController extends Controller
 {
 
     public function index(){
-        return view('admin.extras.suggestions.index');
+
+        $suggestions = Suggestion::all();
+
+        $title = "Suggestions";
+        
+        return view('admin.extras.suggestions.index',[
+            "title" => $title,
+            "suggestions" => $suggestions
+        ]);
     }
 
 }

@@ -2,6 +2,10 @@
 
 # Version 5.3 (Master)
 
+- Modification des suggestions
+- Pagination dans l'affichage des suggestions sur la page des suggestions côté membre et administrateur 
+- Notifier les administrateurs de la création d'une suggestion
+
 # Version 6
 - Messagerie instannées
 - Gestion des écoles, académies et entreprises
@@ -11,28 +15,6 @@
 - Retirer le rôles superutilisateur
 
 # FAIT
-- Page des suggestions
-  - Affichage des suggestions
-  - Affichage de mes suggestions
-    - Modification
-    - Suppression
-- Affichage des 3 dernières suggestions sur la page d'actualité
-- Ajout d'une relation many to many entre la table des suggestions et celles des utilisateurs pour la gestion des notations
-  - Voir Suggestion.noteurs, Suggestion, UserSuggestionResource
-  - Retrait des attributs noteurs et note au profit de la table suggestion_user pour la notation
-
--Règles de gestion d'une suggestion
-  - Toutes les suggestions s'affichent avec leur notation
-  - Les suggestions affichées dans une section "Mes suggestions" c'est qu'il s'agit de la liste des suggestions créées par l'utilisateur alors la possibilité de la modifier ou de la supprimer est affichée 
-  - Un utilisateur ne peut pas noter sa propre suggestion ou noter plusieurs celle d'un autre
-  - Lorsqu'une suggestion affichée est celle de l'utilisateur l'ayant créé alors une mention "Ma suggestion" est mise en évidence sans la possibilité de notation
-  - Lorsqu'une suggestion affichée est celle d'un autre utilisateur alors l'utilisateur peut la noter
-  - Lorsqu'une suggestion affichée a déjà été notée par l'utilisateur alors une mention "Ma note" est mise en évidence avec affichage de la note attribuée
-
-## Version 5.3
-
-- Ajout de l'attribut user_author_type à la migration utilisé pour définir une relation 1 à plusieurs avec Laravel
-
 
 ## Version 5
 - le type de is_staff devient bool pas int
@@ -42,6 +24,7 @@
 - Ajout d'une page de bienvenue après l'inscription menant vers la page de connexion
 
 ## EXTRAS
+- Mettre en place un système d'initialisation de la plateforme
 - Documenter la nouvelle tables des publications
 - Documenter la réinitialisation de mot de passe
 - Description du processus de validation la nouvelle tables des publications

@@ -14,6 +14,7 @@ Consulter le fichier **todo.md** pour suivre l'évolution du développement.
 
 ### Version 5
 
+- Module de Suggestions
 - Système de notifications
 - Système de gestion des publications
 - Système de permissions
