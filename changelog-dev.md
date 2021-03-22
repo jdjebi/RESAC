@@ -8,14 +8,12 @@
   - Une note de suggestion est égale à la moyenne des notes
   - Les notes des suggestions vont de 0 à 5, cela est représentée simplement par des étoiles 
   - Toutes les suggestions s'affichent avec leur notation
-  - Les suggestions affichées dans une section "Mes suggestions" c'est qu'il s'agit de la liste des suggestions créées par l'utilisateur alors la possibilité de la modifier ou de la supprimer est affichée 
-  - Un utilisateur ne peut pas noter sa propre suggestion ou noter plusieurs celle d'un autre
+  - Les suggestions affichées dans une section "Mes suggestions" sont les suggestions créées par l'utilisateur alors la possibilité de la modifier ou de la supprimer est affichée 
+  - Un utilisateur ne peut pas noter sa propre suggestion ou noter plusieurs fois celle d'un autre
   - Lorsqu'une suggestion affichée est celle de l'utilisateur l'ayant créé alors une mention "Ma suggestion" est mise en évidence sans la possibilité de notation
   - Lorsqu'une suggestion affichée est celle d'un autre utilisateur alors l'utilisateur peut la noter
   - Lorsqu'une suggestion affichée a déjà été notée par l'utilisateur alors une mention "Ma note" est mise en évidence avec affichage de la note attribuée
   - En affichage mobile, les suggestions sont accéssibles depuis le menu de naviguation et dans la barre des menus depuis l'option créer
-
-- Retrait le rôles superutilisateur
 
 ### 10-03-21
 
