@@ -109,8 +109,10 @@ var vm = new Vue({
   mounted: function(){
     $(".card-user .resac-user-card").each(function(){
       $(this).removeClass("d-none");
-      $("#loader").hide();
-    })
+    });
+
+    $("#loader").hide();
+
   }
 });
 </script>
