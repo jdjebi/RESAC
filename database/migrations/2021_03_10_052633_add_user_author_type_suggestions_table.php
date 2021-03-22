@@ -27,6 +27,8 @@ class AddUserAuthorTypeSuggestionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropColumn('user_author_type');
+        Schema::table('suggestions', function (Blueprint $table) {
+            $table->dropColumn('user_author_type');
+        });
     }
 }

@@ -15,7 +15,7 @@
   - Lorsqu'une suggestion affichée a déjà été notée par l'utilisateur alors une mention "Ma note" est mise en évidence avec affichage de la note attribuée
   - En affichage mobile, les suggestions sont accéssibles depuis le menu de naviguation et dans la barre des menus depuis l'option créer
 
-- Retirer le rôles superutilisateur
+- Retrait le rôles superutilisateur
 
 ### 10-03-21
 
@@ -31,3 +31,13 @@
 - Ajout d'une relation many to many entre la table des suggestions et celles des utilisateurs pour la gestion des notations
   - Voir Suggestion.noteurs, Suggestion, UserSuggestionResource
   - Retrait des attributs noteurs et note au profit de la table suggestion_user pour la notation
+
+
+### Ancien
+
+- Ajout d'une page de bienvenue après l'inscription menant vers la page de connexion
+
+- le type de is_staff devient bool pas int
+- créer une constante pour le versionnage
+- Créer la nouvelle fonction de mise à jour de compte vers la version 3
+- Mettre la valeur par défaut de version à 3

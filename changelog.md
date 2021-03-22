@@ -32,6 +32,12 @@
   - Voir Suggestion.noteurs, Suggestion, UserSuggestionResource
   - Retrait des attributs noteurs et note au profit de la table suggestion_user pour la notation
 
+- Ajout d'une page de bienvenue après l'inscription menant vers la page de connexion
+
+- le type de is_staff devient bool pas int
+- créer une constante pour le versionnage
+- Créer la nouvelle fonction de mise à jour de compte vers la version 3
+- Mettre la valeur par défaut de version à 3
 
 # 5.2.1
 

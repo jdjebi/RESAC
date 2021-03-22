@@ -16,12 +16,6 @@
 
 # FAIT
 
-## Version 5
-- le type de is_staff devient bool pas int
-- créer une constante pour le versionnage
-- Créer la nouvelle fonction de mise à jour de compte vers la version 3
-- Mettre la valeur par défaut de version à 3
-- Ajout d'une page de bienvenue après l'inscription menant vers la page de connexion
 
 ## EXTRAS
 - Mettre en place un système d'initialisation de la plateforme

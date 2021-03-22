@@ -25,7 +25,11 @@ class DropColumnsNoteursNoteSuggestionTable extends Migration
      */
     public function down()
     {
-        $table->integer('note')->default(0);
-        $table->text('noteurs');
+        
+        Schema::table('suggestions', function (Blueprint $table) {
+            $table->integer('note')->default(0);
+            $table->text('noteurs');
+        });
+       
     }
 }
