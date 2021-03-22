@@ -4,6 +4,12 @@ namespace App\RESAC\Core\Security;
 
 class RolesFactory{
     const ROLES_DATABASE = [
+        "superadmin" => [
+            "name" => "superadmin",
+            "label" => "Super Administrateur",
+            "level" => 5,
+            "guard"  => 'web',
+        ],
         "admin" => [
             "name" => "admin",
             "label" => "Administrateur",

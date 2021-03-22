@@ -25,8 +25,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('delete-user', function ($user,$user_to_delete) {
-            return $user->is_admin && !$user_to_delete->is_admin || true;
+        Gate::before(function ($user, $ability) {
+            return $user->is_superadmin ? true : false;
         });
     }
 }
