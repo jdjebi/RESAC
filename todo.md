@@ -2,6 +2,9 @@
 
 # Version 5.3 (Master)
 
+- Ajout d'une page d'une contact avec le mail de RESAC
+- Ajout d'un système d'adhésion à la plateforme depuis un formulaire d'inscription (Contributeur Bosson)
+
 - Modification des suggestions
 - Pagination dans l'affichage des suggestions sur la page des suggestions côté membre et administrateur 
 - Notifier les administrateurs de la création d'une suggestion
@@ -10,9 +13,6 @@
 - Messagerie instannées
 - Gestion des écoles, académies et entreprises
 - Gestion des pays
-
-# Bugs
-- Retirer le rôles superutilisateur
 
 # FAIT
 

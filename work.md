@@ -14,7 +14,7 @@ Pour la mise en place des permissions
 # Pour le guide
 
 ## Nouveau projet
-- Imprtation du nouveau fichier de base de données .sql donc "_v3"
+- Importation du nouveau fichier de base de données .sql donc "_v3"
 Pour la mise en place des permissions
 - Exécuter composer dump-autoload
 - php artisan db:seed 

@@ -15,6 +15,8 @@
   - Lorsqu'une suggestion affichée a déjà été notée par l'utilisateur alors une mention "Ma note" est mise en évidence avec affichage de la note attribuée
   - En affichage mobile, les suggestions sont accéssibles depuis le menu de naviguation et dans la barre des menus depuis l'option créer
 
+- Retrait le rôles superutilisateur
+
 ### 10-03-21
 
 - Page des suggestions
