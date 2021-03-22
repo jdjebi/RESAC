@@ -32,7 +32,7 @@ class RolesFactory{
             "name" => "member",
             "label" => "Membre",
             "level" => 1,
-            "guard"  => '',
+            "guard"  => 'web',
         ],
     ];
 
