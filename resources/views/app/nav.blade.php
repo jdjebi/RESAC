@@ -89,6 +89,12 @@
         <a class="nav-link" href="{{ route("dev_news") }}"> <i class="far fa-lightbulb"></i> Nouveautés</a>
       </li>
 
+      @auth
+      <li class="nav-item d-none d-md-block d-lg-block">
+        <a class="nav-link" href="{{ route("backend.suggestions.all") }}"> Suggestions</a>
+      </li>
+      @endauth
+
     </ul>
 
     @guest
@@ -105,14 +111,21 @@
     @auth
     <ul  class="navbar-nav">
 
-      <li class="nav-item">
-        <a class="nav-link" href="{{ route("profil") }}"><i class="fa fa-user-circle"></i> {{ UserAuth()->prenom }}</a>
-      </li>
-      @if(Resac\Auth2::is_admin_logged())
+      @if(UserAuth()::is_staff_user())
         <li class="nav-item">
-          <a class="nav-link" target="_blank" href="{{ route("admin_user_manager") }}"><i class="fa fa-tachometer-alt"></i> Administration</a>
+          <a class="nav-link" href="{{ route("admin.users.index") }}"><i class="fa fa-tachometer-alt"></i> Administration</a>
         </li>
       @endif
+
+      <li class="nav-item d-none  d-md-block d-lg-block">
+        <a class="nav-link" href="{{ route("profil") }}"><i class="fa fa-user-circle"></i> {{ UserAuth()->prenom }}</a>
+      </li>
+
+      @auth
+      <li class="nav-item d-none d-sm-block d-md-none d-block d-sm-none">
+        <a class="nav-link" href="{{ route("backend.suggestions.all") }}"> Suggestions</a>
+      </li>
+      @endauth
 
       <li class="nav-item">
         <a class="nav-link" href="{{ route("compte.index") }}"><i class="fa fa-user-cog"></i> Paramètres</a>

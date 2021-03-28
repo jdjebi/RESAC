@@ -1,3 +1,5 @@
+- Seul le superadministrateur peut nommer des utilisateurs super administrateurs
+- Seul les administrateurs et le superadmin peuvent manipuler les roles et permissions(avec REBAC)
 - Seul le créateur d'une nouveauté peut la modifier ou la supprimer
 
 - Lors d'une tentive de connexion on observe deux étapes:
@@ -9,6 +11,10 @@
 - Un hashtag contient: les caracrères alphanumériques et les tirets du 6 et 8
 
 - La photo de profil de l'utilisateur est nommée à partir du l'id de l'utlisateur puis de l'extension du fichier d'origine
+
+
+- Seul les développeurs ont accès aux outils développeurs
+- Pour gérer les nouveautés il faut la permission news-manage
 
 ## Déploiement 
 

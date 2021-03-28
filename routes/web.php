@@ -8,26 +8,24 @@ use App\Models\SearchUserIndex;
 
 use Illuminate\Support\Facades\Http;
 
-
 Route::get('/annuaire','UI\Web\Extras\AnnuaireController')->name('annuaire');
 Route::get('/nouveautes',"UI\Web\Extras\FeaturesController")->name('dev_news');
 Route::get('/deconnexion','Backend\Auth\AuthController@logout')->name('logout');
+Route::get('extras/bienvenue','UI\Extras\Register')->name('extras.register');
 
 Route::middleware("guest")->group(function(){
   Route::get('/','UI\Web\Index\IndexController');
-  Route::get('/v2','UI\Web\Index\IndexController@index2')->name('home');
+  Route::get('/demo','UI\Web\Index\IndexController@index2')->name('home');
   Route::get('/connexion','UI\Web\Auth\AuthController@login')->name('login');
   Route::get('/inscription','UI\Web\Auth\AuthController@register')->name('register');
-
-  Route::namespace("Resac\Auth")->group(function () {
+  Route::namespace("Backend\Auth\Password")->group(function () {
     Route::get('reinitialiser/mot-de-passe','ForgotPasswordController')->name('app.reset.email');
     Route::post('reinitialiser/mot-de-passe','ValidatePasswordRequest');
     Route::get('password/reset/{token}','ResetPasswordController@get')->name('password.reset');
     Route::post('password/reset','ResetPasswordController@post')->name('app.reinit.password');
   });
-
   // Backend
-  Route::post('/inscription','Backend\Auth\AuthController@register')->name('backend.register.member');
+  Route::post('/inscription','Backend\Auth\RegisterController')->name('backend.register.member');
 });
 
 /* Application */
@@ -55,18 +53,33 @@ Route::middleware("auth")->group(function(){
   });
 
   Route::match(['get', 'post'],'/actualites','UI\Web\Actu\ActuController@index')->name('actu');
-
   Route::get('rechercher',"Resac\SearchController@user_for_app")->name('app.search');
-
   Route::match(['get', 'post'],'publications/c/libre',"Resac\PostController@create_free_post")->name('app.post.create.free');
-
   Route::get('publications',"Resac\PostController@index")->name('app.post');
   Route::get('publications/{id}',"Resac\Posts\PostViewerController@show")->where('id', '[0-9]+')->name('app.post.show');
   Route::get('publications?not-certified',"Resac\PostController@index")->name('app.post.not_certified');
   Route::get('publications/creer',"Resac\PostController@create")->name('app.post.hub');
   Route::get('publications/delete/{id}',"Resac\Posts\PostDeleteController")->where('id', '[0-9]+')->name('app.post.delete');
   Route::post('publications/publier',"Backend\Post\CreatePostController@from_member")->name('app.post.publish');
-  
+
+  Route::prefix('/suggestions')->group(function () {
+
+    // Backend
+    Route::namespace('Backend\Extras')->group(function () {
+      Route::get('','SuggestionController@all')->name('backend.suggestions.all');
+      Route::get('mes-suggestions','SuggestionController@my_suggestions')->name('backend.suggestions.my');
+
+      Route::post('noter/{id}','SuggestionController@note2_suggestion')->name('backend.suggestions.noter');
+      Route::post('creer','SuggestionController@create_suggestion')->name('backend.suggestions.create');
+      Route::get('delete/{id}','SuggestionController@delete')->name('backend.suggestions.delete');
+      Route::post('update/{id}','SuggestionController@update')->name('backend.suggestions.update');
+
+      // Test
+      // Route::get('test_create','SuggestionController@test_create')->name('backend.suggestions.test.create');
+
+    });
+
+  });
 
 });
 
@@ -74,38 +87,36 @@ Route::middleware("auth")->group(function(){
 /* Administration */
 
 Route::prefix('/v1/admin')->group(function (){
-
   Route::get('connexion','UI\admin\Auth\AuthController@login')->name('admin')->middleware('admin.guest');
-
   Route::middleware('admin.login')->group(function (){
-
     Route::namespace("UI\admin")->group(function (){
       Route::get('','AdminController@index')->name('admin_index');
-      Route::get('manage/users','User\ListController@user_manager')->name('admin_user_manager');
-      Route::get('manage/user/action/','AdminController@delete_user')->name('admin_delete_user');
-      Route::match(['get', 'post'],'manage/user/{user_id}','User\ListController@user_profil')->where('user_id', '[0-9]+')->name('admin_user_profil');
+      Route::get('users','User\UserController@index')->name('admin.users.index');
+      Route::get('user/action/','AdminController@delete_user')->name('admin_delete_user');
+      Route::get('users/{id}','User\UserController@show')->where('id', '[0-9]+')->name('admin_user_profil');
+      Route::get('users/{id}/compte','User\UserController@account')->where('id', '[0-9]+')->name('admin.users.account');
+      Route::get('roles-permissions/','User\RolesAndPermissionsController@index')->name('admin.user.roles');
+      Route::get('roles-permissions/roles/{id}/','User\RolesAndPermissionsController@show')->where('id', '[0-9]+')->name('admin.roles.show');
     });
-
-    Route::get('deconnexion','Backend\Auth\AuthController@admin_logout')->name('admin_logout');
-
+    Route::get('deconnexion','Backend\Auth\AuthController@admin_logout')->name('admin.logout');
     Route::namespace("Resac")->group(function (){
       Route::get('rechercher',"SearchController@admin")->name('admin_search');
     });
-
   });
-
 });
 
 Route::name('admin.')->group(function () {
-
   // Frontend
   Route::namespace('UI\admin')->group(function () {
-  
+
     Route::middleware('admin.login')->group(function (){
+
       Route::prefix('/v1/admin/')->group(function () {
+        /* Membres */
+        Route::get('membres/{id}','User\UserController@show')->where('id', '[0-9]+')->name('membre.show');
+
 
         Route::get('notifications','Notifications\NotificationsController@show')->name('notifications.show');
-
         /* Publications */
         Route::prefix('publications')->group(function(){
           Route::namespace('Posts')->group(function () {
@@ -122,7 +133,6 @@ Route::name('admin.')->group(function () {
         Route::get('nouveautes','Features\FeaturesController@dashboard')->name('feature.all');
         Route::get('nouveautes/{id}','Features\FeaturesController@feature')->where('id', '[0-9]+')->name('feature.show');
         Route::post('nouveautes/{id}','Features\FeaturesController@update')->where('id', '[0-9]+');
-
         Route::get('nouveautes/creer','Features\FeaturesController@create')->name('feature.create');
         Route::post('nouveautes/creer','Features\FeaturesController@store');
         Route::get('nouveautes/delete/{id}','Features\FeaturesController@delete')->where('id', '[0-9]+')->name('feature.delete');
@@ -137,13 +147,30 @@ Route::name('admin.')->group(function () {
 
       });
 
+      // Extras
       Route::prefix('/v1/admin/')->group(function () {
+        Route::prefix('suggestions')->group(function () {
+          Route::name('suggestions.')->group(function () {
+            Route::namespace('Suggestion')->group(function () {
+            
+              Route::get('','SuggestionController@index')->name('index');
+
+            });
+          });
+        });
+
+      });
+
+      // DEV
+      Route::prefix('/v1/admin/')->group(function () {
+
         Route::get('dev/flash/creator','DevController@create_flash')->name('dev.create_flash');
+
       });
 
     });
 
-
+    // API
     Route::name('api.')->group(function () {
       Route::prefix('/v1/api/admin/')->group(function () {
         Route::get('pubs/all','Posts\PostsController@api_get_all')->name('pubs_all');
@@ -151,7 +178,6 @@ Route::name('admin.')->group(function () {
     });
 
   });
-
 });
 
 // Backend
@@ -173,10 +199,7 @@ Route::middleware('admin.login')->group(function (){
   Route::get('backend/notification/delete/auth/all','Backend\Notification\DeleteNotificationController@basic')->name('backend.notification.auth.delete.all');
   Route::get('backend/notification/web/delete/{uuid}','Backend\Notification\StatusNotificationController@delete')->name('backend.notification.web.delete');
   Route::get('backend/notification/web/mark/{uuid}','Backend\Notification\StatusNotificationController@mark_as_read')->name('backend.notification.web.mark_as_read');
-
-
 });
-
 
 
 /* API */
@@ -184,44 +207,43 @@ Route::middleware('admin.login')->group(function (){
 // User
 Route::get('user/connected/main_data','Backend\User\GetDataController@main_for_user_connected')->name('backend.user.connected.main_data');
 Route::get('user/all/manage_data','Backend\User\GetDataController@manage_data')->name('backend.api.user.all.manage_data');
+Route::get('users/{id}/roles','Backend\User\RolesPermissions@get_roles')->where('id', '[0-9]+')->name('backend.users.roles.get');
+Route::put('users/{id}/roles','Backend\User\RolesPermissions@put_roles')->where('id', '[0-9]+')->name('backend.users.roles.put');
 
 // Post
 Route::get('posts/','Backend\Post\GetPostController@all_posts')->name('backend.api.post.get.all');
 Route::get('posts/user/{id}','Backend\Post\GetPostController@user_posts')->where('id', '[0-9]+')->name('backend.api.post.user');
 Route::get('posts/published','Backend\Post\GetPostController@published')->name('backend.api.post.get.published');
-
 Route::get('posts/{id}','Backend\Post\GetPostController@by_id')->where('id', '[0-9]+')->name('backend.api.post.get.by_id');
 Route::get('posts/{id}/lock','Backend\Post\PostStateController@lock')->where('id', '[0-9]+')->name('backend.api.post.state.lock');
 Route::get('posts/{id}/unlock','Backend\Post\PostStateController@unlock')->where('id', '[0-9]+')->name('backend.api.post.state.unlock');
 Route::get('posts/{id}/archive','Backend\Post\PostStateController@archive')->where('id', '[0-9]+')->name('backend.api.post.state.archive');
 Route::get('posts/{id}/publish','Backend\Post\PostStateController@publish')->where('id', '[0-9]+')->name('backend.api.post.state.publish');
-
 Route::get('posts/{id}/certif/start/by/{certif_author}','Backend\Post\CertificationController@start')->name('backend.api.post.certif.start');
 Route::get('posts/{id}/certif/set/by/{certif_author}','Backend\Post\CertificationController@set')->name('backend.api.post.certif.set');
 Route::get('posts/{id}/certif/cancel/by/{certif_author}','Backend\Post\CertificationController@cancel')->name('backend.api.post.certif.cancel');
-
 Route::post('posts/{id}/update','Backend\Post\PostUpdateController@content')->where('id', '[0-9]+')->name('backend.api.post.update');
 Route::get('posts/{id}/delete','Backend\Post\PostDeleteController@api')->where('id', '[0-9]+')->name('backend.api.post.delete');
 
-// Auth
+// Roles et permissions
+Route::get('roles/','Backend\Role\RoleController@index')->name('backend.roles.index');
+Route::post('roles/create','Backend\Role\RoleController@create')->name('backend.roles.create');
+Route::get('roles/{id}/','Backend\Role\RoleController@show')->where('id', '[0-9]+')->name('backend.roles.show');
+Route::put('roles/{id}/','Backend\Role\RoleController@update')->where('id', '[0-9]+')->name('backend.roles.update');
+Route::delete('roles/{id}/','Backend\Role\RoleController@delete')->where('id', '[0-9]+')->name('backend.roles.delete');
+Route::get('permissions/','Backend\Permission\PermissionController@index')->name('backend.permissions.index');
+Route::post('permissions/create','Backend\Permission\PermissionController@create')->name('backend.permissions.create');
+Route::delete('permissions/{id}/','Backend\Permission\PermissionController@delete')->where('id', '[0-9]+')->name('backend.permissions.delete');
 
-Route::prefix('v1/api')->group(function () {
-  Route::namespace('Resac\Api')->group(function () {
-      Route::post('login','ApiController@login')->name('api_login');
-  });
-  Route::post('admin/login','UI\admin\AdminController@api_login')->name('admin_api_login');
-});
+// Connexion
+Route::post('backend/login','Backend\Auth\LoginController')->name('api.login');
+Route::post('backend/login/admin','Backend\Auth\AuthController@login')->name('api.admin.login');
 
-
-/* Routes de test */
-
+// Routes de test
 Route::get('test/storage_driver',function(){
-
   $file_exist = Storage::disk('dropbox')->exists('op.jpg');;
-  
   if($file_exist)
     return "Test de l'interaction avec dropbox OK";
   else
     return "Test de l'interaction avec dropbox échoué";
-  
 });

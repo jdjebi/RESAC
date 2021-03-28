@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\User\MainData as UserMainDataResources;
 use App\Http\Resources\User\ManageUserCollection;
-use App\User;
+use App\Models\User;
 
 class GetDataController extends Controller
 {

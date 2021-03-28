@@ -36,7 +36,7 @@ class GeneralController extends Controller
         
                 $user->save();
         
-                $user_auth = \Users::auth2();
+                $user_auth = UserAuth();
         
                 SearchUserIndex::update_row($user_auth); // Mise à jour de la ligne d'index de l'utilisateur
         

@@ -13,7 +13,7 @@ class SearchUserIndex extends Model
     ];
 
     public function user(){
-      return $this->belongsTo("App\User","users_id");
+      return $this->belongsTo("App\Models\User","users_id");
     }
 
     static function register($user){

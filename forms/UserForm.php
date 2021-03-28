@@ -1,6 +1,7 @@
 <?php
 
 namespace Form\User\Update;
+use App\Models\User;
 
 require_once __DIR__."/Form.php";
 
@@ -59,32 +60,22 @@ class Info extends \Form{
     }
   }
 
-  public function check_if_repeat($field,$val){
-    // Vérifie si une valeur se repète plusieurs dans le table des utilisateur
-    global $DB;
-    $sql = "SELECT id FROM users WHERE $field = ?";
-    $q = $DB->prepare($sql);
-    $q->execute([$val]);
-    $data = $q->fetchAll();
-    return count($data) > 0;
-  }
-
   public function validate(){
     $this->clear_phone_number();
     $this->clear_integers();
     $this->clear_promos();
 
-    $user = \Users::auth2();
+    $user = UserAuth();
     $email = $this->data['email'];
     $numero = $this->data['numero'];
 
     // Validation de l'unicité de l'adresse E-mail
-    if($user->email != $email && $this->check_if_repeat("email",$email)){
+    if($user->email != $email && User::check_if_repeat("email",$email)){
         $this->errors['repeat']['email'] = true;
     };
 
     // Validation de l'unicité du numéro de téléphone
-    if($user->numero != $numero && $this->check_if_repeat("numero",$numero)){
+    if($user->numero != $numero && User::check_if_repeat("numero",$numero)){
         $this->errors['repeat']['numero'] = true;
     };
 

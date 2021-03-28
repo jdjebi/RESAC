@@ -1,12 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Post;
 use Spatie\Permission\Traits\HasRoles;
+use App\RESAC\Core\Security\RolesFactory;
 
 class User extends Authenticatable
 {
@@ -46,21 +47,6 @@ class User extends Authenticatable
       return $url;
     }
 
-    public function get_photo2(){
-
-      if($this->attributes['photo'] != ""){
-        if(env('APP_ENV') == "web"){
-          $url = \Storage::disk('dropbox')->url($this->attributes['photo']);
-        }
-        else{
-          $url = "storage/{$this->attributes['photo']}";
-        }
-      }
-      else{
-        $url = "asset/imgs/user_default_pic.png"; 
-      }   
-      return $url;
-    }
 
     public function getPromoAttribute(){
       return empty($this->attributes['promo1']) || empty($this->attributes['promo2']) ? "xxxx-xxxx" : $this->attributes['promo1'].'-'.$this->attributes['promo2'];
@@ -91,6 +77,20 @@ class User extends Authenticatable
       }else{
         return "Membre";
       }
+    }
+
+    public function getEquipeAttribute(){
+      $is_staff = $this->attributes["is_staff"];
+      $is_superadmin = $this->attributes["is_superadmin"];
+      if($is_staff || $is_superadmin){
+        return "Equipe";
+      }else{
+        return "Non équipe";
+      }
+    }
+
+    public function getRolesAliasAttribute(){
+      return RolesFactory::GetRoles($this->getRoleNames());
     }
 
     public function getStaffRoleCodeAttribute(){
@@ -132,5 +132,30 @@ class User extends Authenticatable
         }
       }
       return $unreadNotifications_count;
+    }
+
+    static function is_staff_user(){
+      return \Resac\Auth2::is_admin_logged();
+    }
+
+
+    static function email_is_unique($email){
+      $u = User::where('email',$email)->get();
+      if($u)
+        return false;
+      else
+        return true;
+    }
+
+    static function check_if_repeat($field,$val){
+      // Vérifie si une valeur se repète plusieurs dans le table des utilisateur
+      $c = User::where($field,$val)->count();
+      return $c > 0;
+    }
+
+     /* Suggestions */
+
+    public function suggestions(){
+      return $this->morphMany('App\Models\Suggestion','user_author')->orderBy('created_at','desc');
     }
 }

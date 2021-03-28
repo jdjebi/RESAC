@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Backend\Post;
 use App\Http\Controllers\Controller;
 use Resac\Auth2;
 use App\Models\Post;
-use App\User;
+use App\Models\User;
 
 use Illuminate\Http\Request;
 

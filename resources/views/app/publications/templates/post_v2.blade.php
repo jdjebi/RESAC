@@ -13,7 +13,7 @@
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left" aria-labelledby="pub-box-menu-option-{{ $post->id }}">
                     <h6 class="dropdown-header">
                       Options 
-                      @if(Auth::is_admin_logged())
+                      @if(Resac\Auth2::is_admin_logged())
                       <b>(Admin)</b>
                       @endif
                     </h6>
@@ -22,7 +22,7 @@
                         <a class="dropdown-item small" href="{{ route("app.post.show",$post->id) }}"><i class="fa fa-eye"></i> &nbsp; Afficher la publication</a>
                     @endif
 
-                    @if($post->user_object->id == $user->id || Auth::is_admin_logged())
+                    @if($post->user_object->id == $user->id || Resac\Auth2::is_admin_logged())
                         <a class="dropdown-item small" href="{{ route("app.post.delete",$post->id) }}?origin=feed"><i class="fa fa-trash"></i> &nbsp; Supprimer la publication</a>
                     @endif
 

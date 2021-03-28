@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,7 +13,7 @@ class Features extends Model
     protected $fillable = ['title','content','user_author_id'];
 
     public function author(){
-      return $this->belongsTo("App\User","user_author_id");
+      return $this->belongsTo("App\Models\User","user_author_id");
     }
 
     public function get_form_created_at(){

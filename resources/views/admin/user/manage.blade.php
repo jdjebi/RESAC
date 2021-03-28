@@ -1,6 +1,15 @@
 @extends('admin.base')
 
 @section('main-content')
+<div class="nav-scroller shadow-sm">
+  <nav id="resac-breadcrumb" aria-label="breadcrumb" >
+      <ol class="breadcrumb">
+          <li class="breadcrumb-item active"><a href="#">Utilisateurs</a></li>
+      </ol>
+  </nav>
+</div>
+@include('flash')
+
 <div id="v-table" class="mt-3 container-fluid">
   <div class="row">
     <div class="col-sm-12">
@@ -27,6 +36,7 @@
               <th scope="col">Ecole/universite</th>
               <th scope="col">Emploi</th>
               <th scope="col">Pays</th>
+              <th scope="col">Equipe</th>
               <th scope="col">Rôle</th>
               <th scope="col">Version</th>
               <th scope="col" class="text-center">Actions</th>
@@ -45,12 +55,12 @@
               <td>@{{ user.universite }}</td>
               <td>@{{ user.emploi }}</td>
               <td>@{{ user.pays }}</td>
+              <td>@{{ user.equipe }}</td>
               <td>@{{ user.role }}</td>
               <td class="text-center">@{{ user.version }}</td>
               <td class="text-center">
                 <a v-bind:href="user.admin_profil_url" class="text-info" title="Profil dans l'administration."><i class="fa fa-user-cog"></i></a>
                 <a v-bind:href="user.profil_url" class="text-muted" target="_blank" title="Profil sur RESAC."><i class="fa fa-user"></i></a>
-                <a v-on:click="delete_user" v-bind:data-user-id="user.id" class="text-danger" href="#delete" title="Supprimer l'utilisateur"><i class="fa fa-trash"></i></a>
               </td>
             </tr>
           </tbody>
@@ -98,12 +108,6 @@ var vm = new Vue({
       return this.users.length
     }
   },
-  methods: {
-    delete_user: function(e){
-      var id = $(e.target).parent().data('user-id');
-      delete_user_dialog(id);
-    }
- }
 });
 
 

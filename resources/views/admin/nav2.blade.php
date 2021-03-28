@@ -22,7 +22,9 @@
   }
 </style>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="{{ route("admin_user_manager") }}">RESAC Admin</a>
+  <a class="navbar-brand" href="{{ route("admin.users.index") }}">
+    <img src="{{ cdn_asset('asset/imgs/icons/android-chrome-512x512-admin.png') }}" width="30" height="30" alt="">
+  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -55,7 +57,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="{{ route("admin_logout") }}"><i class="fa fa-sign-out-alt"></i> Déconnexion</a>
+        <a class="nav-link" href="{{ route("admin.logout") }}"><i class="fa fa-sign-out-alt"></i> Déconnexion</a>
       </li>
     </ul>
 

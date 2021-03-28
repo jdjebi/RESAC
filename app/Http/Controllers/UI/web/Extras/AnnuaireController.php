@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\UI\Web\Extras;
 
 use App\Http\Controllers\Controller;
-use App\User;
+use App\Models\User;
 
 use Resac\Auth2;
 
@@ -12,7 +12,7 @@ class AnnuaireController extends Controller
 
     public function __invoke()
     {
-      $user =  Auth2::user();
+      $user =  UserAuth();
 
       $users = [];
 

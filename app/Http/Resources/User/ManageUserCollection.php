@@ -21,11 +21,12 @@ class ManageUserCollection extends ResourceCollection
                 'universite' => $user->universite,
                 'emploi' => $user->emploi,
                 'pays' => $user->pays,
-                'role' => $user->staff_role,
+                'equipe' => $user->equipe,
+                'role' => $user->roles_alias,
                 'photo' => asset(photos_cdn_asset($user)),
                 'version' => $user->version, 
                 'profil_url' => route('profil')."?id=".$user->id,
-                'admin_profil_url' => route('admin_user_profil',['user_id' => $user->id])
+                'admin_profil_url' => route('admin_user_profil',['id' => $user->id])
             ];
         }
 

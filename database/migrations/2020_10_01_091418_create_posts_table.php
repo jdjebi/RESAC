@@ -37,6 +37,8 @@ class CreatePostsTable extends Migration
             $table->text('content'); // Contenu de la publication
             
             $table->boolean('is_active')->default(false); // La publication est elle bloquée ?
+
+            $table->boolean('is_published')->default(false); // La publication a bien été publiée
             
             $table->integer('version')->default("2"); // Version de la publication
             

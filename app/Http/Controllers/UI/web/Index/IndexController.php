@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\UI\Web\Index;
 
 use App\Http\Controllers\Controller;
-use App\User;
-use App\Features;
+use App\Models\User;
+use App\Models\Features;
 
 
 class IndexController extends Controller
@@ -17,7 +17,7 @@ class IndexController extends Controller
 
     public function index2()
     {
-      return view('app.index2');
+      return view('app.index.page');
     }
 
 }

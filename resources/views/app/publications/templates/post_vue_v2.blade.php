@@ -3,7 +3,7 @@
         <div class="header pl-4 pt-3 pb-3 pr-4">
           <div class="media">
             <a v-bind:title:="post.user.fullname" v-bind:href="post.user.profil_url">
-              <img class="pub-user-photo" v-bind:src="post.user.photo" v-bind:alt="'Photo' + post.user.fullname">
+              <img class="border pub-user-photo" v-bind:src="post.user.photo" v-bind:alt="'Photo' + post.user.fullname">
             </a>
             <div class="ml-3 media-body">
               <div class="dropdown float-right">
@@ -13,13 +13,13 @@
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left" v-bind:aria-labelledby="'pub-box-menu-option-'+post.id">
                     <h6 class="dropdown-header">
                       Options 
-                      @if(Auth::is_admin_logged())
+                      @if(Resac\Auth2::is_admin_logged())
                       <b>(Admin)</b>
                       @endif
                     </h6>
                     <a v-if='post.user.id == {{ UserAuth()->id }}'
                       class="dropdown-item small" v-bind:href="'{{ route("app.post.show","") }}/' + post.id"><i class="fa fa-eye"></i> &nbsp; Afficher la publication</a>
-                    @if(Auth::is_admin_logged())
+                    @if(Resac\Auth2::is_admin_logged())
                         <a class="dropdown-item small" v-bind:href="'{{ route("app.post.delete","") }}/' + post.id + '?origin=feed'"><i class="fa fa-trash"></i> &nbsp; Supprimer la publication</a>
                     @else 
                     <a v-if='post.user.id == {{ UserAuth()->id }}'

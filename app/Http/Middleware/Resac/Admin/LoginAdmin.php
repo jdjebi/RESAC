@@ -3,7 +3,6 @@
 namespace App\Http\Middleware\Resac\Admin;
 
 use Closure;
-use Resac\Auth2;
 
 
 class LoginAdmin
@@ -19,7 +18,7 @@ class LoginAdmin
     {
         $redirect_url = route("admin")."?redirect=". $request->path();
 
-        if(!Auth2::is_admin_logged()){
+        if(!UserAuth()::is_staff_user()){
           \Flash::add("Vous devez être connecté pour avoir accès à cette page.","warning");
           return redirect($redirect_url);
         }

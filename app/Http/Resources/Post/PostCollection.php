@@ -3,7 +3,7 @@
 namespace App\Http\Resources\Post;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
-use App\User;
+use App\Models\User;
 use App\Http\Resources\User\MainData as UserRessources;
 
 class PostCollection extends ResourceCollection
@@ -55,7 +55,7 @@ class PostCollection extends ResourceCollection
                     'ville' => $user->ville,
                     'commune' => $user->commune,
                     'numero' => $user->numero,
-                    'admin_profil_url' => route('admin_user_profil',['user_id' => $user->id]),
+                    'admin_profil_url' => route('admin_user_profil',['id' => $user->id]),
                 ],
             ];
 

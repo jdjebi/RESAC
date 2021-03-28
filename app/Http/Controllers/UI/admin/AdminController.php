@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\UI\admin;
 
 use App\Http\Controllers\Controller;
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Resac\Auth2;
 
@@ -22,7 +22,7 @@ class AdminController extends Controller
 
     public function index(){
 
-      $user = Auth2::user();
+      $user = UserAuth();
 
       $title2 = "Gestion des utilisateurs";
 
@@ -34,7 +34,7 @@ class AdminController extends Controller
 
     public function user_manager(){
 
-      $user = Auth2::user();
+      $user = UserAuth();
 
       $title = "Gestion des utilisateurs";
 
@@ -46,7 +46,7 @@ class AdminController extends Controller
 
     public function user_profil($user_id){
 
-      $user = Auth2::user();
+      $user = UserAuth();
       $user_visited = User::find($user_id);
 
       if(!$user_visited){
@@ -103,9 +103,9 @@ class AdminController extends Controller
 
       if(isset($_GET['delete'])){
         $id = $_GET['delete'];
-        $user = \Users::get($id);
+        $user = User::find($id);
         if($user){
-          $user->delete();
+          // $user->delete();
           \Flash::add('Utilisateur supprimé.','success');
         }else{
           \Flash::add('Utilisateur introuvable.','danger');
@@ -126,7 +126,7 @@ class AdminController extends Controller
 
       // guest middleware
 
-      if(\Auth::is_admin_logged()){
+      if(\RESAC\Auth2::is_admin_logged()){
         return "";
       }
 
@@ -164,7 +164,7 @@ class AdminController extends Controller
     public function api_get_user_list(){
 
       // Clé de sécurité
-      $user_connected = Auth2::user();
+      $user_connected = UserAuth();
 
       $users_tmp = User::all();
       

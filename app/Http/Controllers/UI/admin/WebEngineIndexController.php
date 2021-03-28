@@ -11,7 +11,7 @@ class WebEngineIndexController extends Controller
 {
     public function show(){
 
-      $user = Auth2::user();
+      $user = UserAuth();
 
       $indew_rows = SearchUserIndex::all();
 
