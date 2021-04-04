@@ -44,9 +44,6 @@ class SuggestionController extends Controller {
 
         $suggestions_data = $user->suggestions;
 
-
-        dump($suggestions_data);
-
         $suggestions_resources = (new SuggestionResources($suggestions_data));
         $suggestions = $suggestions_resources->toArray($request);
 
