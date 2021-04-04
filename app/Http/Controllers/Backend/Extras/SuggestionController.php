@@ -25,6 +25,8 @@ class SuggestionController extends Controller {
 
         // Récupération des suggestions à l'aide d'une ressources de modèle
         $suggestions_data = Suggestion::select('*')->orderBy('created_at','desc')->get();
+
+        dump(Suggestion::all());
         $suggestions_resources = (new SuggestionResources($suggestions_data));
         $suggestions = $suggestions_resources->toArray($request);
 
@@ -46,6 +48,8 @@ class SuggestionController extends Controller {
         $suggestions = $suggestions_resources->toArray($request);
 
         $title = "Mes suggestions";
+
+        dump($suggestions);
 
         return view('app.extras.suggestions.my',[
             'suggestions' => $suggestions,
