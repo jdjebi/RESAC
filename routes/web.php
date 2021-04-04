@@ -15,7 +15,7 @@ Route::get('extras/bienvenue','UI\Extras\Register')->name('extras.register');
 
 Route::middleware("guest")->group(function(){
   Route::get('/','UI\Web\Index\IndexController');
-  Route::get('/demo','UI\Web\Index\IndexController@index2')->name('home');
+  Route::get('/bienvenue','UI\Web\Index\IndexController@index2')->name('home');
   Route::get('/connexion','UI\Web\Auth\AuthController@login')->name('login');
   Route::get('/inscription','UI\Web\Auth\AuthController@register')->name('register');
   Route::namespace("Backend\Auth\Password")->group(function () {
