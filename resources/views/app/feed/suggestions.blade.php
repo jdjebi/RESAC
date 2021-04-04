@@ -18,5 +18,5 @@
 </div>
 
 <div class="text-right mt-1 small">
-    <a href="{{ route('backend.suggestions.all') }}">Voir tout</a>
+    <a href="{{ route('app.suggestions.all') }}">Voir tout</a>
 </div>

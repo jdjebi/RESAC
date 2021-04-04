@@ -64,11 +64,15 @@ Route::middleware("auth")->group(function(){
 
   Route::prefix('/suggestions')->group(function () {
 
+    // Frontend
+    Route::namespace('UI\Extras')->group(function () {
+      Route::get('','SuggestionController@all')->name('app.suggestions.all');
+      Route::get('mes-suggestions','SuggestionController@my_suggestions')->name('app.suggestions.my');
+
+    });
+
     // Backend
     Route::namespace('Backend\Extras')->group(function () {
-      Route::get('','SuggestionController@all')->name('backend.suggestions.all');
-      Route::get('mes-suggestions','SuggestionController@my_suggestions')->name('backend.suggestions.my');
-
       Route::post('noter/{id}','SuggestionController@note2_suggestion')->name('backend.suggestions.noter');
       Route::post('creer','SuggestionController@create_suggestion')->name('backend.suggestions.create');
       Route::get('delete/{id}','SuggestionController@delete')->name('backend.suggestions.delete');

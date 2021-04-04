@@ -91,7 +91,7 @@
 
       @auth
       <li class="nav-item d-none d-md-block d-lg-block">
-        <a class="nav-link" href="{{ route("backend.suggestions.all") }}"> Suggestions</a>
+        <a class="nav-link" href="{{ route("app.suggestions.all") }}"> Suggestions</a>
       </li>
       @endauth
 
@@ -123,7 +123,7 @@
 
       @auth
       <li class="nav-item d-none d-sm-block d-md-none d-block d-sm-none">
-        <a class="nav-link" href="{{ route("backend.suggestions.all") }}"> Suggestions</a>
+        <a class="nav-link" href="{{ route("app.suggestions.all") }}"> Suggestions</a>
       </li>
       @endauth
 
