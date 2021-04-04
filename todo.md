@@ -9,6 +9,7 @@
 - Pagination dans l'affichage des suggestions sur la page des suggestions côté membre et administrateur 
 - Notifier les administrateurs de la création d'une suggestion
 - Système de signalement (Support)
+- La page des nouveautés utilises l'ancien design system de l'administration  
 
 # Version 6
 - Messagerie instannées
