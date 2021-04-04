@@ -156,6 +156,6 @@ class User extends Authenticatable
      /* Suggestions */
 
     public function suggestions(){
-      return $this->morphMany('App\Models\Suggestion','user_author')->orderBy('created_at','desc');
+      return $this->hasMany(Suggestion::class,'user_author_id')->orderBy('created_at','desc');
     }
 }
