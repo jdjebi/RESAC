@@ -49,8 +49,6 @@ class SuggestionController extends Controller {
 
         $title = "Mes suggestions";
 
-        dump($suggestions);
-
         return view('app.extras.suggestions.my',[
             'suggestions' => $suggestions,
             'title' => $title
