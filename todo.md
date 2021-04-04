@@ -1,11 +1,15 @@
 # A FAIRE
 
-# Version 5.3 (Master)
-
+# Version 5.3.1 (Master)
+- Activations des publications
+  - Commentaires
+- Notifications côté membres
+- Module de signalement
+- Ajout d'un système d'adhésion à la plateforme depuis un formulaire d'inscription (Contributeur Bosson)
+- Ajout d'une page d'une contact avec le mail de RESAC
 
 # version 5.3.x ou plus
 - Affichage des suggestions sur la page de profil
-- Modification des suggestions
 - Pagination dans l'affichage des suggestions sur la page des suggestions côté membre et administrateur 
 - Notifier les administrateurs de la création d'une suggestion
 - Système de signalement (Support)
@@ -15,14 +19,15 @@
 - Messagerie instannées
 - Gestion des écoles, académies et entreprises
 - Gestion des pays
----
-- Ajout d'un système d'adhésion à la plateforme depuis un formulaire d'inscription (Contributeur Bosson)
-- Ajout d'une page d'une contact avec le mail de RESAC
 
 # FAIT
 
+## version 5.3
+- Modification des suggestions
+
 
 ## EXTRAS
+- Documenter les suggestions
 - Mettre en place un système d'initialisation de la plateforme
 - Documenter la nouvelle tables des publications
 - Documenter la réinitialisation de mot de passe
