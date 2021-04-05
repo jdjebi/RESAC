@@ -8,7 +8,7 @@ use App\RESAC\Core\Security\RolesFactory;
 class RoleSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Gère la création des rôles
      *
      * @return void
      */
@@ -17,10 +17,17 @@ class RoleSeeder extends Seeder
         $roles = RolesFactory::ROLES_DATABASE;
 
         foreach ($roles as $key => $role) {
-            Role::create([
-                'name' => $role['name'],
-                'guard_name' => $role['guard']
-            ]);
+
+            $role = Role::where('name',$role['name'])->where('guard_name',$role['guard'])->first();
+
+            // On teste si le rôle n'existe pas déjà
+            if($role == null){
+                Role::create([
+                    'name' => $role['name'],
+                    'guard_name' => $role['guard']
+                ]);
+            }
+        
         }
     }
 }

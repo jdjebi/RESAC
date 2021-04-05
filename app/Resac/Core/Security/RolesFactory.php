@@ -3,6 +3,28 @@
 namespace App\RESAC\Core\Security;
 
 class RolesFactory{
+
+    // Permissions
+    const PERMISSIONS_DATABASE = [
+        "dev-tools-access" => [
+            "label" => "Accès outils développeur",
+            "description" => "Création de notifications; Manipulation de l'index de recherche; Manipulation des mlessages flash"
+        ],
+        "news-manage" => [
+            "label" => "Gestion des nouveautés",
+            "description" => "Créer, modifier, affichage, suppression des nouveautés"
+        ],
+        "post-manage" => [
+            "label" => "Gestion des publications",
+            "description" => "Autorise la gestion des publications et l'interaction avec le système de publicaton"
+        ],
+        "user-manage" => [
+            "label" => "Gestion des utilisateurs",
+            "description" => "Autorise la suppression des membres et modérateurs et la manipulation des rôles (Attribution du rôle administrateur est réservé au super admin)"
+        ]
+    ];
+
+    // Rôles
     const ROLES_DATABASE = [
         "superadmin" => [
             "name" => "superadmin",
