@@ -17,11 +17,11 @@ class PermissionSeeder extends Seeder
 
         foreach($permissions as $permission){
 
-            $permission = Permission::where('name',$permission['name'])->first();
+            $permissionModel = Permission::where('name',$permission['name'])->first();
 
             // Test l'inexistante de la permission
-            if($permission == null){
-                $permission = Permission::create(['name' => $permission['name']]);
+            if($permissionModel == null){
+                Permission::create(['name' => $permission['name']]);
             }
         }
 
