@@ -18,10 +18,10 @@ class RoleSeeder extends Seeder
 
         foreach ($roles as $role) {
 
-            $role = Role::where('name',$role['name'])->where('guard_name',$role['guard'])->first();
+            $roleModel = Role::where('name',$role['name'])->where('guard_name',$role['guard'])->first();
 
             // On teste si le rôle n'existe pas déjà
-            if($role == null){
+            if($roleModel == null){
                 Role::create([
                     'name' => $role['name'],
                     'guard_name' => $role['guard']
