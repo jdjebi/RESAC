@@ -16,7 +16,7 @@ class RoleSeeder extends Seeder
     {
         $roles = RolesFactory::ROLES_DATABASE;
 
-        foreach ($roles as $key => $role) {
+        foreach ($roles as $role) {
 
             $role = Role::where('name',$role['name'])->where('guard_name',$role['guard'])->first();
 
