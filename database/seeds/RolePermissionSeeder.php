@@ -2,13 +2,12 @@
 
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
 use App\RESAC\Core\Security\RolesFactory;
 
-class RoleSeeder extends Seeder
+class RolePermissionSeeder extends Seeder
 {
     /**
-     * Gère la création des rôles
+     * Association des roles et permissions
      *
      * @return void
      */
@@ -20,13 +19,7 @@ class RoleSeeder extends Seeder
 
             $roleModel = Role::where('name',$role['name'])->where('guard_name',$role['guard'])->first();
 
-            // On teste si le rôle n'existe pas déjà
-            if($roleModel == null){
-                Role::create([
-                    'name' => $role['name'],
-                    'guard_name' => $role['guard']
-                ]);
-            }
+            $roleModel->syncPermissions($role["permissions"]);
         
         }
     }
