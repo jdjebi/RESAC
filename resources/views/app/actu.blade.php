@@ -71,6 +71,15 @@ body{
       </div>
       -->
 
+      @can("post-manage")
+      <div class="d-flex justify-content-between align-items-center pl-2 mb-3 pr-2">
+        <div class="h5 text-muted">Publications</div>
+        <div>
+          <a href="{{ route('admin.post.create.libre') }}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Nouveau</a>
+        </div>
+      </div>
+      @endcan
+
       <div class="separator"></div>
 
       <div id="v-feed" class="resac-feed d-none">

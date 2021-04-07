@@ -27,6 +27,7 @@
 
 
 ## EXTRAS
+- Faire en sorte qu'on puisse créer une publication d'une n'importe quelle page du côté des membres
 - Documenter les suggestions
 - Mettre en place un système d'initialisation de la plateforme
 - Documenter la nouvelle tables des publications

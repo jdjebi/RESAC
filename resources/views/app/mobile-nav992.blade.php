@@ -34,6 +34,9 @@
           </a>
         
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            @can("post-manage")
+            <a class="dropdown-item" href="{{ route('admin.post.create.libre') }}">Publication</a>
+            @endcan
             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#create-suggestion">Suggestions</a>
           </div>
         </div>
