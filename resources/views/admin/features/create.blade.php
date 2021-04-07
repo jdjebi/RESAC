@@ -1,24 +1,15 @@
-@extends('admin.page')
+@extends('admin.base')
 
-@section('extras_style')
-  @include('admin.pubs.dashboard_style')
-  <style media="screen">
-  body{
-    background-color: #f1f3f6
-  }
-  </style>
- @endsection
-
-@section('content')
-  @if ($errors->any())
-      <div class="alert alert-danger">
-          <ul>
-              @foreach ($errors->all() as $error)
-                  <li>{{ $error }}</li>
-              @endforeach
-          </ul>
-      </div>
-  @endif
+@section('main-content')
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <div class="mt-5 container">
   <div class="row">
     <div class="col-md-12">
