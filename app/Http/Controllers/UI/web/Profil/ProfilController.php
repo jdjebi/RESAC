@@ -61,7 +61,7 @@ class ProfilController extends Controller
   
         $title =  $user_visited->nom.' '.$user_visited->prenom;
 
-        $posts = Post::where("user",$user_visited)->orderBy('date', 'desc')->get();
+        $posts = Post::where("user_id",$id)->orderBy('date', 'desc')->get();
 
         $posts = PostRenderer::render_posts($posts);
 
