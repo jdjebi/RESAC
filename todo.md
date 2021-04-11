@@ -22,6 +22,20 @@
 
 # FAIT
 
+# Version 5.3.1
+
+### Mineurs
+
+### 07-04-2021
+
+- Administration, nouveautés
+  - Correction du formulaire de création | Utilisation du nouveau design
+- Application, lien vers le formulaire de création de publication libre
+  - Ajout d'un entête de création "Titre et bouton de création" dans le fil d'actualités
+  - Bouton de création, ajout d'un lien de création
+  - Naviguation latérale, ajout d'un lien de création
+
+
 ## version 5.3
 - Modification des suggestions
 

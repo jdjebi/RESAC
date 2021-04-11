@@ -13,17 +13,21 @@
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left" aria-labelledby="pub-box-menu-option-{{ $post->id }}">
                     <h6 class="dropdown-header">
                       Options 
-                      @if(Auth::is_admin_logged())
+                      @can('post-manage')
                       <b>(Admin)</b>
-                      @endif
+                      @endcan
                     </h6>
 
                     @if($post->user_object->id == $user->id)
                         <a class="dropdown-item small" href="{{ route("app.post.show",$post->id) }}"><i class="fa fa-eye"></i> &nbsp; Afficher la publication</a>
                     @endif
 
-                    @if($post->user_object->id == $user->id || Auth::is_admin_logged())
+                    @if($post->user_object->id == $user->id)
                         <a class="dropdown-item small" href="{{ route("app.post.delete",$post->id) }}?origin=feed"><i class="fa fa-trash"></i> &nbsp; Supprimer la publication</a>
+                    @else
+                      @can('post-manage')
+                        <a class="dropdown-item small" href="{{ route("app.post.delete",$post->id) }}?origin=feed"><i class="fa fa-trash"></i> &nbsp; Supprimer la publication</a>
+                      @endcan
                     @endif
 
                 </div>
@@ -33,11 +37,10 @@
                 <a href="{{ route('profil.visitor',$post->user_object->id) }}">
                   {{ $post->user_object->fullname }}
                 </a> &nbsp;
-                <span title="Publication {{ $post->validate ? "approuvée" : "non approuvée"}}" class="text-{{ $post->validate ? "success" : "danger"}}"><i class="fa fa-check-circle"></i></span>
+                <span class="d-none" title="Publication {{ $post->validate ? "approuvée" : "non approuvée"}}" class="text-{{ $post->validate ? "success" : "danger"}}"><i class="fa fa-check-circle"></i></span>
               </div>
 
               <span class="text-muted small">
-                <span class="post-badge post-badge-info mr-1">INFO</span>&nbsp;
                 <time class="timeago" datetime="{{ $post->date }}" title="{{ $post->date }}"> <i class="far fa-clock"></i></time>
                 &middot
                 <span title="La publication peut être vu par tout le monde."> <i class="fa fa-globe-africa"></i> {{ $post->scope }}</span>

@@ -34,7 +34,6 @@ Route::middleware("auth")->group(function(){
 
   Route::get('/profil','UI\Web\Profil\ProfilController@user')->name('profil');
   Route::get('/profil/{id}','UI\Web\Profil\ProfilController@visitor')->where('id', '[0-9]+')->name('profil.visitor');
-  Route::get('/profil2','UI\Web\Profil\ProfilController@user_new')->name('profil.user');
 
   Route::prefix('/compte')->group(function () {
     // Frontend

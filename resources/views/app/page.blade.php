@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="{{ cdn_asset('asset/mobile/css/main.css') }}">
     <link rel="stylesheet" href="{{ cdn_asset('asset/css/resac/resac.css') }}">
 
+    <link rel="stylesheet" href="{{ cdn_asset('asset/resac/css/bootstrap-support/cards.css') }}">
+
     <style media="screen">
       body{
           padding-top: 60px;

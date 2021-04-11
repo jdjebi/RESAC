@@ -43,7 +43,11 @@
 @endsection
 
 @section('scripts')
-<script type="module" src="asset/js/resac/init.timeago.js"></script>
+<script src="{{ cdn_asset("asset/js/timeago/jquery.timeago.js") }}"></script>
+<script src="{{ asset("asset/js/timeago/jquery.timeago.fr-short.js") }}"></script>
 <script src="{{ cdn_asset("asset/js/vue.js") }}" type="text/javascript"></script>
+<script>
+  $("time.timeago").timeago();
+</script>
 @endsection
 
