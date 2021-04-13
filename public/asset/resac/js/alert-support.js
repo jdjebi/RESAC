@@ -1,0 +1,1 @@
+$(".resac-alert-auto-dismiss").delay(5000).fadeOut(1000);
