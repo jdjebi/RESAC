@@ -41,6 +41,7 @@
     <script src="{{ cdn_asset("asset/js/resac/swal2.tools.js") }}"></script>
     <script src="{{ cdn_asset("asset/js/vue.js") }}" type="text/javascript"></script>
     <script src="{{ cdn_asset("asset/js/resac/vue.truncate_filter.js") }}" type="text/javascript"></script>
+    <script src="{{ cdn_asset("asset/resac/js/alert-support.js") }}"></script>
     @yield('scripts')
     @stack('scripts')
   </body>
