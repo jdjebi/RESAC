@@ -14,7 +14,7 @@
 @section('main-content')
   <div id="v-app">
     @include('admin.pubs.breadcumb.post')
-    @include('flash')
+    @include('layouts.flash.dismiss_5000')
     <div class="v-component d-none">
       <div v-if="flash.show" v-bind:class="'alert alert-dismissible fade show alert-' + flash.type" role="alert">
         @{{ flash.message }}
@@ -328,7 +328,8 @@
   setInterval(function (){
     $("time.timeago").timeago();
   },200);
-</script>
 
+  $(".resac-alert-auto-dismiss").delay(5000).fadeOut(1000);
+</script>
 
 @endsection
