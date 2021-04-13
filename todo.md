@@ -1,21 +1,26 @@
 # A FAIRE
 
-# Version 5.3.1 (Master)
+## Master
 - Activations des publications
   - Commentaires
+  - Créer un lien pour afficher liste brouillons avec le nombre de brouillons sur la gauche
+  - Créer un lien représentant la boite de reception
+
+## Version 5.3.1 (Master)
+
 - Notifications côté membres
 - Module de signalement
 - Ajout d'un système d'adhésion à la plateforme depuis un formulaire d'inscription (Contributeur Bosson)
 - Ajout d'une page d'une contact avec le mail de RESAC
 
-# version 5.3.x ou plus
+## version 5.3.x ou plus
 - Affichage des suggestions sur la page de profil
 - Pagination dans l'affichage des suggestions sur la page des suggestions côté membre et administrateur 
 - Notifier les administrateurs de la création d'une suggestion
 - Système de signalement (Support)
 - La page des nouveautés utilises l'ancien design system de l'administration  
 
-# Version 6
+## Version 6
 - Messagerie instannées
 - Gestion des écoles, académies et entreprises
 - Gestion des pays
