@@ -9,6 +9,8 @@
 
 <hr>
 
+
+
 <div id="scrolling-cotainer">
   <div class="quill-box">
   <form method="post" action="{{ route("backend.post.create.libre") }}">
@@ -16,10 +18,7 @@
       <input type="hidden" name="content">
       <div id="editor" class="bg-white ui-widget-content border-bottom"></div>
       <div class="pt-3">
-        <div class="d-flex align-items justify-content-between mb-4">
-          <div class="" style="padding-top: 8px;">
-            <span class="post-badge post-badge-info">INFORMATION</span>
-          </div>
+        <div class="text-right mb-4">
           <button class="btn btn-sm btn-primary" type="submit" name="register-post">Enregistrer</button>
         </div>
       </div>
@@ -55,6 +54,7 @@ $('form').on('submit',function(e){
   $('input[name=content]').first().val(text);
   form.submit();
 });
+
 </script>
 
 @endsection
