@@ -21,6 +21,8 @@ class ResetPasswordController extends Controller
 
     public function post(Request $request){
 
+      $service_available = true;
+
       $validator = Validator::make($request->all(), [
         'email' => 'required|email|exists:users,email',
         'password' => 'required|confirmed',

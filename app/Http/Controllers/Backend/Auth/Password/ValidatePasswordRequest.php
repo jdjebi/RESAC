@@ -19,6 +19,10 @@ class ValidatePasswordRequest extends Controller
     }else if($response == 'passwords.user'){
       return redirect()->back()->withErrors(['email' => 'Adresse E-mail non reconnue.']);
     }else if($response == 'passwords.sent'){
+
+      \Flash::add('Le service de réinitialisation est indisponible. Nous nous excusons pour ce désagrement. Contacter les administrateurs RESAC pour précéder à la réintialisation: ' . config("var.resac_email"),'danger');
+      return redirect()->back()->withErrors(['error' => 'Le service de réinitialisation est indisponible']);
+
       \Flash::add('Consultez votre adresse E-mail, un lien de réinitialisation de mot de passe vous a été envoyé.','success');
       return redirect()->back();
     }else{
