@@ -3,7 +3,12 @@
 namespace App\Http\Resources\Post;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
+
 use App\Models\User;
+use App\Models\Comment;
+
+use App\Http\Resources\Comment\CommentResource;
+
 
 class PostMixCollection extends ResourceCollection
 { 
@@ -16,6 +21,8 @@ class PostMixCollection extends ResourceCollection
         foreach ($posts_tmp as $post) {
 
             $user = User::find($post->user_object->id);
+
+            $comments = CommentResource::collection($post->comments()->orderBy('created_at','desc')->get());
 
             $posts[] = [
                 'id' => $post->id,
@@ -49,7 +56,8 @@ class PostMixCollection extends ResourceCollection
                 'is_active' => $post->is_active,
                 'is_published' => $post->is_published,
                 'validate_status_title' => $post->validate_status_title,
-                'validate_status_tag' => $post->validate_status_tag
+                'validate_status_tag' => $post->validate_status_tag,
+                'comments' => $comments
             ];
         }
 

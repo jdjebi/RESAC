@@ -5,10 +5,11 @@ namespace App\Http\Controllers\UI\Web\Actu;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Models\Features;
 use App\Resac\Core\Posts\PostRenderer;
-use App\Models\Suggestion;
 use App\Http\Resources\Suggestion\SuggestionCollection as SuggestionResources;
+use App\Models\Features;
+use App\Models\Suggestion;
+use App\Models\Comment;
 
 class ActuController extends Controller
 {

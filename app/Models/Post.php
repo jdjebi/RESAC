@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\Comment;
+
 class Post extends Model
 {
     protected $table = "posts";
@@ -32,6 +34,10 @@ class Post extends Model
 
     public function user_object(){
       return $this->belongsTo("App\Models\User","user");
+    }
+
+    public function comments(){
+      return $this->hasMany(Comment::class,"post_id");
     }
 
     public function getValidateStatusTagAttribute(){
