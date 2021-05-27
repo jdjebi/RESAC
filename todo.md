@@ -21,7 +21,7 @@
 - La page des nouveautés utilises l'ancien design system de l'administration  
 
 ## Version 6
-- Messagerie instannées
+- Messagerie instantanées
 - Gestion des écoles, académies et entreprises
 - Gestion des pays
 
