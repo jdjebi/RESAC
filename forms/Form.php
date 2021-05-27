@@ -129,7 +129,23 @@ class Form{
     return count($this->errors) > 0;
   }
 
+  /**
+  * @deprecated deprecated since version 5.3.2
+  */
   public function isset($type,$key){
+    // Vérifie s'il y'a une erreur sur un champ
+    if($type == '*'){
+      foreach($this->types as $t){
+        if(isset($this->errors[$t][$key]))
+          return true;
+      }
+      return false;
+    }else{
+      return isset($this->errors[$type][$key]);
+    }
+  }
+
+  public function issetError($type,$key){
     // Vérifie s'il y'a une erreur sur un champ
     if($type == '*'){
       foreach($this->types as $t){
