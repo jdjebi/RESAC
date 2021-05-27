@@ -1,3 +1,11 @@
+# Version 5.3.2
+
+- Classe forms/Form.php
+  - Ajout de la fonction issetError
+
+- Ajout d'une nouvelle configuration
+  - var.resac_email = contactresacd@gmail.com
+
 # Version 5.3.1
 
 ### 05-04-21
