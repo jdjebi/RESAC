@@ -242,6 +242,21 @@ Route::delete('permissions/{id}/','Backend\Permission\PermissionController@delet
 Route::post('backend/login','Backend\Auth\LoginController')->name('api.login');
 Route::post('backend/login/admin','Backend\Auth\AuthController@login')->name('api.admin.login');
 
+// Commentaires
+Route::post('','Backend\Auth\LoginController')->name('api.login');
+
+Route::name("backend.")->group(function (){ 
+  Route::prefix('api/v1')->group(function (){
+
+    Route::namespace("Backend\Comment")->group(function (){
+      Route::resource('commentaires','CommentController')->names([
+        'store' => 'comments.store'
+      ]);
+    });
+
+  });
+});
+
 // Routes de test
 Route::get('test/storage_driver',function(){
   $file_exist = Storage::disk('dropbox')->exists('op.jpg');;

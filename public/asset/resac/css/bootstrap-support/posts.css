@@ -1,0 +1,41 @@
+.resac-post-hr{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.resac-post-hr-bottom{
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.resac-post-option{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;  
+    border-top: 1px solid #e1e1e1;
+}
+
+.resac-post-comment{
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+.resac-post-comment .user-name{
+    font-weight: 600;
+}
+
+.resac-post-comment .user-pic{
+    width: 30px;
+    height: 30px;
+}
+
+.resac-post-comment .comment-input{
+    background-color: #f1f3f6;
+    line-height: 80px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+.resac-post-comment .comment-input::placeholder {
+    font-size: 13px;
+    vertical-align: middle;
+}
+  

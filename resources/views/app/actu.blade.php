@@ -146,7 +146,17 @@ body{
 
           success: function(data,status){
             $(".resac-feed").removeClass('d-none');
-            vm.posts = data.data;
+
+            posts = data.data
+
+            posts.forEach(post => {
+              post.comment = {};
+              post.comment.show = false;
+              post.comment.limit = 10; 
+            });
+
+            vm.posts = posts;
+
             $(".resac-feed-loader").hide();
           },
 
@@ -161,6 +171,18 @@ body{
       },
 
       HideLoader: function (){
+      },
+
+      ToggleComment: function(i){
+
+        post = this.posts[i];
+
+        if(post.comment.show == true){
+          post.comment.show = false;
+        }else{
+          post.comment.show = true
+        }
+
       }
     }
 
