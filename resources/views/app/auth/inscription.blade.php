@@ -33,8 +33,8 @@
   <div id="register-box" class="row border">
 
     <div class="col-lg-4 bg-white d-flex flex-column justify-content-center align-items-center">
-      <img id="register-lca-logo" class="w-300" src="{{ cdn_asset('asset/imgs/intro/e-logos/lca.png') }}">
-      <div class="text-muted">
+      <img id="register-lca-logo" class="w-300" src="{{ cdn_asset('asset/imgs/intro/e-logos/lca2.jpg') }}">
+      <div class="text-muted mt-4">
         Caïmans un jour, Caïmans toujours !
       </div>
     </div>

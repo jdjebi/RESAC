@@ -12,6 +12,7 @@ class MainData extends JsonResource
             'id' => $this->id,
             'nom' => $this->nom,
             'prenom' => $this->prenom,
+            'fullname' => $this->fullname,
             'promo' => $this->promo,
             'universite' => $this->universite,
             'emploi' => $this->emploi,

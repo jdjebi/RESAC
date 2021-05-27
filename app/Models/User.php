@@ -140,7 +140,9 @@ class User extends Authenticatable
 
 
     static function email_is_unique($email){
+
       $u = User::where('email',$email)->get();
+
       if($u)
         return false;
       else

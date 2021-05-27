@@ -23,6 +23,9 @@
     <link rel="stylesheet" href="{{ cdn_asset('asset/css/resac/resac.css') }}">
 
     <link rel="stylesheet" href="{{ cdn_asset('asset/resac/css/bootstrap-support/cards.css') }}">
+    <link rel="stylesheet" href="{{ cdn_asset('asset/resac/css/bootstrap-support/buttons.css') }}">
+    <link rel="stylesheet" href="{{ cdn_asset('asset/resac/css/bootstrap-support/posts.css') }}">
+    <link rel="stylesheet" href="{{ cdn_asset('asset/resac/css/dimensions.css') }}">
 
     <style media="screen">
       body{

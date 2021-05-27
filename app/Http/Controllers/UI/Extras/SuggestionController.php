@@ -17,8 +17,6 @@ class SuggestionController extends Controller {
 
     public function __construct(){
 
-        $this->user = UserAuth();
-
     }
 
     public function all(Request $request){
