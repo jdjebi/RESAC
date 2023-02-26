@@ -35,7 +35,7 @@ class RolesFactory{
             "label" => "Super Administrateur",
             "level" => 5,
             "guard"  => 'web',
-            "permissions" => []
+            "permissions" => ["post-manage","user-manage","news-manage","dev-tools-access"]
         ],
         "admin" => [
             "name" => "admin",
