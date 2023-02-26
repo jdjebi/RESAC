@@ -16,7 +16,8 @@ if(!isset($_SERVER["HEROKU_APP_DIR"])){
  $host = env("DB_HOST","127.0.0.1");
  $username = env("DB_USERNAME","root");
  $password = env("DB_PASSWORD","");
- $dbname = env("DB_DATABASE","resac");
+
+ $dbname = env("DB_DATABASE","youniti");
 
  try {
      $db = new \PDO("mysql:host=$host;dbname=$dbname",$username,$password);
