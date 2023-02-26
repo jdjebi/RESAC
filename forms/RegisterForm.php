@@ -19,7 +19,6 @@ class RegisterForm extends Form{
 
   public function check_email(){
     // Unicité de l'adresse E-mail
-
     if(!$this->issetError('emails','email')){
       if(!User::email_is_unique($this->data['email'])){
         $this->errors['uniques']['email'] = true;
