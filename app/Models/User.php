@@ -143,7 +143,7 @@ class User extends Authenticatable
 
       $u = User::where('email',$email)->get();
 
-      if($u)
+      if(count($u) > 0)
         return false;
       else
         return true;
